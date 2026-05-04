@@ -1,0 +1,32 @@
+c cmd: /host-parser-bin/kat_xcsp_1d1a452a /bench/competition/2022-2025/COP22to25/Drinking-050000_c24.xml.lzma --encoder order-ge --cop-pipeline guarded-basic --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=65712
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=74 pruned=7 changed_domains=1 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=65712
+c 00h00m00s | stage:lower:start
+c 00h00m01s | stage:lower:done ms=1259 lowered=65712 unsupported=0
+c 00h00m01s | stage:post_lower:start
+c 00h00m02s | stage:post_lower:done ms=784 rounds=6 tightened=6 removed_cls=0 removed_lits=0 unsat=false precise_hits=449990 precise_rounds=1 pivot_recomputes=27 pivot_exact_attempts=27 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=142 loop_ms=19 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=586
+c 00h00m02s | stage:preencode(order-ge):start
+c 00h07m41s | stage:preencode(order-ge):done ms=459282 int_vars=399976
+c 00h07m41s | stage:encode(order-ge):start
+c 00h07m49s | stage:encode(order-ge):done ms=7591 sat_vars=2362652 sat_clauses=14942642 ext_ge_specs=0 relaxed_circuits=0
+c 00h07m49s | stage:sat:init solver=CaDiCaL vars=2362652 clauses=14942642
+c 00h07m49s | stage:sat:solve:start round=1 cegar_rounds=1 assumptions=0
+c 00h07m50s | stage:sat:solve:done round=1 ms=592 result=Sat assumptions=0
+c 00h07m50s | stage:decode:start round=1
+c 00h07m50s | stage:decode:done round=1 int_assignments=100000
+c 00h07m50s | stage:relaxation:done clauses_added=0 cegar_failures=0 cegar_rounds=1 cegar_added_clauses=0
+c 00h07m50s | result:Sat
+c 00h07m50s | objective:incumbent kind=initial value=34287 rounds=1 improvements=0
+o 34287
+c 00h07m50s | stage:sat:init solver=CaDiCaL vars=2362652 clauses=14942642
+c 00h07m50s | stage:sat:solve:start round=1 cegar_rounds=2 assumptions=0
+c 00h07m51s | stage:sat:solve:done round=1 ms=299 result=Sat assumptions=0
+c 00h07m51s | stage:decode:start round=1
+
+thread '<unknown>' (41557) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+bash: line 8: 41556 Aborted                 (core dumped) "$PARSER_BIN" "$INSTANCE_PATH" "$@"

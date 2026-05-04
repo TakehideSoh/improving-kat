@@ -1,0 +1,96 @@
+c cmd: /host-parser-bin/kat_xcsp_1d1a452a /bench/competition/2022-2025/COP22to25/HSP-aux-14409_c23.xml.lzma --encoder log-scop --cop-pipeline guarded-basic --order-ge-table mdd-tl --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=182
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=2352 changed_domains=28 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=182
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=1 lowered=182 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=0 rounds=27 tightened=19 removed_cls=75 removed_lits=40 unsat=false precise_hits=11 precise_rounds=1 pivot_recomputes=79 pivot_exact_attempts=71 pivot_general_attempts=73 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=65 pivot_general_tightened=8 setup_ms=0 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:preencode(log-scop):start
+c 00h00m00s | stage:preencode(log-scop):done ms=0 int_vars=40
+c 00h00m00s | stage:encode(log-scop):start
+c 00h00m00s | stage:encode(log-scop):done ms=14 sat_vars=15889 sat_clauses=35103 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=657 log_scop_pb_mixed=0 log_scop_pb_bdd2=0 log_scop_pb_bdd3=657 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=657 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=15889 clauses=35103
+c 00h00m00s | stage:sat:solve:start round=1 cegar_rounds=1 assumptions=0
+c 00h00m00s | stage:sat:solve:done round=1 ms=513 result=Sat assumptions=0
+c 00h00m00s | stage:decode:start round=1
+c 00h00m00s | stage:decode:done round=1 int_assignments=40
+c 00h00m00s | stage:relaxation:done clauses_added=0 cegar_failures=0 cegar_rounds=1 cegar_added_clauses=0
+c 00h00m00s | result:Sat
+c 00h00m00s | objective:incumbent kind=initial value=610 rounds=1 improvements=0
+o 610
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=15889 clauses=35103
+c 00h00m00s | stage:sat:solve:start round=1 cegar_rounds=2 assumptions=0
+c 00h00m00s | stage:sat:solve:done round=1 ms=1 result=Sat assumptions=0
+c 00h00m00s | stage:decode:start round=1
+c 00h00m00s | stage:relaxation:done round=1 clauses_added=497 cegar_failures=1 cegar_rounds=2 cegar_added_clauses=497
+c 00h00m00s | stage:sat:solve:start round=2 cegar_rounds=3 assumptions=0
+c 00h00m00s | stage:sat:solve:done round=2 ms=112 result=Unsat assumptions=0
+c 00h00m00s | result:Unsat
+s OPTIMUM FOUND
+o 610
+v <instantiation>
+v   <list> t[0] t[1] t[2] t[3] t[4] t[5] t[6] t[7] t[8] t[9] o[0] o[1] o[2] o[3] o[4] o[5] o[6] o[7] o[8] o[9] d[0] d[1] d[2] d[3] d[4] d[5] d[6] d[7] d[8] d[9] z g[0] g[1] g[2] g[3] g[4] g[5] g[6] g[7] g[8] </list>
+v   <values> 0 55 134 183 217 259 304 385 458 507 0 1 2 3 4 5 6 7 8 9 0 55 79 49 34 42 45 81 73 49 610 55 79 49 34 42 45 81 73 49 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 610
+d OPTIMAL 1
+d SOURCE_CONSTRAINTS 182
+d NORMALIZED_CONSTRAINTS 182
+d LOWERED_CONSTRAINTS 182
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 1
+d CIRCUIT_CEGAR_ROUNDS 3
+d CIRCUIT_CEGAR_ADDED_CLAUSES 497
+d OBJECTIVE_ROUNDS 2
+d OBJECTIVE_IMPROVEMENTS 0
+d PROPAGATE_MS 0
+d NORMALIZE_MS 0
+d LOWER_MS 1
+d POST_LOWER_MS 0
+d PREENCODE_MS 0
+d ENCODE_MS 14
+d SAT_SOLVE_MS 626
+d TOTAL_MS 649
+d SAT_VARS 15889
+d SAT_CLAUSES_BASE 35103
+d SAT_CLAUSES_FINAL 35600
+d SAT_CLAUSES_CEGAR_DELTA 497
+d LINEAR_INT_EQ_ARITY_STATS {"2":{"count":108,"max_domain_product_excluding_one_var":"391","p95_domain_product_excluding_one_var":"391"},"3":{"count":18,"max_domain_product_excluding_one_var":"258552","p95_domain_product_excluding_one_var":"258552"}}
+d LINEAR_INT_NE_ARITY_STATS {"2":{"count":45,"max_domain_product_excluding_one_var":"9","p95_domain_product_excluding_one_var":"9"}}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":54,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":271,"max_domain_product_excluding_one_var":"504","p95_domain_product_excluding_one_var":"501"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d PROPAGATE_PRUNED_VALUES 2352
+d PROPAGATE_CHANGED_DOMAINS 28
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 27
+d POST_LOWER_TIGHTENED_DOMAINS 19
+d POST_LOWER_REMOVED_CLAUSES 75
+d POST_LOWER_REMOVED_LITS 40
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 40
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 657
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 657
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 657
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d DECODE_INT_ASSIGNMENTS 40
+d CSV /bench/competition/2022-2025/COP22to25/HSP-aux-14409_c23.xml.lzma,optimum,182,182,182,0,15889,35600,649,0,0,1,0,14,626,,

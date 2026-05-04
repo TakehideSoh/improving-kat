@@ -1,0 +1,35 @@
+c cmd: /host-parser-bin/kat_xcsp_31b6e7a3_scip_static /bench/competition/2022-2025/COP22to25/FAPP-aux-18-0350_c25.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=3812
+c 00h00m00s | stage:propagate:start
+c 00h00m03s | stage:propagate:done ms=3211 pruned=12385 changed_domains=1747 entailed_tables=9
+c 00h00m03s | stage:normalize:start
+c 00h00m03s | stage:normalize:done ms=0 high_constraints=3812
+c 00h00m03s | stage:lower:start
+c 00h00m03s | stage:lower:done ms=417 lowered=3812 unsupported=0
+c 00h00m03s | stage:post_lower:start
+c 00h00m03s | stage:post_lower:done ms=5 rounds=2 tightened=2 removed_cls=600 removed_lits=172 unsat=false precise_hits=14 precise_rounds=1 pivot_recomputes=8 pivot_exact_attempts=0 pivot_general_attempts=8 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=8 pivot_general_tightened=0 setup_ms=3 loop_ms=1 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m03s | stage:lowered-shape int_vars=4976 bool_vars=4241 linear_atoms=8228 table_atoms=1416 table_tuples=1667319 table_scope=8496 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=10991
+c 00h00m03s | stage:root-lp:start backend=scip-ffi
+c 00h00m39s | stage:root-lp:bound backend=scip-ffi status=objective_bound objective_value=0 naive_bounds=[0,243689250] lp_bounds=[0,243689250] improved=0 rows=19482 vars=1676536 ms=35478
+c 00h00m39s | stage:preencode(order-ge):start
+c 00h00m39s | stage:preencode(order-ge):done ms=168 int_vars=4976
+c 00h00m39s | stage:encode(order-ge):start
+c 00h00m55s | stage:encode(order-ge):done ms=15846 sat_vars=241110 sat_clauses=33674745 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m55s | stage:sat:init solver=CaDiCaL vars=241110 clauses=33674745
+c 00h00m55s | stage:sat:solve:start round=1 cegar_rounds=1 assumptions=0
+c 00h00m58s | stage:sat:solve:done round=1 ms=2882 result=Sat assumptions=0
+c 00h00m58s | stage:decode:start round=1 requested_int_ids=4976
+c 00h00m58s | stage:decode:final:start round=1 requested_int_ids=4976
+c 00h00m58s | stage:decode:done round=1 int_assignments=4976
+c 00h00m58s | stage:relaxation:done clauses_added=0 cegar_failures=0 cegar_rounds=1 cegar_added_clauses=0
+c 00h00m58s | result:Sat
+c 00h00m58s | objective:incumbent kind=initial value=223953458 rounds=1 improvements=0
+o 223953458
+c 00h00m58s | stage:sat:init solver=CaDiCaL vars=241110 clauses=33674745
+c 00h00m58s | stage:sat:solve:start round=1 cegar_rounds=2 assumptions=0
+c 00h00m59s | stage:sat:solve:done round=1 ms=1505 result=Sat assumptions=0
+c 00h00m59s | stage:decode:start round=1 requested_int_ids=4976
+s UNKNOWN
+c reason: internal_error: objective cut SAT variable id is too large: 2299681481
+d CSV /bench/competition/2022-2025/COP22to25/FAPP-aux-18-0350_c25.xml.lzma,internal_error,,,,,,,,,,,,,,,,,,,,,,,,,,,,internal_error,objective cut SAT variable id is too large: 2299681481

@@ -1,0 +1,32 @@
+c cmd: /host-parser-bin/kat_xcsp_1d1a452a /bench/competition/2022-2025/COP22to25/Drinking-100000_c24.xml.lzma --encoder log-scop --cop-pipeline guarded-basic --order-ge-table mdd-tl --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=131426
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=143 pruned=7 changed_domains=1 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=131426
+c 00h00m00s | stage:lower:start
+c 00h00m02s | stage:lower:done ms=2546 lowered=131426 unsupported=0
+c 00h00m02s | stage:post_lower:start
+c 00h00m04s | stage:post_lower:done ms=1614 rounds=6 tightened=6 removed_cls=0 removed_lits=0 unsat=false precise_hits=899990 precise_rounds=1 pivot_recomputes=27 pivot_exact_attempts=27 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=279 loop_ms=46 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=1 sat_ms=0 precise_ms=1210
+c 00h00m04s | stage:preencode(log-scop):start
+c 00h00m04s | stage:preencode(log-scop):done ms=47 int_vars=200000
+c 00h00m04s | stage:encode(log-scop):start
+c 00h00m14s | stage:encode(log-scop):done ms=10204 sat_vars=10125170 sat_clauses=25175712 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=362851 log_scop_pb_mixed=0 log_scop_pb_bdd2=0 log_scop_pb_bdd3=362851 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=362851 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m15s | stage:sat:init solver=CaDiCaL vars=10125170 clauses=25175712
+c 00h00m15s | stage:sat:solve:start round=1 cegar_rounds=1 assumptions=0
+c 00h00m16s | stage:sat:solve:done round=1 ms=1830 result=Sat assumptions=0
+c 00h00m16s | stage:decode:start round=1
+c 00h00m17s | stage:decode:done round=1 int_assignments=200000
+c 00h00m17s | stage:relaxation:done clauses_added=0 cegar_failures=0 cegar_rounds=1 cegar_added_clauses=0
+c 00h00m17s | result:Sat
+c 00h00m17s | objective:incumbent kind=initial value=68573 rounds=1 improvements=0
+o 68573
+c 00h00m17s | stage:sat:init solver=CaDiCaL vars=10125170 clauses=25175712
+c 00h00m17s | stage:sat:solve:start round=1 cegar_rounds=2 assumptions=0
+c 00h00m18s | stage:sat:solve:done round=1 ms=807 result=Sat assumptions=0
+c 00h00m18s | stage:decode:start round=1
+
+thread '<unknown>' (484651) has overflowed its stack
+fatal runtime error: stack overflow, aborting
+bash: line 8: 484650 Aborted                 (core dumped) "$PARSER_BIN" "$INSTANCE_PATH" "$@"

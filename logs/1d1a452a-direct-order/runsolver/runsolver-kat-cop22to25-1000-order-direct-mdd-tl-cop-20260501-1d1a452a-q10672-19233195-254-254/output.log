@@ -1,0 +1,80 @@
+c cmd: /host-parser-bin/kat_xcsp_1d1a452a /bench/competition/2022-2025/COP22to25/Coprime-24_c25.xml.lzma --encoder order-ge --cop-pipeline guarded-basic --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=158724
+c 00h00m00s | stage:propagate:start
+c 00h00m01s | stage:propagate:done ms=1118 pruned=552 changed_domains=24 entailed_tables=0
+c 00h00m01s | stage:normalize:start
+c 00h00m01s | stage:normalize:done ms=0 high_constraints=158724
+c 00h00m01s | stage:lower:start
+c 00h00m04s | stage:lower:done ms=3675 lowered=158724 unsupported=0
+c 00h00m04s | stage:post_lower:start
+c 00h02m20s | stage:post_lower:done ms=136156 rounds=45628 tightened=138084 removed_cls=639170 removed_lits=0 unsat=false precise_hits=3792496 precise_rounds=2 pivot_recomputes=5382210 pivot_exact_attempts=2703380 pivot_general_attempts=2827574 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=2807538 pivot_general_tightened=20036 setup_ms=687 loop_ms=102759 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=38 sat_ms=0 precise_ms=32407
+c 00h02m21s | stage:preencode(order-ge):start
+c 00h11m47s | stage:preencode(order-ge):done ms=566375 int_vars=634870
+c 00h11m47s | stage:encode(order-ge):start
+c 00h17m08s | stage:encode(order-ge):done ms=320812 sat_vars=94441268 sat_clauses=769380016 ext_ge_specs=0 relaxed_circuits=0
+c 00h17m19s | stage:sat:init solver=CaDiCaL vars=94441268 clauses=769380016
+c 00h17m19s | stage:sat:solve:start round=1 cegar_rounds=1 assumptions=0
+c 00h27m43s | stage:sat:solve:done round=1 ms=624000 result=Sat assumptions=0
+c 00h27m43s | stage:decode:start round=1
+c 00h27m46s | stage:decode:done round=1 int_assignments=24
+c 00h27m46s | stage:relaxation:done clauses_added=0 cegar_failures=0 cegar_rounds=1 cegar_added_clauses=0
+c 00h27m46s | result:Sat
+c 00h27m46s | objective:incumbent kind=initial value=263 rounds=1 improvements=0
+o 263
+c 00h27m46s | stage:sat:init solver=CaDiCaL vars=94441268 clauses=769380016
+c 00h27m46s | stage:sat:solve:start round=1 cegar_rounds=2 assumptions=0
+s SATISFIABLE
+o 263
+v <instantiation>
+v   <list> x[0] x[1] x[2] x[3] x[4] x[5] x[6] x[7] x[8] x[9] x[10] x[11] x[12] x[13] x[14] x[15] x[16] x[17] x[18] x[19] x[20] x[21] x[22] x[23] </list>
+v   <values> 131 137 139 149 151 157 163 167 173 179 181 191 193 197 199 203 209 211 239 240 241 251 257 263 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 263
+d OPTIMAL 0
+d OBJECTIVE_ROUNDS 1
+d OBJECTIVE_IMPROVEMENTS 0
+d COP_INCUMBENT_ELAPSED_MS 1666832
+d SOLVE_ELAPSED_MS 1799365
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 132539
+d LAST_COMPLETED_STAGE relaxation
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS done
+d STAGE_RELAXATION_STATUS done
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 158724
+d NORMALIZED_CONSTRAINTS 158724
+d LOWERED_CONSTRAINTS 158724
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 94441268
+d SAT_CLAUSES_BASE 769380016
+d SAT_CLAUSES_FINAL 769380016
+d SAT_CLAUSES_CEGAR_DELTA 0
+d LINEAR_INT_EQ_ARITY_STATS {"3":{"count":317423,"max_domain_product_excluding_one_var":"1064","p95_domain_product_excluding_one_var":"1064"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":317400,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":634846,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":46,"max_domain_product_excluding_one_var":"532","p95_domain_product_excluding_one_var":"532"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d PROPAGATE_PRUNED_VALUES 552
+d PROPAGATE_CHANGED_DOMAINS 24
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 45628
+d POST_LOWER_TIGHTENED_DOMAINS 138084
+d POST_LOWER_REMOVED_CLAUSES 639170
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 634870
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d DECODE_INT_ASSIGNMENTS 24
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 2
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/competition/2022-2025/COP22to25/Coprime-24_c25.xml.lzma,sat,158724,158724,158724,0,94441268,769380016,1799361,,,,,,,timeout_signal,incumbent_interrupted_by_signal
+signal=15; emitted incumbent csv row

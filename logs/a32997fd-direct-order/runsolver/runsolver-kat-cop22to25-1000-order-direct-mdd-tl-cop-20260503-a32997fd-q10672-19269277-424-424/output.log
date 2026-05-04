@@ -1,0 +1,31 @@
+c cmd: /host-parser-bin/kat_xcsp_a32997fd /bench/competition/2022-2025/COP22to25/GBACP-table-UD10_c23.xml.lzma --encoder order-ge --cop-pipeline guarded-basic --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=334
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=119 pruned=2410 changed_domains=184 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=334
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=81 lowered=334 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=11 rounds=828 tightened=1091 removed_cls=1578 removed_lits=789 unsat=false precise_hits=0 precise_rounds=1 pivot_recomputes=20332 pivot_exact_attempts=7600 pivot_general_attempts=20332 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=20069 pivot_general_tightened=263 setup_ms=6 loop_ms=3 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:root-lp:start backend=native-simplex
+c 00h00m00s | stage:root-lp:skip backend=native-simplex reason=objective is not linear for root LP: expression is not a pure linear expression ms=550
+c 00h00m00s | stage:preencode(order-ge):start
+c 00h00m01s | stage:preencode(order-ge):done ms=269 int_vars=14600
+c 00h00m01s | stage:encode(order-ge):start
+c 00h00m03s | stage:encode(order-ge):done ms=2103 sat_vars=411788 sat_clauses=5496537 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m03s | stage:sat:init solver=CaDiCaL vars=411788 clauses=5496537
+c 00h00m03s | stage:sat:solve:start round=1 cegar_rounds=1 assumptions=0
+c 00h00m04s | stage:sat:solve:done round=1 ms=1106 result=Sat assumptions=0
+c 00h00m04s | stage:decode:start round=1
+c 00h00m04s | stage:decode:done round=1 int_assignments=368
+c 00h00m04s | stage:relaxation:done clauses_added=0 cegar_failures=0 cegar_rounds=1 cegar_added_clauses=0
+c 00h00m04s | result:Sat
+c 00h00m04s | objective:incumbent kind=initial value=7464 rounds=1 improvements=0
+o 7464
+c 00h00m04s | stage:sat:init solver=CaDiCaL vars=411788 clauses=5496537
+c 00h00m04s | stage:sat:solve:start round=1 cegar_rounds=2 assumptions=0
+c 00h00m04s | stage:sat:solve:done round=1 ms=147 result=Sat assumptions=0
+c 00h00m04s | stage:decode:start round=1
+bash: line 8: 1017414 Killed                  "$PARSER_BIN" "$INSTANCE_PATH" "$@"

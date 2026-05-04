@@ -1,0 +1,105 @@
+c cmd: /host-parser-bin/kat_xcsp_a32997fd /bench/competition/2022-2025/COP22to25/TankAllocation1-0000_c25.xml.lzma --encoder order-ge --cop-pipeline guarded-basic --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=189
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=4 pruned=73 changed_domains=24 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=189
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=3 lowered=189 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=0 rounds=0 tightened=0 removed_cls=3 removed_lits=0 unsat=false precise_hits=0 precise_rounds=0 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=0 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:root-lp:start backend=native-simplex
+c 00h00m00s | stage:root-lp:skip backend=native-simplex reason=objective is not linear for root LP: expression is not a pure linear expression ms=0
+c 00h00m00s | stage:preencode(order-ge):start
+c 00h00m00s | stage:preencode(order-ge):done ms=1 int_vars=189
+c 00h00m00s | stage:encode(order-ge):start
+c 00h02m04s | stage:encode(order-ge):done ms=124913 sat_vars=360115 sat_clauses=358872496 ext_ge_specs=0 relaxed_circuits=0
+c 00h02m04s | stage:sat:init solver=CaDiCaL vars=360115 clauses=358872496
+c 00h02m04s | stage:sat:solve:start round=1 cegar_rounds=1 assumptions=0
+c 00h02m14s | stage:sat:solve:done round=1 ms=9503 result=Sat assumptions=0
+c 00h02m14s | stage:decode:start round=1
+c 00h02m14s | stage:decode:done round=1 int_assignments=25
+c 00h02m14s | stage:relaxation:done clauses_added=0 cegar_failures=0 cegar_rounds=1 cegar_added_clauses=0
+c 00h02m14s | result:Sat
+c 00h02m14s | objective:incumbent kind=initial value=0 rounds=1 improvements=0
+o 0
+c 00h02m14s | stage:sat:init solver=CaDiCaL vars=360115 clauses=358872496
+c 00h02m14s | stage:sat:solve:start round=1 cegar_rounds=2 assumptions=0
+c 00h02m17s | stage:sat:solve:done round=1 ms=2970 result=Sat assumptions=0
+c 00h02m17s | stage:decode:start round=1
+c 00h02m28s | stage:relaxation:done round=1 clauses_added=63449567 cegar_failures=1 cegar_rounds=2 cegar_added_clauses=63449567
+c 00h02m45s | stage:sat:solve:start round=2 cegar_rounds=3 assumptions=0
+c 00h18m30s | stage:sat:solve:done round=2 ms=944783 result=Sat assumptions=0
+c 00h18m30s | stage:decode:start round=2
+c 00h18m30s | stage:decode:done round=2 int_assignments=25
+c 00h18m30s | stage:relaxation:done clauses_added=0 cegar_failures=1 cegar_rounds=3 cegar_added_clauses=63449567
+c 00h18m30s | result:Sat
+c 00h18m30s | objective:incumbent kind=improvement value=431 rounds=2 improvements=1
+o 431
+c 00h18m30s | stage:sat:init solver=CaDiCaL vars=360115 clauses=358872496
+c 00h18m30s | stage:sat:solve:start round=1 cegar_rounds=4 assumptions=0
+c 00h18m53s | stage:sat:solve:done round=1 ms=22860 result=Sat assumptions=0
+c 00h18m53s | stage:decode:start round=1
+c 00h19m03s | stage:relaxation:done round=1 clauses_added=63543094 cegar_failures=2 cegar_rounds=4 cegar_added_clauses=126992661
+c 00h19m23s | stage:sat:solve:start round=2 cegar_rounds=5 assumptions=0
+s SATISFIABLE
+o 431
+v <instantiation>
+v   <list> x[0] x[1] x[2] x[3] x[4] x[5] x[6] x[7] x[8] x[9] x[10] x[11] x[12] x[13] x[14] x[15] x[16] x[17] x[18] x[19] x[20] x[21] x[22] x[23] x[24] </list>
+v   <values> 5 13 12 9 14 15 10 7 0 1 12 12 11 5 2 1 13 13 9 14 1 0 14 8 14 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 431
+d OPTIMAL 0
+d OBJECTIVE_ROUNDS 2
+d OBJECTIVE_IMPROVEMENTS 1
+d COP_INCUMBENT_ELAPSED_MS 1110249
+d SOLVE_ELAPSED_MS 1799985
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 636593
+d LAST_COMPLETED_STAGE relaxation
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS done
+d STAGE_RELAXATION_STATUS done
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 189
+d NORMALIZED_CONSTRAINTS 189
+d LOWERED_CONSTRAINTS 189
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 360115
+d SAT_CLAUSES_BASE 358872496
+d SAT_CLAUSES_FINAL 485865157
+d SAT_CLAUSES_CEGAR_DELTA 126992661
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":302,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"16":{"count":1,"max_domain_product_excluding_one_var":"32768","p95_domain_product_excluding_one_var":"32768"},"18":{"count":3,"max_domain_product_excluding_one_var":"131072","p95_domain_product_excluding_one_var":"131072"},"19":{"count":2,"max_domain_product_excluding_one_var":"262144","p95_domain_product_excluding_one_var":"262144"},"20":{"count":1,"max_domain_product_excluding_one_var":"524288","p95_domain_product_excluding_one_var":"524288"},"21":{"count":4,"max_domain_product_excluding_one_var":"1048576","p95_domain_product_excluding_one_var":"1048576"},"22":{"count":2,"max_domain_product_excluding_one_var":"2097152","p95_domain_product_excluding_one_var":"2097152"},"23":{"count":2,"max_domain_product_excluding_one_var":"4194304","p95_domain_product_excluding_one_var":"4194304"}}
+d ROOT_LP_ENTERED 0
+d ROOT_LP_STATUS skipped
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 16880
+d ROOT_LP_MS 0
+d ROOT_LP_REASON native-simplex: objective is not linear for root LP: expression is not a pure linear expression
+d PROPAGATE_PRUNED_VALUES 73
+d PROPAGATE_CHANGED_DOMAINS 24
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 0
+d POST_LOWER_TIGHTENED_DOMAINS 0
+d POST_LOWER_REMOVED_CLAUSES 3
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 189
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d DECODE_INT_ASSIGNMENTS 25
+d CIRCUIT_CEGAR_FAILURES 2
+d CIRCUIT_CEGAR_ROUNDS 5
+d CIRCUIT_CEGAR_ADDED_CLAUSES 126992661
+d CSV /bench/competition/2022-2025/COP22to25/TankAllocation1-0000_c25.xml.lzma,sat,189,189,189,0,360115,485865157,1799984,,,,,,,0,skipped,0,16880,,,,0,,,,timeout_signal,incumbent_interrupted_by_signal
+signal=15; emitted incumbent csv row

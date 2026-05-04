@@ -1,0 +1,104 @@
+c cmd: /host-parser-bin/kat_xcsp_a32997fd /bench/competition/2022-2025/COP22to25/WarOrPeace-08_c22.xml.lzma --encoder order-ge --cop-pipeline guarded-basic --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=56
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=0 changed_domains=0 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=56
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=2 lowered=56 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=0 rounds=0 tightened=0 removed_cls=0 removed_lits=0 unsat=false precise_hits=28 precise_rounds=1 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=0 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:root-lp:start backend=native-simplex
+c 00h00m00s | stage:root-lp:bound backend=native-simplex status=optimal objective_value=0 naive_bounds=[0,28] lp_bounds=[0,28] improved=0 rows=196 vars=428 ms=12
+c 00h00m00s | stage:preencode(order-ge):start
+c 00h00m00s | stage:preencode(order-ge):done ms=1 int_vars=260
+c 00h00m00s | stage:encode(order-ge):start
+c 00h00m00s | stage:encode(order-ge):done ms=3 sat_vars=1492 sat_clauses=6272 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=1492 clauses=6272
+c 00h00m00s | stage:sat:solve:start round=1 cegar_rounds=1 assumptions=0
+c 00h00m00s | stage:sat:solve:done round=1 ms=0 result=Sat assumptions=0
+c 00h00m00s | stage:decode:start round=1
+c 00h00m00s | stage:decode:done round=1 int_assignments=92
+c 00h00m00s | stage:relaxation:done clauses_added=0 cegar_failures=0 cegar_rounds=1 cegar_added_clauses=0
+c 00h00m00s | result:Sat
+c 00h00m00s | objective:incumbent kind=initial value=16 rounds=1 improvements=0
+o 16
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=1492 clauses=6272
+c 00h00m00s | stage:sat:solve:start round=1 cegar_rounds=2 assumptions=0
+c 00h00m00s | stage:sat:solve:done round=1 ms=0 result=Sat assumptions=0
+c 00h00m00s | stage:decode:start round=1
+c 00h00m00s | stage:relaxation:done round=1 clauses_added=1193 cegar_failures=1 cegar_rounds=2 cegar_added_clauses=1193
+c 00h00m00s | stage:sat:solve:start round=2 cegar_rounds=3 assumptions=0
+c 00h00m00s | stage:sat:solve:done round=2 ms=0 result=Sat assumptions=0
+c 00h00m00s | stage:decode:start round=2
+c 00h00m00s | stage:decode:done round=2 int_assignments=92
+c 00h00m00s | stage:relaxation:done clauses_added=0 cegar_failures=1 cegar_rounds=3 cegar_added_clauses=1193
+c 00h00m00s | result:Sat
+c 00h00m00s | objective:incumbent kind=improvement value=12 rounds=2 improvements=1
+o 12
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=1492 clauses=6272
+c 00h00m00s | stage:sat:solve:start round=1 cegar_rounds=4 assumptions=0
+c 00h00m00s | stage:sat:solve:done round=1 ms=0 result=Sat assumptions=0
+c 00h00m00s | stage:decode:start round=1
+c 00h00m00s | stage:relaxation:done round=1 clauses_added=1193 cegar_failures=2 cegar_rounds=4 cegar_added_clauses=2386
+c 00h00m00s | stage:sat:solve:start round=2 cegar_rounds=5 assumptions=0
+c 00h00m00s | stage:sat:solve:done round=2 ms=41 result=Unsat assumptions=0
+c 00h00m00s | result:Unsat
+s OPTIMUM FOUND
+o 12
+v <instantiation>
+v   <list> x[0][0] x[0][1] x[0][2] x[0][3] x[0][4] x[0][5] x[0][6] x[0][7] x[1][0] x[1][1] x[1][2] x[1][3] x[1][4] x[1][5] x[1][6] x[1][7] x[2][0] x[2][1] x[2][2] x[2][3] x[2][4] x[2][5] x[2][6] x[2][7] x[3][0] x[3][1] x[3][2] x[3][3] x[3][4] x[3][5] x[3][6] x[3][7] x[4][0] x[4][1] x[4][2] x[4][3] x[4][4] x[4][5] x[4][6] x[4][7] x[5][0] x[5][1] x[5][2] x[5][3] x[5][4] x[5][5] x[5][6] x[5][7] x[6][0] x[6][1] x[6][2] x[6][3] x[6][4] x[6][5] x[6][6] x[6][7] x[7][0] x[7][1] x[7][2] x[7][3] x[7][4] x[7][5] x[7][6] x[7][7] aux_gb[0] aux_gb[1] aux_gb[2] aux_gb[3] aux_gb[4] aux_gb[5] aux_gb[6] aux_gb[7] aux_gb[8] aux_gb[9] aux_gb[10] aux_gb[11] aux_gb[12] aux_gb[13] aux_gb[14] aux_gb[15] aux_gb[16] aux_gb[17] aux_gb[18] aux_gb[19] aux_gb[20] aux_gb[21] aux_gb[22] aux_gb[23] aux_gb[24] aux_gb[25] aux_gb[26] aux_gb[27] </list>
+v   <values> 1 1 0 0 1 0 0 1 1 1 0 0 1 0 0 1 1 1 1 1 0 1 1 0 1 1 1 1 0 1 1 0 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 4 0 0 4 0 0 4 0 0 4 0 0 4 4 0 4 4 0 0 4 4 0 0 0 4 4 0 0 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 12
+d OPTIMAL 1
+d SOURCE_CONSTRAINTS 56
+d NORMALIZED_CONSTRAINTS 56
+d LOWERED_CONSTRAINTS 56
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 2
+d CIRCUIT_CEGAR_ROUNDS 5
+d CIRCUIT_CEGAR_ADDED_CLAUSES 2386
+d OBJECTIVE_ROUNDS 3
+d OBJECTIVE_IMPROVEMENTS 1
+d PROPAGATE_MS 0
+d NORMALIZE_MS 0
+d LOWER_MS 2
+d POST_LOWER_MS 0
+d PREENCODE_MS 1
+d ENCODE_MS 3
+d SAT_SOLVE_MS 41
+d TOTAL_MS 66
+d SAT_VARS 1492
+d SAT_CLAUSES_BASE 6272
+d SAT_CLAUSES_FINAL 7465
+d SAT_CLAUSES_CEGAR_DELTA 1193
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":84,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"7":{"count":28,"max_domain_product_excluding_one_var":"64","p95_domain_product_excluding_one_var":"64"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 28
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 28
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 12
+d ROOT_LP_ROWS 196
+d ROOT_LP_VARS 428
+d ROOT_LP_OBJECTIVE_VALUE 0
+d PROPAGATE_PRUNED_VALUES 0
+d PROPAGATE_CHANGED_DOMAINS 0
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 0
+d POST_LOWER_TIGHTENED_DOMAINS 0
+d POST_LOWER_REMOVED_CLAUSES 0
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 260
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d DECODE_INT_ASSIGNMENTS 92
+d CSV /bench/competition/2022-2025/COP22to25/WarOrPeace-08_c22.xml.lzma,optimum,56,56,56,0,1492,7465,66,0,0,2,1,3,41,1,optimal,0,28,0,28,0,12,196,428,0,,

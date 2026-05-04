@@ -1,0 +1,33 @@
+c cmd: /host-parser-bin/kat_xcsp_a32997fd /bench/competition/2022-2025/COP22to25/GBACP-UD02_c23.xml.lzma --encoder order-ge --cop-pipeline guarded-basic --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=334
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=126 changed_domains=90 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=334
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=120 lowered=334 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=21 rounds=822 tightened=1077 removed_cls=1530 removed_lits=765 unsat=false precise_hits=0 precise_rounds=1 pivot_recomputes=23552 pivot_exact_attempts=9016 pivot_general_attempts=23552 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=23297 pivot_general_tightened=255 setup_ms=14 loop_ms=4 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:root-lp:start backend=native-simplex
+c 00h00m01s | stage:root-lp:skip backend=native-simplex reason=objective is not linear for root LP: expression is not a pure linear expression ms=1199
+c 00h00m01s | stage:preencode(order-ge):start
+c 00h00m01s | stage:preencode(order-ge):done ms=495 int_vars=20452
+c 00h00m01s | stage:encode(order-ge):start
+c 00h00m05s | stage:encode(order-ge):done ms=3393 sat_vars=681639 sat_clauses=9501271 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m05s | stage:sat:init solver=CaDiCaL vars=681639 clauses=9501271
+c 00h00m05s | stage:sat:solve:start round=1 cegar_rounds=1 assumptions=0
+c 00h00m11s | stage:sat:solve:done round=1 ms=6315 result=Sat assumptions=0
+c 00h00m11s | stage:decode:start round=1
+c 00h00m11s | stage:decode:done round=1 int_assignments=508
+c 00h00m11s | stage:relaxation:done clauses_added=0 cegar_failures=0 cegar_rounds=1 cegar_added_clauses=0
+c 00h00m11s | result:Sat
+c 00h00m11s | objective:incumbent kind=initial value=5837 rounds=1 improvements=0
+o 5837
+c 00h00m11s | stage:sat:init solver=CaDiCaL vars=681639 clauses=9501271
+c 00h00m11s | stage:sat:solve:start round=1 cegar_rounds=2 assumptions=0
+c 00h00m11s | stage:sat:solve:done round=1 ms=312 result=Sat assumptions=0
+c 00h00m11s | stage:decode:start round=1
+s UNKNOWN
+c reason: internal_error: sat variable count overflow
+d CSV /bench/competition/2022-2025/COP22to25/GBACP-UD02_c23.xml.lzma,internal_error,,,,,,,,,,,,,,,,,,,,,,,,,internal_error,sat variable count overflow

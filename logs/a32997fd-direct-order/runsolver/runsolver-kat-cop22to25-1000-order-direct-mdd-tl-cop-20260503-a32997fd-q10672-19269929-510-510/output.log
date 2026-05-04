@@ -1,0 +1,45 @@
+c cmd: /host-parser-bin/kat_xcsp_a32997fd /bench/competition/2022-2025/COP22to25/KMedian-aux-pmed12_c23.xml.lzma --encoder order-ge --cop-pipeline guarded-basic --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=3302
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=274 pruned=270456 changed_domains=3309 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=3302
+c 00h00m00s | stage:lower:start
+c 00h00m03s | stage:lower:done ms=2992 lowered=3302 unsupported=0
+c 00h00m03s | stage:post_lower:start
+c 00h00m03s | stage:post_lower:done ms=189 rounds=0 tightened=0 removed_cls=27000 removed_lits=0 unsat=false precise_hits=0 precise_rounds=0 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=72 loop_ms=108 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=5 sat_ms=0 precise_ms=0
+c 00h00m03s | stage:root-lp:start backend=native-simplex
+c 00h00m06s | stage:root-lp:bound backend=native-simplex status=optimal objective_value=0 naive_bounds=[0,50100] lp_bounds=[0,50100] improved=0 rows=3309 vars=6310 ms=2908
+c 00h00m06s | stage:preencode(order-ge):start
+c 00h00m06s | stage:preencode(order-ge):done ms=472 int_vars=3310
+c 00h00m06s | stage:encode(order-ge):start
+c 00h00m08s | stage:encode(order-ge):done ms=1176 sat_vars=702768 sat_clauses=2872956 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m08s | stage:sat:init solver=CaDiCaL vars=702768 clauses=2872956
+c 00h00m08s | stage:sat:solve:start round=1 cegar_rounds=1 assumptions=0
+c 00h00m08s | stage:sat:solve:done round=1 ms=281 result=Sat assumptions=0
+c 00h00m08s | stage:decode:start round=1
+c 00h00m08s | stage:decode:done round=1 int_assignments=3310
+c 00h00m08s | stage:relaxation:done clauses_added=0 cegar_failures=0 cegar_rounds=1 cegar_added_clauses=0
+c 00h00m08s | result:Sat
+c 00h00m08s | objective:incumbent kind=initial value=9913 rounds=1 improvements=0
+o 9913
+c 00h00m08s | stage:sat:init solver=CaDiCaL vars=702768 clauses=2872956
+c 00h00m08s | stage:sat:solve:start round=1 cegar_rounds=2 assumptions=0
+c 00h00m08s | stage:sat:solve:done round=1 ms=199 result=Sat assumptions=0
+c 00h00m08s | stage:decode:start round=1
+c 00h01m31s | stage:relaxation:done round=1 clauses_added=547485298 cegar_failures=1 cegar_rounds=2 cegar_added_clauses=547485298
+c 00h04m04s | stage:sat:solve:start round=2 cegar_rounds=3 assumptions=0
+c 00h07m06s | stage:sat:solve:done round=2 ms=181928 result=Sat assumptions=0
+c 00h07m06s | stage:decode:start round=2
+c 00h07m06s | stage:decode:done round=2 int_assignments=3310
+c 00h07m06s | stage:relaxation:done clauses_added=0 cegar_failures=1 cegar_rounds=3 cegar_added_clauses=547485298
+c 00h07m06s | result:Sat
+c 00h07m06s | objective:incumbent kind=improvement value=9882 rounds=2 improvements=1
+o 9882
+c 00h07m06s | stage:sat:init solver=CaDiCaL vars=702768 clauses=2872956
+c 00h07m06s | stage:sat:solve:start round=1 cegar_rounds=4 assumptions=0
+c 00h07m26s | stage:sat:solve:done round=1 ms=19441 result=Sat assumptions=0
+c 00h07m26s | stage:decode:start round=1
+c 00h08m56s | stage:relaxation:done round=1 clauses_added=547178429 cegar_failures=2 cegar_rounds=4 cegar_added_clauses=1094663727
+bash: line 8: 61156 Killed                  "$PARSER_BIN" "$INSTANCE_PATH" "$@"
