@@ -1,0 +1,35 @@
+c cmd: /host-parser-bin/kat_xcsp_31b6e7a3_scip_static /bench/competition/2022-2025/COP22to25/Cutstock-10-0_c25.xml.lzma --encoder log-scop --order-ge-table mdd-tl --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=27784
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=275 pruned=2353160 changed_domains=25118 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=27784
+c 00h00m00s | stage:lower:start
+c 00h00m04s | stage:lower:done ms=4003 lowered=27784 unsupported=0
+c 00h00m04s | stage:post_lower:start
+c 00h00m07s | stage:post_lower:done ms=3141 rounds=1322 tightened=26440 removed_cls=26440 removed_lits=0 unsat=false precise_hits=0 precise_rounds=1 pivot_recomputes=34957644 pivot_exact_attempts=34927240 pivot_general_attempts=34957644 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=34957644 pivot_general_tightened=0 setup_ms=892 loop_ms=2090 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=122
+c 00h00m07s | stage:lowered-shape int_vars=27762 bool_vars=23778 linear_atoms=80622 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=52861
+c 00h00m07s | stage:root-lp:start backend=scip-ffi
+c 00h00m37s | stage:root-lp:bound backend=scip-ffi status=objective_bound objective_value=0 naive_bounds=[0,1322] lp_bounds=[0,1322] improved=0 rows=27762 vars=51540 ms=30121
+c 00h00m37s | stage:preencode(log-scop):start
+c 00h00m37s | stage:preencode(log-scop):done ms=8 int_vars=27762
+c 00h00m37s | stage:encode(log-scop):start
+c 00h00m47s | stage:encode(log-scop):done ms=10333 sat_vars=9321763 sat_clauses=26659436 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=93843 log_scop_pb_mixed=0 log_scop_pb_bdd2=0 log_scop_pb_bdd3=93843 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=93843 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m47s | stage:sat:init solver=CaDiCaL vars=9321763 clauses=26659436
+c 00h00m48s | stage:sat:solve:start round=1 cegar_rounds=1 assumptions=0
+c 00h05m31s | stage:sat:solve:done round=1 ms=283132 result=Sat assumptions=0
+c 00h05m31s | stage:decode:start round=1 requested_int_ids=27762
+c 00h05m31s | stage:decode:final:start round=1 requested_int_ids=27762
+c 00h05m31s | stage:decode:done round=1 int_assignments=27762
+c 00h05m31s | stage:relaxation:done clauses_added=0 cegar_failures=0 cegar_rounds=1 cegar_added_clauses=0
+c 00h05m31s | result:Sat
+c 00h05m31s | objective:incumbent kind=initial value=984 rounds=1 improvements=0
+o 984
+c 00h05m31s | stage:sat:init solver=CaDiCaL vars=9321763 clauses=26659436
+c 00h05m31s | stage:sat:solve:start round=1 cegar_rounds=2 assumptions=0
+c 00h05m32s | stage:sat:solve:done round=1 ms=1151 result=Sat assumptions=0
+c 00h05m32s | stage:decode:start round=1 requested_int_ids=27762
+s UNKNOWN
+c reason: internal_error: log-scop objective relaxation could not encode objective cut
+d CSV /bench/competition/2022-2025/COP22to25/Cutstock-10-0_c25.xml.lzma,internal_error,,,,,,,,,,,,,,,,,,,,,,,,,,,,internal_error,log-scop objective relaxation could not encode objective cut

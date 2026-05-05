@@ -27,6 +27,7 @@ class Run:
     log_kind: str
     runsolver_prefix: str = ""
     slurm_tag: str = ""
+    remote_base: str = REMOTE_BASE
 
 
 RUNS = [
@@ -98,6 +99,14 @@ RUNS = [
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-scip-static-20260504-31b6e7a3-q10672-rerun1",
     ),
+    Run(
+        "31b6e7a3-scip-log-scop-rerun2",
+        "31b6e7a3 SCIP log-scop rerun2",
+        "kat-cop1000-log-scop-mdd-tl-scip-static-20260504-31b6e7a3-q10609-rerun2",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-log-scop-mdd-tl-scip-static-20260504-31b6e7a3-q10609-rerun2",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
 ]
 
 
@@ -124,7 +133,7 @@ def fetch_logs(root: Path) -> None:
             [
                 "rsync",
                 "-az",
-                f"{REMOTE}:{REMOTE_BASE}/results/{run.result_dir}/rows/",
+                f"{REMOTE}:{run.remote_base}/results/{run.result_dir}/rows/",
                 str(local / "rows") + "/",
             ]
         )
@@ -134,7 +143,7 @@ def fetch_logs(root: Path) -> None:
                 [
                     "rsync",
                     "-az",
-                    f"{REMOTE}:{REMOTE_BASE}/results/{run.result_dir}/out/",
+                    f"{REMOTE}:{run.remote_base}/results/{run.result_dir}/out/",
                     str(local / "out") + "/",
                 ]
             )
@@ -144,7 +153,7 @@ def fetch_logs(root: Path) -> None:
                 [
                     "rsync",
                     "-az",
-                    f"{REMOTE}:{REMOTE_BASE}/slurm-logs/{run.slurm_tag}/",
+                    f"{REMOTE}:{run.remote_base}/slurm-logs/{run.slurm_tag}/",
                     str(local / "slurm-logs") + "/",
                 ]
             )
@@ -160,7 +169,7 @@ def fetch_logs(root: Path) -> None:
                     f"--include={run.runsolver_prefix}-[0-9]*/output.log",
                     f"--include={run.runsolver_prefix}-[0-9]*/values.log",
                     "--exclude=*",
-                    f"{REMOTE}:{REMOTE_BASE}/slurm-logs/runsolver/",
+                    f"{REMOTE}:{run.remote_base}/slurm-logs/runsolver/",
                     str(dest) + "/",
                 ]
             )

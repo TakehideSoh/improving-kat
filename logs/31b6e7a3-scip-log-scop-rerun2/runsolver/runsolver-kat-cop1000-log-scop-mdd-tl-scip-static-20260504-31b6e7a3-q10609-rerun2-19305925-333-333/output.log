@@ -1,0 +1,35 @@
+c cmd: /host-parser-bin/kat_xcsp_31b6e7a3_scip_static /bench/competition/2022-2025/COP22to25/FAPP-aux-03-0300_c25.xml.lzma --encoder log-scop --order-ge-table mdd-tl --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=4377
+c 00h00m00s | stage:propagate:start
+c 00h00m07s | stage:propagate:done ms=7442 pruned=10819 changed_domains=2027 entailed_tables=11
+c 00h00m07s | stage:normalize:start
+c 00h00m07s | stage:normalize:done ms=0 high_constraints=4377
+c 00h00m07s | stage:lower:start
+c 00h00m09s | stage:lower:done ms=2196 lowered=4377 unsupported=0
+c 00h00m09s | stage:post_lower:start
+c 00h00m09s | stage:post_lower:done ms=8 rounds=0 tightened=0 removed_cls=113 removed_lits=100 unsat=false precise_hits=72 precise_rounds=1 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=5 loop_ms=1 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m09s | stage:lowered-shape int_vars=6751 bool_vars=4580 linear_atoms=9107 table_atoms=2039 table_tuples=8437776 table_scope=12234 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=13293
+c 00h00m09s | stage:root-lp:start backend=scip-ffi
+c 00h01m11s | stage:root-lp:bound backend=scip-ffi status=objective_bound objective_value=-100000000000000000000 naive_bounds=[0,504320500] lp_bounds=[0,504320500] improved=0 rows=25496 vars=8449107 ms=61849
+c 00h01m11s | stage:preencode(log-scop):start
+c 00h01m11s | stage:preencode(log-scop):done ms=17 int_vars=6751
+c 00h01m11s | stage:encode(log-scop):start
+c 00h01m27s | stage:encode(log-scop):done ms=15866 sat_vars=4715822 sat_clauses=9970503 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=45789 log_scop_pb_mixed=0 log_scop_pb_bdd2=0 log_scop_pb_bdd3=45789 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=45789 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h01m28s | stage:sat:init solver=CaDiCaL vars=4715822 clauses=9970503
+c 00h01m28s | stage:sat:solve:start round=1 cegar_rounds=1 assumptions=0
+c 00h02m50s | stage:sat:solve:done round=1 ms=82926 result=Sat assumptions=0
+c 00h02m50s | stage:decode:start round=1 requested_int_ids=6751
+c 00h02m51s | stage:decode:final:start round=1 requested_int_ids=6751
+c 00h02m51s | stage:decode:done round=1 int_assignments=6751
+c 00h02m51s | stage:relaxation:done clauses_added=0 cegar_failures=0 cegar_rounds=1 cegar_added_clauses=0
+c 00h02m51s | result:Sat
+c 00h02m51s | objective:incumbent kind=initial value=470132995 rounds=1 improvements=0
+o 470132995
+c 00h02m51s | stage:sat:init solver=CaDiCaL vars=4715822 clauses=9970503
+c 00h02m51s | stage:sat:solve:start round=1 cegar_rounds=2 assumptions=0
+c 00h02m51s | stage:sat:solve:done round=1 ms=182 result=Sat assumptions=0
+c 00h02m51s | stage:decode:start round=1 requested_int_ids=6751
+s UNKNOWN
+c reason: internal_error: log-scop objective relaxation could not encode objective cut
+d CSV /bench/competition/2022-2025/COP22to25/FAPP-aux-03-0300_c25.xml.lzma,internal_error,,,,,,,,,,,,,,,,,,,,,,,,,,,,internal_error,log-scop objective relaxation could not encode objective cut

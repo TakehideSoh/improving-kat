@@ -1,0 +1,105 @@
+c cmd: /host-parser-bin/kat_xcsp_31b6e7a3_scip_static /bench/competition/2022-2025/COP22to25/NursingWorkload-2zones2_c22.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=178
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=21 pruned=48 changed_domains=17 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=178
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=38 lowered=178 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=1 rounds=100 tightened=100 removed_cls=282 removed_lits=150 unsat=false precise_hits=0 precise_rounds=1 pivot_recomputes=2500 pivot_exact_attempts=0 pivot_general_attempts=2500 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=2500 pivot_general_tightened=0 setup_ms=0 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:lowered-shape int_vars=556 bool_vars=260 linear_atoms=1504 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=1482
+c 00h00m00s | stage:root-lp:start backend=scip-ffi
+c 00h00m00s | stage:root-lp:bound backend=scip-ffi status=optimal objective_value=1440 naive_bounds=[1440,110250] lp_bounds=[1440,110250] improved=0 rows=40 vars=827 ms=674
+c 00h00m00s | stage:preencode(order-ge):start
+c 00h00m00s | stage:preencode(order-ge):done ms=7 int_vars=1354
+c 00h00m00s | stage:encode(order-ge):start
+c 00h00m01s | stage:encode(order-ge):done ms=1173 sat_vars=53994 sat_clauses=3611163 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m01s | stage:sat:init solver=CaDiCaL vars=53994 clauses=3611163
+c 00h00m01s | stage:sat:solve:start round=1 cegar_rounds=1 assumptions=0
+c 00h00m11s | stage:sat:solve:done round=1 ms=9855 result=Sat assumptions=0
+c 00h00m11s | stage:decode:start round=1 requested_int_ids=36
+c 00h00m11s | stage:decode:final:start round=1 requested_int_ids=36
+c 00h00m11s | stage:decode:done round=1 int_assignments=36
+c 00h00m11s | stage:relaxation:done clauses_added=0 cegar_failures=0 cegar_rounds=1 cegar_added_clauses=0
+c 00h00m11s | result:Sat
+c 00h00m11s | objective:incumbent kind=initial value=62695 rounds=1 improvements=0
+o 62695
+c 00h00m11s | stage:sat:init solver=CaDiCaL vars=53994 clauses=3611163
+c 00h00m11s | stage:sat:solve:start round=1 cegar_rounds=2 assumptions=0
+c 00h00m11s | stage:sat:solve:done round=1 ms=37 result=Sat assumptions=0
+c 00h00m11s | stage:decode:start round=1 requested_int_ids=36
+s SATISFIABLE
+o 62695
+v <instantiation>
+v   <list> p[0] p[1] p[2] p[3] p[4] p[5] p[6] p[7] p[8] p[9] p[10] p[11] p[12] p[13] p[14] p[15] p[16] p[17] p[18] p[19] p[20] p[21] p[22] p[23] p[24] p[25] w[0] w[1] w[2] w[3] w[4] w[5] w[6] w[7] w[8] w[9] </list>
+v   <values> 0 1 6 4 2 2 4 6 6 4 1 8 9 7 5 9 7 7 8 9 3 5 8 3 3 5 49 57 59 59 69 76 83 104 104 105 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 62695
+d OPTIMAL 0
+d OBJECTIVE_ROUNDS 1
+d OBJECTIVE_IMPROVEMENTS 0
+d COP_INCUMBENT_ELAPSED_MS 11791
+d SOLVE_ELAPSED_MS 1798866
+d CURRENT_STAGE relaxation
+d CURRENT_STAGE_ELAPSED_MS 1787037
+d LAST_COMPLETED_STAGE decode
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS done
+d STAGE_DECODE_STATUS done
+d STAGE_RELAXATION_STATUS running
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 178
+d NORMALIZED_CONSTRAINTS 178
+d LOWERED_CONSTRAINTS 178
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 53994
+d SAT_CLAUSES_BASE 3611163
+d SAT_CLAUSES_FINAL 3611163
+d SAT_CLAUSES_CEGAR_DELTA 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":1300,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_NE_ARITY_STATS {"2":{"count":165,"max_domain_product_excluding_one_var":"8","p95_domain_product_excluding_one_var":"8"}}
+d LINEAR_INT_GE_ARITY_STATS {"2":{"count":9,"max_domain_product_excluding_one_var":"94","p95_domain_product_excluding_one_var":"94"},"26":{"count":20,"max_domain_product_excluding_one_var":"8388608","p95_domain_product_excluding_one_var":"8388608"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"27":{"count":10,"max_domain_product_excluding_one_var":"67108864","p95_domain_product_excluding_one_var":"67108864"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 1440
+d OBJECTIVE_NAIVE_UPPER 110250
+d OBJECTIVE_LP_LOWER 1440
+d OBJECTIVE_LP_UPPER 110250
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 674
+d ROOT_LP_ROWS 40
+d ROOT_LP_VARS 827
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 29
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 1300
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 26
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 8388608
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 27
+d ROOT_LP_OBJECTIVE_VALUE 1440
+d PROPAGATE_PRUNED_VALUES 48
+d PROPAGATE_CHANGED_DOMAINS 17
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 100
+d POST_LOWER_TIGHTENED_DOMAINS 100
+d POST_LOWER_REMOVED_CLAUSES 282
+d POST_LOWER_REMOVED_LITS 150
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 1354
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d DECODE_INT_ASSIGNMENTS 36
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 2
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/competition/2022-2025/COP22to25/NursingWorkload-2zones2_c22.xml.lzma,sat,178,178,178,0,53994,3611163,1798839,,,,,,,1,optimal,1440,110250,1440,110250,0,674,40,827,0,0,0,1440,timeout_signal,incumbent_interrupted_by_signal
+signal=15; emitted incumbent csv row
