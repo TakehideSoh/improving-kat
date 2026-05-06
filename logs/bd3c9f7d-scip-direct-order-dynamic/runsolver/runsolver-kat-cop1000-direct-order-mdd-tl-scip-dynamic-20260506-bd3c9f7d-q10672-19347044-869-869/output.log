@@ -1,0 +1,45 @@
+c cmd: /host-parser-bin/kat_xcsp_bd3c9f7d_scip_dynamic /bench/competition/2022-2025/COP22to25/TSPTW1-n040w040-1_c23.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=287
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=15 pruned=21083 changed_domains=85 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=287
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=349 lowered=287 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=13 rounds=1 tightened=1 removed_cls=6925 removed_lits=80 unsat=false precise_hits=4 precise_rounds=1 pivot_recomputes=2 pivot_exact_attempts=2 pivot_general_attempts=1 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=1 pivot_general_tightened=0 setup_ms=5 loop_ms=7 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:lowered-shape int_vars=246 bool_vars=0 linear_atoms=12381 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=1 circuit_atoms=0 product_atoms=0 logical_clauses=70401
+c 00h00m00s | stage:root-lp:start backend=scip-ffi
+c 00h00m00s | stage:root-lp:bound backend=scip-ffi status=optimal objective_value=0 naive_bounds=[0,2419] lp_bounds=[0,2419] improved=0 rows=40 vars=246 ms=10
+c 00h00m00s | stage:preencode(order-ge):start
+c 00h00m00s | stage:preencode(order-ge):done ms=29 int_vars=246
+c 00h00m00s | stage:encode(order-ge):start
+c 00h00m03s | stage:encode(order-ge):done ms=2906 sat_vars=134187 sat_clauses=8004896 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m03s | stage:sat:init solver=CaDiCaL vars=134187 clauses=8004896
+c 00h00m03s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h01m46s | stage:sat:solve:done round=1 ms=103203 result=Sat assumptions=0 phase_lits=0
+c 00h01m46s | stage:decode:start round=1 requested_int_ids=246
+c 00h01m46s | stage:decode:final:start round=1 requested_int_ids=246
+c 00h01m46s | stage:decode:done round=1 int_assignments=246
+c 00h01m46s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h01m46s | result:Sat
+c 00h01m46s | objective:incumbent kind=initial value=493 rounds=1 improvements=0
+o 493
+c 00h01m46s | stage:sat:init solver=CaDiCaL vars=134187 clauses=8004896
+c 00h01m46s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=72159
+c 00h01m47s | stage:sat:solve:done round=1 ms=563 result=Sat assumptions=0 phase_lits=72159
+c 00h01m47s | stage:decode:start round=1 requested_int_ids=246
+c 00h01m47s | stage:decode:final:start round=1 requested_int_ids=246
+c 00h01m47s | stage:decode:done round=1 int_assignments=246
+c 00h01m47s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=2 cop_cegar_added_clauses=0
+c 00h01m47s | result:Sat
+c 00h01m47s | objective:incumbent kind=improvement value=487 rounds=2 improvements=1
+o 487
+c 00h01m47s | stage:sat:init solver=CaDiCaL vars=134187 clauses=8004896
+c 00h01m47s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=3 assumptions=0 phase_lits=72159
+c 00h01m47s | stage:sat:solve:done round=1 ms=103 result=Sat assumptions=0 phase_lits=72159
+c 00h01m47s | stage:decode:start round=1 requested_int_ids=246
+s UNKNOWN
+c reason: internal_error: order-ge objective relaxation could not encode objective-variable bound cut
+d CSV /bench/competition/2022-2025/COP22to25/TSPTW1-n040w040-1_c23.xml.lzma,internal_error,,,,,,,,,,,,,,,,,,,,,,,,,,,,internal_error,order-ge objective relaxation could not encode objective-variable bound cut

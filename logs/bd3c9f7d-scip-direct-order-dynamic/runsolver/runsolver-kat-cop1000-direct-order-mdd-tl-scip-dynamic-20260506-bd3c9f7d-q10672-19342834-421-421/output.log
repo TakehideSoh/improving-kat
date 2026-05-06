@@ -1,0 +1,35 @@
+c cmd: /host-parser-bin/kat_xcsp_bd3c9f7d_scip_dynamic /bench/competition/2022-2025/COP22to25/GBACP-table-UD07_c23.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=1956
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=715 pruned=7299 changed_domains=595 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=1956
+c 00h00m00s | stage:lower:start
+c 00h00m01s | stage:lower:done ms=449 lowered=1956 unsupported=0
+c 00h00m01s | stage:post_lower:start
+c 00h00m01s | stage:post_lower:done ms=87 rounds=6593 tightened=8791 removed_cls=12956 removed_lits=6478 unsat=false precise_hits=0 precise_rounds=1 pivot_recomputes=218475 pivot_exact_attempts=78143 pivot_general_attempts=218475 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=216277 pivot_general_tightened=2198 setup_ms=45 loop_ms=30 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=3
+c 00h00m01s | stage:lowered-shape int_vars=34232 bool_vars=0 linear_atoms=71777 table_atoms=333 table_tuples=540459 table_scope=666 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=56436
+c 00h00m01s | stage:root-lp:start backend=scip-ffi
+c 00h00m31s | stage:root-lp:skip backend=scip-ffi reason=failed to build root LP: LP wall-clock time limit reached during LP model integer variable build ms=30130
+c 00h00m31s | stage:preencode(order-ge):start
+c 00h00m37s | stage:preencode(order-ge):done ms=6585 int_vars=62186
+c 00h00m37s | stage:encode(order-ge):start
+c 00h00m49s | stage:encode(order-ge):done ms=11518 sat_vars=1979955 sat_clauses=28586681 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m49s | stage:sat:init solver=CaDiCaL vars=1979955 clauses=28586681
+c 00h00m49s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h01m01s | stage:sat:solve:done round=1 ms=11980 result=Sat assumptions=0 phase_lits=0
+c 00h01m01s | stage:decode:start round=1 requested_int_ids=968
+c 00h01m01s | stage:decode:final:start round=1 requested_int_ids=968
+c 00h01m01s | stage:decode:done round=1 int_assignments=968
+c 00h01m01s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h01m01s | result:Sat
+c 00h01m01s | objective:incumbent kind=initial value=22104 rounds=1 improvements=0
+o 22104
+c 00h01m01s | stage:sat:init solver=CaDiCaL vars=1979955 clauses=28586681
+c 00h01m01s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=583122
+c 00h01m02s | stage:sat:solve:done round=1 ms=750 result=Sat assumptions=0 phase_lits=583122
+c 00h01m02s | stage:decode:start round=1 requested_int_ids=968
+s UNKNOWN
+c reason: internal_error: order-ge objective relaxation could not encode objective-variable bound cut
+d CSV /bench/competition/2022-2025/COP22to25/GBACP-table-UD07_c23.xml.lzma,internal_error,,,,,,,,,,,,,,,,,,,,,,,,,,,,internal_error,order-ge objective relaxation could not encode objective-variable bound cut

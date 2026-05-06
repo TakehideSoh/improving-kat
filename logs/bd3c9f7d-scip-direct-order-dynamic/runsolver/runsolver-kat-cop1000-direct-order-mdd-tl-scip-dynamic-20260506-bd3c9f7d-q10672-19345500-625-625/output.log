@@ -1,0 +1,45 @@
+c cmd: /host-parser-bin/kat_xcsp_bd3c9f7d_scip_dynamic /bench/competition/2022-2025/COP22to25/NurseRostering-17_c22.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=8691
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=56 pruned=6360 changed_domains=1746 entailed_tables=56
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=8691
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=434 lowered=8691 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=75 rounds=2512 tightened=3878 removed_cls=6954 removed_lits=3650 unsat=false precise_hits=336 precise_rounds=1 pivot_recomputes=77199 pivot_exact_attempts=72512 pivot_general_attempts=76863 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=75855 pivot_general_tightened=1008 setup_ms=40 loop_ms=21 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=4
+c 00h00m00s | stage:lowered-shape int_vars=44692 bool_vars=0 linear_atoms=67682 table_atoms=12352 table_tuples=76208 table_scope=35072 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=64344
+c 00h00m00s | stage:root-lp:start backend=scip-ffi
+c 00h00m30s | stage:root-lp:skip backend=scip-ffi reason=failed to build root LP: LP wall-clock time limit reached during LP model integer variable build ms=30281
+c 00h00m30s | stage:preencode(order-ge):start
+c 00h00m38s | stage:preencode(order-ge):done ms=7305 int_vars=72327
+c 00h00m38s | stage:encode(order-ge):start
+c 00h00m39s | stage:encode(order-ge):done ms=1019 sat_vars=332665 sat_clauses=2097433 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m39s | stage:sat:init solver=CaDiCaL vars=332665 clauses=2097433
+c 00h00m39s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h01m25s | stage:sat:solve:done round=1 ms=46667 result=Sat assumptions=0 phase_lits=0
+c 00h01m25s | stage:decode:start round=1 requested_int_ids=3248
+c 00h01m25s | stage:decode:final:start round=1 requested_int_ids=3248
+c 00h01m26s | stage:decode:done round=1 int_assignments=3248
+c 00h01m26s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h01m26s | result:Sat
+c 00h01m26s | objective:incumbent kind=initial value=27192 rounds=1 improvements=0
+o 27192
+c 00h01m26s | stage:sat:init solver=CaDiCaL vars=332665 clauses=2097433
+c 00h01m26s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=22925
+c 00h01m33s | stage:sat:solve:done round=1 ms=7751 result=Sat assumptions=0 phase_lits=22925
+c 00h01m33s | stage:decode:start round=1 requested_int_ids=3248
+c 00h01m33s | stage:decode:final:start round=1 requested_int_ids=3248
+c 00h01m33s | stage:decode:done round=1 int_assignments=3248
+c 00h01m33s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=2 cop_cegar_added_clauses=0
+c 00h01m33s | result:Sat
+c 00h01m33s | objective:incumbent kind=improvement value=27075 rounds=2 improvements=1
+o 27075
+c 00h01m33s | stage:sat:init solver=CaDiCaL vars=332665 clauses=2097433
+c 00h01m33s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=3 assumptions=0 phase_lits=22925
+c 00h01m33s | stage:sat:solve:done round=1 ms=59 result=Sat assumptions=0 phase_lits=22925
+c 00h01m33s | stage:decode:start round=1 requested_int_ids=3248
+s UNKNOWN
+c reason: internal_error: order-ge objective relaxation could not encode objective-variable bound cut
+d CSV /bench/competition/2022-2025/COP22to25/NurseRostering-17_c22.xml.lzma,internal_error,,,,,,,,,,,,,,,,,,,,,,,,,,,,internal_error,order-ge objective relaxation could not encode objective-variable bound cut

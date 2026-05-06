@@ -1,0 +1,35 @@
+c cmd: /host-parser-bin/kat_xcsp_9c976720_scip_dynamic /bench/competition/2022-2025/COP22to25/NurseRostering-11_c22.xml.lzma --encoder log-scop --order-ge-table mdd-tl --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=6759
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=58 pruned=10062 changed_domains=1914 entailed_tables=28
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=6759
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=257 lowered=6759 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=11 rounds=50 tightened=204 removed_cls=3350 removed_lits=3308 unsat=false precise_hits=0 precise_rounds=1 pivot_recomputes=600 pivot_exact_attempts=0 pivot_general_attempts=600 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=600 pivot_general_tightened=0 setup_ms=4 loop_ms=5 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:lowered-shape int_vars=13288 bool_vars=26660 linear_atoms=12672 table_atoms=9538 table_tuples=77374 table_scope=27096 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=62516
+c 00h00m00s | stage:root-lp:start backend=scip-ffi
+c 00h00m20s | stage:root-lp:bound backend=scip-ffi status=optimal objective_value=0 naive_bounds=[0,81781] lp_bounds=[0,81781] improved=0 rows=37727 vars=101122 ms=20624
+c 00h00m20s | stage:preencode(log-scop):start
+c 00h00m20s | stage:preencode(log-scop):done ms=5 int_vars=13288
+c 00h00m20s | stage:encode(log-scop):start
+c 00h00m22s | stage:encode(log-scop):done ms=1319 sat_vars=977177 sat_clauses=2714374 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=29089 log_scop_pb_mixed=0 log_scop_pb_bdd2=0 log_scop_pb_bdd3=29089 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=29089 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m22s | stage:sat:init solver=CaDiCaL vars=977177 clauses=2714374
+c 00h00m22s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h04m51s | stage:sat:solve:done round=1 ms=269029 result=Sat assumptions=0 phase_lits=0
+c 00h04m51s | stage:decode:start round=1 requested_int_ids=2678
+c 00h04m51s | stage:decode:final:start round=1 requested_int_ids=2678
+c 00h04m51s | stage:decode:done round=1 int_assignments=2678
+c 00h04m51s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h04m51s | result:Sat
+c 00h04m51s | objective:incumbent kind=initial value=44827 rounds=1 improvements=0
+o 44827
+c 00h04m51s | stage:sat:init solver=CaDiCaL vars=977177 clauses=2714374
+c 00h04m51s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=8487
+c 00h05m16s | stage:sat:solve:done round=1 ms=25037 result=Sat assumptions=0 phase_lits=8487
+c 00h05m16s | stage:decode:start round=1 requested_int_ids=2678
+s UNKNOWN
+c reason: internal_error: log-scop objective relaxation could not encode objective cut
+d CSV /bench/competition/2022-2025/COP22to25/NurseRostering-11_c22.xml.lzma,internal_error,,,,,,,,,,,,,,,,,,,,,,,,,,,,internal_error,log-scop objective relaxation could not encode objective cut

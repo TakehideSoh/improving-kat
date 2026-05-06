@@ -8,6 +8,9 @@ import csv
 import re
 import sys
 import subprocess
+import tempfile
+from collections import Counter
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -17,6 +20,12 @@ REMOTE = "b39275@laurel.kudpc.kyoto-u.ac.jp"
 REMOTE_BASE = "/LARGE0/gr10672/b39275/xcsp3instances"
 BEGIN = "<!-- BEGIN COP1000_INSTANCE_TABLE -->"
 END = "<!-- END COP1000_INSTANCE_TABLE -->"
+VALIDATION_BEGIN = "<!-- BEGIN COP1000_VALIDATION_STATS -->"
+VALIDATION_END = "<!-- END COP1000_VALIDATION_STATS -->"
+DEFAULT_CHECKER_JAR = Path(
+    "/home/soh/02_prog/xcsp3instances/XCSP3-Java-Tools/target/xcsp3-solutionChecker-2.6.0.jar"
+)
+DEFAULT_BENCHMARK_DIR = Path("/home/soh/02_prog/benchmark")
 
 
 @dataclass(frozen=True)
@@ -105,6 +114,36 @@ RUNS = [
         "kat-cop1000-log-scop-mdd-tl-scip-static-20260504-31b6e7a3-q10609-rerun2",
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-log-scop-mdd-tl-scip-static-20260504-31b6e7a3-q10609-rerun2",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "9c976720-scip-log-scop-dynamic",
+        "9c976720 SCIP log-scop dynamic",
+        "kat-cop1000-log-scop-mdd-tl-scip-dynamic-20260505-9c976720-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-log-scop-mdd-tl-scip-dynamic-20260505-9c976720-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "9c976720-scip-direct-order-dynamic",
+        "9c976720 SCIP direct-order dynamic",
+        "kat-cop1000-direct-order-mdd-tl-scip-dynamic-20260505-9c976720-q10672",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-scip-dynamic-20260505-9c976720-q10672",
+    ),
+    Run(
+        "bd3c9f7d-scip-direct-order-dynamic",
+        "bd3c9f7d SCIP direct-order dynamic",
+        "kat-cop1000-direct-order-mdd-tl-scip-dynamic-20260506-bd3c9f7d-q10672",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-scip-dynamic-20260506-bd3c9f7d-q10672",
+    ),
+    Run(
+        "pycsp3-extra-ortools-20260505",
+        "pycsp3-extra OR-Tools 20260505",
+        "pycsp3-extra-ortools-cop1000-20260505-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-pycsp3-extra-ortools-cop1000-20260505-q10609",
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
 ]
@@ -281,6 +320,139 @@ def parse_log(log_path: Path | None) -> tuple[str | None, str | None, str | None
     return incumbent, stage, outcome
 
 
+def extract_solution_text(log_path: Path) -> str | None:
+    lines: list[str] = []
+    in_solution = False
+    for line in log_path.read_text(errors="replace").splitlines():
+        if not line.startswith("v "):
+            continue
+        payload = line[2:]
+        if payload.startswith("<instantiation"):
+            lines = []
+            in_solution = True
+        if in_solution:
+            lines.append(payload)
+        if in_solution and payload.startswith("</instantiation"):
+            return "\n".join(lines) + "\n"
+    return None
+
+
+def instance_path(benchmark_dir: Path, instance: str) -> Path:
+    marker = "/competition/"
+    if marker in instance:
+        return benchmark_dir / "competition" / instance.split(marker, 1)[1]
+    return benchmark_dir / instance.lstrip("/")
+
+
+def classify_checker_output(returncode: int, output: str) -> tuple[str, str]:
+    detail = output.strip().splitlines()[-1] if output.strip() else f"exit={returncode}"
+    lowered = output.lower()
+    if "exception" in lowered or "fatal error" in lowered:
+        return "checker_error", detail
+    if returncode == 0 and "ok" in lowered and "invalid" not in lowered and "incorrect" not in lowered:
+        return "valid", detail
+    if "invalid" in lowered or "incorrect" in lowered or "violation" in lowered:
+        return "invalid", detail
+    if returncode != 0:
+        return "checker_error", detail
+    return "valid", detail
+
+
+def load_validation(root: Path) -> dict[tuple[str, int], str]:
+    path = root / "logs" / "validation" / "results.csv"
+    if not path.exists():
+        return {}
+    out: dict[tuple[str, int], str] = {}
+    with path.open(newline="") as f:
+        for row in csv.DictReader(f):
+            try:
+                out[(row["run"], int(row["instance_id"]))] = row["validation"]
+            except (KeyError, ValueError):
+                continue
+    return out
+
+
+def validate_solutions(root: Path, checker_jar: Path, benchmark_dir: Path, workers: int) -> None:
+    if not checker_jar.exists():
+        raise SystemExit(f"solution checker jar not found: {checker_jar}")
+    instances = dict(read_instances(root))
+    all_rows = {run.slug: load_rows(root, run) for run in RUNS}
+    validation_dir = root / "logs" / "validation"
+    output_dir = validation_dir / "checker-output"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    def validate_one(run: Run, instance_id: int, instance: str) -> dict[str, str]:
+        row_path, fields = all_rows[run.slug].get(instance_id, (None, []))
+        log_path = log_path_for_row(root, run, instance_id, row_path)
+        status = fields[1] if len(fields) > 1 else ""
+        incumbent, _, _ = parse_log(log_path)
+        validation = "skipped_no_incumbent"
+        detail = ""
+        if status == "unsat":
+            validation = "skipped_unsat"
+        elif incumbent is not None:
+            if log_path is None:
+                validation = "no_log"
+            else:
+                solution = extract_solution_text(log_path)
+                if solution is None:
+                    validation = "no_solution"
+                else:
+                    inst = instance_path(benchmark_dir, instance)
+                    if not inst.exists():
+                        validation = "missing_instance"
+                        detail = str(inst)
+                    else:
+                        out_path = output_dir / run.slug / f"{instance_id}.txt"
+                        if out_path.exists() and out_path.stat().st_mtime >= log_path.stat().st_mtime:
+                            validation, detail = classify_checker_output(0, out_path.read_text(errors="replace"))
+                        else:
+                            with tempfile.NamedTemporaryFile("w", suffix=".xml", delete=False) as tmp:
+                                tmp.write(solution)
+                                solution_path = Path(tmp.name)
+                            try:
+                                proc = subprocess.run(
+                                    ["java", "-jar", str(checker_jar), str(inst), str(solution_path)],
+                                    text=True,
+                                    stdout=subprocess.PIPE,
+                                    stderr=subprocess.STDOUT,
+                                    timeout=120,
+                                )
+                                output = proc.stdout
+                                out_path.parent.mkdir(parents=True, exist_ok=True)
+                                out_path.write_text(output)
+                                validation, detail = classify_checker_output(proc.returncode, output)
+                            except subprocess.TimeoutExpired as e:
+                                validation = "checker_timeout"
+                                detail = str(e)
+                            finally:
+                                solution_path.unlink(missing_ok=True)
+        return {
+            "run": run.slug,
+            "instance_id": str(instance_id),
+            "instance": instance,
+            "status": status,
+            "incumbent": incumbent or "",
+            "validation": validation,
+            "detail": detail,
+        }
+
+    tasks = [(run, instance_id, instance) for run in RUNS for instance_id, instance in instances.items()]
+    rows: list[dict[str, str]] = []
+    with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
+        futures = [pool.submit(validate_one, *task) for task in tasks]
+        for i, future in enumerate(as_completed(futures), 1):
+            rows.append(future.result())
+            if i % 500 == 0:
+                print(f"validated {i}/{len(futures)} cells", file=sys.stderr)
+    rows.sort(key=lambda row: (row["run"], int(row["instance_id"])))
+    path = validation_dir / "results.csv"
+    with path.open("w", newline="") as f:
+        fieldnames = ["run", "instance_id", "instance", "status", "incumbent", "validation", "detail"]
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
 def row_reason(fields: list[str]) -> tuple[str, str]:
     if not fields:
         return "", ""
@@ -320,6 +492,14 @@ def classify_cell(
     return f"TO({stop})" if status == "unknown" else f"{status or 'NA'}({stop})"
 
 
+def decorate_validation(label: str, validation: str | None) -> str:
+    if validation in {"invalid", "checker_timeout"}:
+        return f"INVALID {label}"
+    if validation == "checker_error":
+        return f"CHECKER_ERROR {label}"
+    return label
+
+
 def md_escape(text: str) -> str:
     return text.replace("|", "\\|").replace("\n", " ")
 
@@ -357,6 +537,7 @@ def missing_log(root: Path, run: Run, instance_id: int, instance: str, fields: l
 def build_table(root: Path) -> str:
     instances = read_instances(root)
     all_rows = {run.slug: load_rows(root, run) for run in RUNS}
+    validation = load_validation(root)
     lines = [
         BEGIN,
         "",
@@ -365,6 +546,7 @@ def build_table(root: Path) -> str:
         "Cell values are incumbent objective values. A trailing `*` means the run proved optimality.",
         "`TO(stage)` and `MO(stage)` mean no incumbent was found before timeout or memory-out at the indicated stage.",
         "Each cell links to the corresponding solver log when available.",
+        "`INVALID` marks a solution rejected by validation; `CHECKER_ERROR` marks a checker failure such as an unsupported solution variable.",
         "",
         "| # | instance | " + " | ".join(md_escape(run.column) for run in RUNS) + " |",
         "|---:|---|" + "|".join("---:" for _ in RUNS) + "|",
@@ -376,6 +558,7 @@ def build_table(root: Path) -> str:
             log_path = log_path_for_row(root, run, instance_id, row_path)
             incumbent, stage, log_outcome = parse_log(log_path)
             label = classify_cell(fields, incumbent, stage, log_path is not None, log_outcome)
+            label = decorate_validation(label, validation.get((run.slug, instance_id)))
             if log_path is None:
                 log_path = missing_log(root, run, instance_id, instance, fields)
             row_cells.append(rel_link(root, log_path, label))
@@ -384,13 +567,60 @@ def build_table(root: Path) -> str:
     return "\n".join(lines)
 
 
+def build_validation_stats(root: Path) -> str:
+    validation = load_validation(root)
+    lines = [
+        VALIDATION_BEGIN,
+        "",
+        "## Validation stats",
+        "",
+        "Validation uses `xcsp3-solutionChecker-2.6.0.jar` on cells with an incumbent and a solver log solution.",
+        "",
+        "| run | valid | invalid | checker_error | no_solution | skipped_unsat | skipped_no_incumbent | missing_instance | checker_timeout |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|",
+    ]
+    for run in RUNS:
+        counts = Counter(v for (slug, _), v in validation.items() if slug == run.slug)
+        lines.append(
+            "| "
+            + " | ".join(
+                [
+                    f"`{run.slug}`",
+                    str(counts["valid"]),
+                    str(counts["invalid"]),
+                    str(counts["checker_error"]),
+                    str(counts["no_solution"]),
+                    str(counts["skipped_unsat"]),
+                    str(counts["skipped_no_incumbent"]),
+                    str(counts["missing_instance"]),
+                    str(counts["checker_timeout"]),
+                ]
+            )
+            + " |"
+        )
+    lines.extend(["", VALIDATION_END, ""])
+    return "\n".join(lines)
+
+
 def update_doc(root: Path) -> None:
     doc = root / "cop-results.md"
     table = build_table(root)
+    validation_stats = build_validation_stats(root)
     if doc.exists():
         text = doc.read_text()
     else:
         text = "# COP Results\n\n"
+    if VALIDATION_BEGIN in text and VALIDATION_END in text:
+        pre = text.split(VALIDATION_BEGIN, 1)[0].rstrip()
+        post = text.split(VALIDATION_END, 1)[1].lstrip()
+        text = pre + "\n\n" + validation_stats + ("\n" + post if post else "")
+    else:
+        marker = BEGIN if BEGIN in text else None
+        if marker:
+            pre, post = text.split(marker, 1)
+            text = pre.rstrip() + "\n\n" + validation_stats + "\n" + marker + post
+        else:
+            text = text.rstrip() + "\n\n" + validation_stats
     if BEGIN in text and END in text:
         pre = text.split(BEGIN, 1)[0].rstrip()
         post = text.split(END, 1)[1].lstrip()
@@ -403,10 +633,16 @@ def update_doc(root: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--no-fetch", action="store_true", help="Regenerate from existing logs only")
+    parser.add_argument("--validate", action="store_true", help="Run XCSP3 solutionChecker before regenerating")
+    parser.add_argument("--checker-jar", type=Path, default=DEFAULT_CHECKER_JAR)
+    parser.add_argument("--benchmark-dir", type=Path, default=DEFAULT_BENCHMARK_DIR)
+    parser.add_argument("--validation-workers", type=int, default=4)
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     if not args.no_fetch:
         fetch_logs(root)
+    if args.validate:
+        validate_solutions(root, args.checker_jar, args.benchmark_dir, args.validation_workers)
     update_doc(root)
 
 
