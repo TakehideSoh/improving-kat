@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import lzma
 import re
 import sys
 import subprocess
@@ -12,6 +13,7 @@ import tempfile
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 csv.field_size_limit(sys.maxsize)
@@ -22,6 +24,8 @@ BEGIN = "<!-- BEGIN COP1000_INSTANCE_TABLE -->"
 END = "<!-- END COP1000_INSTANCE_TABLE -->"
 VALIDATION_BEGIN = "<!-- BEGIN COP1000_VALIDATION_STATS -->"
 VALIDATION_END = "<!-- END COP1000_VALIDATION_STATS -->"
+CONSISTENCY_BEGIN = "<!-- BEGIN COP1000_CONSISTENCY_STATS -->"
+CONSISTENCY_END = "<!-- END COP1000_CONSISTENCY_STATS -->"
 DEFAULT_CHECKER_JAR = Path(
     "/home/soh/02_prog/xcsp3instances/XCSP3-Java-Tools/target/xcsp3-solutionChecker-2.6.0.jar"
 )
@@ -137,6 +141,14 @@ RUNS = [
         "kat-cop1000-direct-order-mdd-tl-scip-dynamic-20260506-bd3c9f7d-q10672",
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-scip-dynamic-20260506-bd3c9f7d-q10672",
+    ),
+    Run(
+        "bd3c9f7d-scip-log-scop-dynamic",
+        "bd3c9f7d SCIP log-scop dynamic",
+        "kat-cop1000-log-scop-mdd-tl-scip-dynamic-20260506-bd3c9f7d-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-log-scop-mdd-tl-scip-dynamic-20260506-bd3c9f7d-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
         "pycsp3-extra-ortools-20260505",
@@ -342,6 +354,21 @@ def instance_path(benchmark_dir: Path, instance: str) -> Path:
     if marker in instance:
         return benchmark_dir / "competition" / instance.split(marker, 1)[1]
     return benchmark_dir / instance.lstrip("/")
+
+
+def objective_sense(benchmark_dir: Path, instance: str) -> str:
+    path = instance_path(benchmark_dir, instance)
+    if not path.exists():
+        return "unknown"
+    try:
+        data = path.read_bytes()
+        if path.suffix == ".lzma":
+            data = lzma.decompress(data)
+        text = data.decode("utf-8", errors="ignore")
+    except (OSError, lzma.LZMAError):
+        return "unknown"
+    m = re.search(r"<\s*(minimize|maximize)\b", text)
+    return m.group(1) if m else "unknown"
 
 
 def classify_checker_output(returncode: int, output: str) -> tuple[str, str]:
@@ -602,14 +629,202 @@ def build_validation_stats(root: Path) -> str:
     return "\n".join(lines)
 
 
-def update_doc(root: Path) -> None:
+def parse_decimal(text: str | None) -> Decimal | None:
+    if text is None:
+        return None
+    try:
+        return Decimal(text)
+    except InvalidOperation:
+        return None
+
+
+def is_better(value: Decimal, incumbent: Decimal, sense: str) -> bool:
+    if sense == "minimize":
+        return value < incumbent
+    if sense == "maximize":
+        return value > incumbent
+    return False
+
+
+def format_decimal(value: object) -> str:
+    if not isinstance(value, Decimal):
+        return str(value)
+    if value == value.to_integral_value():
+        return str(value.quantize(Decimal(1)))
+    return format(value.normalize(), "f")
+
+
+def consistency_issues(root: Path, benchmark_dir: Path) -> list[dict[str, str]]:
+    instances = read_instances(root)
+    all_rows = {run.slug: load_rows(root, run) for run in RUNS}
+    validation = load_validation(root)
+    issues: list[dict[str, str]] = []
+
+    for instance_id, instance in instances:
+        sense = objective_sense(benchmark_dir, instance)
+        entries: list[dict[str, object]] = []
+        for run in RUNS:
+            row_path, fields = all_rows[run.slug].get(instance_id, (None, []))
+            log_path = log_path_for_row(root, run, instance_id, row_path)
+            incumbent, _, _ = parse_log(log_path)
+            status = fields[1] if len(fields) > 1 else ""
+            value = parse_decimal(incumbent)
+            check = validation.get((run.slug, instance_id), "")
+            if check in {"invalid", "checker_error", "checker_timeout"}:
+                continue
+            entries.append(
+                {
+                    "run": run.slug,
+                    "status": status,
+                    "value": value,
+                }
+            )
+
+        unsat_runs = [entry["run"] for entry in entries if entry["status"] == "unsat"]
+        value_entries = [entry for entry in entries if entry["value"] is not None]
+        if unsat_runs and value_entries:
+            issues.append(
+                {
+                    "instance_id": str(instance_id),
+                    "instance": instance,
+                    "sense": sense,
+                    "issue": "unsat_with_value",
+                    "detail": "UNSAT from "
+                    + ", ".join(str(run) for run in unsat_runs)
+                    + "; values from "
+                    + ", ".join(
+                        f"{entry['run']}={format_decimal(entry['value'])}" for entry in value_entries[:8]
+                    ),
+                }
+            )
+
+        opt_entries = [
+            entry for entry in entries if entry["status"] == "optimum" and entry["value"] is not None
+        ]
+        opt_values = {entry["value"] for entry in opt_entries}
+        if len(opt_values) > 1:
+            issues.append(
+                {
+                    "instance_id": str(instance_id),
+                    "instance": instance,
+                    "sense": sense,
+                    "issue": "optimal_mismatch",
+                    "detail": "; ".join(
+                        f"{entry['run']}={format_decimal(entry['value'])}" for entry in opt_entries
+                    ),
+                }
+            )
+
+        if len(opt_values) == 1 and sense in {"minimize", "maximize"}:
+            optimum = next(iter(opt_values))
+            better_entries = [
+                entry
+                for entry in value_entries
+                if entry["status"] != "optimum"
+                and isinstance(entry["value"], Decimal)
+                and is_better(entry["value"], optimum, sense)
+            ]
+            if better_entries:
+                issues.append(
+                    {
+                        "instance_id": str(instance_id),
+                        "instance": instance,
+                        "sense": sense,
+                        "issue": "incumbent_beats_optimum",
+                        "detail": f"optimum={format_decimal(optimum)}; "
+                        + "; ".join(
+                            f"{entry['run']}={format_decimal(entry['value'])}" for entry in better_entries
+                        ),
+                    }
+                )
+    return issues
+
+
+def write_consistency_results(root: Path, benchmark_dir: Path) -> None:
+    rows = consistency_issues(root, benchmark_dir)
+    path = root / "logs" / "consistency" / "results.csv"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="") as f:
+        fieldnames = ["instance_id", "instance", "sense", "issue", "detail"]
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def load_consistency(root: Path) -> list[dict[str, str]]:
+    path = root / "logs" / "consistency" / "results.csv"
+    if not path.exists():
+        return []
+    with path.open(newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def build_consistency_stats(root: Path) -> str:
+    rows = load_consistency(root)
+    counts = Counter(row.get("issue", "") for row in rows)
+    lines = [
+        CONSISTENCY_BEGIN,
+        "",
+        "## Cross-solver consistency stats",
+        "",
+        "This check compares solver results for each instance after excluding cells marked `invalid`, `checker_error`, or `checker_timeout` by validation.",
+        "It reports differing proved optima, incumbents that beat a proved optimum according to the XCSP3 objective sense, and UNSAT/value contradictions.",
+        "",
+        "| issue | count |",
+        "|---|---:|",
+    ]
+    for issue in ["optimal_mismatch", "incumbent_beats_optimum", "unsat_with_value"]:
+        lines.append(f"| `{issue}` | {counts[issue]} |")
+    if rows:
+        lines.extend(
+            [
+                "",
+                "Detailed results are in `logs/consistency/results.csv`. Issues shown below are capped at 50 rows:",
+                "",
+                "| # | instance | sense | issue | detail |",
+                "|---:|---|---|---|---|",
+            ]
+        )
+        for row in rows[:50]:
+            lines.append(
+                "| "
+                + " | ".join(
+                    [
+                        row["instance_id"],
+                        f"`{md_escape(Path(row['instance']).name)}`",
+                        md_escape(row["sense"]),
+                        f"`{md_escape(row['issue'])}`",
+                        md_escape(row["detail"]),
+                    ]
+                )
+                + " |"
+            )
+    else:
+        lines.extend(["", "No cross-solver inconsistencies were found."])
+    lines.extend(["", CONSISTENCY_END, ""])
+    return "\n".join(lines)
+
+
+def update_doc(root: Path, benchmark_dir: Path) -> None:
     doc = root / "cop-results.md"
     table = build_table(root)
     validation_stats = build_validation_stats(root)
+    consistency_stats = build_consistency_stats(root)
     if doc.exists():
         text = doc.read_text()
     else:
         text = "# COP Results\n\n"
+    if CONSISTENCY_BEGIN in text and CONSISTENCY_END in text:
+        pre = text.split(CONSISTENCY_BEGIN, 1)[0].rstrip()
+        post = text.split(CONSISTENCY_END, 1)[1].lstrip()
+        text = pre + "\n\n" + consistency_stats + ("\n" + post if post else "")
+    else:
+        marker = BEGIN if BEGIN in text else None
+        if marker:
+            pre, post = text.split(marker, 1)
+            text = pre.rstrip() + "\n\n" + consistency_stats + "\n" + marker + post
+        else:
+            text = text.rstrip() + "\n\n" + consistency_stats
     if VALIDATION_BEGIN in text and VALIDATION_END in text:
         pre = text.split(VALIDATION_BEGIN, 1)[0].rstrip()
         post = text.split(VALIDATION_END, 1)[1].lstrip()
@@ -643,7 +858,8 @@ def main() -> None:
         fetch_logs(root)
     if args.validate:
         validate_solutions(root, args.checker_jar, args.benchmark_dir, args.validation_workers)
-    update_doc(root)
+    write_consistency_results(root, args.benchmark_dir)
+    update_doc(root, args.benchmark_dir)
 
 
 if __name__ == "__main__":

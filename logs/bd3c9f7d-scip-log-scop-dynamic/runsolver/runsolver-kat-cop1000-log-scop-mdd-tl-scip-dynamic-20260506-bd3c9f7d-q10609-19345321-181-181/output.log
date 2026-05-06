@@ -1,0 +1,35 @@
+c cmd: /host-parser-bin/kat_xcsp_bd3c9f7d_scip_dynamic /bench/competition/2022-2025/COP22to25/CarpetCutting-test06_c23.xml.lzma --encoder log-scop --order-ge-table mdd-tl --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=302
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=1 pruned=7981 changed_domains=71 entailed_tables=13
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=302
+c 00h00m00s | stage:lower:start
+c 00h00m05s | stage:lower:done ms=5222 lowered=302 unsupported=0
+c 00h00m05s | stage:post_lower:start
+c 00h00m06s | stage:post_lower:done ms=1298 rounds=5718 tightened=144347 removed_cls=93441 removed_lits=86747 unsat=false precise_hits=478 precise_rounds=2 pivot_recomputes=172553 pivot_exact_attempts=355 pivot_general_attempts=172383 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=172350 pivot_general_tightened=33 setup_ms=555 loop_ms=619 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=9 sat_ms=0 precise_ms=36
+c 00h00m06s | stage:lowered-shape int_vars=205016 bool_vars=411446 linear_atoms=827953 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=1144578
+c 00h00m06s | stage:root-lp:start backend=scip-ffi
+c 00h08m35s | stage:root-lp:skip backend=scip-ffi reason=root LP skipped: wall-clock time limit reached during LP shape gate ms=509272
+c 00h08m35s | stage:preencode(log-scop):start
+c 00h08m36s | stage:preencode(log-scop):done ms=210 int_vars=205016
+c 00h08m36s | stage:encode(log-scop):start
+c 00h10m05s | stage:encode(log-scop):done ms=89584 sat_vars=62119920 sat_clauses=161653789 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=1426329 log_scop_pb_mixed=0 log_scop_pb_bdd2=0 log_scop_pb_bdd3=1426329 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=1426329 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h10m06s | stage:sat:init solver=CaDiCaL vars=62119920 clauses=161653789
+c 00h10m06s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h12m50s | stage:sat:solve:done round=1 ms=163733 result=Sat assumptions=0 phase_lits=0
+c 00h12m50s | stage:decode:start round=1 requested_int_ids=261
+c 00h12m51s | stage:decode:final:start round=1 requested_int_ids=261
+c 00h12m51s | stage:decode:done round=1 int_assignments=261
+c 00h12m51s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h12m51s | result:Sat
+c 00h12m51s | objective:incumbent kind=initial value=4871 rounds=1 improvements=0
+o 4871
+c 00h12m51s | stage:sat:init solver=CaDiCaL vars=62119920 clauses=161653789
+c 00h12m51s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=1197
+c 00h13m08s | stage:sat:solve:done round=1 ms=17084 result=Sat assumptions=0 phase_lits=1197
+c 00h13m08s | stage:decode:start round=1 requested_int_ids=261
+s UNKNOWN
+c reason: internal_error: log-scop objective relaxation could not encode objective-variable bound cut
+d CSV /bench/competition/2022-2025/COP22to25/CarpetCutting-test06_c23.xml.lzma,internal_error,,,,,,,,,,,,,,,,,,,,,,,,,,,,internal_error,log-scop objective relaxation could not encode objective-variable bound cut
