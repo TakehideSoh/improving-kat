@@ -1,6 +1,6 @@
 # COP Results
 
-最終更新: 2026-05-04
+最終更新: 2026-05-07
 
 ## Laurel `/LARGE0` COP1000 ベンチ履歴
 
@@ -29,7 +29,7 @@
 | `kat-cop22to25-1000-order-direct-mdd-tl-cop-20260503-a32997fd-q10672` | `a32997fd`, `kat_xcsp_a32997fd` | same as `1d1a452a` direct-order | 1800s, `p=1:t=28:c=28:m=128000M` | 992 / 1000; nonempty 732 | 529 | 268 | 261 | 181 | 262 | 28 | auxiliary-domain remap fix 後。残りは OOM と SAT variable overflow 系 |
 | `kat-cop1000-decode-deaths100-order-direct-partialdecode-20260504` | post-`a32997fd` partial-decode experiment | direct-order partial decode diagnostic | 1800s class | 98 / 1000; nonempty 79 | 76 | 0 | 76 | 3 | 21 | 900 | decode death 100 件付近の診断用 subset |
 | `kat-cop1000-direct-order-mdd-tl-scip-static-20260504-31b6e7a3-q10672` | `31b6e7a3`, `kat_xcsp_31b6e7a3_scip_static` | `--encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress`; SCIP-enabled default COP path | 1800s, `p=1:t=28:c=28:m=122000M` | 64 / 1000; nonempty 0 | 0 | 0 | 0 | 0 | 0 | 1000 | cancelled/canary。64 completed だが全 row 空 |
-| `kat-cop1000-direct-order-mdd-tl-scip-static-20260504-31b6e7a3-q10672-rerun1` | `31b6e7a3`, `kat_xcsp_31b6e7a3_scip_static` | same as above | 1800s, `p=1:t=28:c=28:m=122000M` | 910 / 1000; nonempty 835 | 678 | 215 | 463 | 120 | 81 | 121 | 2026-05-05 11:00 JST 時点で running/pending が残る途中 snapshot |
+| `kat-cop1000-direct-order-mdd-tl-scip-static-20260504-31b6e7a3-q10672-rerun1` | `31b6e7a3`, `kat_xcsp_31b6e7a3_scip_static` | same as above | 1800s, `p=1:t=28:c=28:m=122000M` | 994 / 1000; nonempty 919 | 758 | 239 | 519 | 124 | 81 | 37 | 全 1000 task 終了。`sacct`: 919 completed / 81 OOM; missing rows 6 |
 | `kat-cop1000-log-scop-mdd-tl-scip-static-20260504-31b6e7a3-q10609-rerun2` | `31b6e7a3`, `kat_xcsp_31b6e7a3_scip_static` | `--encoder log-scop --order-ge-table mdd-tl --progress`; SCIP-enabled default COP path | 1800s, `p=1:t=28:c=28:m=122000M` | 998 / 1000; nonempty 949 | 602 | 335 | 267 | 126 | 51 | 221 | `/LARGE0/gr10609` run。`internal_error=210`, `lower_unsupported_constraints=11`, missing rows 2 |
 
 補足:
