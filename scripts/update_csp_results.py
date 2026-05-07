@@ -47,6 +47,13 @@ RUNS = [
         "runsolver-kat-c22-c25-csp800-log-scop-mdd-tl-20260427-b9f938ec-q10672",
         GR10672,
     ),
+    Run(
+        "csp800-0a48c5bb-portfolio-stage1",
+        "0a48c5bb portfolio stage1",
+        "kat-c22-c25-csp800-portfolio-mdd-tl-no-budget-alldiff-stage1-20260419-0a48c5bb",
+        "runsolver-kat-c22-c25-csp800-portfolio-mdd-tl-no-budget-alldiff-stage1-20260419-0a48c5bb",
+        GR10672,
+    ),
 ]
 
 
