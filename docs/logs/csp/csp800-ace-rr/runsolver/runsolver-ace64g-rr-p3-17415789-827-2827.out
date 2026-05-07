@@ -1,0 +1,83 @@
+
+ACE v2.6 
+
+  instance
+    name:NurseRostering-roster-5-25-22_c22
+    args:/work/17415789_827/NurseRostering-roster-5-25-22_c22.xml -rr=true -rlog=false -npc=true
+
+ ...Parsing /work/17415789_827/NurseRostering-roster-5-25-22_c22.xml
+
+ ...Loading variables
+
+ ...Loading constraints
+
+  domains
+    types:1  values:1,000  sizes:[10:100]
+  variables
+    count:100  arrays:[x:100]  degrees:[2:72,3:26,4:2]
+  constraints
+    count:50  specific:50  backtrackable:20  groups:3  arities:[1:30,10:20]
+    unary:[Extension1:30]
+    non_unary:[AllDifferentComplete:10,CMDDO-MDD:10]
+    mdds:[229:10]  nodes:2,290
+    extStructures:(10,shared:0)
+    wck:0.35  cpu:0.789  mem:184M549
+
+ ...Building solver
+
+  solver
+    decoder:Decoder1
+    wck:0.39  cpu:0.813  mem:184M549
+
+  preprocessing
+    effs:42  entailed:30  values:808  removedByAC:192  singletons:5  unsat:false
+    wck:0.011  cpu:0.824  mem:184M549
+
+  search
+ ...Discarding 5 singleton variables
+    run1  dpts:12..14  robin:PickOnDom-First  effs:216  asgs:(20,noefs=0,fails=5)  fails:5  wrgs:7  wck:0.02  ngds:4
+    run2  dpts:21..26  robin:WdegOnDom-Last  effs:425  asgs:(31,noefs=0,fails=5)  fails:10  wrgs:13  wck:0.02  ngds:8
+    run3  dpts:22..24  robin:FrbaOnDom-Rand  effs:626  asgs:(29,noefs=0,fails=5)  fails:15  wrgs:20  wck:0.03  ngds:11
+    run4  dpts:13..14  robin:Wdeg-First  effs:803  asgs:(19,noefs=0,fails=5)  fails:20  wrgs:26  wck:0.04  ngds:14
+    run5  dpts:12..15  robin:PickOnDom-Last  effs:970  asgs:(21,noefs=0,fails=6)  fails:26  wrgs:35  wck:0.04  ngds:15
+    run6  dpts:10..22  robin:WdegOnDom-Rand  effs:1,190  asgs:(28,noefs=0,fails=6)  fails:32  wrgs:43  wck:0.05  ngds:18
+    run7  dpts:8..19  robin:FrbaOnDom-First  effs:1,330  asgs:(25,noefs=0,fails=6)  fails:38  wrgs:49  wck:0.05  ngds:24
+    run8  dpts:15..16  robin:Wdeg-Last  effs:1,490  asgs:(23,noefs=0,fails=7)  fails:45  wrgs:56  wck:0.06  ngds:31
+    run9  dpts:12..14  robin:PickOnDom-Rand  effs:1,650  asgs:(22,noefs=0,fails=7)  fails:52  wrgs:66  wck:0.06  ngds:33
+    run10  dpts:11..16  robin:WdegOnDom-First  effs:1,829  asgs:(23,noefs=0,fails=7)  fails:59  wrgs:74  wck:0.06  ngds:38
+    run11  dpts:14..19  robin:FrbaOnDom-Last  effs:2,025  asgs:(27,noefs=0,fails=8)  fails:67  wrgs:87  wck:0.07  ngds:39
+    run12  dpts:6..25  robin:Wdeg-Rand  effs:2,200  asgs:(30,noefs=0,fails=5)  fails:72  wrgs:92  wck:0.07  ngds:44  sols:1
+
+  global
+    effs:2,200  ngds:44
+    stop:REACHED_GOAL  wrgs:92  sols:1  sol1Cpu:0.895
+    wck:0.47  cpu:0.896  mem:201M326
+
+
+  Solution 1 in JSON-like format:
+   {'x': [
+     [3, 4, 3, 4, 5, 4, 5, 0, 1, 2],
+     [0, 9, 8, 9, 8, 9, 8, 9, 8, 9],
+     [4, 3, 0, 5, 4, 3, 2, 1, 2, 1],
+     [1, 2, 1, 2, 1, 0, 3, 4, 5, 6],
+     [5, 6, 5, 6, 7, 6, 7, 6, 7, 0],
+     [6, 5, 4, 3, 2, 1, 0, 5, 6, 5],
+     [7, 8, 7, 0, 3, 2, 1, 2, 3, 4],
+     [8, 7, 6, 7, 6, 7, 6, 7, 0, 7],
+     [2, 1, 2, 1, 0, 5, 4, 3, 4, 3],
+     [9, 0, 9, 8, 9, 8, 9, 8, 9, 8]
+    ]}
+
+s SATISFIABLE
+
+v  <instantiation id='sol1' type='solution'> <list> x[][] </list> <values> 3 4 3 4 5 4 5 0 1 2 0 9 8 9 8 9 8 9 8 9 4 3 0 5 4 3 2 1 2 1 1 2 1 2 1 0 3 4 5 6 5 6 5 6 7 6 7 6 7 0 6 5 4 3 2 1 0 5 6 5 7 8 7 0 3 2 1 2 3 4 8 7 6 7 6 7 6 7 0 7 2 1 2 1 0 5 4 3 4 3 9 0 9 8 9 8 9 8 9 8 </values> </instantiation>
+
+d FOUND SOLUTIONS  1
+
+d WRONG DECISIONS  92  (1150.00 wrg/s)
+
+d WCK SOL 1  0.47
+d WCK SOL-1  0.47
+d CPU        0.903
+
+d INCOMPLETE EXPLORATION

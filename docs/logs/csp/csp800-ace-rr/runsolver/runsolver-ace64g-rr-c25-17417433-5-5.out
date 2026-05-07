@@ -1,0 +1,86 @@
+
+ACE v2.6 
+
+  instance
+    name:Accordion-13-02_c25
+    args:/work/17417433_5/Accordion-13-02_c25.xml -rr=true -rlog=false -npc=true
+
+ ...Parsing /work/17417433_5/Accordion-13-02_c25.xml
+
+ ...Loading variables
+
+ ...Loading constraints
+
+  domains
+    types:5  values:12,808  sizes:[1:36,2:900,13:24,52:205]
+  variables
+    count:1,165  fixed:36  auxiliary:936  arrays:[pf:12,pt:12,cf:12,ct:12,x:169,aux_gb:12,_ax_:936]  degrees:[1:36,2:504,3:444,4:1...8:121,10:11,15:15,16:9]
+  constraints
+    count:1,462  converted:24  specific:1,294  generic:168  backtrackable:12  groups:18  arities:[1:34,2:912,3:468,15:48]
+    unary:[Extension1:34]
+    non_unary:[CT-Table:12,ElementVar:48,Intension:168,Or2:444,Reif2EQ:156,Reif2GE:144,Reif2LE:144,Reif3EQ:300,STR0a-Table:12]
+    tables:[22:12,832:12]  tuples:10,248
+    extStructures:(2,shared:22)  intStructures:(4,shared:164)
+    wck:0.69  cpu:1.101  mem:352M321
+
+ ...Building solver
+
+  solver
+    nNotAC:48  reviser:Reviser3  decoder:Decoder1
+    wck:0.74  cpu:1.146  mem:377M98
+
+  preprocessing
+    effs:440  revisions:(675,useless=606)  entailed:529  values:8,659  removedByAC:4,149  singletons:451  unsat:false
+    wck:0.011  cpu:1.159  mem:377M98
+
+  search
+ ...Discarding 451 singleton variables
+    run1  dpts:0..2  robin:PickOnDom-First  effs:721  asgs:(7,noefs=0,fails=5)  fails:5  wrgs:5  wck:0.01  ngds:2
+    run2  dpts:0..8  robin:WdegOnDom-Last  effs:1,427  asgs:(13,noefs=0,fails=5)  fails:10  wrgs:10  wck:0.01  ngds:5
+    run3  dpts:1..11  robin:FrbaOnDom-Rand  effs:1,773  asgs:(16,noefs=0,fails=5)  fails:15  wrgs:15  wck:0.02  ngds:10
+    run4  dpts:1..2  robin:Wdeg-First  effs:2,061  asgs:(7,noefs=0,fails=5)  fails:20  wrgs:20  wck:0.02  ngds:15
+    run5  dpts:6..15  robin:PickOnDom-Last  effs:2,860  asgs:(19,noefs=0,fails=4)  fails:24  wrgs:24  wck:0.02  ngds:19  sols:1
+
+  global
+    effs:2,860  revisions:(2073,useless=1760)  ngds:19
+    stop:REACHED_GOAL  wrgs:24  sols:1  sol1Cpu:1.181
+    wck:0.78  cpu:1.181  mem:377M98
+
+
+  Solution 1 in JSON-like format:
+   {
+    pf: [7, 12, 12, 11, 8, 9, 8, 7, 5, 4, 4, 3],
+    pt: [4, 11, 11, 10, 5, 6, 7, 4, 2, 3, 1, 0],
+    cf: [16, 0, 0, 0, 47, 0, 18, 18, 47, 18, 0, 18],
+    ct: [25, 6, 0, 39, 46, 12, 23, 16, 42, 14, 13, 44],
+    x: [
+     [44, 13, 42, 14, 25, 46, 12, 16, 23, 47, 18, 39,  6],
+     [44, 13, 42, 14, 16, 46, 12, 23, 47, 18, 39,  6,  0],
+     [44, 13, 42, 14, 16, 46, 12, 23, 47, 18, 39,  0,  0],
+     [44, 13, 42, 14, 16, 46, 12, 23, 47, 18, 39,  0,  0],
+     [44, 13, 42, 14, 16, 46, 12, 23, 47, 18,  0,  0,  0],
+     [44, 13, 42, 14, 16, 47, 12, 23, 18,  0,  0,  0,  0],
+     [44, 13, 42, 14, 16, 47,  0, 23, 18,  0,  0,  0,  0],
+     [44, 13, 42, 14, 16, 47,  0, 18,  0,  0,  0,  0,  0],
+     [44, 13, 42, 14, 18, 47,  0,  0,  0,  0,  0,  0,  0],
+     [44, 13, 47, 14, 18,  0,  0,  0,  0,  0,  0,  0,  0],
+     [44, 13, 47, 18,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+     [44,  0, 47, 18,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+     [18,  0, 47,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]
+    ],
+    aux_gb: [16, 0, 0, 0, 47, 0, 18, 18, 47, 18, 0, 18]
+   }
+
+s SATISFIABLE
+
+v  <instantiation id='sol1' type='solution'> <list> pf[] pt[] cf[] ct[] x[][] aux_gb[] </list> <values> 7 12 12 11 8 9 8 7 5 4 4 3   4 11 11 10 5 6 7 4 2 3 1 0   16 0x3 47 0 18 18 47 18 0 18   25 6 0 39 46 12 23 16 42 14 13 44   44 13 42 14 25 46 12 16 23 47 18 39 6 44 13 42 14 16 46 12 23 47 18 39 6 0 44 13 42 14 16 46 12 23 47 18 39 0 0 44 13 42 14 16 46 12 23 47 18 39 0 0 44 13 42 14 16 46 12 23 47 18 0x3 44 13 42 14 16 47 12 23 18 0x4 44 13 42 14 16 47 0 23 18 0x4 44 13 42 14 16 47 0 18 0x5 44 13 42 14 18 47 0x7 44 13 47 14 18 0x8 44 13 47 18 0x9 44 0 47 18 0x9 18 0 47 0x10   16 0x3 47 0 18 18 47 18 0 18 </values> </instantiation>
+
+d FOUND SOLUTIONS  1
+
+d WRONG DECISIONS  24  (774.19 wrg/s)
+
+d WCK SOL 1  0.78
+d WCK SOL-1  0.78
+d CPU        1.189
+
+d INCOMPLETE EXPLORATION

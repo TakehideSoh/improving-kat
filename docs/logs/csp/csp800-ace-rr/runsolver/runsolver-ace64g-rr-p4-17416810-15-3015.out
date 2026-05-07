@@ -1,0 +1,95 @@
+
+ACE v2.6 
+
+  instance
+    name:SportsScheduling-dummy-08_c22
+    args:/work/17416810_15/SportsScheduling-dummy-08_c22.xml -rr=true -rlog=false -npc=true
+
+ ...Parsing /work/17416810_15/SportsScheduling-dummy-08_c22.xml
+
+ ...Loading variables
+
+ ...Loading constraints
+
+  domains
+    types:2  values:1,296  sizes:[8:64,28:28]
+  variables
+    count:92  arrays:[m:28,x:28,y:28,xd:4,yd:4]  degrees:[3:32,4:60]
+  constraints
+    count:60  specific:60  backtrackable:17  groups:6  arities:[1:4,2:4,3:28,4:7,8:8,14:4,16:4,28:1]
+    unary:[Extension1:4]
+    non_unary:[AllDifferentComplete:9,Cardinality:8,Exactly1:7,STR0a-Table:28,Sub2LE:4]
+    tables:[28:28]  tuples:784
+    extStructures:(1,shared:27)
+    wck:0.28  cpu:0.703  mem:167M772
+
+ ...Building solver
+
+  solver
+    decoder:Decoder1
+    wck:0.31  cpu:0.721  mem:192M549
+
+  preprocessing
+    effs:76  entailed:9  values:932  removedByAC:364  singletons:12  unsat:false
+    wck:0.009  cpu:0.73  mem:192M549
+
+  search
+ ...Discarding 12 singleton variables
+    run1  dpts:3..4  robin:PickOnDom-First  effs:235  asgs:(9,noefs=0,fails=5)  fails:5  wrgs:6  wck:0.01  ngds:5
+    run2  dpts:8..9  robin:WdegOnDom-Last  effs:480  asgs:(14,noefs=0,fails=5)  fails:10  wrgs:12  wck:0.02  ngds:9
+    run3  dpts:9..11  robin:FrbaOnDom-Rand  effs:839  asgs:(16,noefs=0,fails=5)  fails:15  wrgs:19  wck:0.02  ngds:11
+    run4  dpts:4..8  robin:Wdeg-First  effs:1,183  asgs:(14,noefs=0,fails=5)  fails:20  wrgs:27  wck:0.03  ngds:15
+    run5  dpts:10..19  robin:PickOnDom-Last  effs:1,496  asgs:(23,noefs=0,fails=3)  fails:23  wrgs:31  wck:0.03  ngds:18  sols:1
+
+  global
+    effs:1,496  ngds:18
+    stop:REACHED_GOAL  wrgs:31  sols:1  sol1Cpu:0.763
+    wck:0.35  cpu:0.763  mem:192M549
+
+
+  Solution 1 in JSON-like format:
+   {
+    m: [
+     [ 0, 13, 22, 27],
+     [23, 19, 12,  1],
+     [ 2, 26, 16,  9],
+     [25,  3,  8, 17],
+     [24,  7,  4, 20],
+     [21,  5, 14, 10],
+     [15, 11,  6, 18]
+    ],
+    x: [
+     [0, 2, 4, 6],
+     [4, 3, 1, 0],
+     [0, 5, 2, 1],
+     [5, 0, 1, 2],
+     [4, 1, 0, 3],
+     [3, 0, 2, 1],
+     [2, 1, 0, 3]
+    ],
+    y: [
+     [1, 3, 5, 7],
+     [6, 5, 7, 2],
+     [3, 7, 6, 4],
+     [6, 4, 3, 7],
+     [7, 2, 5, 6],
+     [7, 6, 4, 5],
+     [5, 6, 7, 4]
+    ],
+    xd: [1, 4, 3, 0],
+    yd: [2, 7, 6, 5]
+   }
+
+s SATISFIABLE
+
+v  <instantiation id='sol1' type='solution'> <list> m[][] x[][] y[][] xd[] yd[] </list> <values> 0 13 22 27 23 19 12 1 2 26 16 9 25 3 8 17 24 7 4 20 21 5 14 10 15 11 6 18   0 2 4 6 4 3 1 0 0 5 2 1 5 0 1 2 4 1 0 3 3 0 2 1 2 1 0 3   1 3 5 7 6 5 7 2 3 7 6 4 6 4 3 7 7 2 5 6 7 6 4 5 5 6 7 4   1 4 3 0   2 7 6 5 </values> </instantiation>
+
+d FOUND SOLUTIONS  1
+
+d WRONG DECISIONS  31  (794.87 wrg/s)
+
+d WCK SOL 1  0.35
+d WCK SOL-1  0.35
+d CPU        0.769
+
+d INCOMPLETE EXPLORATION

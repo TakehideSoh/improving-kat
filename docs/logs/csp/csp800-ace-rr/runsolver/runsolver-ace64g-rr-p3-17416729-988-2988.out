@@ -1,0 +1,72 @@
+
+ACE v2.6 
+
+  instance
+    name:SocialGolfers-cnt-05-05-06_c24
+    args:/work/17416729_988/SocialGolfers-cnt-05-05-06_c24.xml -rr=true -rlog=false -npc=true
+
+ ...Parsing /work/17416729_988/SocialGolfers-cnt-05-05-06_c24.xml
+
+ ...Loading variables
+
+ ...Loading constraints
+
+  domains
+    types:2  values:4,350  sizes:[2:1800,5:150]
+  variables
+    count:1,950  auxiliary:1,800  arrays:[g:150,_ax_:1800]  degrees:[2:1800,28:3,29:32,30:38,31:58,32:19]
+  constraints
+    count:2,245  specific:2,245  backtrackable:46  groups:2  arities:[1:70,3:1800,5:40,6:300,12:24,25:6,50:5]
+    unary:[Extension1:70]
+    non_unary:[AllDifferentComplete:40,Cardinality:6,LexicographicLE:29,Reif3EQ:1800,SumSimpleLE:300]
+    wck:0.69  cpu:1.203  mem:335M544
+
+ ...Building solver
+
+  solver
+    decoder:Decoder1
+    wck:0.77  cpu:1.27  mem:385M875
+
+  preprocessing
+    effs:829  entailed:915  values:2,990  removedByAC:1,360  singletons:1,070  unsat:false
+    wck:0.016  cpu:1.287  mem:402M653
+
+  search
+ ...Discarding 1070 singleton variables
+    run1  dpts:5..9  robin:PickOnDom-First  effs:1,939  asgs:(17,noefs=0,fails=5)  fails:5  wrgs:9  wck:0.02  ngds:3
+    run2  dpts:0..1  robin:WdegOnDom-Last  effs:2,084  asgs:(6,noefs=0,fails=5)  fails:10  wrgs:14  wck:0.02  ngds:5
+    run3  dpts:1..8  robin:FrbaOnDom-Rand  effs:3,537  asgs:(15,noefs=0,fails=5)  fails:15  wrgs:23  wck:0.03  ngds:9
+    run4  dpts:2..5  robin:Wdeg-First  effs:5,050  asgs:(15,noefs=0,fails=5)  fails:20  wrgs:33  wck:0.03  ngds:11
+    run5  dpts:-1..6  robin:PickOnDom-Last  effs:5,923  asgs:(6,noefs=0,fails=0)  fails:20  wrgs:33  wck:0.04  ngds:11  sols:1
+
+  global
+    effs:5,923  ngds:11
+    stop:REACHED_GOAL  wrgs:33  sols:1  sol1Cpu:1.321
+    wck:0.83  cpu:1.322  mem:402M653
+
+
+  Solution 1 in JSON-like format:
+   {
+    g: [
+     [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4],
+     [0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4],
+     [0, 1, 2, 3, 4, 1, 2, 4, 0, 3, 2, 4, 3, 1, 0, 3, 0, 1, 4, 2, 4, 3, 0, 2, 1],
+     [0, 1, 2, 3, 4, 2, 4, 3, 1, 0, 3, 0, 1, 4, 2, 4, 3, 0, 2, 1, 1, 2, 4, 0, 3],
+     [0, 1, 2, 3, 4, 3, 0, 1, 4, 2, 4, 3, 0, 2, 1, 1, 2, 4, 0, 3, 2, 4, 3, 1, 0],
+     [0, 1, 2, 3, 4, 4, 3, 0, 2, 1, 1, 2, 4, 0, 3, 2, 4, 3, 1, 0, 3, 0, 1, 4, 2]
+    ]
+   }
+
+s SATISFIABLE
+
+v  <instantiation id='sol1' type='solution'> <list> g[][] </list> <values> 0x5 1x5 2x5 3x5 4x5 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 1 2 4 0 3 2 4 3 1 0 3 0 1 4 2 4 3 0 2 1 0 1 2 3 4 2 4 3 1 0 3 0 1 4 2 4 3 0 2 1 1 2 4 0 3 0 1 2 3 4 3 0 1 4 2 4 3 0 2 1 1 2 4 0 3 2 4 3 1 0 0 1 2 3 4 4 3 0 2 1 1 2 4 0 3 2 4 3 1 0 3 0 1 4 2 </values> </instantiation>
+
+d FOUND SOLUTIONS  1
+
+d WRONG DECISIONS  33  (767.44 wrg/s)
+
+d WCK SOL 1  0.82
+d WCK SOL-1  0.82
+d CPU        1.329
+
+d INCOMPLETE EXPLORATION

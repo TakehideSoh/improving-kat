@@ -1,0 +1,68 @@
+
+ACE v2.6 
+
+  instance
+    name:HyperSudoku-03_c24
+    args:/work/17415396_736/HyperSudoku-03_c24.xml -rr=true -rlog=false -npc=true
+
+ ...Parsing /work/17415396_736/HyperSudoku-03_c24.xml
+
+ ...Loading variables
+
+ ...Loading constraints
+
+  domains
+    types:1  values:729  sizes:[9:81]
+  variables
+    count:81  arrays:[x:81]  degrees:[3:45,4:36]
+  constraints
+    count:31  specific:31  backtrackable:31  groups:2  arities:[9:31]
+    non_unary:[AllDifferentComplete:31]
+    wck:0.23  cpu:0.686  mem:167M772
+
+ ...Building solver
+
+  solver
+    decoder:Decoder1
+    wck:0.26  cpu:0.709  mem:167M772
+
+  preprocessing
+    values:729  unsat:false
+    wck:0.002  cpu:0.712  mem:167M772
+
+  search
+    run1  dpts:25..28  robin:PickOnDom-First  effs:170  asgs:(33,noefs=0,fails=5)  fails:5  wrgs:5  wck:0.01  ngds:5
+    run2  dpts:25..34  robin:WdegOnDom-Last  effs:353  asgs:(38,noefs=0,fails=4)  fails:9  wrgs:9  wck:0.02  ngds:9  sols:1
+
+  global
+    effs:353  ngds:9
+    stop:REACHED_GOAL  wrgs:9  sols:1  sol1Cpu:0.732
+    wck:0.29  cpu:0.733  mem:167M772
+
+
+  Solution 1 in JSON-like format:
+   {'x': [
+     [9, 8, 7, 6, 5, 4, 3, 2, 1],
+     [6, 5, 4, 3, 2, 1, 9, 8, 7],
+     [3, 2, 1, 9, 8, 7, 6, 5, 4],
+     [5, 7, 6, 8, 1, 3, 2, 4, 9],
+     [8, 9, 3, 2, 4, 5, 7, 1, 6],
+     [1, 4, 2, 7, 9, 6, 5, 3, 8],
+     [4, 6, 9, 5, 3, 8, 1, 7, 2],
+     [7, 3, 8, 1, 6, 2, 4, 9, 5],
+     [2, 1, 5, 4, 7, 9, 8, 6, 3]
+    ]}
+
+s SATISFIABLE
+
+v  <instantiation id='sol1' type='solution'> <list> x[][] </list> <values> 9 8 7 6 5 4 3 2 1 6 5 4 3 2 1 9 8 7 3 2 1 9 8 7 6 5 4 5 7 6 8 1 3 2 4 9 8 9 3 2 4 5 7 1 6 1 4 2 7 9 6 5 3 8 4 6 9 5 3 8 1 7 2 7 3 8 1 6 2 4 9 5 2 1 5 4 7 9 8 6 3 </values> </instantiation>
+
+d FOUND SOLUTIONS  1
+
+d WRONG DECISIONS  9  (333.33 wrg/s)
+
+d WCK SOL 1  0.29
+d WCK SOL-1  0.29
+d CPU        0.74
+
+d INCOMPLETE EXPLORATION

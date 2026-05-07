@@ -2,7 +2,7 @@ CHECKER_JAR ?= /home/soh/02_prog/xcsp3instances/XCSP3-Java-Tools/target/xcsp3-so
 BENCHMARK_DIR ?= /home/soh/02_prog/benchmark
 VALIDATION_WORKERS ?= 4
 
-.PHONY: update-cop-results generate-cop-results validate-cop-results check-cop-results generate-cop-docs
+.PHONY: update-cop-results generate-cop-results validate-cop-results check-cop-results generate-cop-docs update-csp-results
 
 update-cop-results:
 	python3 scripts/update_cop_results.py --validate --checker-jar "$(CHECKER_JAR)" --benchmark-dir "$(BENCHMARK_DIR)" --validation-workers "$(VALIDATION_WORKERS)"
@@ -18,6 +18,9 @@ validate-cop-results:
 
 generate-cop-docs:
 	python3 scripts/generate_cop_docs.py
+
+update-csp-results:
+	python3 scripts/update_csp_results.py
 
 check-cop-results:
 	python3 scripts/update_cop_results.py --no-fetch --validate --checker-jar "$(CHECKER_JAR)" --benchmark-dir "$(BENCHMARK_DIR)" --validation-workers "$(VALIDATION_WORKERS)"

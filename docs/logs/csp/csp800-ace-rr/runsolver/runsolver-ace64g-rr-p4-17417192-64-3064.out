@@ -1,0 +1,79 @@
+
+ACE v2.6 
+
+  instance
+    name:WordDesign1-words-005_c23
+    args:/work/17417192_64/WordDesign1-words-005_c23.xml -rr=true -rlog=false -npc=true
+
+ ...Parsing /work/17417192_64/WordDesign1-words-005_c23.xml
+
+ ...Loading variables
+
+ ...Loading constraints
+
+  domains
+    types:2  values:800  sizes:[2:240,4:80]
+  variables
+    count:320  auxiliary:240  arrays:[x:40,y:40,_ax_:240]  degrees:[2:240,5:40,11:16,12:24]
+  constraints
+    count:319  specific:319  backtrackable:5  groups:4  arities:[2:40,3:240,8:35,16:4]
+    non_unary:[Add2EQ:40,CT-Table:5,LexicographicLT:4,Reif3NE:240,SumSimpleGE:30]
+    tables:[17440:5]  tuples:87,200
+    extStructures:(1,shared:4)
+    wck:0.63  cpu:1.145  mem:251M658
+
+ ...Building solver
+
+  solver
+    decoder:Decoder1
+    wck:0.71  cpu:1.209  mem:276M435
+
+  preprocessing
+    values:800  unsat:false
+    wck:0.003  cpu:1.213  mem:276M435
+
+  search
+    run1  dpts:15..17  robin:PickOnDom-First  effs:282  asgs:(25,noefs=0,fails=5)  fails:5  wrgs:9  wck:0.02  ngds:5
+    run2  dpts:3..9  robin:WdegOnDom-Last  effs:1,211  asgs:(15,noefs=0,fails=5)  fails:10  wrgs:18  wck:0.03  ngds:8
+    run3  dpts:69..180  robin:FrbaOnDom-Rand  effs:1,364  asgs:(185,noefs=166,fails=5)  fails:15  wrgs:25  wck:0.04  ngds:10
+    run4  dpts:15..17  robin:Wdeg-First  effs:1,642  asgs:(26,noefs=0,fails=5)  fails:20  wrgs:34  wck:0.05  ngds:14
+    run5  dpts:15..17  robin:PickOnDom-Last  effs:1,960  asgs:(25,noefs=4,fails=6)  fails:26  wrgs:43  wck:0.06  ngds:19
+    run6  dpts:10..38  robin:WdegOnDom-Rand  effs:2,289  asgs:(39,noefs=8,fails=1)  fails:27  wrgs:44  wck:0.06  ngds:20  sols:1
+
+  global
+    effs:2,289  noefs:178  ngds:20
+    stop:REACHED_GOAL  wrgs:44  sols:1  sol1Cpu:1.27
+    wck:0.78  cpu:1.271  mem:276M435
+
+
+  Solution 1 in JSON-like format:
+   {
+    x: [
+     [0, 2, 1, 0, 3, 1, 0, 1],
+     [3, 1, 2, 0, 3, 0, 1, 1],
+     [3, 3, 1, 0, 3, 2, 2, 2],
+     [3, 3, 1, 2, 1, 0, 2, 0],
+     [3, 3, 3, 2, 3, 1, 1, 2]
+    ],
+    y: [
+     [3, 1, 2, 3, 0, 2, 3, 2],
+     [0, 2, 1, 3, 0, 3, 2, 2],
+     [0, 0, 2, 3, 0, 1, 1, 1],
+     [0, 0, 2, 1, 2, 3, 1, 3],
+     [0, 0, 0, 1, 0, 2, 2, 1]
+    ]
+   }
+
+s SATISFIABLE
+
+v  <instantiation id='sol1' type='solution'> <list> x[][] y[][] </list> <values> 0 2 1 0 3 1 0 1 3 1 2 0 3 0 1 1 3 3 1 0 3 2x3 3 3 1 2 1 0 2 0 3x3 2 3 1 1 2   3 1 2 3 0 2 3 2 0 2 1 3 0 3 2 2 0 0 2 3 0 1x3 0 0 2 1 2 3 1 3 0x3 1 0 2 2 1 </values> </instantiation>
+
+d FOUND SOLUTIONS  1
+
+d WRONG DECISIONS  44  (611.11 wrg/s)
+
+d WCK SOL 1  0.78
+d WCK SOL-1  0.78
+d CPU        1.282
+
+d INCOMPLETE EXPLORATION
