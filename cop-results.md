@@ -62,6 +62,35 @@
 | `logs/31b6e7a3-scip-rerun1` | `579M` |
 | `logs/31b6e7a3-scip-log-scop-rerun2` | `49M` |
 
+<!-- BEGIN COP1000_RESULT_SUMMARY -->
+
+## COP1000 result summary
+
+`incumbent` counts cells with a reported objective value, including proved optimum cells.
+
+| run | optimum | incumbent | UNSAT |
+|---|---:|---:|---:|
+| `2c9fbcd6-order-ge-guarded-1800s` | 263 | 263 | 14 |
+| `72769ef1-cumcegar-2m` | 192 | 192 | 9 |
+| `72769ef1-guarded-basic-2m` | 99 | 99 | 2 |
+| `72769ef1-guarded-objvar-2m` | 0 | 0 | 0 |
+| `1d1a452a-direct-order` | 109 | 779 | 15 |
+| `1d1a452a-log-scop` | 292 | 819 | 13 |
+| `a32997fd-direct-order` | 253 | 676 | 15 |
+| `partialdecode-20260504` | 0 | 0 | 0 |
+| `31b6e7a3-scip-canary` | 0 | 0 | 0 |
+| `31b6e7a3-scip-rerun1` | 224 | 769 | 15 |
+| `31b6e7a3-scip-log-scop-rerun2` | 322 | 803 | 13 |
+| `9c976720-scip-log-scop-dynamic` | 323 | 804 | 13 |
+| `9c976720-scip-direct-order-dynamic` | 225 | 770 | 15 |
+| `bd3c9f7d-scip-direct-order-dynamic` | 211 | 760 | 15 |
+| `bd3c9f7d-scip-log-scop-dynamic` | 290 | 795 | 13 |
+| `ace64g-rr-20260505` | 321 | 925 | 14 |
+| `pycsp3-extra-ortools-20260505` | 497 | 830 | 11 |
+| `pycsp3-extra-ortools-1t-rerun1-20260505` | 414 | 830 | 15 |
+
+<!-- END COP1000_RESULT_SUMMARY -->
+
 <!-- BEGIN COP1000_VALIDATION_STATS -->
 
 ## Validation stats

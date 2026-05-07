@@ -18,15 +18,24 @@ th, td { border-right: 1px solid #d1d5db; border-bottom: 1px solid #d1d5db; padd
 th { background: #f1f5f9; }
 tr:nth-child(even) td { background: #fafafa; }
 .sticky-col-label { position: sticky; top: 0; z-index: 5; box-shadow: 0 1px 0 #d1d5db; }
-.sticky-row-label { position: sticky; left: 0; z-index: 4; box-shadow: 1px 0 0 #d1d5db; }
-.sticky-corner-label { z-index: 6; }
+.sticky-row-label { position: sticky; z-index: 4; box-shadow: 1px 0 0 #d1d5db; }
+.sticky-row-label-1 { left: 0; }
+.sticky-corner-label { z-index: 7; }
+.column-controls { margin: 1rem 0; padding: .75rem; border: 1px solid #d1d5db; border-radius: 8px; background: #f8fafc; }
+.column-controls-title { margin: 0 0 .5rem; font-weight: 600; }
+.column-control-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .75rem; }
+.column-control-actions button { border: 1px solid #cbd5e1; border-radius: 6px; background: white; padding: .25rem .6rem; cursor: pointer; }
+.column-control-actions button:hover { background: #f1f5f9; }
+.column-control-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr)); gap: .35rem .75rem; }
+.column-control-list label { display: flex; gap: .35rem; align-items: flex-start; }
+
 </style>
 </head>
 <body>
 <main>
 <h1 id="cop-results">COP Results</h1>
 <p>最終更新: 2026-05-07</p>
-<h2 id="laurel-large0-cop1000">Laurel <code>/LARGE0</code> COP1000 ベンチ履歴</h2>
+<h2 id="laurel-large0-cop1000-ベンチ履歴">Laurel <code>/LARGE0</code> COP1000 ベンチ履歴</h2>
 <p>対象は <code>/LARGE0/gr10672/b39275/xcsp3instances/instance-lists/cop22to25_1000.csv</code> の 1000 問。結果は <code>/LARGE0/gr10672/b39275/xcsp3instances/results/kat-cop*1000*</code> と <code>sacct</code> を突き合わせたもの。</p>
 <p>集計上の注意:</p>
 <ul>
@@ -58,7 +67,7 @@ tr:nth-child(even) td { background: #fafafa; }
 <li><code>1d1a452a</code> direct-order から <code>a32997fd</code> direct-order で <code>internal_error</code> は 553 → 16 に減ったが、empty/missing/OOM が 124 → 268 に増えた。</li>
 <li><code>31b6e7a3</code> static は SCIP feature 入りで、CLI に <code>--cop-pipeline</code> を明示しない default COP path の確認を兼ねている。</li>
 </ul>
-<h2 id="">ログ容量</h2>
+<h2 id="ログ容量">ログ容量</h2>
 <p><code>improving-kat/logs/</code> に同期した COP1000 対象ログの合計は <code>807M</code>。 この値には <code>runsolver</code> の solver stdout (<code>output.log</code>) と、実ログが無いセル用の 小さな <code>missing/*.log</code> 説明ファイルを含む。</p>
 <p>主な内訳:</p>
 <div class="table-wrap"><table>
@@ -77,6 +86,33 @@ tr:nth-child(even) td { background: #fafafa; }
 <tr><td><code>logs/31b6e7a3-scip-log-scop-rerun2</code></td><td style="text-align: right;"><code>49M</code></td></tr>
 </tbody>
 </table></div>
+<!-- BEGIN COP1000_RESULT_SUMMARY -->
+<h2 id="cop1000-result-summary">COP1000 result summary</h2>
+<p><code>incumbent</code> counts cells with a reported objective value, including proved optimum cells.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>run</th><th style="text-align: right;">optimum</th><th style="text-align: right;">incumbent</th><th style="text-align: right;">UNSAT</th></tr></thead>
+<tbody>
+<tr><td><code>2c9fbcd6-order-ge-guarded-1800s</code></td><td style="text-align: right;">263</td><td style="text-align: right;">263</td><td style="text-align: right;">14</td></tr>
+<tr><td><code>72769ef1-cumcegar-2m</code></td><td style="text-align: right;">192</td><td style="text-align: right;">192</td><td style="text-align: right;">9</td></tr>
+<tr><td><code>72769ef1-guarded-basic-2m</code></td><td style="text-align: right;">99</td><td style="text-align: right;">99</td><td style="text-align: right;">2</td></tr>
+<tr><td><code>72769ef1-guarded-objvar-2m</code></td><td style="text-align: right;">0</td><td style="text-align: right;">0</td><td style="text-align: right;">0</td></tr>
+<tr><td><code>1d1a452a-direct-order</code></td><td style="text-align: right;">109</td><td style="text-align: right;">779</td><td style="text-align: right;">15</td></tr>
+<tr><td><code>1d1a452a-log-scop</code></td><td style="text-align: right;">292</td><td style="text-align: right;">819</td><td style="text-align: right;">13</td></tr>
+<tr><td><code>a32997fd-direct-order</code></td><td style="text-align: right;">253</td><td style="text-align: right;">676</td><td style="text-align: right;">15</td></tr>
+<tr><td><code>partialdecode-20260504</code></td><td style="text-align: right;">0</td><td style="text-align: right;">0</td><td style="text-align: right;">0</td></tr>
+<tr><td><code>31b6e7a3-scip-canary</code></td><td style="text-align: right;">0</td><td style="text-align: right;">0</td><td style="text-align: right;">0</td></tr>
+<tr><td><code>31b6e7a3-scip-rerun1</code></td><td style="text-align: right;">224</td><td style="text-align: right;">769</td><td style="text-align: right;">15</td></tr>
+<tr><td><code>31b6e7a3-scip-log-scop-rerun2</code></td><td style="text-align: right;">322</td><td style="text-align: right;">803</td><td style="text-align: right;">13</td></tr>
+<tr><td><code>9c976720-scip-log-scop-dynamic</code></td><td style="text-align: right;">323</td><td style="text-align: right;">804</td><td style="text-align: right;">13</td></tr>
+<tr><td><code>9c976720-scip-direct-order-dynamic</code></td><td style="text-align: right;">225</td><td style="text-align: right;">770</td><td style="text-align: right;">15</td></tr>
+<tr><td><code>bd3c9f7d-scip-direct-order-dynamic</code></td><td style="text-align: right;">211</td><td style="text-align: right;">760</td><td style="text-align: right;">15</td></tr>
+<tr><td><code>bd3c9f7d-scip-log-scop-dynamic</code></td><td style="text-align: right;">290</td><td style="text-align: right;">795</td><td style="text-align: right;">13</td></tr>
+<tr><td><code>ace64g-rr-20260505</code></td><td style="text-align: right;">321</td><td style="text-align: right;">925</td><td style="text-align: right;">14</td></tr>
+<tr><td><code>pycsp3-extra-ortools-20260505</code></td><td style="text-align: right;">497</td><td style="text-align: right;">830</td><td style="text-align: right;">11</td></tr>
+<tr><td><code>pycsp3-extra-ortools-1t-rerun1-20260505</code></td><td style="text-align: right;">414</td><td style="text-align: right;">830</td><td style="text-align: right;">15</td></tr>
+</tbody>
+</table></div>
+<!-- END COP1000_RESULT_SUMMARY -->
 <!-- BEGIN COP1000_VALIDATION_STATS -->
 <h2 id="validation-stats">Validation stats</h2>
 <p>Validation uses <code>xcsp3-solutionChecker-2.6.0.jar</code> on cells with an incumbent and a solver log solution.</p>
@@ -1160,22 +1196,127 @@ tr:nth-child(even) td { background: #fafafa; }
 </main>
 <script>
 (() => {
+  const DEFAULT_COP1000_COLUMNS = new Set([
+    'bd3c9f7d SCIP direct-order dynamic',
+    'bd3c9f7d SCIP log-scop dynamic',
+    'ACE 64G rr 20260505',
+    'pycsp3-extra OR-Tools 28t 20260505',
+    'pycsp3-extra OR-Tools 1t 20260505',
+  ]);
+
   function setupStickyLabels() {
     document.querySelectorAll('.table-wrap table').forEach((table) => {
       const headerCells = table.tHead ? Array.from(table.tHead.rows[0].cells) : [];
       headerCells.forEach((cell) => cell.classList.add('sticky-col-label'));
+      const firstColumnWidth = Math.ceil(headerCells[0]?.getBoundingClientRect().width || 0);
       Array.from(table.rows).forEach((row) => {
         const first = row.cells[0];
-        if (first) first.classList.add('sticky-row-label');
+        const second = row.cells[1];
+        if (first) {
+          first.classList.add('sticky-row-label', 'sticky-row-label-1');
+          first.style.left = '0px';
+        }
+        if (second) {
+          second.classList.add('sticky-row-label', 'sticky-row-label-2');
+          second.style.left = `${firstColumnWidth}px`;
+        }
       });
       if (headerCells[0]) headerCells[0].classList.add('sticky-corner-label');
+      if (headerCells[1]) headerCells[1].classList.add('sticky-corner-label');
     });
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupStickyLabels);
-  } else {
+
+  function cop1000Table() {
+    const heading = document.getElementById('cop1000-instance-table');
+    let node = heading ? heading.nextElementSibling : null;
+    while (node) {
+      if (node.classList?.contains('table-wrap')) {
+        const table = node.querySelector('table');
+        if (table) return table;
+      }
+      node = node.nextElementSibling;
+    }
+    return null;
+  }
+
+  function setColumnVisible(table, index, visible) {
+    Array.from(table.rows).forEach((row) => {
+      const cell = row.cells[index];
+      if (cell) cell.hidden = !visible;
+    });
+  }
+
+  function applyColumnSelection(table, checkboxes) {
+    checkboxes.forEach((checkbox) => {
+      setColumnVisible(table, Number(checkbox.value), checkbox.checked);
+    });
     setupStickyLabels();
   }
+
+  function setDefaultSelection(checkboxes) {
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = DEFAULT_COP1000_COLUMNS.has(checkbox.dataset.columnName || '');
+    });
+  }
+
+  function setupCop1000ColumnControls() {
+    const table = cop1000Table();
+    if (!table || !table.tHead || document.getElementById('cop1000-column-controls')) return;
+
+    const heading = document.getElementById('cop1000-instance-table');
+    const controls = document.createElement('section');
+    controls.id = 'cop1000-column-controls';
+    controls.className = 'column-controls';
+    controls.innerHTML = `
+      <p class="column-controls-title">COP1000 instance table columns</p>
+      <div class="column-control-actions">
+        <button type="button" data-action="default">Default</button>
+        <button type="button" data-action="all">Show all</button>
+        <button type="button" data-action="none">Hide solver columns</button>
+      </div>
+      <div class="column-control-list"></div>
+    `;
+    heading.insertAdjacentElement('afterend', controls);
+
+    const list = controls.querySelector('.column-control-list');
+    const headerCells = Array.from(table.tHead.rows[0].cells);
+    const checkboxes = headerCells.slice(2).map((cell, offset) => {
+      const index = offset + 2;
+      const label = document.createElement('label');
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.value = String(index);
+      checkbox.dataset.columnName = cell.textContent.trim();
+      checkbox.checked = DEFAULT_COP1000_COLUMNS.has(checkbox.dataset.columnName);
+      label.append(checkbox, document.createTextNode(cell.textContent.trim()));
+      list.append(label);
+      checkbox.addEventListener('change', () => applyColumnSelection(table, checkboxes));
+      return checkbox;
+    });
+
+    controls.addEventListener('click', (event) => {
+      const button = event.target.closest('button[data-action]');
+      if (!button) return;
+      if (button.dataset.action === 'default') setDefaultSelection(checkboxes);
+      if (button.dataset.action === 'all') checkboxes.forEach((checkbox) => { checkbox.checked = true; });
+      if (button.dataset.action === 'none') checkboxes.forEach((checkbox) => { checkbox.checked = false; });
+      applyColumnSelection(table, checkboxes);
+    });
+
+    applyColumnSelection(table, checkboxes);
+  }
+
+  function initialize() {
+    setupCop1000ColumnControls();
+    setupStickyLabels();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    initialize();
+  }
+  window.addEventListener('resize', setupStickyLabels);
 })();
 </script>
 </body>

@@ -26,6 +26,8 @@ VALIDATION_BEGIN = "<!-- BEGIN COP1000_VALIDATION_STATS -->"
 VALIDATION_END = "<!-- END COP1000_VALIDATION_STATS -->"
 CONSISTENCY_BEGIN = "<!-- BEGIN COP1000_CONSISTENCY_STATS -->"
 CONSISTENCY_END = "<!-- END COP1000_CONSISTENCY_STATS -->"
+SUMMARY_BEGIN = "<!-- BEGIN COP1000_RESULT_SUMMARY -->"
+SUMMARY_END = "<!-- END COP1000_RESULT_SUMMARY -->"
 DEFAULT_CHECKER_JAR = Path(
     "/home/soh/02_prog/xcsp3instances/XCSP3-Java-Tools/target/xcsp3-solutionChecker-2.6.0.jar"
 )
@@ -752,6 +754,39 @@ def build_table(root: Path) -> str:
     return "\n".join(lines)
 
 
+def build_result_summary(root: Path) -> str:
+    instances = read_instances(root)
+    all_rows = {run.slug: load_rows(root, run) for run in RUNS}
+    lines = [
+        SUMMARY_BEGIN,
+        "",
+        "## COP1000 result summary",
+        "",
+        "`incumbent` counts cells with a reported objective value, including proved optimum cells.",
+        "",
+        "| run | optimum | incumbent | UNSAT |",
+        "|---|---:|---:|---:|",
+    ]
+    for run in RUNS:
+        optimum = 0
+        incumbent = 0
+        unsat = 0
+        for instance_id, _ in instances:
+            row_path, fields = all_rows[run.slug].get(instance_id, (None, []))
+            log_path = log_path_for_row(root, run, instance_id, row_path)
+            value, _, _ = parse_log(log_path)
+            status = fields[1] if len(fields) > 1 else ""
+            if status == "optimum":
+                optimum += 1
+            if value is not None:
+                incumbent += 1
+            if status == "unsat":
+                unsat += 1
+        lines.append(f"| `{run.slug}` | {optimum} | {incumbent} | {unsat} |")
+    lines.extend(["", SUMMARY_END, ""])
+    return "\n".join(lines)
+
+
 def build_validation_stats(root: Path) -> str:
     validation = load_validation(root)
     lines = [
@@ -966,12 +1001,24 @@ def build_consistency_stats(root: Path) -> str:
 def update_doc(root: Path, benchmark_dir: Path) -> None:
     doc = root / "cop-results.md"
     table = build_table(root)
+    result_summary = build_result_summary(root)
     validation_stats = build_validation_stats(root)
     consistency_stats = build_consistency_stats(root)
     if doc.exists():
         text = doc.read_text()
     else:
         text = "# COP Results\n\n"
+    if SUMMARY_BEGIN in text and SUMMARY_END in text:
+        pre = text.split(SUMMARY_BEGIN, 1)[0].rstrip()
+        post = text.split(SUMMARY_END, 1)[1].lstrip()
+        text = pre + "\n\n" + result_summary + ("\n" + post if post else "")
+    else:
+        marker = VALIDATION_BEGIN if VALIDATION_BEGIN in text else (BEGIN if BEGIN in text else None)
+        if marker:
+            pre, post = text.split(marker, 1)
+            text = pre.rstrip() + "\n\n" + result_summary + "\n" + marker + post
+        else:
+            text = text.rstrip() + "\n\n" + result_summary
     if CONSISTENCY_BEGIN in text and CONSISTENCY_END in text:
         pre = text.split(CONSISTENCY_BEGIN, 1)[0].rstrip()
         post = text.split(CONSISTENCY_END, 1)[1].lstrip()
