@@ -22,4 +22,4 @@ generate-cop-docs:
 check-cop-results:
 	python3 scripts/update_cop_results.py --no-fetch --validate --checker-jar "$(CHECKER_JAR)" --benchmark-dir "$(BENCHMARK_DIR)" --validation-workers "$(VALIDATION_WORKERS)"
 	python3 scripts/generate_cop_docs.py
-	git diff --exit-code -- cop-results.md docs/index.html logs
+	git diff --exit-code -- cop-results.md docs/index.html docs/logs

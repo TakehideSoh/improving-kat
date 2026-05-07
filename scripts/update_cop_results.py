@@ -45,6 +45,10 @@ class Run:
     remote_base: str = REMOTE_BASE
 
 
+def logs_root(root: Path) -> Path:
+    return root / "docs" / "logs"
+
+
 RUNS = [
     Run(
         "2c9fbcd6-order-ge-guarded-1800s",
@@ -185,7 +189,7 @@ def run_cmd(args: list[str]) -> None:
 
 
 def fetch_logs(root: Path) -> None:
-    logs = root / "logs"
+    logs = logs_root(root)
     logs.mkdir(exist_ok=True)
     run_cmd(
         [
@@ -262,7 +266,7 @@ def fetch_logs(root: Path) -> None:
 
 
 def read_instances(root: Path) -> list[tuple[int, str]]:
-    path = root / "logs" / "cop22to25_1000.csv"
+    path = logs_root(root) / "cop22to25_1000.csv"
     if not path.exists():
         raise SystemExit(f"missing instance list: {path}")
     rows: list[tuple[int, str]] = []
@@ -312,14 +316,14 @@ def status_from_log_text(text: str) -> str:
 def load_rows(root: Path, run: Run) -> dict[int, tuple[Path, list[str]]]:
     rows: dict[int, tuple[Path, list[str]]] = {}
     if run.log_kind == "runsolver-flat":
-        for path in sorted((root / "logs" / run.slug / "runsolver").glob(f"{run.runsolver_prefix}-*.out")):
+        for path in sorted((logs_root(root) / run.slug / "runsolver").glob(f"{run.runsolver_prefix}-*.out")):
             instance_id = flat_runsolver_row_id(path, run.runsolver_prefix)
             if instance_id is None:
                 continue
             text = path.read_text(errors="replace")
             rows[instance_id] = (path, ["", status_from_log_text(text)])
         return rows
-    for path in sorted((root / "logs" / run.slug / "rows").glob("*.csv")):
+    for path in sorted((logs_root(root) / run.slug / "rows").glob("*.csv")):
         instance_id = row_id(path)
         if instance_id is None:
             continue
@@ -330,7 +334,7 @@ def load_rows(root: Path, run: Run) -> dict[int, tuple[Path, list[str]]]:
 
 
 def log_path_for_row(root: Path, run: Run, instance_id: int, row_path: Path | None) -> Path | None:
-    base = root / "logs" / run.slug
+    base = logs_root(root) / run.slug
     if run.log_kind == "result-out-task":
         path = base / "out" / f"task-{instance_id}.out"
         return path if path.exists() else None
@@ -493,7 +497,7 @@ VALIDATION_FIELDNAMES = [
 
 
 def load_validation_rows(root: Path) -> dict[tuple[str, int], dict[str, str]]:
-    path = root / "logs" / "validation" / "results.csv"
+    path = logs_root(root) / "validation" / "results.csv"
     if not path.exists():
         return {}
     out: dict[tuple[str, int], dict[str, str]] = {}
@@ -539,7 +543,7 @@ def validate_solutions(root: Path, checker_jar: Path, benchmark_dir: Path, worke
     instances = dict(read_instances(root))
     all_rows = {run.slug: load_rows(root, run) for run in RUNS}
     previous = load_validation_rows(root)
-    validation_dir = root / "logs" / "validation"
+    validation_dir = logs_root(root) / "validation"
     output_dir = validation_dir / "checker-output"
     output_dir.mkdir(parents=True, exist_ok=True)
     def validate_one(run: Run, instance_id: int, instance: str) -> dict[str, str]:
@@ -699,7 +703,7 @@ def rel_link(root: Path, path: Path | None, label: str) -> str:
 
 
 def missing_log(root: Path, run: Run, instance_id: int, instance: str, fields: list[str]) -> Path:
-    path = root / "logs" / run.slug / "missing" / f"{instance_id}.log"
+    path = logs_root(root) / run.slug / "missing" / f"{instance_id}.log"
     path.parent.mkdir(parents=True, exist_ok=True)
     status = fields[1] if len(fields) > 1 else "missing"
     reason, detail = row_reason(fields)
@@ -935,7 +939,7 @@ def consistency_issues(root: Path, benchmark_dir: Path) -> list[dict[str, str]]:
 
 def write_consistency_results(root: Path, benchmark_dir: Path) -> None:
     rows = consistency_issues(root, benchmark_dir)
-    path = root / "logs" / "consistency" / "results.csv"
+    path = logs_root(root) / "consistency" / "results.csv"
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="") as f:
         fieldnames = ["instance_id", "instance", "sense", "issue", "detail"]
@@ -945,7 +949,7 @@ def write_consistency_results(root: Path, benchmark_dir: Path) -> None:
 
 
 def load_consistency(root: Path) -> list[dict[str, str]]:
-    path = root / "logs" / "consistency" / "results.csv"
+    path = logs_root(root) / "consistency" / "results.csv"
     if not path.exists():
         return []
     with path.open(newline="") as f:
@@ -972,7 +976,7 @@ def build_consistency_stats(root: Path) -> str:
         lines.extend(
             [
                 "",
-                "Detailed results are in `logs/consistency/results.csv`. Issues shown below are capped at 50 rows:",
+                "Detailed results are in `docs/logs/consistency/results.csv`. Issues shown below are capped at 50 rows:",
                 "",
                 "| # | instance | sense | issue | detail |",
                 "|---:|---|---|---|---|",

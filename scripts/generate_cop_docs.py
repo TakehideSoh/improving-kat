@@ -202,7 +202,9 @@ def inline_markdown(text: str) -> str:
     def html_link(match: re.Match[str]) -> str:
         label = match.group(1)
         url = match.group(2)
-        if not re.match(r"^(?:[a-z][a-z0-9+.-]*:|#|\.\./)", url, re.IGNORECASE):
+        if url.startswith("docs/"):
+            url = url.removeprefix("docs/")
+        elif not re.match(r"^(?:[a-z][a-z0-9+.-]*:|#|\.\./)", url, re.IGNORECASE):
             url = "../" + url
         return f'<a href="{html.escape(url, quote=True)}">{label}</a>'
 
