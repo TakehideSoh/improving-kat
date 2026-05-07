@@ -1,0 +1,95 @@
+
+ACE v2.6 
+
+  instance
+    name:LowAutocorrelation-010_c25
+    args:/work/19332115_547/LowAutocorrelation-010_c25.xml -rr=true -rlog=false -npc=true
+
+ ...Parsing /work/19332115_547/LowAutocorrelation-010_c25.xml
+
+ ...Loading variables
+
+ ...Loading constraints
+
+  domains
+    types:19  values:263  sizes:[2:56,3:2,4:1,5:2...13:1,15:1,17:1,19:1]
+  variables
+    count:73  omitted:36  auxiliary:9  arrays:[x:10,y:45,c:9,_ax_:9]  degrees:[2:54,3:9,9:10]
+  constraints
+    count:65  specific:65  groups:2  arities:[2:10,3:46,4:1,5:1...7:1,8:1,9:3,10:1]
+    objective:[SumSimpleGE,SumSimpleLE]
+    non_unary:[Mul3EQ:45,STR0a-Table:12,Sub2EQ:1,SumWeightedEQ:5]
+    tables:[3:1,4:1,5:1,7:1...15:1,16:1,17:1,19:1]  tuples:127
+    extStructures:(12,shared:0)
+    wck:0.29  cpu:0.712  mem:167M772
+  objective
+    way:min  type:SumSimpleLE  arity:9  bounds:0..285
+
+ ...Building solver
+
+  solver
+    nNotAC:51  decoder:Decoder1
+    wck:0.32  cpu:0.729  mem:175M772
+
+  preprocessing
+    effs:8  entailed:3  values:247  removedByAC:16  singletons:1  unsat:false
+    wck:0.001  cpu:0.731  mem:175M772
+
+  search
+ ...Discarding 1 singleton variables
+o 285   0.33  ham=0 (0 0 0 0 0)  opth=0
+o 141   0.33  ham=27 (1 9 9 0 8)  opth=8
+o 117   0.33  ham=21 (2 16 2 0 1)  opth=1
+o 85   0.33  ham=26 (1 9 9 0 7)  opth=7
+o 45   0.33  ham=25 (2 16 4 0 3)  opth=3
+o 29   0.34  ham=32 (3 21 5 0 3)  opth=3
+o 13   0.34  ham=38 (4 24 6 0 4)  opth=4
+    run1  dpts:2..10  robin:PickOnDom-First  effs:3,411  asgs:(137,noefs=1,fails=50)  fails:50  wrgs:90  wck:0.03  ngds:3  sols:7  bound:13
+    run2  dpts:2..9  robin:WdegOnDom-Last  effs:6,461  asgs:(126,noefs=5,fails=50)  fails:100  wrgs:179  wck:0.04  ngds:6  sols:7  bound:13
+    run3  dpts:3..32  robin:FrbaOnDom-Rand  effs:7,560  asgs:(118,noefs=31,fails=52)  fails:152  wrgs:282  wck:0.04  ngds:8  sols:7  bound:13
+    run4  dpts:2..8  robin:Wdeg-First  effs:10,372  asgs:(120,noefs=2,fails=55)  fails:207  wrgs:378  wck:0.05  ngds:14  sols:7  bound:13
+    run5  dpts:2..9  robin:PickOnDom-Last  effs:13,743  asgs:(139,noefs=3,fails=57)  fails:264  wrgs:482  wck:0.06  ngds:19  sols:7  bound:13
+    run6  dpts:3..12  robin:WdegOnDom-Rand  effs:17,006  asgs:(151,noefs=25,fails=60)  fails:324  wrgs:594  wck:0.06  ngds:25  sols:7  bound:13
+    run7  dpts:1..11  robin:FrbaOnDom-First  effs:20,943  asgs:(164,noefs=21,fails=63)  fails:387  wrgs:721  wck:0.07  ngds:29  sols:7  bound:13
+    run8  dpts:1..10  robin:Wdeg-Last  effs:24,410  asgs:(157,noefs=4,fails=67)  fails:454  wrgs:853  wck:0.08  ngds:33  sols:7  bound:13
+    run9  dpts:1..9  robin:PickOnDom-Rand  effs:28,888  asgs:(182,noefs=7,fails=70)  fails:524  wrgs:992  wck:0.09  ngds:36  sols:7  bound:13
+    run10  dpts:0..9  robin:WdegOnDom-First  effs:33,637  asgs:(198,noefs=20,fails=73)  fails:597  wrgs:1,140  wck:0.10  ngds:37  sols:7  bound:13
+ ...Discarding 2 singleton variables
+    run11  dpts:0..7  robin:FrbaOnDom-Last  effs:34,524  asgs:(33,noefs=4,fails=13)  fails:610  wrgs:1,166  wck:0.10  ngds:37  sols:7  bounds:13..12
+
+  global
+    effs:34,524  noefs:123  ngds:37
+    stop:FULL_EXPLORATION  wrgs:1,166  bound:13  boundWck:0.337  sols:7  sol1Cpu:0.735
+    wck:0.42  cpu:0.828  mem:175M772
+
+
+  Solution 7 in JSON-like format:
+   {
+    x: [-1, -1, -1, -1, -1, 1, 1, -1, 1, -1],
+    y: [
+     [ 1,  1,  1,  1, -1,  1, -1, -1, -1],
+     [ 1,  1,  1, -1, -1, -1,  1,  1,  *],
+     [ 1,  1, -1, -1,  1,  1, -1,  *,  *],
+     [ 1, -1, -1,  1, -1, -1,  *,  *,  *],
+     [-1, -1,  1, -1,  1,  *,  *,  *,  *],
+     [-1,  1, -1,  1,  *,  *,  *,  *,  *],
+     [ 1, -1,  1,  *,  *,  *,  *,  *,  *],
+     [-1,  1,  *,  *,  *,  *,  *,  *,  *],
+     [ 1,  *,  *,  *,  *,  *,  *,  *,  *]
+    ],
+    c: [1, 2, 1, -2, -1, 0, 1, 0, 1]
+   }
+
+s OPTIMUM FOUND
+
+v  <instantiation id='sol7' type='solution' cost='13'> <list> x[] y[][] c[] </list> <values> -1x5 1 1 -1 1 -1   1x4 -1 1 -1x3 1x3 -1x3 1 1 * 1 1 -1 -1 1 1 -1 * * 1 -1 -1 1 -1 -1 *x3 -1 -1 1 -1 1 *x4 -1 1 -1 1 *x5 1 -1 1 *x6 -1 1 *x7 1 *x8   1 2 1 -2 -1 0 1 0 1 </values> </instantiation>
+
+d BOUND  13  (7 sols)
+
+d WRONG DECISIONS  1,166  (11000.00 wrg/s)
+
+d WCK SOL 1  0.33 (285)
+d WCK SOL-1  0.34 (13)
+d CPU        0.835
+
+d COMPLETE EXPLORATION

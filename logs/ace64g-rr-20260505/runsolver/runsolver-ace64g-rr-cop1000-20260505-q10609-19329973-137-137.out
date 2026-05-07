@@ -1,0 +1,62 @@
+
+ACE v2.6 
+
+  instance
+    name:BusScheduling-t1_c25
+    args:/work/19329973_137/BusScheduling-t1_c25.xml -rr=true -rlog=false -npc=true
+
+ ...Parsing /work/19329973_137/BusScheduling-t1_c25.xml
+
+ ...Loading variables
+
+ ...Loading constraints
+
+  domains
+    types:1  values:154  sizes:[2:77]
+  variables
+    count:77  arrays:[x:77]  degrees:[4:7,5:26,6:41,7:3]
+  constraints
+    count:26  specific:26  groups:1  arities:[5:1,6:3,7:2,8:3...18:1,19:2,20:1,77:2]
+    objective:[SumSimpleGE,SumSimpleLE]
+    non_unary:[Exactly1:24]
+    wck:0.23  cpu:0.66  mem:167M772
+  objective
+    way:min  type:SumSimpleLE  arity:77  bounds:0..77
+
+ ...Building solver
+
+  solver
+    decoder:Decoder1
+    wck:0.26  cpu:0.68  mem:167M772
+
+  preprocessing
+    entailed:2  values:154  unsat:false
+    cpu:0.681  mem:167M772
+
+  search
+o 7   0.27  ham=0 (0 0 0)  opth=0
+    run1  dpts:0..20  robin:PickOnDom-First  effs:1,283  asgs:(246,noefs=114,fails=50)  fails:50  wrgs:182  wck:0.02  ngds:3  sols:1  bound:7
+    run2  dpts:0..13  robin:WdegOnDom-Last  effs:1,562  asgs:(74,noefs=0,fails=32)  fails:82  wrgs:224  wck:0.03  ngds:3  sols:1  bounds:7..6
+
+  global
+    effs:1,562  noefs:114  ngds:3
+    stop:FULL_EXPLORATION  wrgs:224  bound:7  boundWck:0.269  sols:1  sol1Cpu:0.687
+    wck:0.29  cpu:0.706  mem:184M549
+
+
+  Solution 1 in JSON-like format:
+   {'x': [0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1]}
+
+s OPTIMUM FOUND
+
+v  <instantiation id='sol1' type='solution' cost='7'> <list> x[] </list> <values> 0x4 1 0x4 1 0x4 1 0x9 1 0x10 1 0x36 1 0x3 1 </values> </instantiation>
+
+d BOUND  7  (1 sols)
+
+d WRONG DECISIONS  224  (7466.67 wrg/s)
+
+d WCK SOL 1  0.27 (7)
+d WCK SOL-1  0.27 (7)
+d CPU        0.711
+
+d COMPLETE EXPLORATION

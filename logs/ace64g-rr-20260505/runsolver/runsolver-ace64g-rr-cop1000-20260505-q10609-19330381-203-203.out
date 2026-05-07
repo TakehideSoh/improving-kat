@@ -1,0 +1,96 @@
+
+ACE v2.6 
+
+  instance
+    name:ChampionsLeague-strict-2024-09_c25
+    args:/work/19330381_203/ChampionsLeague-strict-2024-09_c25.xml -rr=true -rlog=false -npc=true
+
+ ...Parsing /work/19330381_203/ChampionsLeague-strict-2024-09_c25.xml
+
+ ...Loading variables
+
+ ...Loading constraints
+
+  domains
+    types:6  values:2,625  sizes:[2:72,3:432,19:8,25:37,36:3]
+  variables
+    count:552  auxiliary:80  arrays:[x:144,y:288,z:36,_ax_:80]  degrees:[1:154,2:72,3:289,4:36,75:1]
+  constraints
+    count:267  specific:267  groups:3  arities:[1:4,3:216,9:36,37:10,38:1]
+    unary:[Extension1:2]  objective:[ObjVarGE,ObjVarLE]
+    non_unary:[ElementVar:1,Reif3EQ:36,Reif3LT:36,STR0a-Table:144,SumWeightedEQ:46]
+    tables:[3:144]  tuples:432
+    extStructures:(1,shared:143)
+    wck:0.52  cpu:0.937  mem:184M549
+  objective
+    way:max  type:ObjVarGE  arity:1  bounds:0..24
+
+ ...Building solver
+
+  solver
+    nNotAC:47  decoder:Decoder1
+    wck:0.56  cpu:0.966  mem:209M326
+
+  preprocessing
+    effs:2  entailed:4  values:2,590  removedByAC:35  singletons:1  unsat:false
+    wck:0.003  cpu:0.97  mem:209M326
+
+  search
+ ...Discarding 1 singleton variables
+o 12   0.58  ham=0 (0 0 0 0 0)  opth=0
+o 13   0.59  ham=67 (9 18 18 2 20)  opth=1
+    run1  dpts:134..146  robin:PickOnDom-First  effs:3,293  asgs:(206,noefs=2,fails=50)  fails:50  wrgs:61  wck:0.03  ngds:20  sols:2  bounds:14..24
+    run2  dpts:131..143  robin:WdegOnDom-Last  effs:5,060  asgs:(193,noefs=0,fails=50)  fails:100  wrgs:118  wck:0.05  ngds:31  sols:2  bounds:14..24
+    run3  dpts:14..92  robin:FrbaOnDom-Rand  effs:8,189  asgs:(182,noefs=0,fails=52)  fails:152  wrgs:209  wck:0.07  ngds:38  sols:2  bounds:14..24
+    run4  dpts:129..136  robin:Wdeg-First  effs:9,995  asgs:(191,noefs=0,fails=55)  fails:207  wrgs:270  wck:0.08  ngds:40  sols:2  bounds:14..24
+o 22   0.65  ham=273 (73 146 33 3 18)  opth=1
+    run5  dpts:0..56  robin:PickOnDom-Last  effs:11,804  asgs:(131,noefs=1,fails=51)  fails:258  wrgs:331  wck:0.09  ngds:40  sols:3  bounds:23..24
+
+  global
+    effs:11,804  noefs:3  ngds:40
+    stop:FULL_EXPLORATION  wrgs:331  bound:22  boundWck:0.654  sols:3  sol1Cpu:0.99
+    wck:0.66  cpu:1.06  mem:209M326
+
+
+  Solution 3 in JSON-like format:
+   {
+    x: [
+     [0, 2, 0, 0, 0, 2, 2, 0, 2, 2, 0, 0, 0, 2, 2, 2, 2, 2],
+     [0, 2, 0, 2, 0, 2, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 2],
+     [0, 2, 0, 2, 0, 0, 2, 2, 0, 2, 2, 2, 1, 2, 0, 0, 0, 2],
+     [0, 2, 0, 0, 2, 2, 0, 2, 2, 2, 2, 0, 0, 2, 2, 2, 0, 0],
+     [2, 2, 2, 0, 2, 0, 2, 0, 2, 2, 0, 0, 2, 2, 0, 2, 2, 0],
+     [0, 0, 2, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2],
+     [0, 2, 0, 2, 0, 2, 2, 0, 0, 2, 0, 1, 0, 0, 2, 2, 2, 2],
+     [2, 2, 0, 0, 2, 0, 0, 0, 2, 2, 2, 0, 0, 0, 2, 2, 2, 2]
+    ],
+    y: [
+     [3, 3, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 3, 3, 0, 3, 0, 3, 3, 3, 3, 0, 0, 0, 3, 0, 3],
+     [3, 3, 0, 3, 3, 0, 3, 0, 0, 3, 0, 0, 0, 0, 0, 3, 3, 3, 0, 3, 0, 3, 3, 3, 3, 0, 3, 0, 0, 0, 0, 3, 0, 3, 0, 3],
+     [3, 3, 0, 0, 0, 3, 3, 0, 3, 3, 0, 3, 0, 3, 0, 3, 3, 0, 3, 1, 3, 3, 3, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 3, 0, 1],
+     [3, 3, 3, 0, 0, 3, 3, 0, 3, 3, 0, 0, 0, 0, 3, 3, 0, 3, 0, 0, 0, 3, 3, 0, 3, 0, 3, 3, 0, 0, 0, 3, 0, 0, 3, 3],
+     [3, 3, 0, 0, 3, 0, 3, 0, 0, 3, 3, 3, 0, 0, 0, 3, 0, 0, 0, 0, 3, 3, 3, 0, 3, 3, 3, 0, 3, 0, 0, 0, 0, 3, 3, 3],
+     [3, 3, 0, 0, 3, 3, 3, 0, 3, 3, 0, 0, 3, 0, 0, 3, 3, 3, 3, 0, 0, 3, 3, 0, 3, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 3],
+     [1, 3, 0, 0, 3, 0, 3, 3, 0, 3, 3, 0, 3, 0, 0, 3, 0, 0, 1, 0, 0, 3, 3, 0, 3, 3, 3, 0, 0, 3, 0, 3, 0, 3, 0, 3],
+     [3, 3, 0, 3, 0, 0, 3, 3, 3, 3, 0, 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 3, 3, 0, 3, 0, 3, 3, 3, 0, 0, 3, 0, 0, 0, 3]
+    ],
+    z: [22, 24, 3, 6, 12, 9, 24, 9, 15, 24, 6, 9, 6, 3, 6, 24, 12, 9, 7, 7, 6, 24, 24, 3, 24, 6, 24, 9, 12, 6, 0, 12, 0, 15, 6, 22],
+    target: 35,
+    z_target: 22,
+    better_target: 8,
+    equal_target: 2
+   }
+
+s OPTIMUM FOUND
+
+v  <instantiation id='sol3' type='solution' cost='22'> <list> x[][] y[][] z[] target z_target better_target equal_target </list> <values> 0 2 0x3 2 2 0 2 2 0x3 2x5 0 2 0 2 0 2 0 0 2x4 0x5 2 0 2 0 2 0 0 2 2 0 2x3 1 2 0x3 2 0 2 0 0 2 2 0 2x4 0 0 2x3 0 0 2x3 0 2 0 2 0 2 2 0 0 2 2 0 2 2 0x3 2 0x3 2 0 2 0x6 2x3 0 2 0 2 0 2 2 0 0 2 0 1 0 0 2x6 0 0 2 0x3 2x3 0x3 2x4   3 3 0x4 3x4 0x4 3x3 0x4 3 3 0 3 0 3x4 0x3 3 0 3x3 0 3 3 0 3 0 0 3 0x5 3x3 0 3 0 3x4 0 3 0x4 3 0 3 0 3x3 0x3 3 3 0 3 3 0 3 0 3 0 3 3 0 3 1 3x3 0 3 0 3 0x6 3 0 1 3x3 0 0 3 3 0 3 3 0x4 3 3 0 3 0x3 3 3 0 3 0 3 3 0x3 3 0 0 3x4 0 0 3 0 3 0 0 3x3 0x3 3 0x4 3x3 0 3x3 0 3 0x4 3x5 0 0 3x3 0 3 3 0 0 3 0 0 3x4 0 0 3 3 0 3 0 3 0 3 0x6 3 1 3 0 0 3 0 3 3 0 3 3 0 3 0 0 3 0 0 1 0 0 3 3 0 3x3 0 0 3 0 3 0 3 0 3x3 0 3 0 0 3x4 0 3 0x3 3 0x3 3 0 3 3 0 3 0 3x3 0 0 3 0x3 3   22 24 3 6 12 9 24 9 15 24 6 9 6 3 6 24 12 9 7 7 6 24 24 3 24 6 24 9 12 6 0 12 0 15 6 22   35   22   8   2 </values> </instantiation>
+
+d BOUND  22  (3 sols)
+
+d WRONG DECISIONS  331  (3245.10 wrg/s)
+
+d WCK SOL 1  0.58 (12)
+d WCK SOL-1  0.65 (22)
+d CPU        1.069
+
+d COMPLETE EXPLORATION

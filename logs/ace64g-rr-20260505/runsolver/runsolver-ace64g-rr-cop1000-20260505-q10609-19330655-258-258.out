@@ -1,0 +1,75 @@
+
+ACE v2.6 
+
+  instance
+    name:Cutstock-00-0_c25
+    args:/work/19330655_258/Cutstock-00-0_c25.xml -rr=true -rlog=false -npc=true
+
+ ...Parsing /work/19330655_258/Cutstock-00-0_c25.xml
+
+ ...Loading variables
+
+ ...Loading constraints
+
+  domains
+    types:2  values:119  sizes:[2:7,5:21]
+  variables
+    count:28  arrays:[p:7,r:21]  degrees:[3:2,4:11,5:15]
+  constraints
+    count:38  specific:38  groups:3  arities:[1:14,2:6,4:7,6:6,7:5]
+    unary:[Extension1:14]  objective:[SumSimpleGE,SumSimpleLE]
+    non_unary:[LexicographicLE:6,Sub2GE:6,SumSimpleEQ:3,SumWeightedLE:7]
+    wck:0.27  cpu:0.671  mem:167M772
+  objective
+    way:min  type:SumSimpleLE  arity:7  bounds:0..7
+
+ ...Building solver
+
+  solver
+    nNotAC:3  decoder:Decoder1
+    wck:0.30  cpu:0.687  mem:175M772
+
+  preprocessing
+    effs:8  entailed:16  values:77  removedByAC:42  unsat:false
+    cpu:0.688  mem:175M772
+
+  search
+o 7   0.31  ham=0 (0 0 0 0)  opth=0
+o 6   0.31  ham=3 (1 2 0 0)  opth=1
+o 5   0.31  ham=3 (1 2 0 0)  opth=1
+o 4   0.31  ham=5 (1 4 0 0)  opth=1
+    run1  dpts:0..12  robin:PickOnDom-First  effs:168  asgs:(38,noefs=9,fails=13)  fails:13  wrgs:19  wck:0.02  sols:4  bound:4
+
+  global
+    effs:168  noefs:9
+    stop:FULL_EXPLORATION  wrgs:19  bound:4  boundWck:0.312  sols:4  sol1Cpu:0.693
+    wck:0.32  cpu:0.704  mem:192M549
+
+
+  Solution 4 in JSON-like format:
+   {
+    p: [1, 1, 1, 1, 0, 0, 0],
+    r: [
+     [1, 0, 1],
+     [1, 0, 1],
+     [0, 1, 1],
+     [0, 1, 1],
+     [0, 0, 0],
+     [0, 0, 0],
+     [0, 0, 0]
+    ]
+   }
+
+s OPTIMUM FOUND
+
+v  <instantiation id='sol4' type='solution' cost='4'> <list> p[] r[][] </list> <values> 1x4 0x3   1 0 1 1 0 1 0 1 1 0 1 1 0x9 </values> </instantiation>
+
+d BOUND  4  (4 sols)
+
+d WRONG DECISIONS  19  (863.64 wrg/s)
+
+d WCK SOL 1  0.31 (7)
+d WCK SOL-1  0.31 (4)
+d CPU        0.71
+
+d COMPLETE EXPLORATION

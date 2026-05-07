@@ -1,0 +1,89 @@
+
+ACE v2.6 
+
+  instance
+    name:StillLife-05-05_c24
+    args:/work/19333256_838/StillLife-05-05_c24.xml -rr=true -rlog=false -npc=true
+
+ ...Parsing /work/19333256_838/StillLife-05-05_c24.xml
+
+ ...Loading variables
+
+ ...Loading constraints
+
+  domains
+    types:2  values:275  sizes:[2:25,9:25]
+  variables
+    count:50  arrays:[x:25,a:25]  degrees:[2:25,9:4,10:8,11:13]
+  constraints
+    count:66  nNogoods:12  specific:66  groups:4  arities:[2:27,3:12,4:4,6:12,9:9,25:2]
+    objective:[SumSimpleGE,SumSimpleLE]
+    non_unary:[Nogood:12,STR0a-Table:29,Sub2LE:2,SumWeightedEQ:21]
+    tables:[8:4,10:25]  tuples:282
+    extStructures:(5,shared:24)
+    wck:0.29  cpu:0.693  mem:167M772
+  objective
+    way:max  type:SumSimpleGE  arity:25  bounds:0..25
+
+ ...Building solver
+
+  solver
+    nNotAC:21  decoder:Decoder1
+    wck:0.32  cpu:0.71  mem:175M772
+
+  preprocessing
+    effs:16  entailed:2  values:219  removedByAC:56  unsat:false
+    wck:0.002  cpu:0.712  mem:175M772
+
+  search
+o 0   0.33  ham=0 (0 0 0 0)  opth=0
+o 4   0.33  ham=16 (4 12 0 0)  opth=4
+o 5   0.33  ham=17 (5 12 0 0)  opth=5
+o 6   0.33  ham=6 (1 5 0 0)  opth=1
+o 8   0.34  ham=21 (8 13 0 0)  opth=8
+    run1  dpts:8..22  robin:PickOnDom-First  effs:2,226  asgs:(161,noefs=1,fails=50)  fails:50  wrgs:97  wck:0.03  ngds:3  sols:5  bounds:9..25
+o 16   0.35  ham=35 (16 19 0 0)  opth=16
+    run2  dpts:2..11  robin:WdegOnDom-Last  effs:4,426  asgs:(146,noefs=0,fails=50)  fails:100  wrgs:199  wck:0.04  ngds:7  sols:6  bounds:17..25
+    run3  dpts:1..17  robin:FrbaOnDom-Rand  effs:5,740  asgs:(122,noefs=17,fails=50)  fails:150  wrgs:285  wck:0.04  ngds:11  sols:6  bounds:17..25
+    run4  dpts:2..10  robin:Wdeg-First  effs:7,476  asgs:(145,noefs=5,fails=52)  fails:202  wrgs:381  wck:0.05  ngds:16  sols:6  bounds:17..25
+    run5  dpts:0..9  robin:PickOnDom-Last  effs:9,957  asgs:(152,noefs=3,fails=55)  fails:257  wrgs:487  wck:0.06  ngds:16  sols:6  bounds:17..25
+    run6  dpts:0..11  robin:WdegOnDom-Rand  effs:12,023  asgs:(153,noefs=0,fails=57)  fails:314  wrgs:587  wck:0.06  ngds:20  sols:6  bounds:17..25
+    run7  dpts:0..12  robin:FrbaOnDom-First  effs:13,559  asgs:(141,noefs=17,fails=57)  fails:371  wrgs:691  wck:0.07  ngds:20  sols:6  bounds:17..16
+
+  global
+    effs:13,559  noefs:43  ngds:20
+    stop:FULL_EXPLORATION  wrgs:691  bound:16  boundWck:0.349  sols:6  sol1Cpu:0.717
+    wck:0.39  cpu:0.779  mem:175M772
+
+
+  Solution 6 in JSON-like format:
+   {
+    x: [
+     [1, 1, 0, 1, 1],
+     [1, 1, 0, 1, 1],
+     [0, 0, 0, 0, 0],
+     [1, 1, 0, 1, 1],
+     [1, 1, 0, 1, 1]
+    ],
+    a: [
+     [3, 3, 4, 3, 3],
+     [3, 3, 4, 3, 3],
+     [4, 4, 4, 4, 4],
+     [3, 3, 4, 3, 3],
+     [3, 3, 4, 3, 3]
+    ]
+   }
+
+s OPTIMUM FOUND
+
+v  <instantiation id='sol6' type='solution' cost='16'> <list> x[][] a[][] </list> <values> 1 1 0 1x4 0 1 1 0x5 1 1 0 1x4 0 1 1   3 3 4 3x4 4 3 3 4x5 3 3 4 3x4 4 3 3 </values> </instantiation>
+
+d BOUND  16  (6 sols)
+
+d WRONG DECISIONS  691  (9337.84 wrg/s)
+
+d WCK SOL 1  0.33 (0)
+d WCK SOL-1  0.35 (16)
+d CPU        0.785
+
+d COMPLETE EXPLORATION

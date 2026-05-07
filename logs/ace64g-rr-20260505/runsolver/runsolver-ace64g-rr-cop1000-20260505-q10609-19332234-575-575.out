@@ -1,0 +1,64 @@
+
+ACE v2.6 
+
+  instance
+    name:MetabolicNetwork-10_c25
+    args:/work/19332234_575/MetabolicNetwork-10_c25.xml -rr=true -rlog=false -npc=true
+
+ ...Parsing /work/19332234_575/MetabolicNetwork-10_c25.xml
+
+ ...Loading variables
+
+ ...Loading constraints
+
+  domains
+    types:2  values:1,908  sizes:[2:36,51:36]
+  variables
+    count:72  arrays:[x:36,z:36]  degrees:[2:20,3:16,4:20,5:16]
+  constraints
+    count:52  specific:52  groups:4  arities:[2:44,8:2,12:3,36:3]
+    objective:[SumSimpleGE,SumSimpleLE]
+    non_unary:[Reif2GE:36,SumSimpleGE:1,SumSimpleLE:8,SumWeightedEQ:5]
+    wck:0.26  cpu:0.681  mem:167M772
+  objective
+    way:min  type:SumSimpleLE  arity:36  bounds:0..36
+
+ ...Building solver
+
+  solver
+    nNotAC:5  decoder:Decoder1
+    wck:0.29  cpu:0.7  mem:175M772
+
+  preprocessing
+    entailed:2  values:1,908  unsat:false
+    cpu:0.701  mem:175M772
+
+  search
+o 2   0.30  ham=0 (0 0 0 0)  opth=0
+    run1  dpts:0..32  robin:PickOnDom-First  effs:610  asgs:(34,noefs=0,fails=1)  fails:1  wrgs:32  wck:0.02  sols:1  bound:2
+
+  global
+    effs:610
+    stop:FULL_EXPLORATION  wrgs:32  bound:2  boundWck:0.297  sols:1  sol1Cpu:0.705
+    wck:0.31  cpu:0.721  mem:175M772
+
+
+  Solution 1 in JSON-like format:
+   {
+    x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0],
+    z: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0]
+   }
+
+s OPTIMUM FOUND
+
+v  <instantiation id='sol1' type='solution' cost='2'> <list> x[] z[] </list> <values> 0x33 1 1 0   0x33 1 1 0 </values> </instantiation>
+
+d BOUND  2  (1 sols)
+
+d WRONG DECISIONS  32  (1280.00 wrg/s)
+
+d WCK SOL 1  0.30 (2)
+d WCK SOL-1  0.30 (2)
+d CPU        0.726
+
+d COMPLETE EXPLORATION

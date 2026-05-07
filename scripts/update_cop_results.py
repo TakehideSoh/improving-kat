@@ -151,11 +151,27 @@ RUNS = [
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
+        "ace64g-rr-20260505",
+        "ACE 64G rr 20260505",
+        "",
+        "runsolver-flat",
+        runsolver_prefix="runsolver-ace64g-rr-cop1000-20260505-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
         "pycsp3-extra-ortools-20260505",
-        "pycsp3-extra OR-Tools 20260505",
+        "pycsp3-extra OR-Tools 28t 20260505",
         "pycsp3-extra-ortools-cop1000-20260505-q10609",
         "runsolver",
         runsolver_prefix="runsolver-pycsp3-extra-ortools-cop1000-20260505-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "pycsp3-extra-ortools-1t-rerun1-20260505",
+        "pycsp3-extra OR-Tools 1t 20260505",
+        "pycsp3-extra-ortools-cop1000-20260505-q10609-1t-rerun1",
+        "runsolver",
+        runsolver_prefix="runsolver-pycsp3-extra-ortools-cop1000-20260505-q10609-1t-rerun1",
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
 ]
@@ -179,15 +195,17 @@ def fetch_logs(root: Path) -> None:
     )
     for run in RUNS:
         local = logs / run.slug
-        (local / "rows").mkdir(parents=True, exist_ok=True)
-        run_cmd(
-            [
-                "rsync",
-                "-az",
-                f"{REMOTE}:{run.remote_base}/results/{run.result_dir}/rows/",
-                str(local / "rows") + "/",
-            ]
-        )
+        local.mkdir(parents=True, exist_ok=True)
+        if run.result_dir:
+            (local / "rows").mkdir(parents=True, exist_ok=True)
+            run_cmd(
+                [
+                    "rsync",
+                    "-az",
+                    f"{REMOTE}:{run.remote_base}/results/{run.result_dir}/rows/",
+                    str(local / "rows") + "/",
+                ]
+            )
         if run.log_kind == "result-out-task":
             (local / "out").mkdir(exist_ok=True)
             run_cmd(
@@ -224,6 +242,21 @@ def fetch_logs(root: Path) -> None:
                     str(dest) + "/",
                 ]
             )
+        elif run.log_kind == "runsolver-flat":
+            dest = local / "runsolver"
+            dest.mkdir(exist_ok=True)
+            run_cmd(
+                [
+                    "rsync",
+                    "-az",
+                    "--prune-empty-dirs",
+                    f"--include={run.runsolver_prefix}-[0-9]*-[0-9]*-[0-9]*.out",
+                    f"--include={run.runsolver_prefix}-[0-9]*-[0-9]*-[0-9]*.var",
+                    "--exclude=*",
+                    f"{REMOTE}:{run.remote_base}/slurm-logs/runsolver/",
+                    str(dest) + "/",
+                ]
+            )
 
 
 def read_instances(root: Path) -> list[tuple[int, str]]:
@@ -254,8 +287,36 @@ def row_id(path: Path) -> int | None:
     return None
 
 
+def flat_runsolver_row_id(path: Path, prefix: str) -> int | None:
+    escaped = re.escape(prefix)
+    m = re.match(rf"{escaped}-(\d+)-(\d+)-(\d+)\.out$", path.name)
+    if m:
+        return int(m.group(3))
+    return None
+
+
+def status_from_log_text(text: str) -> str:
+    if re.search(r"^s\s+UNSAT", text, re.MULTILINE):
+        return "unsat"
+    if re.search(r"^s\s+OPTIMUM", text, re.MULTILINE):
+        return "optimum"
+    if re.search(r"^s\s+SAT", text, re.MULTILINE):
+        if "d COMPLETE EXPLORATION" in text and "d INCOMPLETE EXPLORATION" not in text:
+            return "optimum"
+        return "sat"
+    return "unknown"
+
+
 def load_rows(root: Path, run: Run) -> dict[int, tuple[Path, list[str]]]:
     rows: dict[int, tuple[Path, list[str]]] = {}
+    if run.log_kind == "runsolver-flat":
+        for path in sorted((root / "logs" / run.slug / "runsolver").glob(f"{run.runsolver_prefix}-*.out")):
+            instance_id = flat_runsolver_row_id(path, run.runsolver_prefix)
+            if instance_id is None:
+                continue
+            text = path.read_text(errors="replace")
+            rows[instance_id] = (path, ["", status_from_log_text(text)])
+        return rows
     for path in sorted((root / "logs" / run.slug / "rows").glob("*.csv")):
         instance_id = row_id(path)
         if instance_id is None:
@@ -297,6 +358,21 @@ def log_path_for_row(root: Path, run: Run, instance_id: int, row_path: Path | No
                     return path
         matches = sorted((base / "runsolver").glob(f"{run.runsolver_prefix}-*-*-{instance_id}/output.log"))
         return matches[-1] if matches else None
+    if run.log_kind == "runsolver-flat":
+        if row_path is not None and row_path.suffix == ".out" and row_path.exists():
+            return row_path
+        matches = sorted((base / "runsolver").glob(f"{run.runsolver_prefix}-*-*-{instance_id}.out"))
+        return matches[-1] if matches else None
+    return None
+
+
+def runsolver_values_path(log_path: Path) -> Path | None:
+    if log_path.name == "output.log":
+        path = log_path.with_name("values.log")
+        return path if path.exists() else None
+    if log_path.suffix == ".out":
+        path = log_path.with_suffix(".var")
+        return path if path.exists() else None
     return None
 
 
@@ -308,15 +384,26 @@ def parse_log(log_path: Path | None) -> tuple[str | None, str | None, str | None
     outcome = None
     text = log_path.read_text(errors="replace")
     lowered = text.lower()
+    values_path = runsolver_values_path(log_path)
+    if values_path is not None:
+        values = values_path.read_text(errors="replace").lower()
+        if "memout=true" in values:
+            outcome = "MO"
+        if "timeout=true" in values:
+            outcome = outcome or "TO"
     if any(token in lowered for token in ["out_of_memory", "oom", "killed", "exit code 137", "exit_code_137"]):
         outcome = "MO"
     if any(token in lowered for token in ["timeout", "time limit", "signal=15", "sigterm", "maximum cpu time"]):
         outcome = outcome or "TO"
     for line in text.splitlines():
         if line.startswith("o "):
-            incumbent = line.split(None, 1)[1].strip()
+            incumbent = line.split(None, 2)[1].replace(",", "").strip()
         elif line.startswith("d OBJECTIVE_VALUE "):
             incumbent = line.rsplit(" ", 1)[-1].strip()
+        elif line.startswith("d BOUND "):
+            m = re.search(r"d BOUND\s+(-?[\d,]+)", line)
+            if m:
+                incumbent = m.group(1).replace(",", "")
         elif "objective:incumbent" in line:
             m = re.search(r"value=(-?\d+)", line)
             if m:
@@ -329,6 +416,9 @@ def parse_log(log_path: Path | None) -> tuple[str | None, str | None, str | None
             m = re.search(r"\|\s+stage:([a-z0-9_-]+)", line)
             if m:
                 stage = m.group(1)
+        if line.startswith("d INCOMPLETE EXPLORATION"):
+            stage = stage or "search"
+            outcome = outcome or "TO"
     return incumbent, stage, outcome
 
 
@@ -339,12 +429,15 @@ def extract_solution_text(log_path: Path) -> str | None:
         if not line.startswith("v "):
             continue
         payload = line[2:]
-        if payload.startswith("<instantiation"):
+        stripped = payload.strip()
+        if stripped.startswith("<instantiation"):
             lines = []
             in_solution = True
         if in_solution:
-            lines.append(payload)
-        if in_solution and payload.startswith("</instantiation"):
+            lines.append(stripped)
+        if in_solution and "</instantiation" in stripped:
+            return "\n".join(lines) + "\n"
+        if in_solution and stripped.startswith("</instantiation"):
             return "\n".join(lines) + "\n"
     return None
 
@@ -385,18 +478,57 @@ def classify_checker_output(returncode: int, output: str) -> tuple[str, str]:
     return "valid", detail
 
 
-def load_validation(root: Path) -> dict[tuple[str, int], str]:
+VALIDATION_FIELDNAMES = [
+    "run",
+    "instance_id",
+    "instance",
+    "status",
+    "incumbent",
+    "validation",
+    "detail",
+    "log_mtime",
+]
+
+
+def load_validation_rows(root: Path) -> dict[tuple[str, int], dict[str, str]]:
     path = root / "logs" / "validation" / "results.csv"
     if not path.exists():
         return {}
-    out: dict[tuple[str, int], str] = {}
+    out: dict[tuple[str, int], dict[str, str]] = {}
     with path.open(newline="") as f:
         for row in csv.DictReader(f):
             try:
-                out[(row["run"], int(row["instance_id"]))] = row["validation"]
+                out[(row["run"], int(row["instance_id"]))] = row
             except (KeyError, ValueError):
                 continue
     return out
+
+
+def load_validation(root: Path) -> dict[tuple[str, int], str]:
+    return {key: row.get("validation", "") for key, row in load_validation_rows(root).items()}
+
+
+def log_mtime(log_path: Path | None) -> str:
+    if log_path is None or not log_path.exists():
+        return ""
+    return str(log_path.stat().st_mtime_ns)
+
+
+def reusable_validation_row(existing: dict[str, str] | None, current: dict[str, str]) -> dict[str, str] | None:
+    if existing is None:
+        return None
+    for field in ["run", "instance_id", "instance", "status", "incumbent"]:
+        if existing.get(field, "") != current.get(field, ""):
+            return None
+    existing_mtime = existing.get("log_mtime", "")
+    current_mtime = current.get("log_mtime", "")
+    if existing_mtime and existing_mtime != current_mtime:
+        return None
+    reused = {field: existing.get(field, "") for field in VALIDATION_FIELDNAMES}
+    reused.update(current)
+    reused["validation"] = existing.get("validation", "")
+    reused["detail"] = existing.get("detail", "")
+    return reused
 
 
 def validate_solutions(root: Path, checker_jar: Path, benchmark_dir: Path, workers: int) -> None:
@@ -404,6 +536,7 @@ def validate_solutions(root: Path, checker_jar: Path, benchmark_dir: Path, worke
         raise SystemExit(f"solution checker jar not found: {checker_jar}")
     instances = dict(read_instances(root))
     all_rows = {run.slug: load_rows(root, run) for run in RUNS}
+    previous = load_validation_rows(root)
     validation_dir = root / "logs" / "validation"
     output_dir = validation_dir / "checker-output"
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -411,7 +544,38 @@ def validate_solutions(root: Path, checker_jar: Path, benchmark_dir: Path, worke
         row_path, fields = all_rows[run.slug].get(instance_id, (None, []))
         log_path = log_path_for_row(root, run, instance_id, row_path)
         status = fields[1] if len(fields) > 1 else ""
+        current_log_mtime = log_mtime(log_path)
+        existing = previous.get((run.slug, instance_id))
+        if (
+            existing is not None
+            and existing.get("log_mtime", "")
+            and existing.get("log_mtime", "") == current_log_mtime
+            and existing.get("instance", "") == instance
+            and existing.get("status", "") == status
+        ):
+            reused = {field: existing.get(field, "") for field in VALIDATION_FIELDNAMES}
+            reused.update(
+                {
+                    "run": run.slug,
+                    "instance_id": str(instance_id),
+                    "instance": instance,
+                    "status": status,
+                    "log_mtime": current_log_mtime,
+                }
+            )
+            return reused
         incumbent, _, _ = parse_log(log_path)
+        current = {
+            "run": run.slug,
+            "instance_id": str(instance_id),
+            "instance": instance,
+            "status": status,
+            "incumbent": incumbent or "",
+            "log_mtime": current_log_mtime,
+        }
+        reused = reusable_validation_row(existing, current)
+        if reused is not None:
+            return reused
         validation = "skipped_no_incumbent"
         detail = ""
         if status == "unsat":
@@ -420,18 +584,18 @@ def validate_solutions(root: Path, checker_jar: Path, benchmark_dir: Path, worke
             if log_path is None:
                 validation = "no_log"
             else:
-                solution = extract_solution_text(log_path)
-                if solution is None:
-                    validation = "no_solution"
+                out_path = output_dir / run.slug / f"{instance_id}.txt"
+                if out_path.exists() and out_path.stat().st_mtime >= log_path.stat().st_mtime:
+                    validation, detail = classify_checker_output(0, out_path.read_text(errors="replace"))
                 else:
-                    inst = instance_path(benchmark_dir, instance)
-                    if not inst.exists():
-                        validation = "missing_instance"
-                        detail = str(inst)
+                    solution = extract_solution_text(log_path)
+                    if solution is None:
+                        validation = "no_solution"
                     else:
-                        out_path = output_dir / run.slug / f"{instance_id}.txt"
-                        if out_path.exists() and out_path.stat().st_mtime >= log_path.stat().st_mtime:
-                            validation, detail = classify_checker_output(0, out_path.read_text(errors="replace"))
+                        inst = instance_path(benchmark_dir, instance)
+                        if not inst.exists():
+                            validation = "missing_instance"
+                            detail = str(inst)
                         else:
                             with tempfile.NamedTemporaryFile("w", suffix=".xml", delete=False) as tmp:
                                 tmp.write(solution)
@@ -453,12 +617,7 @@ def validate_solutions(root: Path, checker_jar: Path, benchmark_dir: Path, worke
                                 detail = str(e)
                             finally:
                                 solution_path.unlink(missing_ok=True)
-        return {
-            "run": run.slug,
-            "instance_id": str(instance_id),
-            "instance": instance,
-            "status": status,
-            "incumbent": incumbent or "",
+        return current | {
             "validation": validation,
             "detail": detail,
         }
@@ -474,8 +633,7 @@ def validate_solutions(root: Path, checker_jar: Path, benchmark_dir: Path, worke
     rows.sort(key=lambda row: (row["run"], int(row["instance_id"])))
     path = validation_dir / "results.csv"
     with path.open("w", newline="") as f:
-        fieldnames = ["run", "instance_id", "instance", "status", "incumbent", "validation", "detail"]
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=VALIDATION_FIELDNAMES)
         writer.writeheader()
         writer.writerows(rows)
 
