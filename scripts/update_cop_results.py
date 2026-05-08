@@ -157,6 +157,14 @@ RUNS = [
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
+        "aac6b714-scip-direct-order-dynamic",
+        "aac6b714 SCIP direct-order dynamic",
+        "kat-cop1000-direct-order-mdd-tl-scip-dynamic-20260507-aac6b714-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-scip-dynamic-20260507-aac6b714-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
         "ace64g-rr-20260505",
         "ACE 64G rr 20260505",
         "",

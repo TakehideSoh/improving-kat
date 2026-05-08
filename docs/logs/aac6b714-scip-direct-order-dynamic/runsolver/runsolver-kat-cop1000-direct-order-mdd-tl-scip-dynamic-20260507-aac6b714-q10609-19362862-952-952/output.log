@@ -1,0 +1,958 @@
+c cmd: /host-parser-bin/kat_xcsp_aac6b714_scip_dynamic /bench/competition/2022-2025/COP22to25/VRP_LC-13-11-20-s4_c24.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=736
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=9 pruned=16775 changed_domains=304 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=736
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=149 lowered=736 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=21 rounds=60 tightened=80 removed_cls=6951 removed_lits=4415 unsat=false precise_hits=655 precise_rounds=1 pivot_recomputes=140 pivot_exact_attempts=140 pivot_general_attempts=23 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=23 pivot_general_tightened=0 setup_ms=5 loop_ms=9 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=6
+c 00h00m00s | stage:lowered-shape int_vars=721 bool_vars=8014 linear_atoms=27941 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=1 product_atoms=0 logical_clauses=34516
+c 00h00m00s | stage:root-lp:start backend=scip-ffi
+c 00h00m01s | stage:root-lp:bound backend=scip-ffi status=optimal objective_value=0 naive_bounds=[0,1746] lp_bounds=[0,1746] improved=0 rows=11819 vars=8735 ms=933
+c 00h00m01s | stage:preencode(order-ge):start
+c 00h00m01s | stage:preencode(order-ge):done ms=38 int_vars=1637
+c 00h00m01s | stage:encode(order-ge):start
+c 00h00m02s | stage:encode(order-ge):done ms=1712 sat_vars=122285 sat_clauses=4952215 ext_ge_specs=0 relaxed_circuits=1
+c 00h00m02s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m02s | stage:sat:solve:start round=1 circuit_cegar_rounds=1 cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h00m08s | stage:sat:solve:done round=1 ms=6092 result=Sat assumptions=0 phase_lits=0
+c 00h00m08s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m08s | stage:decode:final:start round=1 requested_int_ids=721
+c 00h00m08s | stage:decode:done round=1 int_assignments=721
+c 00h00m08s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=1 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h00m08s | result:Sat
+c 00h00m08s | objective:incumbent kind=initial value=980 rounds=1 improvements=0
+o 980
+c 00h00m08s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m08s | stage:sat:solve:start round=1 circuit_cegar_rounds=2 cop_cegar_rounds=2 assumptions=0 phase_lits=37399
+c 00h00m09s | stage:sat:solve:done round=1 ms=54 result=Sat assumptions=0 phase_lits=37399
+c 00h00m09s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m09s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=2 circuit_cegar_added_clauses=0 cop_cegar_failures=1 cop_cegar_rounds=2 cop_cegar_added_clauses=53447
+c 00h00m09s | stage:sat:solve:start round=2 circuit_cegar_rounds=3 cop_cegar_rounds=3 assumptions=0 phase_lits=37399
+c 00h00m17s | stage:sat:solve:done round=2 ms=7982 result=Sat assumptions=0 phase_lits=37399
+c 00h00m17s | stage:decode:start round=2 requested_int_ids=721
+c 00h00m17s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h00m17s | stage:decode:done round=2 int_assignments=721
+c 00h00m17s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=3 circuit_cegar_added_clauses=0 cop_cegar_failures=1 cop_cegar_rounds=3 cop_cegar_added_clauses=53447
+c 00h00m17s | result:Sat
+c 00h00m17s | objective:incumbent kind=improvement value=975 rounds=2 improvements=1
+o 975
+c 00h00m17s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m17s | stage:sat:solve:start round=1 circuit_cegar_rounds=4 cop_cegar_rounds=4 assumptions=0 phase_lits=37399
+c 00h00m17s | stage:sat:solve:done round=1 ms=68 result=Sat assumptions=0 phase_lits=37399
+c 00h00m17s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m17s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=4 circuit_cegar_added_clauses=0 cop_cegar_failures=2 cop_cegar_rounds=4 cop_cegar_added_clauses=106894
+c 00h00m17s | stage:sat:solve:start round=2 circuit_cegar_rounds=5 cop_cegar_rounds=5 assumptions=0 phase_lits=37399
+c 00h00m17s | stage:sat:solve:done round=2 ms=170 result=Sat assumptions=0 phase_lits=37399
+c 00h00m17s | stage:decode:start round=2 requested_int_ids=721
+c 00h00m17s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h00m17s | stage:decode:done round=2 int_assignments=721
+c 00h00m17s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=5 circuit_cegar_added_clauses=0 cop_cegar_failures=2 cop_cegar_rounds=5 cop_cegar_added_clauses=106894
+c 00h00m17s | result:Sat
+c 00h00m17s | objective:incumbent kind=improvement value=969 rounds=3 improvements=2
+o 969
+c 00h00m17s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m17s | stage:sat:solve:start round=1 circuit_cegar_rounds=6 cop_cegar_rounds=6 assumptions=0 phase_lits=37399
+c 00h00m17s | stage:sat:solve:done round=1 ms=26 result=Sat assumptions=0 phase_lits=37399
+c 00h00m17s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m17s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=6 circuit_cegar_added_clauses=0 cop_cegar_failures=3 cop_cegar_rounds=6 cop_cegar_added_clauses=160341
+c 00h00m17s | stage:sat:solve:start round=2 circuit_cegar_rounds=7 cop_cegar_rounds=7 assumptions=0 phase_lits=37399
+c 00h00m20s | stage:sat:solve:done round=2 ms=2866 result=Sat assumptions=0 phase_lits=37399
+c 00h00m20s | stage:decode:start round=2 requested_int_ids=721
+c 00h00m20s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h00m20s | stage:decode:done round=2 int_assignments=721
+c 00h00m20s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=7 circuit_cegar_added_clauses=0 cop_cegar_failures=3 cop_cegar_rounds=7 cop_cegar_added_clauses=160341
+c 00h00m20s | result:Sat
+c 00h00m20s | objective:incumbent kind=improvement value=960 rounds=4 improvements=3
+o 960
+c 00h00m20s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m20s | stage:sat:solve:start round=1 circuit_cegar_rounds=8 cop_cegar_rounds=8 assumptions=0 phase_lits=37399
+c 00h00m20s | stage:sat:solve:done round=1 ms=50 result=Sat assumptions=0 phase_lits=37399
+c 00h00m20s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m20s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=8 circuit_cegar_added_clauses=0 cop_cegar_failures=4 cop_cegar_rounds=8 cop_cegar_added_clauses=213788
+c 00h00m20s | stage:sat:solve:start round=2 circuit_cegar_rounds=9 cop_cegar_rounds=9 assumptions=0 phase_lits=37399
+c 00h00m20s | stage:sat:solve:done round=2 ms=42 result=Sat assumptions=0 phase_lits=37399
+c 00h00m20s | stage:decode:start round=2 requested_int_ids=721
+c 00h00m20s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h00m20s | stage:decode:done round=2 int_assignments=721
+c 00h00m20s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=9 circuit_cegar_added_clauses=0 cop_cegar_failures=4 cop_cegar_rounds=9 cop_cegar_added_clauses=213788
+c 00h00m20s | result:Sat
+c 00h00m20s | objective:incumbent kind=improvement value=946 rounds=5 improvements=4
+o 946
+c 00h00m20s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m20s | stage:sat:solve:start round=1 circuit_cegar_rounds=10 cop_cegar_rounds=10 assumptions=0 phase_lits=37399
+c 00h00m20s | stage:sat:solve:done round=1 ms=23 result=Sat assumptions=0 phase_lits=37399
+c 00h00m20s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m20s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=10 circuit_cegar_added_clauses=0 cop_cegar_failures=5 cop_cegar_rounds=10 cop_cegar_added_clauses=267235
+c 00h00m20s | stage:sat:solve:start round=2 circuit_cegar_rounds=11 cop_cegar_rounds=11 assumptions=0 phase_lits=37399
+c 00h00m21s | stage:sat:solve:done round=2 ms=994 result=Sat assumptions=0 phase_lits=37399
+c 00h00m21s | stage:decode:start round=2 requested_int_ids=721
+c 00h00m21s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h00m21s | stage:decode:done round=2 int_assignments=721
+c 00h00m21s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=11 circuit_cegar_added_clauses=0 cop_cegar_failures=5 cop_cegar_rounds=11 cop_cegar_added_clauses=267235
+c 00h00m21s | result:Sat
+c 00h00m21s | objective:incumbent kind=improvement value=907 rounds=6 improvements=5
+o 907
+c 00h00m21s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m21s | stage:sat:solve:start round=1 circuit_cegar_rounds=12 cop_cegar_rounds=12 assumptions=0 phase_lits=37399
+c 00h00m21s | stage:sat:solve:done round=1 ms=45 result=Sat assumptions=0 phase_lits=37399
+c 00h00m21s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m21s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=12 circuit_cegar_added_clauses=0 cop_cegar_failures=6 cop_cegar_rounds=12 cop_cegar_added_clauses=320682
+c 00h00m21s | stage:sat:solve:start round=2 circuit_cegar_rounds=13 cop_cegar_rounds=13 assumptions=0 phase_lits=37399
+c 00h00m22s | stage:sat:solve:done round=2 ms=1261 result=Sat assumptions=0 phase_lits=37399
+c 00h00m22s | stage:decode:start round=2 requested_int_ids=721
+c 00h00m22s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h00m22s | stage:decode:done round=2 int_assignments=721
+c 00h00m22s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=13 circuit_cegar_added_clauses=0 cop_cegar_failures=6 cop_cegar_rounds=13 cop_cegar_added_clauses=320682
+c 00h00m22s | result:Sat
+c 00h00m22s | objective:incumbent kind=improvement value=901 rounds=7 improvements=6
+o 901
+c 00h00m22s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m22s | stage:sat:solve:start round=1 circuit_cegar_rounds=14 cop_cegar_rounds=14 assumptions=0 phase_lits=37399
+c 00h00m22s | stage:sat:solve:done round=1 ms=45 result=Sat assumptions=0 phase_lits=37399
+c 00h00m22s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m23s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=14 circuit_cegar_added_clauses=0 cop_cegar_failures=7 cop_cegar_rounds=14 cop_cegar_added_clauses=374129
+c 00h00m23s | stage:sat:solve:start round=2 circuit_cegar_rounds=15 cop_cegar_rounds=15 assumptions=0 phase_lits=37399
+c 00h00m23s | stage:sat:solve:done round=2 ms=32 result=Sat assumptions=0 phase_lits=37399
+c 00h00m23s | stage:decode:start round=2 requested_int_ids=721
+c 00h00m23s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h00m23s | stage:decode:done round=2 int_assignments=721
+c 00h00m23s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=15 circuit_cegar_added_clauses=0 cop_cegar_failures=7 cop_cegar_rounds=15 cop_cegar_added_clauses=374129
+c 00h00m23s | result:Sat
+c 00h00m23s | objective:incumbent kind=improvement value=895 rounds=8 improvements=7
+o 895
+c 00h00m23s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m23s | stage:sat:solve:start round=1 circuit_cegar_rounds=16 cop_cegar_rounds=16 assumptions=0 phase_lits=37399
+c 00h00m23s | stage:sat:solve:done round=1 ms=23 result=Sat assumptions=0 phase_lits=37399
+c 00h00m23s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m23s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=16 circuit_cegar_added_clauses=0 cop_cegar_failures=8 cop_cegar_rounds=16 cop_cegar_added_clauses=427576
+c 00h00m23s | stage:sat:solve:start round=2 circuit_cegar_rounds=17 cop_cegar_rounds=17 assumptions=0 phase_lits=37399
+c 00h00m28s | stage:sat:solve:done round=2 ms=5308 result=Sat assumptions=0 phase_lits=37399
+c 00h00m28s | stage:decode:start round=2 requested_int_ids=721
+c 00h00m28s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h00m28s | stage:decode:done round=2 int_assignments=721
+c 00h00m28s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=17 circuit_cegar_added_clauses=0 cop_cegar_failures=8 cop_cegar_rounds=17 cop_cegar_added_clauses=427576
+c 00h00m28s | result:Sat
+c 00h00m28s | objective:incumbent kind=improvement value=885 rounds=9 improvements=8
+o 885
+c 00h00m28s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m28s | stage:sat:solve:start round=1 circuit_cegar_rounds=18 cop_cegar_rounds=18 assumptions=0 phase_lits=37399
+c 00h00m28s | stage:sat:solve:done round=1 ms=42 result=Sat assumptions=0 phase_lits=37399
+c 00h00m28s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m28s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=18 circuit_cegar_added_clauses=0 cop_cegar_failures=9 cop_cegar_rounds=18 cop_cegar_added_clauses=481023
+c 00h00m28s | stage:sat:solve:start round=2 circuit_cegar_rounds=19 cop_cegar_rounds=19 assumptions=0 phase_lits=37399
+c 00h00m33s | stage:sat:solve:done round=2 ms=5336 result=Sat assumptions=0 phase_lits=37399
+c 00h00m33s | stage:decode:start round=2 requested_int_ids=721
+c 00h00m33s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h00m33s | stage:decode:done round=2 int_assignments=721
+c 00h00m33s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=19 circuit_cegar_added_clauses=0 cop_cegar_failures=9 cop_cegar_rounds=19 cop_cegar_added_clauses=481023
+c 00h00m33s | result:Sat
+c 00h00m33s | objective:incumbent kind=improvement value=874 rounds=10 improvements=9
+o 874
+c 00h00m33s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m33s | stage:sat:solve:start round=1 circuit_cegar_rounds=20 cop_cegar_rounds=20 assumptions=0 phase_lits=37399
+c 00h00m33s | stage:sat:solve:done round=1 ms=43 result=Sat assumptions=0 phase_lits=37399
+c 00h00m33s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m33s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=20 circuit_cegar_added_clauses=0 cop_cegar_failures=10 cop_cegar_rounds=20 cop_cegar_added_clauses=534470
+c 00h00m34s | stage:sat:solve:start round=2 circuit_cegar_rounds=21 cop_cegar_rounds=21 assumptions=0 phase_lits=37399
+c 00h00m45s | stage:sat:solve:done round=2 ms=10997 result=Sat assumptions=0 phase_lits=37399
+c 00h00m45s | stage:decode:start round=2 requested_int_ids=721
+c 00h00m45s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h00m45s | stage:decode:done round=2 int_assignments=721
+c 00h00m45s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=21 circuit_cegar_added_clauses=0 cop_cegar_failures=10 cop_cegar_rounds=21 cop_cegar_added_clauses=534470
+c 00h00m45s | result:Sat
+c 00h00m45s | objective:incumbent kind=improvement value=854 rounds=11 improvements=10
+o 854
+c 00h00m45s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m45s | stage:sat:solve:start round=1 circuit_cegar_rounds=22 cop_cegar_rounds=22 assumptions=0 phase_lits=37399
+c 00h00m50s | stage:sat:solve:done round=1 ms=5716 result=Sat assumptions=0 phase_lits=37399
+c 00h00m50s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m50s | stage:decode:final:start round=1 requested_int_ids=721
+c 00h00m50s | stage:decode:done round=1 int_assignments=721
+c 00h00m50s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=22 circuit_cegar_added_clauses=0 cop_cegar_failures=10 cop_cegar_rounds=22 cop_cegar_added_clauses=534470
+c 00h00m50s | result:Sat
+c 00h00m50s | objective:incumbent kind=improvement value=853 rounds=12 improvements=11
+o 853
+c 00h00m50s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m50s | stage:sat:solve:start round=1 circuit_cegar_rounds=23 cop_cegar_rounds=23 assumptions=0 phase_lits=37399
+c 00h00m50s | stage:sat:solve:done round=1 ms=51 result=Sat assumptions=0 phase_lits=37399
+c 00h00m50s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m50s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=23 circuit_cegar_added_clauses=0 cop_cegar_failures=11 cop_cegar_rounds=23 cop_cegar_added_clauses=587917
+c 00h00m50s | stage:sat:solve:start round=2 circuit_cegar_rounds=24 cop_cegar_rounds=24 assumptions=0 phase_lits=37399
+c 00h00m51s | stage:sat:solve:done round=2 ms=443 result=Sat assumptions=0 phase_lits=37399
+c 00h00m51s | stage:decode:start round=2 requested_int_ids=721
+c 00h00m51s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h00m51s | stage:decode:done round=2 int_assignments=721
+c 00h00m51s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=24 circuit_cegar_added_clauses=0 cop_cegar_failures=11 cop_cegar_rounds=24 cop_cegar_added_clauses=587917
+c 00h00m51s | result:Sat
+c 00h00m51s | objective:incumbent kind=improvement value=849 rounds=13 improvements=12
+o 849
+c 00h00m51s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m51s | stage:sat:solve:start round=1 circuit_cegar_rounds=25 cop_cegar_rounds=25 assumptions=0 phase_lits=37399
+c 00h00m51s | stage:sat:solve:done round=1 ms=31 result=Sat assumptions=0 phase_lits=37399
+c 00h00m51s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m51s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=25 circuit_cegar_added_clauses=0 cop_cegar_failures=12 cop_cegar_rounds=25 cop_cegar_added_clauses=641364
+c 00h00m51s | stage:sat:solve:start round=2 circuit_cegar_rounds=26 cop_cegar_rounds=26 assumptions=0 phase_lits=37399
+c 00h00m51s | stage:sat:solve:done round=2 ms=530 result=Sat assumptions=0 phase_lits=37399
+c 00h00m51s | stage:decode:start round=2 requested_int_ids=721
+c 00h00m51s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h00m51s | stage:decode:done round=2 int_assignments=721
+c 00h00m51s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=26 circuit_cegar_added_clauses=0 cop_cegar_failures=12 cop_cegar_rounds=26 cop_cegar_added_clauses=641364
+c 00h00m51s | result:Sat
+c 00h00m51s | objective:incumbent kind=improvement value=829 rounds=14 improvements=13
+o 829
+c 00h00m51s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h00m51s | stage:sat:solve:start round=1 circuit_cegar_rounds=27 cop_cegar_rounds=27 assumptions=0 phase_lits=37399
+c 00h00m51s | stage:sat:solve:done round=1 ms=52 result=Sat assumptions=0 phase_lits=37399
+c 00h00m51s | stage:decode:start round=1 requested_int_ids=721
+c 00h00m52s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=27 circuit_cegar_added_clauses=0 cop_cegar_failures=13 cop_cegar_rounds=27 cop_cegar_added_clauses=694811
+c 00h00m52s | stage:sat:solve:start round=2 circuit_cegar_rounds=28 cop_cegar_rounds=28 assumptions=0 phase_lits=37399
+c 00h01m01s | stage:sat:solve:done round=2 ms=9620 result=Sat assumptions=0 phase_lits=37399
+c 00h01m01s | stage:decode:start round=2 requested_int_ids=721
+c 00h01m01s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h01m01s | stage:decode:done round=2 int_assignments=721
+c 00h01m01s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=28 circuit_cegar_added_clauses=0 cop_cegar_failures=13 cop_cegar_rounds=28 cop_cegar_added_clauses=694811
+c 00h01m01s | result:Sat
+c 00h01m01s | objective:incumbent kind=improvement value=818 rounds=15 improvements=14
+o 818
+c 00h01m01s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h01m01s | stage:sat:solve:start round=1 circuit_cegar_rounds=29 cop_cegar_rounds=29 assumptions=0 phase_lits=37399
+c 00h01m01s | stage:sat:solve:done round=1 ms=57 result=Sat assumptions=0 phase_lits=37399
+c 00h01m01s | stage:decode:start round=1 requested_int_ids=721
+c 00h01m01s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=29 circuit_cegar_added_clauses=0 cop_cegar_failures=14 cop_cegar_rounds=29 cop_cegar_added_clauses=748258
+c 00h01m01s | stage:sat:solve:start round=2 circuit_cegar_rounds=30 cop_cegar_rounds=30 assumptions=0 phase_lits=37399
+c 00h01m02s | stage:sat:solve:done round=2 ms=487 result=Sat assumptions=0 phase_lits=37399
+c 00h01m02s | stage:decode:start round=2 requested_int_ids=721
+c 00h01m02s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h01m02s | stage:decode:done round=2 int_assignments=721
+c 00h01m02s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=30 circuit_cegar_added_clauses=0 cop_cegar_failures=14 cop_cegar_rounds=30 cop_cegar_added_clauses=748258
+c 00h01m02s | result:Sat
+c 00h01m02s | objective:incumbent kind=improvement value=806 rounds=16 improvements=15
+o 806
+c 00h01m02s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h01m02s | stage:sat:solve:start round=1 circuit_cegar_rounds=31 cop_cegar_rounds=31 assumptions=0 phase_lits=37399
+c 00h01m02s | stage:sat:solve:done round=1 ms=51 result=Sat assumptions=0 phase_lits=37399
+c 00h01m02s | stage:decode:start round=1 requested_int_ids=721
+c 00h01m02s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=31 circuit_cegar_added_clauses=0 cop_cegar_failures=15 cop_cegar_rounds=31 cop_cegar_added_clauses=801705
+c 00h01m02s | stage:sat:solve:start round=2 circuit_cegar_rounds=32 cop_cegar_rounds=32 assumptions=0 phase_lits=37399
+c 00h01m04s | stage:sat:solve:done round=2 ms=2274 result=Sat assumptions=0 phase_lits=37399
+c 00h01m04s | stage:decode:start round=2 requested_int_ids=721
+c 00h01m04s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h01m04s | stage:decode:done round=2 int_assignments=721
+c 00h01m04s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=32 circuit_cegar_added_clauses=0 cop_cegar_failures=15 cop_cegar_rounds=32 cop_cegar_added_clauses=801705
+c 00h01m04s | result:Sat
+c 00h01m04s | objective:incumbent kind=improvement value=805 rounds=17 improvements=16
+o 805
+c 00h01m04s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h01m04s | stage:sat:solve:start round=1 circuit_cegar_rounds=33 cop_cegar_rounds=33 assumptions=0 phase_lits=37399
+c 00h01m04s | stage:sat:solve:done round=1 ms=60 result=Sat assumptions=0 phase_lits=37399
+c 00h01m04s | stage:decode:start round=1 requested_int_ids=721
+c 00h01m04s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=33 circuit_cegar_added_clauses=0 cop_cegar_failures=16 cop_cegar_rounds=33 cop_cegar_added_clauses=855152
+c 00h01m04s | stage:sat:solve:start round=2 circuit_cegar_rounds=34 cop_cegar_rounds=34 assumptions=0 phase_lits=37399
+c 00h01m05s | stage:sat:solve:done round=2 ms=432 result=Sat assumptions=0 phase_lits=37399
+c 00h01m05s | stage:decode:start round=2 requested_int_ids=721
+c 00h01m05s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h01m05s | stage:decode:done round=2 int_assignments=721
+c 00h01m05s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=34 circuit_cegar_added_clauses=0 cop_cegar_failures=16 cop_cegar_rounds=34 cop_cegar_added_clauses=855152
+c 00h01m05s | result:Sat
+c 00h01m05s | objective:incumbent kind=improvement value=798 rounds=18 improvements=17
+o 798
+c 00h01m05s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h01m05s | stage:sat:solve:start round=1 circuit_cegar_rounds=35 cop_cegar_rounds=35 assumptions=0 phase_lits=37399
+c 00h01m05s | stage:sat:solve:done round=1 ms=52 result=Sat assumptions=0 phase_lits=37399
+c 00h01m05s | stage:decode:start round=1 requested_int_ids=721
+c 00h01m05s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=35 circuit_cegar_added_clauses=0 cop_cegar_failures=17 cop_cegar_rounds=35 cop_cegar_added_clauses=908599
+c 00h01m05s | stage:sat:solve:start round=2 circuit_cegar_rounds=36 cop_cegar_rounds=36 assumptions=0 phase_lits=37399
+c 00h01m05s | stage:sat:solve:done round=2 ms=521 result=Sat assumptions=0 phase_lits=37399
+c 00h01m05s | stage:decode:start round=2 requested_int_ids=721
+c 00h01m05s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h01m05s | stage:decode:done round=2 int_assignments=721
+c 00h01m05s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=36 circuit_cegar_added_clauses=0 cop_cegar_failures=17 cop_cegar_rounds=36 cop_cegar_added_clauses=908599
+c 00h01m05s | result:Sat
+c 00h01m05s | objective:incumbent kind=improvement value=796 rounds=19 improvements=18
+o 796
+c 00h01m05s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h01m05s | stage:sat:solve:start round=1 circuit_cegar_rounds=37 cop_cegar_rounds=37 assumptions=0 phase_lits=37399
+c 00h01m05s | stage:sat:solve:done round=1 ms=34 result=Sat assumptions=0 phase_lits=37399
+c 00h01m05s | stage:decode:start round=1 requested_int_ids=721
+c 00h01m05s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=37 circuit_cegar_added_clauses=0 cop_cegar_failures=18 cop_cegar_rounds=37 cop_cegar_added_clauses=962046
+c 00h01m05s | stage:sat:solve:start round=2 circuit_cegar_rounds=38 cop_cegar_rounds=38 assumptions=0 phase_lits=37399
+c 00h01m06s | stage:sat:solve:done round=2 ms=924 result=Sat assumptions=0 phase_lits=37399
+c 00h01m06s | stage:decode:start round=2 requested_int_ids=721
+c 00h01m06s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h01m06s | stage:decode:done round=2 int_assignments=721
+c 00h01m06s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=38 circuit_cegar_added_clauses=0 cop_cegar_failures=18 cop_cegar_rounds=38 cop_cegar_added_clauses=962046
+c 00h01m06s | result:Sat
+c 00h01m06s | objective:incumbent kind=improvement value=786 rounds=20 improvements=19
+o 786
+c 00h01m06s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h01m06s | stage:sat:solve:start round=1 circuit_cegar_rounds=39 cop_cegar_rounds=39 assumptions=0 phase_lits=37399
+c 00h01m06s | stage:sat:solve:done round=1 ms=55 result=Sat assumptions=0 phase_lits=37399
+c 00h01m06s | stage:decode:start round=1 requested_int_ids=721
+c 00h01m06s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=39 circuit_cegar_added_clauses=0 cop_cegar_failures=19 cop_cegar_rounds=39 cop_cegar_added_clauses=1015493
+c 00h01m06s | stage:sat:solve:start round=2 circuit_cegar_rounds=40 cop_cegar_rounds=40 assumptions=0 phase_lits=37399
+c 00h01m06s | stage:sat:solve:done round=2 ms=33 result=Sat assumptions=0 phase_lits=37399
+c 00h01m06s | stage:decode:start round=2 requested_int_ids=721
+c 00h01m06s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h01m06s | stage:decode:done round=2 int_assignments=721
+c 00h01m06s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=40 circuit_cegar_added_clauses=0 cop_cegar_failures=19 cop_cegar_rounds=40 cop_cegar_added_clauses=1015493
+c 00h01m06s | result:Sat
+c 00h01m06s | objective:incumbent kind=improvement value=781 rounds=21 improvements=20
+o 781
+c 00h01m06s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h01m06s | stage:sat:solve:start round=1 circuit_cegar_rounds=41 cop_cegar_rounds=41 assumptions=0 phase_lits=37399
+c 00h01m07s | stage:sat:solve:done round=1 ms=49 result=Sat assumptions=0 phase_lits=37399
+c 00h01m07s | stage:decode:start round=1 requested_int_ids=721
+c 00h01m07s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=41 circuit_cegar_added_clauses=0 cop_cegar_failures=20 cop_cegar_rounds=41 cop_cegar_added_clauses=1068940
+c 00h01m07s | stage:sat:solve:start round=2 circuit_cegar_rounds=42 cop_cegar_rounds=42 assumptions=0 phase_lits=37399
+c 00h01m08s | stage:sat:solve:done round=2 ms=1266 result=Sat assumptions=0 phase_lits=37399
+c 00h01m08s | stage:decode:start round=2 requested_int_ids=721
+c 00h01m08s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h01m08s | stage:decode:done round=2 int_assignments=721
+c 00h01m08s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=42 circuit_cegar_added_clauses=0 cop_cegar_failures=20 cop_cegar_rounds=42 cop_cegar_added_clauses=1068940
+c 00h01m08s | result:Sat
+c 00h01m08s | objective:incumbent kind=improvement value=773 rounds=22 improvements=21
+o 773
+c 00h01m08s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h01m08s | stage:sat:solve:start round=1 circuit_cegar_rounds=43 cop_cegar_rounds=43 assumptions=0 phase_lits=37399
+c 00h01m08s | stage:sat:solve:done round=1 ms=57 result=Sat assumptions=0 phase_lits=37399
+c 00h01m08s | stage:decode:start round=1 requested_int_ids=721
+c 00h01m08s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=43 circuit_cegar_added_clauses=0 cop_cegar_failures=21 cop_cegar_rounds=43 cop_cegar_added_clauses=1122387
+c 00h01m08s | stage:sat:solve:start round=2 circuit_cegar_rounds=44 cop_cegar_rounds=44 assumptions=0 phase_lits=37399
+c 00h01m21s | stage:sat:solve:done round=2 ms=12605 result=Sat assumptions=0 phase_lits=37399
+c 00h01m21s | stage:decode:start round=2 requested_int_ids=721
+c 00h01m21s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h01m21s | stage:decode:done round=2 int_assignments=721
+c 00h01m21s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=44 circuit_cegar_added_clauses=0 cop_cegar_failures=21 cop_cegar_rounds=44 cop_cegar_added_clauses=1122387
+c 00h01m21s | result:Sat
+c 00h01m21s | objective:incumbent kind=improvement value=772 rounds=23 improvements=22
+o 772
+c 00h01m21s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h01m21s | stage:sat:solve:start round=1 circuit_cegar_rounds=45 cop_cegar_rounds=45 assumptions=0 phase_lits=37399
+c 00h01m23s | stage:sat:solve:done round=1 ms=2891 result=Sat assumptions=0 phase_lits=37399
+c 00h01m23s | stage:decode:start round=1 requested_int_ids=721
+c 00h01m23s | stage:decode:final:start round=1 requested_int_ids=721
+c 00h01m23s | stage:decode:done round=1 int_assignments=721
+c 00h01m23s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=45 circuit_cegar_added_clauses=0 cop_cegar_failures=21 cop_cegar_rounds=45 cop_cegar_added_clauses=1122387
+c 00h01m23s | result:Sat
+c 00h01m23s | objective:incumbent kind=improvement value=768 rounds=24 improvements=23
+o 768
+c 00h01m23s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h01m23s | stage:sat:solve:start round=1 circuit_cegar_rounds=46 cop_cegar_rounds=46 assumptions=0 phase_lits=37399
+c 00h01m24s | stage:sat:solve:done round=1 ms=52 result=Sat assumptions=0 phase_lits=37399
+c 00h01m24s | stage:decode:start round=1 requested_int_ids=721
+c 00h01m24s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=46 circuit_cegar_added_clauses=0 cop_cegar_failures=22 cop_cegar_rounds=46 cop_cegar_added_clauses=1175834
+c 00h01m24s | stage:sat:solve:start round=2 circuit_cegar_rounds=47 cop_cegar_rounds=47 assumptions=0 phase_lits=37399
+c 00h02m43s | stage:sat:solve:done round=2 ms=79373 result=Sat assumptions=0 phase_lits=37399
+c 00h02m43s | stage:decode:start round=2 requested_int_ids=721
+c 00h02m43s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h02m43s | stage:decode:done round=2 int_assignments=721
+c 00h02m43s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=47 circuit_cegar_added_clauses=0 cop_cegar_failures=22 cop_cegar_rounds=47 cop_cegar_added_clauses=1175834
+c 00h02m43s | result:Sat
+c 00h02m43s | objective:incumbent kind=improvement value=760 rounds=25 improvements=24
+o 760
+c 00h02m43s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h02m43s | stage:sat:solve:start round=1 circuit_cegar_rounds=48 cop_cegar_rounds=48 assumptions=0 phase_lits=37399
+c 00h02m58s | stage:sat:solve:done round=1 ms=14591 result=Sat assumptions=0 phase_lits=37399
+c 00h02m58s | stage:decode:start round=1 requested_int_ids=721
+c 00h02m58s | stage:decode:final:start round=1 requested_int_ids=721
+c 00h02m58s | stage:decode:done round=1 int_assignments=721
+c 00h02m58s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=48 circuit_cegar_added_clauses=0 cop_cegar_failures=22 cop_cegar_rounds=48 cop_cegar_added_clauses=1175834
+c 00h02m58s | result:Sat
+c 00h02m58s | objective:incumbent kind=improvement value=747 rounds=26 improvements=25
+o 747
+c 00h02m58s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h02m58s | stage:sat:solve:start round=1 circuit_cegar_rounds=49 cop_cegar_rounds=49 assumptions=0 phase_lits=37399
+c 00h02m58s | stage:sat:solve:done round=1 ms=48 result=Sat assumptions=0 phase_lits=37399
+c 00h02m58s | stage:decode:start round=1 requested_int_ids=721
+c 00h02m58s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=49 circuit_cegar_added_clauses=0 cop_cegar_failures=23 cop_cegar_rounds=49 cop_cegar_added_clauses=1229281
+c 00h02m58s | stage:sat:solve:start round=2 circuit_cegar_rounds=50 cop_cegar_rounds=50 assumptions=0 phase_lits=37399
+c 00h04m15s | stage:sat:solve:done round=2 ms=76936 result=Sat assumptions=0 phase_lits=37399
+c 00h04m15s | stage:decode:start round=2 requested_int_ids=721
+c 00h04m15s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h04m15s | stage:decode:done round=2 int_assignments=721
+c 00h04m15s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=50 circuit_cegar_added_clauses=0 cop_cegar_failures=23 cop_cegar_rounds=50 cop_cegar_added_clauses=1229281
+c 00h04m15s | result:Sat
+c 00h04m15s | objective:incumbent kind=improvement value=740 rounds=27 improvements=26
+o 740
+c 00h04m15s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h04m15s | stage:sat:solve:start round=1 circuit_cegar_rounds=51 cop_cegar_rounds=51 assumptions=0 phase_lits=37399
+c 00h04m15s | stage:sat:solve:done round=1 ms=357 result=Sat assumptions=0 phase_lits=37399
+c 00h04m15s | stage:decode:start round=1 requested_int_ids=721
+c 00h04m15s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=51 circuit_cegar_added_clauses=0 cop_cegar_failures=24 cop_cegar_rounds=51 cop_cegar_added_clauses=1282728
+c 00h04m15s | stage:sat:solve:start round=2 circuit_cegar_rounds=52 cop_cegar_rounds=52 assumptions=0 phase_lits=37399
+c 00h04m16s | stage:sat:solve:done round=2 ms=926 result=Sat assumptions=0 phase_lits=37399
+c 00h04m16s | stage:decode:start round=2 requested_int_ids=721
+c 00h04m16s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h04m16s | stage:decode:done round=2 int_assignments=721
+c 00h04m16s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=52 circuit_cegar_added_clauses=0 cop_cegar_failures=24 cop_cegar_rounds=52 cop_cegar_added_clauses=1282728
+c 00h04m16s | result:Sat
+c 00h04m16s | objective:incumbent kind=improvement value=736 rounds=28 improvements=27
+o 736
+c 00h04m16s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h04m16s | stage:sat:solve:start round=1 circuit_cegar_rounds=53 cop_cegar_rounds=53 assumptions=0 phase_lits=37399
+c 00h04m16s | stage:sat:solve:done round=1 ms=59 result=Sat assumptions=0 phase_lits=37399
+c 00h04m16s | stage:decode:start round=1 requested_int_ids=721
+c 00h04m16s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=53 circuit_cegar_added_clauses=0 cop_cegar_failures=25 cop_cegar_rounds=53 cop_cegar_added_clauses=1336175
+c 00h04m16s | stage:sat:solve:start round=2 circuit_cegar_rounds=54 cop_cegar_rounds=54 assumptions=0 phase_lits=37399
+c 00h04m16s | stage:sat:solve:done round=2 ms=351 result=Sat assumptions=0 phase_lits=37399
+c 00h04m16s | stage:decode:start round=2 requested_int_ids=721
+c 00h04m16s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h04m16s | stage:decode:done round=2 int_assignments=721
+c 00h04m16s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=54 circuit_cegar_added_clauses=0 cop_cegar_failures=25 cop_cegar_rounds=54 cop_cegar_added_clauses=1336175
+c 00h04m16s | result:Sat
+c 00h04m16s | objective:incumbent kind=improvement value=734 rounds=29 improvements=28
+o 734
+c 00h04m16s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h04m16s | stage:sat:solve:start round=1 circuit_cegar_rounds=55 cop_cegar_rounds=55 assumptions=0 phase_lits=37399
+c 00h04m16s | stage:sat:solve:done round=1 ms=51 result=Sat assumptions=0 phase_lits=37399
+c 00h04m16s | stage:decode:start round=1 requested_int_ids=721
+c 00h04m16s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=55 circuit_cegar_added_clauses=0 cop_cegar_failures=26 cop_cegar_rounds=55 cop_cegar_added_clauses=1389622
+c 00h04m17s | stage:sat:solve:start round=2 circuit_cegar_rounds=56 cop_cegar_rounds=56 assumptions=0 phase_lits=37399
+c 00h04m17s | stage:sat:solve:done round=2 ms=41 result=Sat assumptions=0 phase_lits=37399
+c 00h04m17s | stage:decode:start round=2 requested_int_ids=721
+c 00h04m17s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h04m17s | stage:decode:done round=2 int_assignments=721
+c 00h04m17s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=56 circuit_cegar_added_clauses=0 cop_cegar_failures=26 cop_cegar_rounds=56 cop_cegar_added_clauses=1389622
+c 00h04m17s | result:Sat
+c 00h04m17s | objective:incumbent kind=improvement value=730 rounds=30 improvements=29
+o 730
+c 00h04m17s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h04m17s | stage:sat:solve:start round=1 circuit_cegar_rounds=57 cop_cegar_rounds=57 assumptions=0 phase_lits=37399
+c 00h04m17s | stage:sat:solve:done round=1 ms=24 result=Sat assumptions=0 phase_lits=37399
+c 00h04m17s | stage:decode:start round=1 requested_int_ids=721
+c 00h04m17s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=57 circuit_cegar_added_clauses=0 cop_cegar_failures=27 cop_cegar_rounds=57 cop_cegar_added_clauses=1443069
+c 00h04m17s | stage:sat:solve:start round=2 circuit_cegar_rounds=58 cop_cegar_rounds=58 assumptions=0 phase_lits=37399
+c 00h04m18s | stage:sat:solve:done round=2 ms=1126 result=Sat assumptions=0 phase_lits=37399
+c 00h04m18s | stage:decode:start round=2 requested_int_ids=721
+c 00h04m18s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h04m18s | stage:decode:done round=2 int_assignments=721
+c 00h04m18s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=58 circuit_cegar_added_clauses=0 cop_cegar_failures=27 cop_cegar_rounds=58 cop_cegar_added_clauses=1443069
+c 00h04m18s | result:Sat
+c 00h04m18s | objective:incumbent kind=improvement value=729 rounds=31 improvements=30
+o 729
+c 00h04m18s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h04m18s | stage:sat:solve:start round=1 circuit_cegar_rounds=59 cop_cegar_rounds=59 assumptions=0 phase_lits=37399
+c 00h04m18s | stage:sat:solve:done round=1 ms=29 result=Sat assumptions=0 phase_lits=37399
+c 00h04m18s | stage:decode:start round=1 requested_int_ids=721
+c 00h04m18s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=59 circuit_cegar_added_clauses=0 cop_cegar_failures=28 cop_cegar_rounds=59 cop_cegar_added_clauses=1496516
+c 00h04m18s | stage:sat:solve:start round=2 circuit_cegar_rounds=60 cop_cegar_rounds=60 assumptions=0 phase_lits=37399
+c 00h04m18s | stage:sat:solve:done round=2 ms=603 result=Sat assumptions=0 phase_lits=37399
+c 00h04m18s | stage:decode:start round=2 requested_int_ids=721
+c 00h04m18s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h04m18s | stage:decode:done round=2 int_assignments=721
+c 00h04m18s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=60 circuit_cegar_added_clauses=0 cop_cegar_failures=28 cop_cegar_rounds=60 cop_cegar_added_clauses=1496516
+c 00h04m18s | result:Sat
+c 00h04m18s | objective:incumbent kind=improvement value=728 rounds=32 improvements=31
+o 728
+c 00h04m18s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h04m18s | stage:sat:solve:start round=1 circuit_cegar_rounds=61 cop_cegar_rounds=61 assumptions=0 phase_lits=37399
+c 00h04m18s | stage:sat:solve:done round=1 ms=29 result=Sat assumptions=0 phase_lits=37399
+c 00h04m18s | stage:decode:start round=1 requested_int_ids=721
+c 00h04m18s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=61 circuit_cegar_added_clauses=0 cop_cegar_failures=29 cop_cegar_rounds=61 cop_cegar_added_clauses=1549963
+c 00h04m19s | stage:sat:solve:start round=2 circuit_cegar_rounds=62 cop_cegar_rounds=62 assumptions=0 phase_lits=37399
+c 00h04m21s | stage:sat:solve:done round=2 ms=2179 result=Sat assumptions=0 phase_lits=37399
+c 00h04m21s | stage:decode:start round=2 requested_int_ids=721
+c 00h04m21s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h04m21s | stage:decode:done round=2 int_assignments=721
+c 00h04m21s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=62 circuit_cegar_added_clauses=0 cop_cegar_failures=29 cop_cegar_rounds=62 cop_cegar_added_clauses=1549963
+c 00h04m21s | result:Sat
+c 00h04m21s | objective:incumbent kind=improvement value=724 rounds=33 improvements=32
+o 724
+c 00h04m21s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h04m21s | stage:sat:solve:start round=1 circuit_cegar_rounds=63 cop_cegar_rounds=63 assumptions=0 phase_lits=37399
+c 00h04m21s | stage:sat:solve:done round=1 ms=51 result=Sat assumptions=0 phase_lits=37399
+c 00h04m21s | stage:decode:start round=1 requested_int_ids=721
+c 00h04m21s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=63 circuit_cegar_added_clauses=0 cop_cegar_failures=30 cop_cegar_rounds=63 cop_cegar_added_clauses=1603410
+c 00h04m21s | stage:sat:solve:start round=2 circuit_cegar_rounds=64 cop_cegar_rounds=64 assumptions=0 phase_lits=37399
+c 00h04m21s | stage:sat:solve:done round=2 ms=24 result=Sat assumptions=0 phase_lits=37399
+c 00h04m21s | stage:decode:start round=2 requested_int_ids=721
+c 00h04m21s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h04m21s | stage:decode:done round=2 int_assignments=721
+c 00h04m21s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=64 circuit_cegar_added_clauses=0 cop_cegar_failures=30 cop_cegar_rounds=64 cop_cegar_added_clauses=1603410
+c 00h04m21s | result:Sat
+c 00h04m21s | objective:incumbent kind=improvement value=717 rounds=34 improvements=33
+o 717
+c 00h04m21s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h04m21s | stage:sat:solve:start round=1 circuit_cegar_rounds=65 cop_cegar_rounds=65 assumptions=0 phase_lits=37399
+c 00h04m21s | stage:sat:solve:done round=1 ms=25 result=Sat assumptions=0 phase_lits=37399
+c 00h04m21s | stage:decode:start round=1 requested_int_ids=721
+c 00h04m21s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=65 circuit_cegar_added_clauses=0 cop_cegar_failures=31 cop_cegar_rounds=65 cop_cegar_added_clauses=1656857
+c 00h04m21s | stage:sat:solve:start round=2 circuit_cegar_rounds=66 cop_cegar_rounds=66 assumptions=0 phase_lits=37399
+c 00h04m21s | stage:sat:solve:done round=2 ms=37 result=Sat assumptions=0 phase_lits=37399
+c 00h04m21s | stage:decode:start round=2 requested_int_ids=721
+c 00h04m21s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h04m21s | stage:decode:done round=2 int_assignments=721
+c 00h04m21s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=66 circuit_cegar_added_clauses=0 cop_cegar_failures=31 cop_cegar_rounds=66 cop_cegar_added_clauses=1656857
+c 00h04m21s | result:Sat
+c 00h04m21s | objective:incumbent kind=improvement value=716 rounds=35 improvements=34
+o 716
+c 00h04m21s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h04m21s | stage:sat:solve:start round=1 circuit_cegar_rounds=67 cop_cegar_rounds=67 assumptions=0 phase_lits=37399
+c 00h04m21s | stage:sat:solve:done round=1 ms=49 result=Sat assumptions=0 phase_lits=37399
+c 00h04m21s | stage:decode:start round=1 requested_int_ids=721
+c 00h04m21s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=67 circuit_cegar_added_clauses=0 cop_cegar_failures=32 cop_cegar_rounds=67 cop_cegar_added_clauses=1710304
+c 00h04m21s | stage:sat:solve:start round=2 circuit_cegar_rounds=68 cop_cegar_rounds=68 assumptions=0 phase_lits=37399
+c 00h04m22s | stage:sat:solve:done round=2 ms=892 result=Sat assumptions=0 phase_lits=37399
+c 00h04m22s | stage:decode:start round=2 requested_int_ids=721
+c 00h04m22s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h04m22s | stage:decode:done round=2 int_assignments=721
+c 00h04m22s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=68 circuit_cegar_added_clauses=0 cop_cegar_failures=32 cop_cegar_rounds=68 cop_cegar_added_clauses=1710304
+c 00h04m22s | result:Sat
+c 00h04m22s | objective:incumbent kind=improvement value=713 rounds=36 improvements=35
+o 713
+c 00h04m22s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h04m22s | stage:sat:solve:start round=1 circuit_cegar_rounds=69 cop_cegar_rounds=69 assumptions=0 phase_lits=37399
+c 00h04m22s | stage:sat:solve:done round=1 ms=30 result=Sat assumptions=0 phase_lits=37399
+c 00h04m22s | stage:decode:start round=1 requested_int_ids=721
+c 00h04m22s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=69 circuit_cegar_added_clauses=0 cop_cegar_failures=33 cop_cegar_rounds=69 cop_cegar_added_clauses=1763751
+c 00h04m22s | stage:sat:solve:start round=2 circuit_cegar_rounds=70 cop_cegar_rounds=70 assumptions=0 phase_lits=37399
+c 00h06m05s | stage:sat:solve:done round=2 ms=103369 result=Sat assumptions=0 phase_lits=37399
+c 00h06m05s | stage:decode:start round=2 requested_int_ids=721
+c 00h06m05s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h06m05s | stage:decode:done round=2 int_assignments=721
+c 00h06m05s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=70 circuit_cegar_added_clauses=0 cop_cegar_failures=33 cop_cegar_rounds=70 cop_cegar_added_clauses=1763751
+c 00h06m05s | result:Sat
+c 00h06m05s | objective:incumbent kind=improvement value=708 rounds=37 improvements=36
+o 708
+c 00h06m05s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h06m05s | stage:sat:solve:start round=1 circuit_cegar_rounds=71 cop_cegar_rounds=71 assumptions=0 phase_lits=37399
+c 00h06m09s | stage:sat:solve:done round=1 ms=3791 result=Sat assumptions=0 phase_lits=37399
+c 00h06m09s | stage:decode:start round=1 requested_int_ids=721
+c 00h06m09s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=71 circuit_cegar_added_clauses=0 cop_cegar_failures=34 cop_cegar_rounds=71 cop_cegar_added_clauses=1817198
+c 00h06m09s | stage:sat:solve:start round=2 circuit_cegar_rounds=72 cop_cegar_rounds=72 assumptions=0 phase_lits=37399
+c 00h06m10s | stage:sat:solve:done round=2 ms=702 result=Sat assumptions=0 phase_lits=37399
+c 00h06m10s | stage:decode:start round=2 requested_int_ids=721
+c 00h06m10s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h06m10s | stage:decode:done round=2 int_assignments=721
+c 00h06m10s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=72 circuit_cegar_added_clauses=0 cop_cegar_failures=34 cop_cegar_rounds=72 cop_cegar_added_clauses=1817198
+c 00h06m10s | result:Sat
+c 00h06m10s | objective:incumbent kind=improvement value=706 rounds=38 improvements=37
+o 706
+c 00h06m10s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h06m10s | stage:sat:solve:start round=1 circuit_cegar_rounds=73 cop_cegar_rounds=73 assumptions=0 phase_lits=37399
+c 00h06m10s | stage:sat:solve:done round=1 ms=50 result=Sat assumptions=0 phase_lits=37399
+c 00h06m10s | stage:decode:start round=1 requested_int_ids=721
+c 00h06m10s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=73 circuit_cegar_added_clauses=0 cop_cegar_failures=35 cop_cegar_rounds=73 cop_cegar_added_clauses=1870645
+c 00h06m10s | stage:sat:solve:start round=2 circuit_cegar_rounds=74 cop_cegar_rounds=74 assumptions=0 phase_lits=37399
+c 00h06m11s | stage:sat:solve:done round=2 ms=679 result=Sat assumptions=0 phase_lits=37399
+c 00h06m11s | stage:decode:start round=2 requested_int_ids=721
+c 00h06m11s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h06m11s | stage:decode:done round=2 int_assignments=721
+c 00h06m11s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=74 circuit_cegar_added_clauses=0 cop_cegar_failures=35 cop_cegar_rounds=74 cop_cegar_added_clauses=1870645
+c 00h06m11s | result:Sat
+c 00h06m11s | objective:incumbent kind=improvement value=701 rounds=39 improvements=38
+o 701
+c 00h06m11s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h06m11s | stage:sat:solve:start round=1 circuit_cegar_rounds=75 cop_cegar_rounds=75 assumptions=0 phase_lits=37399
+c 00h06m11s | stage:sat:solve:done round=1 ms=63 result=Sat assumptions=0 phase_lits=37399
+c 00h06m11s | stage:decode:start round=1 requested_int_ids=721
+c 00h06m11s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=75 circuit_cegar_added_clauses=0 cop_cegar_failures=36 cop_cegar_rounds=75 cop_cegar_added_clauses=1924092
+c 00h06m11s | stage:sat:solve:start round=2 circuit_cegar_rounds=76 cop_cegar_rounds=76 assumptions=0 phase_lits=37399
+c 00h06m12s | stage:sat:solve:done round=2 ms=718 result=Sat assumptions=0 phase_lits=37399
+c 00h06m12s | stage:decode:start round=2 requested_int_ids=721
+c 00h06m12s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h06m12s | stage:decode:done round=2 int_assignments=721
+c 00h06m12s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=76 circuit_cegar_added_clauses=0 cop_cegar_failures=36 cop_cegar_rounds=76 cop_cegar_added_clauses=1924092
+c 00h06m12s | result:Sat
+c 00h06m12s | objective:incumbent kind=improvement value=700 rounds=40 improvements=39
+o 700
+c 00h06m12s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h06m12s | stage:sat:solve:start round=1 circuit_cegar_rounds=77 cop_cegar_rounds=77 assumptions=0 phase_lits=37399
+c 00h06m12s | stage:sat:solve:done round=1 ms=30 result=Sat assumptions=0 phase_lits=37399
+c 00h06m12s | stage:decode:start round=1 requested_int_ids=721
+c 00h06m12s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=77 circuit_cegar_added_clauses=0 cop_cegar_failures=37 cop_cegar_rounds=77 cop_cegar_added_clauses=1977539
+c 00h06m12s | stage:sat:solve:start round=2 circuit_cegar_rounds=78 cop_cegar_rounds=78 assumptions=0 phase_lits=37399
+c 00h06m12s | stage:sat:solve:done round=2 ms=495 result=Sat assumptions=0 phase_lits=37399
+c 00h06m12s | stage:decode:start round=2 requested_int_ids=721
+c 00h06m12s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h06m12s | stage:decode:done round=2 int_assignments=721
+c 00h06m12s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=78 circuit_cegar_added_clauses=0 cop_cegar_failures=37 cop_cegar_rounds=78 cop_cegar_added_clauses=1977539
+c 00h06m12s | result:Sat
+c 00h06m12s | objective:incumbent kind=improvement value=699 rounds=41 improvements=40
+o 699
+c 00h06m12s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h06m12s | stage:sat:solve:start round=1 circuit_cegar_rounds=79 cop_cegar_rounds=79 assumptions=0 phase_lits=37399
+c 00h06m12s | stage:sat:solve:done round=1 ms=29 result=Sat assumptions=0 phase_lits=37399
+c 00h06m12s | stage:decode:start round=1 requested_int_ids=721
+c 00h06m12s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=79 circuit_cegar_added_clauses=0 cop_cegar_failures=38 cop_cegar_rounds=79 cop_cegar_added_clauses=2030986
+c 00h06m12s | stage:sat:solve:start round=2 circuit_cegar_rounds=80 cop_cegar_rounds=80 assumptions=0 phase_lits=37399
+c 00h06m13s | stage:sat:solve:done round=2 ms=355 result=Sat assumptions=0 phase_lits=37399
+c 00h06m13s | stage:decode:start round=2 requested_int_ids=721
+c 00h06m13s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h06m13s | stage:decode:done round=2 int_assignments=721
+c 00h06m13s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=80 circuit_cegar_added_clauses=0 cop_cegar_failures=38 cop_cegar_rounds=80 cop_cegar_added_clauses=2030986
+c 00h06m13s | result:Sat
+c 00h06m13s | objective:incumbent kind=improvement value=698 rounds=42 improvements=41
+o 698
+c 00h06m13s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h06m13s | stage:sat:solve:start round=1 circuit_cegar_rounds=81 cop_cegar_rounds=81 assumptions=0 phase_lits=37399
+c 00h06m13s | stage:sat:solve:done round=1 ms=51 result=Sat assumptions=0 phase_lits=37399
+c 00h06m13s | stage:decode:start round=1 requested_int_ids=721
+c 00h06m13s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=81 circuit_cegar_added_clauses=0 cop_cegar_failures=39 cop_cegar_rounds=81 cop_cegar_added_clauses=2084433
+c 00h06m13s | stage:sat:solve:start round=2 circuit_cegar_rounds=82 cop_cegar_rounds=82 assumptions=0 phase_lits=37399
+c 00h06m13s | stage:sat:solve:done round=2 ms=424 result=Sat assumptions=0 phase_lits=37399
+c 00h06m13s | stage:decode:start round=2 requested_int_ids=721
+c 00h06m13s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h06m13s | stage:decode:done round=2 int_assignments=721
+c 00h06m13s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=82 circuit_cegar_added_clauses=0 cop_cegar_failures=39 cop_cegar_rounds=82 cop_cegar_added_clauses=2084433
+c 00h06m13s | result:Sat
+c 00h06m13s | objective:incumbent kind=improvement value=694 rounds=43 improvements=42
+o 694
+c 00h06m13s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h06m13s | stage:sat:solve:start round=1 circuit_cegar_rounds=83 cop_cegar_rounds=83 assumptions=0 phase_lits=37399
+c 00h06m13s | stage:sat:solve:done round=1 ms=30 result=Sat assumptions=0 phase_lits=37399
+c 00h06m13s | stage:decode:start round=1 requested_int_ids=721
+c 00h06m13s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=83 circuit_cegar_added_clauses=0 cop_cegar_failures=40 cop_cegar_rounds=83 cop_cegar_added_clauses=2137880
+c 00h06m13s | stage:sat:solve:start round=2 circuit_cegar_rounds=84 cop_cegar_rounds=84 assumptions=0 phase_lits=37399
+c 00h06m14s | stage:sat:solve:done round=2 ms=394 result=Sat assumptions=0 phase_lits=37399
+c 00h06m14s | stage:decode:start round=2 requested_int_ids=721
+c 00h06m14s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h06m14s | stage:decode:done round=2 int_assignments=721
+c 00h06m14s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=84 circuit_cegar_added_clauses=0 cop_cegar_failures=40 cop_cegar_rounds=84 cop_cegar_added_clauses=2137880
+c 00h06m14s | result:Sat
+c 00h06m14s | objective:incumbent kind=improvement value=693 rounds=44 improvements=43
+o 693
+c 00h06m14s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h06m14s | stage:sat:solve:start round=1 circuit_cegar_rounds=85 cop_cegar_rounds=85 assumptions=0 phase_lits=37399
+c 00h06m14s | stage:sat:solve:done round=1 ms=30 result=Sat assumptions=0 phase_lits=37399
+c 00h06m14s | stage:decode:start round=1 requested_int_ids=721
+c 00h06m14s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=85 circuit_cegar_added_clauses=0 cop_cegar_failures=41 cop_cegar_rounds=85 cop_cegar_added_clauses=2191327
+c 00h06m14s | stage:sat:solve:start round=2 circuit_cegar_rounds=86 cop_cegar_rounds=86 assumptions=0 phase_lits=37399
+c 00h07m04s | stage:sat:solve:done round=2 ms=49925 result=Sat assumptions=0 phase_lits=37399
+c 00h07m04s | stage:decode:start round=2 requested_int_ids=721
+c 00h07m04s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h07m04s | stage:decode:done round=2 int_assignments=721
+c 00h07m04s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=86 circuit_cegar_added_clauses=0 cop_cegar_failures=41 cop_cegar_rounds=86 cop_cegar_added_clauses=2191327
+c 00h07m04s | result:Sat
+c 00h07m04s | objective:incumbent kind=improvement value=684 rounds=45 improvements=44
+o 684
+c 00h07m04s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h07m04s | stage:sat:solve:start round=1 circuit_cegar_rounds=87 cop_cegar_rounds=87 assumptions=0 phase_lits=37399
+c 00h07m04s | stage:sat:solve:done round=1 ms=54 result=Sat assumptions=0 phase_lits=37399
+c 00h07m04s | stage:decode:start round=1 requested_int_ids=721
+c 00h07m04s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=87 circuit_cegar_added_clauses=0 cop_cegar_failures=42 cop_cegar_rounds=87 cop_cegar_added_clauses=2244774
+c 00h07m04s | stage:sat:solve:start round=2 circuit_cegar_rounds=88 cop_cegar_rounds=88 assumptions=0 phase_lits=37399
+c 00h07m13s | stage:sat:solve:done round=2 ms=8900 result=Sat assumptions=0 phase_lits=37399
+c 00h07m13s | stage:decode:start round=2 requested_int_ids=721
+c 00h07m13s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h07m13s | stage:decode:done round=2 int_assignments=721
+c 00h07m13s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=88 circuit_cegar_added_clauses=0 cop_cegar_failures=42 cop_cegar_rounds=88 cop_cegar_added_clauses=2244774
+c 00h07m13s | result:Sat
+c 00h07m13s | objective:incumbent kind=improvement value=683 rounds=46 improvements=45
+o 683
+c 00h07m13s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h07m13s | stage:sat:solve:start round=1 circuit_cegar_rounds=89 cop_cegar_rounds=89 assumptions=0 phase_lits=37399
+c 00h07m20s | stage:sat:solve:done round=1 ms=6981 result=Sat assumptions=0 phase_lits=37399
+c 00h07m20s | stage:decode:start round=1 requested_int_ids=721
+c 00h07m20s | stage:decode:final:start round=1 requested_int_ids=721
+c 00h07m20s | stage:decode:done round=1 int_assignments=721
+c 00h07m20s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=89 circuit_cegar_added_clauses=0 cop_cegar_failures=42 cop_cegar_rounds=89 cop_cegar_added_clauses=2244774
+c 00h07m20s | result:Sat
+c 00h07m20s | objective:incumbent kind=improvement value=675 rounds=47 improvements=46
+o 675
+c 00h07m20s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h07m20s | stage:sat:solve:start round=1 circuit_cegar_rounds=90 cop_cegar_rounds=90 assumptions=0 phase_lits=37399
+c 00h07m20s | stage:sat:solve:done round=1 ms=60 result=Sat assumptions=0 phase_lits=37399
+c 00h07m20s | stage:decode:start round=1 requested_int_ids=721
+c 00h07m20s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=90 circuit_cegar_added_clauses=0 cop_cegar_failures=43 cop_cegar_rounds=90 cop_cegar_added_clauses=2298221
+c 00h07m20s | stage:sat:solve:start round=2 circuit_cegar_rounds=91 cop_cegar_rounds=91 assumptions=0 phase_lits=37399
+c 00h07m23s | stage:sat:solve:done round=2 ms=3521 result=Sat assumptions=0 phase_lits=37399
+c 00h07m23s | stage:decode:start round=2 requested_int_ids=721
+c 00h07m23s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h07m23s | stage:decode:done round=2 int_assignments=721
+c 00h07m23s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=91 circuit_cegar_added_clauses=0 cop_cegar_failures=43 cop_cegar_rounds=91 cop_cegar_added_clauses=2298221
+c 00h07m23s | result:Sat
+c 00h07m23s | objective:incumbent kind=improvement value=673 rounds=48 improvements=47
+o 673
+c 00h07m23s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h07m23s | stage:sat:solve:start round=1 circuit_cegar_rounds=92 cop_cegar_rounds=92 assumptions=0 phase_lits=37399
+c 00h07m23s | stage:sat:solve:done round=1 ms=49 result=Sat assumptions=0 phase_lits=37399
+c 00h07m23s | stage:decode:start round=1 requested_int_ids=721
+c 00h07m23s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=92 circuit_cegar_added_clauses=0 cop_cegar_failures=44 cop_cegar_rounds=92 cop_cegar_added_clauses=2351668
+c 00h07m23s | stage:sat:solve:start round=2 circuit_cegar_rounds=93 cop_cegar_rounds=93 assumptions=0 phase_lits=37399
+c 00h07m46s | stage:sat:solve:done round=2 ms=22174 result=Sat assumptions=0 phase_lits=37399
+c 00h07m46s | stage:decode:start round=2 requested_int_ids=721
+c 00h07m46s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h07m46s | stage:decode:done round=2 int_assignments=721
+c 00h07m46s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=93 circuit_cegar_added_clauses=0 cop_cegar_failures=44 cop_cegar_rounds=93 cop_cegar_added_clauses=2351668
+c 00h07m46s | result:Sat
+c 00h07m46s | objective:incumbent kind=improvement value=672 rounds=49 improvements=48
+o 672
+c 00h07m46s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h07m46s | stage:sat:solve:start round=1 circuit_cegar_rounds=94 cop_cegar_rounds=94 assumptions=0 phase_lits=37399
+c 00h07m46s | stage:sat:solve:done round=1 ms=54 result=Sat assumptions=0 phase_lits=37399
+c 00h07m46s | stage:decode:start round=1 requested_int_ids=721
+c 00h07m46s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=94 circuit_cegar_added_clauses=0 cop_cegar_failures=45 cop_cegar_rounds=94 cop_cegar_added_clauses=2405115
+c 00h07m46s | stage:sat:solve:start round=2 circuit_cegar_rounds=95 cop_cegar_rounds=95 assumptions=0 phase_lits=37399
+c 00h07m46s | stage:sat:solve:done round=2 ms=313 result=Sat assumptions=0 phase_lits=37399
+c 00h07m46s | stage:decode:start round=2 requested_int_ids=721
+c 00h07m46s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h07m46s | stage:decode:done round=2 int_assignments=721
+c 00h07m46s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=95 circuit_cegar_added_clauses=0 cop_cegar_failures=45 cop_cegar_rounds=95 cop_cegar_added_clauses=2405115
+c 00h07m46s | result:Sat
+c 00h07m46s | objective:incumbent kind=improvement value=662 rounds=50 improvements=49
+o 662
+c 00h07m46s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h07m46s | stage:sat:solve:start round=1 circuit_cegar_rounds=96 cop_cegar_rounds=96 assumptions=0 phase_lits=37399
+c 00h07m46s | stage:sat:solve:done round=1 ms=51 result=Sat assumptions=0 phase_lits=37399
+c 00h07m46s | stage:decode:start round=1 requested_int_ids=721
+c 00h07m46s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=96 circuit_cegar_added_clauses=0 cop_cegar_failures=46 cop_cegar_rounds=96 cop_cegar_added_clauses=2458562
+c 00h07m46s | stage:sat:solve:start round=2 circuit_cegar_rounds=97 cop_cegar_rounds=97 assumptions=0 phase_lits=37399
+c 00h07m50s | stage:sat:solve:done round=2 ms=4281 result=Sat assumptions=0 phase_lits=37399
+c 00h07m50s | stage:decode:start round=2 requested_int_ids=721
+c 00h07m50s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h07m50s | stage:decode:done round=2 int_assignments=721
+c 00h07m50s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=97 circuit_cegar_added_clauses=0 cop_cegar_failures=46 cop_cegar_rounds=97 cop_cegar_added_clauses=2458562
+c 00h07m50s | result:Sat
+c 00h07m50s | objective:incumbent kind=improvement value=658 rounds=51 improvements=50
+o 658
+c 00h07m50s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h07m50s | stage:sat:solve:start round=1 circuit_cegar_rounds=98 cop_cegar_rounds=98 assumptions=0 phase_lits=37399
+c 00h07m50s | stage:sat:solve:done round=1 ms=51 result=Sat assumptions=0 phase_lits=37399
+c 00h07m50s | stage:decode:start round=1 requested_int_ids=721
+c 00h07m50s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=98 circuit_cegar_added_clauses=0 cop_cegar_failures=47 cop_cegar_rounds=98 cop_cegar_added_clauses=2512009
+c 00h07m50s | stage:sat:solve:start round=2 circuit_cegar_rounds=99 cop_cegar_rounds=99 assumptions=0 phase_lits=37399
+c 00h08m31s | stage:sat:solve:done round=2 ms=40604 result=Sat assumptions=0 phase_lits=37399
+c 00h08m31s | stage:decode:start round=2 requested_int_ids=721
+c 00h08m31s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h08m31s | stage:decode:done round=2 int_assignments=721
+c 00h08m31s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=99 circuit_cegar_added_clauses=0 cop_cegar_failures=47 cop_cegar_rounds=99 cop_cegar_added_clauses=2512009
+c 00h08m31s | result:Sat
+c 00h08m31s | objective:incumbent kind=improvement value=657 rounds=52 improvements=51
+o 657
+c 00h08m31s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h08m31s | stage:sat:solve:start round=1 circuit_cegar_rounds=100 cop_cegar_rounds=100 assumptions=0 phase_lits=37399
+c 00h09m29s | stage:sat:solve:done round=1 ms=58067 result=Sat assumptions=0 phase_lits=37399
+c 00h09m29s | stage:decode:start round=1 requested_int_ids=721
+c 00h09m29s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=100 circuit_cegar_added_clauses=0 cop_cegar_failures=48 cop_cegar_rounds=100 cop_cegar_added_clauses=2565456
+c 00h09m29s | stage:sat:solve:start round=2 circuit_cegar_rounds=101 cop_cegar_rounds=101 assumptions=0 phase_lits=37399
+c 00h09m52s | stage:sat:solve:done round=2 ms=23296 result=Sat assumptions=0 phase_lits=37399
+c 00h09m52s | stage:decode:start round=2 requested_int_ids=721
+c 00h09m52s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h09m52s | stage:decode:done round=2 int_assignments=721
+c 00h09m52s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=101 circuit_cegar_added_clauses=0 cop_cegar_failures=48 cop_cegar_rounds=101 cop_cegar_added_clauses=2565456
+c 00h09m52s | result:Sat
+c 00h09m52s | objective:incumbent kind=improvement value=650 rounds=53 improvements=52
+o 650
+c 00h09m52s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h09m52s | stage:sat:solve:start round=1 circuit_cegar_rounds=102 cop_cegar_rounds=102 assumptions=0 phase_lits=37399
+c 00h10m15s | stage:sat:solve:done round=1 ms=22171 result=Sat assumptions=0 phase_lits=37399
+c 00h10m15s | stage:decode:start round=1 requested_int_ids=721
+c 00h10m15s | stage:decode:final:start round=1 requested_int_ids=721
+c 00h10m15s | stage:decode:done round=1 int_assignments=721
+c 00h10m15s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=102 circuit_cegar_added_clauses=0 cop_cegar_failures=48 cop_cegar_rounds=102 cop_cegar_added_clauses=2565456
+c 00h10m15s | result:Sat
+c 00h10m15s | objective:incumbent kind=improvement value=646 rounds=54 improvements=53
+o 646
+c 00h10m15s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h10m15s | stage:sat:solve:start round=1 circuit_cegar_rounds=103 cop_cegar_rounds=103 assumptions=0 phase_lits=37399
+c 00h10m15s | stage:sat:solve:done round=1 ms=60 result=Sat assumptions=0 phase_lits=37399
+c 00h10m15s | stage:decode:start round=1 requested_int_ids=721
+c 00h10m15s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=103 circuit_cegar_added_clauses=0 cop_cegar_failures=49 cop_cegar_rounds=103 cop_cegar_added_clauses=2618903
+c 00h10m15s | stage:sat:solve:start round=2 circuit_cegar_rounds=104 cop_cegar_rounds=104 assumptions=0 phase_lits=37399
+c 00h10m21s | stage:sat:solve:done round=2 ms=6339 result=Sat assumptions=0 phase_lits=37399
+c 00h10m21s | stage:decode:start round=2 requested_int_ids=721
+c 00h10m21s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h10m21s | stage:decode:done round=2 int_assignments=721
+c 00h10m21s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=104 circuit_cegar_added_clauses=0 cop_cegar_failures=49 cop_cegar_rounds=104 cop_cegar_added_clauses=2618903
+c 00h10m21s | result:Sat
+c 00h10m21s | objective:incumbent kind=improvement value=639 rounds=55 improvements=54
+o 639
+c 00h10m21s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h10m21s | stage:sat:solve:start round=1 circuit_cegar_rounds=105 cop_cegar_rounds=105 assumptions=0 phase_lits=37399
+c 00h10m21s | stage:sat:solve:done round=1 ms=55 result=Sat assumptions=0 phase_lits=37399
+c 00h10m21s | stage:decode:start round=1 requested_int_ids=721
+c 00h10m21s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=105 circuit_cegar_added_clauses=0 cop_cegar_failures=50 cop_cegar_rounds=105 cop_cegar_added_clauses=2672350
+c 00h10m21s | stage:sat:solve:start round=2 circuit_cegar_rounds=106 cop_cegar_rounds=106 assumptions=0 phase_lits=37399
+c 00h10m21s | stage:sat:solve:done round=2 ms=25 result=Sat assumptions=0 phase_lits=37399
+c 00h10m21s | stage:decode:start round=2 requested_int_ids=721
+c 00h10m21s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h10m21s | stage:decode:done round=2 int_assignments=721
+c 00h10m21s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=106 circuit_cegar_added_clauses=0 cop_cegar_failures=50 cop_cegar_rounds=106 cop_cegar_added_clauses=2672350
+c 00h10m21s | result:Sat
+c 00h10m21s | objective:incumbent kind=improvement value=625 rounds=56 improvements=55
+o 625
+c 00h10m21s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h10m21s | stage:sat:solve:start round=1 circuit_cegar_rounds=107 cop_cegar_rounds=107 assumptions=0 phase_lits=37399
+c 00h10m21s | stage:sat:solve:done round=1 ms=52 result=Sat assumptions=0 phase_lits=37399
+c 00h10m21s | stage:decode:start round=1 requested_int_ids=721
+c 00h10m21s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=107 circuit_cegar_added_clauses=0 cop_cegar_failures=51 cop_cegar_rounds=107 cop_cegar_added_clauses=2725797
+c 00h10m21s | stage:sat:solve:start round=2 circuit_cegar_rounds=108 cop_cegar_rounds=108 assumptions=0 phase_lits=37399
+c 00h10m28s | stage:sat:solve:done round=2 ms=6793 result=Sat assumptions=0 phase_lits=37399
+c 00h10m28s | stage:decode:start round=2 requested_int_ids=721
+c 00h10m28s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h10m28s | stage:decode:done round=2 int_assignments=721
+c 00h10m28s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=108 circuit_cegar_added_clauses=0 cop_cegar_failures=51 cop_cegar_rounds=108 cop_cegar_added_clauses=2725797
+c 00h10m28s | result:Sat
+c 00h10m28s | objective:incumbent kind=improvement value=612 rounds=57 improvements=56
+o 612
+c 00h10m28s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h10m28s | stage:sat:solve:start round=1 circuit_cegar_rounds=109 cop_cegar_rounds=109 assumptions=0 phase_lits=37399
+c 00h10m28s | stage:sat:solve:done round=1 ms=63 result=Sat assumptions=0 phase_lits=37399
+c 00h10m28s | stage:decode:start round=1 requested_int_ids=721
+c 00h10m28s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=109 circuit_cegar_added_clauses=0 cop_cegar_failures=52 cop_cegar_rounds=109 cop_cegar_added_clauses=2779244
+c 00h10m28s | stage:sat:solve:start round=2 circuit_cegar_rounds=110 cop_cegar_rounds=110 assumptions=0 phase_lits=37399
+c 00h11m05s | stage:sat:solve:done round=2 ms=36342 result=Sat assumptions=0 phase_lits=37399
+c 00h11m05s | stage:decode:start round=2 requested_int_ids=721
+c 00h11m05s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h11m05s | stage:decode:done round=2 int_assignments=721
+c 00h11m05s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=110 circuit_cegar_added_clauses=0 cop_cegar_failures=52 cop_cegar_rounds=110 cop_cegar_added_clauses=2779244
+c 00h11m05s | result:Sat
+c 00h11m05s | objective:incumbent kind=improvement value=605 rounds=58 improvements=57
+o 605
+c 00h11m05s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h11m05s | stage:sat:solve:start round=1 circuit_cegar_rounds=111 cop_cegar_rounds=111 assumptions=0 phase_lits=37399
+c 00h11m05s | stage:sat:solve:done round=1 ms=69 result=Sat assumptions=0 phase_lits=37399
+c 00h11m05s | stage:decode:start round=1 requested_int_ids=721
+c 00h11m05s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=111 circuit_cegar_added_clauses=0 cop_cegar_failures=53 cop_cegar_rounds=111 cop_cegar_added_clauses=2832691
+c 00h11m05s | stage:sat:solve:start round=2 circuit_cegar_rounds=112 cop_cegar_rounds=112 assumptions=0 phase_lits=37399
+c 00h11m47s | stage:sat:solve:done round=2 ms=42717 result=Sat assumptions=0 phase_lits=37399
+c 00h11m47s | stage:decode:start round=2 requested_int_ids=721
+c 00h11m47s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h11m47s | stage:decode:done round=2 int_assignments=721
+c 00h11m47s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=112 circuit_cegar_added_clauses=0 cop_cegar_failures=53 cop_cegar_rounds=112 cop_cegar_added_clauses=2832691
+c 00h11m47s | result:Sat
+c 00h11m47s | objective:incumbent kind=improvement value=601 rounds=59 improvements=58
+o 601
+c 00h11m47s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h11m47s | stage:sat:solve:start round=1 circuit_cegar_rounds=113 cop_cegar_rounds=113 assumptions=0 phase_lits=37399
+c 00h11m49s | stage:sat:solve:done round=1 ms=1096 result=Sat assumptions=0 phase_lits=37399
+c 00h11m49s | stage:decode:start round=1 requested_int_ids=721
+c 00h11m49s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=113 circuit_cegar_added_clauses=0 cop_cegar_failures=54 cop_cegar_rounds=113 cop_cegar_added_clauses=2886138
+c 00h11m49s | stage:sat:solve:start round=2 circuit_cegar_rounds=114 cop_cegar_rounds=114 assumptions=0 phase_lits=37399
+c 00h12m12s | stage:sat:solve:done round=2 ms=23201 result=Sat assumptions=0 phase_lits=37399
+c 00h12m12s | stage:decode:start round=2 requested_int_ids=721
+c 00h12m12s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h12m12s | stage:decode:done round=2 int_assignments=721
+c 00h12m12s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=114 circuit_cegar_added_clauses=0 cop_cegar_failures=54 cop_cegar_rounds=114 cop_cegar_added_clauses=2886138
+c 00h12m12s | result:Sat
+c 00h12m12s | objective:incumbent kind=improvement value=600 rounds=60 improvements=59
+o 600
+c 00h12m12s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h12m12s | stage:sat:solve:start round=1 circuit_cegar_rounds=115 cop_cegar_rounds=115 assumptions=0 phase_lits=37399
+c 00h12m12s | stage:sat:solve:done round=1 ms=65 result=Sat assumptions=0 phase_lits=37399
+c 00h12m12s | stage:decode:start round=1 requested_int_ids=721
+c 00h12m12s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=115 circuit_cegar_added_clauses=0 cop_cegar_failures=55 cop_cegar_rounds=115 cop_cegar_added_clauses=2939585
+c 00h12m12s | stage:sat:solve:start round=2 circuit_cegar_rounds=116 cop_cegar_rounds=116 assumptions=0 phase_lits=37399
+c 00h12m27s | stage:sat:solve:done round=2 ms=14674 result=Sat assumptions=0 phase_lits=37399
+c 00h12m27s | stage:decode:start round=2 requested_int_ids=721
+c 00h12m27s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h12m27s | stage:decode:done round=2 int_assignments=721
+c 00h12m27s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=116 circuit_cegar_added_clauses=0 cop_cegar_failures=55 cop_cegar_rounds=116 cop_cegar_added_clauses=2939585
+c 00h12m27s | result:Sat
+c 00h12m27s | objective:incumbent kind=improvement value=597 rounds=61 improvements=60
+o 597
+c 00h12m27s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h12m27s | stage:sat:solve:start round=1 circuit_cegar_rounds=117 cop_cegar_rounds=117 assumptions=0 phase_lits=37399
+c 00h12m27s | stage:sat:solve:done round=1 ms=53 result=Sat assumptions=0 phase_lits=37399
+c 00h12m27s | stage:decode:start round=1 requested_int_ids=721
+c 00h12m27s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=117 circuit_cegar_added_clauses=0 cop_cegar_failures=56 cop_cegar_rounds=117 cop_cegar_added_clauses=2993032
+c 00h12m27s | stage:sat:solve:start round=2 circuit_cegar_rounds=118 cop_cegar_rounds=118 assumptions=0 phase_lits=37399
+c 00h14m17s | stage:sat:solve:done round=2 ms=110498 result=Sat assumptions=0 phase_lits=37399
+c 00h14m17s | stage:decode:start round=2 requested_int_ids=721
+c 00h14m17s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h14m17s | stage:decode:done round=2 int_assignments=721
+c 00h14m17s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=118 circuit_cegar_added_clauses=0 cop_cegar_failures=56 cop_cegar_rounds=118 cop_cegar_added_clauses=2993032
+c 00h14m17s | result:Sat
+c 00h14m17s | objective:incumbent kind=improvement value=589 rounds=62 improvements=61
+o 589
+c 00h14m17s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h14m17s | stage:sat:solve:start round=1 circuit_cegar_rounds=119 cop_cegar_rounds=119 assumptions=0 phase_lits=37399
+c 00h14m20s | stage:sat:solve:done round=1 ms=2275 result=Sat assumptions=0 phase_lits=37399
+c 00h14m20s | stage:decode:start round=1 requested_int_ids=721
+c 00h14m20s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=119 circuit_cegar_added_clauses=0 cop_cegar_failures=57 cop_cegar_rounds=119 cop_cegar_added_clauses=3046479
+c 00h14m20s | stage:sat:solve:start round=2 circuit_cegar_rounds=120 cop_cegar_rounds=120 assumptions=0 phase_lits=37399
+c 00h15m11s | stage:sat:solve:done round=2 ms=51714 result=Sat assumptions=0 phase_lits=37399
+c 00h15m11s | stage:decode:start round=2 requested_int_ids=721
+c 00h15m11s | stage:decode:final:start round=2 requested_int_ids=721
+c 00h15m11s | stage:decode:done round=2 int_assignments=721
+c 00h15m11s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=120 circuit_cegar_added_clauses=0 cop_cegar_failures=57 cop_cegar_rounds=120 cop_cegar_added_clauses=3046479
+c 00h15m11s | result:Sat
+c 00h15m11s | objective:incumbent kind=improvement value=588 rounds=63 improvements=62
+o 588
+c 00h15m11s | stage:sat:init solver=CaDiCaL vars=122285 clauses=4952215
+c 00h15m11s | stage:sat:solve:start round=1 circuit_cegar_rounds=121 cop_cegar_rounds=121 assumptions=0 phase_lits=37399
+c 00h15m11s | stage:sat:solve:done round=1 ms=74 result=Sat assumptions=0 phase_lits=37399
+c 00h15m11s | stage:decode:start round=1 requested_int_ids=721
+c 00h15m11s | stage:relaxation:done round=1 clauses_added=53447 circuit_clauses_added=0 cop_clauses_added=53447 circuit_cegar_failures=0 circuit_cegar_rounds=121 circuit_cegar_added_clauses=0 cop_cegar_failures=58 cop_cegar_rounds=121 cop_cegar_added_clauses=3099926
+c 00h15m11s | stage:sat:solve:start round=2 circuit_cegar_rounds=122 cop_cegar_rounds=122 assumptions=0 phase_lits=37399
+s SATISFIABLE
+o 588
+v <instantiation>
+v   <list> veh[0] veh[1] veh[2] veh[3] veh[4] veh[5] veh[6] veh[7] veh[8] veh[9] veh[10] veh[11] veh[12] veh[13] veh[14] veh[15] veh[16] veh[17] veh[18] veh[19] veh[20] veh[21] veh[22] veh[23] veh[24] veh[25] veh[26] veh[27] veh[28] veh[29] veh[30] veh[31] veh[32] veh[33] veh[34] veh[35] veh[36] veh[37] veh[38] veh[39] veh[40] veh[41] veh[42] veh[43] veh[44] veh[45] veh[46] veh[47] veh[48] veh[49] veh[50] veh[51] veh[52] veh[53] veh[54] veh[55] veh[56] veh[57] veh[58] veh[59] veh[60] veh[61] veh[62] veh[63] veh[64] veh[65] veh[66] veh[67] veh[68] veh[69] veh[70] veh[71] veh[72] veh[73] veh[74] veh[75] veh[76] veh[77] veh[78] veh[79] succ[0] succ[1] succ[2] succ[3] succ[4] succ[5] succ[6] succ[7] succ[8] succ[9] succ[10] succ[11] succ[12] succ[13] succ[14] succ[15] succ[16] succ[17] succ[18] succ[19] succ[20] succ[21] succ[22] succ[23] succ[24] succ[25] succ[26] succ[27] succ[28] succ[29] succ[30] succ[31] succ[32] succ[33] succ[34] succ[35] succ[36] succ[37] succ[38] succ[39] succ[40] succ[41] succ[42] succ[43] succ[44] succ[45] succ[46] succ[47] succ[48] succ[49] succ[50] succ[51] succ[52] succ[53] succ[54] succ[55] succ[56] succ[57] succ[58] succ[59] succ[60] succ[61] succ[62] succ[63] succ[64] succ[65] succ[66] succ[67] succ[68] succ[69] succ[70] succ[71] succ[72] succ[73] succ[74] succ[75] succ[76] succ[77] succ[78] succ[79] load[0] load[1] load[2] load[3] load[4] load[5] load[6] load[7] load[8] load[9] load[10] load[11] load[12] load[13] load[14] load[15] load[16] load[17] load[18] load[19] load[20] load[21] load[22] load[23] load[24] load[25] load[26] load[27] load[28] load[29] load[30] load[31] load[32] load[33] load[34] load[35] load[36] load[37] load[38] load[39] load[40] load[41] load[42] load[43] load[44] load[45] load[46] load[47] load[48] load[49] load[50] load[51] load[52] load[53] load[54] load[55] load[56] load[57] load[58] load[59] load[60] load[61] load[62] load[63] load[64] load[65] load[66] load[67] load[68] load[69] load[70] load[71] load[72] load[73] load[74] load[75] load[76] load[77] load[78] load[79] arr[0] arr[1] arr[2] arr[3] arr[4] arr[5] arr[6] arr[7] arr[8] arr[9] arr[10] arr[11] arr[12] arr[13] arr[14] arr[15] arr[16] arr[17] arr[18] arr[19] arr[20] arr[21] arr[22] arr[23] arr[24] arr[25] arr[26] arr[27] arr[28] arr[29] arr[30] arr[31] arr[32] arr[33] arr[34] arr[35] arr[36] arr[37] arr[38] arr[39] arr[40] arr[41] arr[42] arr[43] arr[44] arr[45] arr[46] arr[47] arr[48] arr[49] arr[50] arr[51] arr[52] arr[53] arr[54] arr[55] arr[56] arr[57] arr[58] arr[59] arr[60] arr[61] arr[62] arr[63] arr[64] arr[65] arr[66] arr[67] arr[68] arr[69] arr[70] arr[71] arr[72] arr[73] arr[74] arr[75] arr[76] arr[77] arr[78] arr[79] ser[0] ser[1] ser[2] ser[3] ser[4] ser[5] ser[6] ser[7] ser[8] ser[9] ser[10] ser[11] ser[12] ser[13] ser[14] ser[15] ser[16] ser[17] ser[18] ser[19] ser[20] ser[21] ser[22] ser[23] ser[24] ser[25] ser[26] ser[27] ser[28] ser[29] ser[30] ser[31] ser[32] ser[33] ser[34] ser[35] ser[36] ser[37] ser[38] ser[39] ser[40] ser[41] ser[42] ser[43] ser[44] ser[45] ser[46] ser[47] ser[48] ser[49] ser[50] ser[51] ser[52] ser[53] ser[54] ser[55] ser[56] ser[57] ser[58] ser[59] ser[60] ser[61] ser[62] ser[63] ser[64] ser[65] ser[66] ser[67] ser[68] ser[69] ser[70] ser[71] ser[72] ser[73] ser[74] ser[75] ser[76] ser[77] ser[78] ser[79] dep[0] dep[1] dep[2] dep[3] dep[4] dep[5] dep[6] dep[7] dep[8] dep[9] dep[10] dep[11] dep[12] dep[13] dep[14] dep[15] dep[16] dep[17] dep[18] dep[19] dep[20] dep[21] dep[22] dep[23] dep[24] dep[25] dep[26] dep[27] dep[28] dep[29] dep[30] dep[31] dep[32] dep[33] dep[34] dep[35] dep[36] dep[37] dep[38] dep[39] dep[40] dep[41] dep[42] dep[43] dep[44] dep[45] dep[46] dep[47] dep[48] dep[49] dep[50] dep[51] dep[52] dep[53] dep[54] dep[55] dep[56] dep[57] dep[58] dep[59] dep[60] dep[61] dep[62] dep[63] dep[64] dep[65] dep[66] dep[67] dep[68] dep[69] dep[70] dep[71] dep[72] dep[73] dep[74] dep[75] dep[76] dep[77] dep[78] dep[79] aux_gb[0] aux_gb[1] aux_gb[2] aux_gb[3] aux_gb[4] aux_gb[5] aux_gb[6] aux_gb[7] aux_gb[8] aux_gb[9] aux_gb[10] aux_gb[11] aux_gb[12] aux_gb[13] aux_gb[14] aux_gb[15] aux_gb[16] aux_gb[17] aux_gb[18] aux_gb[19] aux_gb[20] aux_gb[21] aux_gb[22] aux_gb[23] aux_gb[24] aux_gb[25] aux_gb[26] aux_gb[27] aux_gb[28] aux_gb[29] aux_gb[30] aux_gb[31] aux_gb[32] aux_gb[33] aux_gb[34] aux_gb[35] aux_gb[36] aux_gb[37] aux_gb[38] aux_gb[39] aux_gb[40] aux_gb[41] aux_gb[42] aux_gb[43] aux_gb[44] aux_gb[45] aux_gb[46] aux_gb[47] aux_gb[48] aux_gb[49] aux_gb[50] aux_gb[51] aux_gb[52] aux_gb[53] aux_gb[54] aux_gb[55] aux_gb[56] aux_gb[57] aux_gb[58] aux_gb[59] aux_gb[60] aux_gb[61] aux_gb[62] aux_gb[63] aux_gb[64] aux_gb[65] aux_gb[66] aux_gb[67] aux_gb[68] aux_gb[69] aux_gb[70] aux_gb[71] aux_gb[72] aux_gb[73] aux_gb[74] aux_gb[75] aux_gb[76] aux_gb[77] aux_gb[78] aux_gb[79] aux_gb[80] aux_gb[81] aux_gb[82] aux_gb[83] aux_gb[84] aux_gb[85] aux_gb[86] aux_gb[87] aux_gb[88] aux_gb[89] aux_gb[90] aux_gb[91] aux_gb[92] aux_gb[93] aux_gb[94] aux_gb[95] aux_gb[96] aux_gb[97] aux_gb[98] aux_gb[99] aux_gb[100] aux_gb[101] aux_gb[102] aux_gb[103] aux_gb[104] aux_gb[105] aux_gb[106] aux_gb[107] aux_gb[108] aux_gb[109] aux_gb[110] aux_gb[111] aux_gb[112] aux_gb[113] aux_gb[114] aux_gb[115] aux_gb[116] aux_gb[117] aux_gb[118] aux_gb[119] aux_gb[120] aux_gb[121] aux_gb[122] aux_gb[123] aux_gb[124] aux_gb[125] aux_gb[126] aux_gb[127] aux_gb[128] aux_gb[129] aux_gb[130] aux_gb[131] aux_gb[132] aux_gb[133] aux_gb[134] aux_gb[135] aux_gb[136] aux_gb[137] aux_gb[138] aux_gb[139] aux_gb[140] aux_gb[141] aux_gb[142] aux_gb[143] aux_gb[144] aux_gb[145] aux_gb[146] aux_gb[147] aux_gb[148] aux_gb[149] aux_gb[150] aux_gb[151] aux_gb[152] aux_gb[153] aux_gb[154] aux_gb[155] aux_gb[156] aux_gb[157] aux_gb[158] aux_gb[159] aux_gb[160] aux_gb[161] aux_gb[162] aux_gb[163] aux_gb[164] aux_gb[165] aux_gb[166] aux_gb[167] aux_gb[168] aux_gb[169] aux_gb[170] aux_gb[171] aux_gb[172] aux_gb[173] aux_gb[174] aux_gb[175] aux_gb[176] aux_gb[177] aux_gb[178] aux_gb[179] aux_gb[180] aux_gb[181] aux_gb[182] aux_gb[183] aux_gb[184] aux_gb[185] aux_gb[186] aux_gb[187] aux_gb[188] aux_gb[189] aux_gb[190] aux_gb[191] aux_gb[192] aux_gb[193] aux_gb[194] aux_gb[195] aux_gb[196] aux_gb[197] aux_gb[198] aux_gb[199] aux_gb[200] aux_gb[201] aux_gb[202] aux_gb[203] aux_gb[204] aux_gb[205] aux_gb[206] aux_gb[207] aux_gb[208] aux_gb[209] aux_gb[210] aux_gb[211] aux_gb[212] aux_gb[213] aux_gb[214] aux_gb[215] aux_gb[216] aux_gb[217] aux_gb[218] aux_gb[219] aux_gb[220] aux_gb[221] aux_gb[222] aux_gb[223] aux_gb[224] aux_gb[225] aux_gb[226] aux_gb[227] aux_gb[228] aux_gb[229] aux_gb[230] aux_gb[231] aux_gb[232] aux_gb[233] aux_gb[234] aux_gb[235] aux_gb[236] aux_gb[237] aux_gb[238] aux_gb[239] </list>
+v   <values> 0 9 4 1 2 3 4 0 1 3 8 5 7 6 7 8 5 9 6 2 0 9 4 1 2 3 4 0 1 3 8 5 7 6 7 8 5 9 6 2 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 7 21 6 8 19 25 22 27 23 29 15 36 14 33 32 35 11 1 13 39 60 37 26 28 62 63 64 20 61 5 68 65 34 38 67 30 31 69 66 24 0 3 4 9 2 16 18 12 10 17 70 71 72 73 74 75 76 77 78 79 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 40 2 4 1 3 4 4 4 5 7 1 3 6 1 4 3 5 4 2 3 7 0 2 3 4 0 0 0 2 0 0 0 0 2 3 0 3 2 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 19 42 9 13 36 67 43 39 40 19 17 46 19 48 37 42 13 23 19 56 91 70 77 74 99 100 106 75 96 49 99 110 67 75 101 83 88 113 106 80 3 0 32 2 5 9 0 2 2 1 134 134 134 134 101 149 134 138 149 13 150 149 137 130 134 149 132 150 149 144 134 134 134 134 101 149 134 138 149 13 19 42 28 13 37 70 43 39 40 20 17 46 22 48 37 42 19 23 27 56 91 79 79 76 99 115 106 75 111 50 99 110 67 76 101 88 89 113 106 80 3 0 32 2 5 9 0 2 2 1 134 134 134 134 101 149 134 138 149 13 150 149 137 130 134 149 132 150 149 144 134 134 134 134 101 149 134 138 149 13 37 62 43 25 56 80 63 55 61 37 31 56 37 64 48 53 32 42 40 68 137 100 106 89 118 126 116 91 136 67 133 130 82 92 131 99 102 130 119 92 3 0 32 2 5 9 0 2 2 1 134 134 134 134 101 149 134 138 149 13 150 149 137 130 134 149 132 150 149 144 134 134 134 134 101 149 134 138 149 13 2 39 8 70 0 43 15 40 0 56 20 100 14 77 20 75 13 74 12 49 11 42 32 88 0 37 11 75 19 67 30 83 14 46 0 42 8 48 12 80 13 150 13 113 0 106 7 96 19 137 4 130 18 134 0 91 13 149 0 67 16 149 19 149 19 101 14 106 19 150 0 99 8 110 14 144 13 132 7 99 16 19 13 13 4 36 17 19 4 9 4 13 19 19 17 19 15 17 22 23 0 134 0 134 0 134 0 134 0 101 0 149 0 134 0 138 0 149 0 13 3 5 -2 2 3 4 4 7 3 7 -4 0 -1 3 -3 2 -3 4 -1 0 2 5 -4 2 2 3 -1 3 -1 2 -2 3 2 6 2 4 1 4 -3 4 0 0 -2 0 -3 0 -4 0 0 0 0 0 0 0 -2 0 0 0 4 4 0 0 0 0 -2 0 -3 0 0 0 -3 0 -2 0 0 0 0 0 -4 0 2 2 3 3 4 4 1 1 1 1 4 4 3 3 1 1 3 3 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 588
+d OPTIMAL 0
+d OBJECTIVE_ROUNDS 63
+d OBJECTIVE_IMPROVEMENTS 62
+d COP_INCUMBENT_ELAPSED_MS 911789
+d SOLVE_ELAPSED_MS 1800044
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 888127
+d LAST_COMPLETED_STAGE relaxation
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS done
+d STAGE_RELAXATION_STATUS done
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 736
+d NORMALIZED_CONSTRAINTS 736
+d LOWERED_CONSTRAINTS 736
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 122285
+d SAT_CLAUSES_BASE 4952215
+d SAT_CLAUSES_FINAL 8052141
+d SAT_CLAUSES_CEGAR_DELTA 3099926
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":1179,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":12650,"max_domain_product_excluding_one_var":"151","p95_domain_product_excluding_one_var":"151"},"3":{"count":120,"max_domain_product_excluding_one_var":"1510","p95_domain_product_excluding_one_var":"1510"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":4800,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":8014,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":100,"max_domain_product_excluding_one_var":"69","p95_domain_product_excluding_one_var":"68"},"61":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"2":{"count":410,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"},"3":{"count":159,"max_domain_product_excluding_one_var":"4","p95_domain_product_excluding_one_var":"4"},"4":{"count":189,"max_domain_product_excluding_one_var":"8","p95_domain_product_excluding_one_var":"8"},"5":{"count":86,"max_domain_product_excluding_one_var":"16","p95_domain_product_excluding_one_var":"16"},"6":{"count":107,"max_domain_product_excluding_one_var":"32","p95_domain_product_excluding_one_var":"32"},"7":{"count":126,"max_domain_product_excluding_one_var":"64","p95_domain_product_excluding_one_var":"64"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 1746
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 1746
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 933
+d ROOT_LP_ROWS 11819
+d ROOT_LP_VARS 8735
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 8115
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 13949
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 61
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 340282366920938463463374607431768211455
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 7
+d ROOT_LP_OBJECTIVE_VALUE 0
+d PROPAGATE_PRUNED_VALUES 16775
+d PROPAGATE_CHANGED_DOMAINS 304
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 60
+d POST_LOWER_TIGHTENED_DOMAINS 80
+d POST_LOWER_REMOVED_CLAUSES 6951
+d POST_LOWER_REMOVED_LITS 4415
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 1637
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 1
+d DECODE_INT_ASSIGNMENTS 721
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 122
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 58
+d COP_CEGAR_ROUNDS 122
+d COP_CEGAR_ADDED_CLAUSES 3099926
+d CSV /bench/competition/2022-2025/COP22to25/VRP_LC-13-11-20-s4_c24.xml.lzma,sat,736,736,736,0,122285,8052141,1800035,,,,,,,1,optimal,0,1746,0,1746,0,933,11819,8735,0,0,0,0,timeout_signal,incumbent_interrupted_by_signal
+signal=15; emitted incumbent csv row
