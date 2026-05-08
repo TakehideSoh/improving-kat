@@ -54,6 +54,13 @@ RUNS = [
         "runsolver-kat-c22-c25-csp800-portfolio-mdd-tl-no-budget-alldiff-stage1-20260419-0a48c5bb",
         GR10672,
     ),
+    Run(
+        "pycsp3-extra-ortools-csp800-1t-20260507",
+        "pycsp3-extra OR-Tools 1t 20260507",
+        "pycsp3-extra-ortools-csp800-1t-20260507-q10672",
+        "runsolver-pycsp3-extra-ortools-csp800-1t-20260507-q10672",
+        GR10672,
+    ),
 ]
 
 
@@ -301,6 +308,10 @@ def classify_kat(fields: list[str], log_path: Path | None) -> str:
         return "UNSAT"
     if status == "optimum":
         return "OPT"
+    if status == "timeout":
+        return "TO"
+    if status == "memout":
+        return "MO"
     outcome = log_outcome(log_path)
     if outcome:
         return outcome
@@ -384,8 +395,8 @@ def generate_html(root: Path) -> None:
 
     body = [
         "<h1 id=\"csp-results\">CSP Results</h1>",
-        "<p>最終更新: 2026-05-07</p>",
-        "<p>対象は c22-c25 CSP-only 800 instances。ログは <code>direct-order</code>, <code>log-scop</code>, <code>ace-rr</code> の既存最新 run を同期したもの。</p>",
+        "<p>最終更新: 2026-05-08</p>",
+        "<p>対象は c22-c25 CSP-only 800 instances。ログは <code>direct-order</code>, <code>log-scop</code>, <code>portfolio</code>, <code>OR-Tools</code>, <code>ace-rr</code> の run を同期したもの。</p>",
         build_summary(labels, cell_table),
         "<h2 id=\"csp800-instance-table\">CSP800 instance table</h2>",
         "<div class=\"table-wrap\"><table>",
