@@ -21,6 +21,7 @@ GR10672 = "/LARGE0/gr10672/b39275/xcsp3instances"
 GR10609 = "/LARGE0/gr10609/b39275/xcsp3instances"
 HOME_ROOT = "/home/b/b39275/xcsp3instances"
 CSP_LIST_REMOTE = f"{GR10609}/adhoc/c22-c25-csp800/competition_all_c22_c25_csp_only.csv"
+RAW_LOG_BASE = "https://raw.githubusercontent.com/TakehideSoh/improving-kat/main/"
 
 
 @dataclass(frozen=True)
@@ -138,8 +139,9 @@ def run_cmd(args: list[str], *, input_text: str | None = None) -> str:
 def rel_link(root: Path, path: Path | None, label: str) -> str:
     if path is None:
         return html.escape(label)
-    rel = path.relative_to(root / "docs").as_posix()
-    return f'<a href="{html.escape(rel, quote=True)}">{html.escape(label)}</a>'
+    rel = path.relative_to(root).as_posix()
+    url = RAW_LOG_BASE + rel
+    return f'<a href="{html.escape(url, quote=True)}">{html.escape(label)}</a>'
 
 
 def fetch_instance_list(root: Path) -> None:

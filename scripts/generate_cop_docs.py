@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "cop-results.md"
 DESTINATION = ROOT / "docs" / "index.html"
+RAW_LOG_BASE = "https://raw.githubusercontent.com/TakehideSoh/improving-kat/main/"
 
 
 CSS = """:root { color-scheme: light; }
@@ -202,7 +203,11 @@ def inline_markdown(text: str) -> str:
     def html_link(match: re.Match[str]) -> str:
         label = match.group(1)
         url = match.group(2)
-        if url.startswith("docs/"):
+        if url.startswith("docs/logs/"):
+            url = RAW_LOG_BASE + url
+        elif url.startswith("logs/"):
+            url = RAW_LOG_BASE + "docs/" + url
+        elif url.startswith("docs/"):
             url = url.removeprefix("docs/")
         elif not re.match(r"^(?:[a-z][a-z0-9+.-]*:|#|\.\./)", url, re.IGNORECASE):
             url = "../" + url
