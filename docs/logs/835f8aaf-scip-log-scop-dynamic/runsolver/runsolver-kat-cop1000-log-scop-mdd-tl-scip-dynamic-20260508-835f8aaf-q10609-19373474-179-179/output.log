@@ -1,0 +1,111 @@
+c cmd: /host-parser-bin/kat_xcsp_835f8aaf_scip_dynamic /bench/competition/2022-2025/COP22to25/CarpetCutting-test04_c23.xml.lzma --encoder log-scop --order-ge-table mdd-tl --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=235
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=1 pruned=3387 changed_domains=54 entailed_tables=11
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=235
+c 00h00m00s | stage:lower:start
+c 00h00m02s | stage:lower:done ms=2603 lowered=235 unsupported=0
+c 00h00m02s | stage:post_lower:start
+c 00h00m03s | stage:post_lower:done ms=616 rounds=3452 tightened=46868 removed_cls=59586 removed_lits=48203 unsat=false precise_hits=311 precise_rounds=2 pivot_recomputes=83877 pivot_exact_attempts=186 pivot_general_attempts=83782 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=83775 pivot_general_tightened=7 setup_ms=270 loop_ms=272 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=5 sat_ms=0 precise_ms=15
+c 00h00m03s | stage:lowered-shape int_vars=104330 bool_vars=209504 linear_atoms=422109 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=571123
+c 00h00m03s | stage:root-lp:start backend=scip-ffi
+c 00h02m14s | stage:root-lp:skip backend=scip-ffi reason=root LP skipped: wall-clock time limit reached during LP shape gate ms=131127
+c 00h02m14s | stage:preencode(log-scop):start
+c 00h02m14s | stage:preencode(log-scop):done ms=106 int_vars=104330
+c 00h02m14s | stage:encode(log-scop):start
+c 00h02m40s | stage:encode(log-scop):done ms=26268 sat_vars=24475549 sat_clauses=62708994 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=672970 log_scop_pb_mixed=0 log_scop_pb_bdd2=0 log_scop_pb_bdd3=672970 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=672970 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h02m41s | stage:sat:init solver=CaDiCaL vars=24475549 clauses=62708994
+c 00h02m41s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h03m17s | stage:sat:solve:done round=1 ms=36179 result=Sat assumptions=0 phase_lits=0
+c 00h03m17s | stage:decode:start round=1 requested_int_ids=230
+c 00h03m17s | stage:decode:final:start round=1 requested_int_ids=230
+c 00h03m17s | stage:decode:done round=1 int_assignments=230
+c 00h03m17s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h03m17s | result:Sat
+c 00h03m17s | objective:incumbent kind=initial value=2829 rounds=1 improvements=0
+o 2829
+c 00h03m17s | stage:sat:init solver=CaDiCaL vars=24475549 clauses=62708994
+c 00h03m17s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=919
+c 00h03m24s | stage:sat:solve:done round=1 ms=6742 result=Sat assumptions=0 phase_lits=919
+c 00h03m24s | stage:decode:start round=1 requested_int_ids=230
+c 00h03m25s | result:unknown reason=relaxation_budget_exceeded detail=relaxation produced 1188332 clauses in one round, exceeding limit 1000000
+s SATISFIABLE
+o 2829
+v <instantiation>
+v   <list> z x[0] x[1] x[2] x[3] x[4] x[5] x[6] x[7] x[8] x[9] x[10] y[0] y[1] y[2] y[3] y[4] y[5] y[6] y[7] y[8] y[9] y[10] r[0] r[1] r[2] r[3] r[4] r[5] r[6] r[7] r[8] r[9] r[10] r0or180[0] r0or180[1] r0or180[2] r0or180[3] r0or180[4] r0or180[5] r0or180[6] r0or180[7] r0or180[8] r0or180[9] r0or180[10] r0or90[0] r0or90[1] r0or90[2] r0or90[3] r0or90[4] r0or90[5] r0or90[6] r0or90[7] r0or90[8] r0or90[9] r0or90[10] xr[0] xr[1] xr[2] xr[3] xr[4] xr[5] xr[6] xr[7] xr[8] xr[9] xr[10] xr[11] xr[12] xr[13] yr[0] yr[1] yr[2] yr[3] yr[4] yr[5] yr[6] yr[7] yr[8] yr[9] yr[10] yr[11] yr[12] yr[13] lr[0] lr[1] lr[2] lr[3] lr[4] lr[5] lr[6] lr[7] lr[8] lr[9] lr[10] lr[11] lr[12] lr[13] wr[0] wr[1] wr[2] wr[3] wr[4] wr[5] wr[6] wr[7] wr[8] wr[9] wr[10] wr[11] wr[12] wr[13] xs[0] xs[1] xs[2] xs[3] xs[4] xs[5] xs[6] xs[7] xs[8] xs[9] xs[10] ys[0] ys[1] ys[2] ys[3] ys[4] ys[5] ys[6] ys[7] ys[8] ys[9] ys[10] lp[0][0] lp[0][1] lp[0][2] lp[0][3] lp[0][4] lp[0][5] lp[0][6] lp[0][7] lp[0][8] lp[0][9] lp[0][10] aux_gb[0] aux_gb[1] aux_gb[2] aux_gb[3] aux_gb[4] aux_gb[5] aux_gb[6] aux_gb[7] aux_gb[8] aux_gb[9] aux_gb[10] aux_gb[11] aux_gb[12] aux_gb[13] aux_gb[14] aux_gb[15] aux_gb[16] aux_gb[17] aux_gb[18] aux_gb[19] aux_gb[20] aux_gb[21] aux_gb[22] aux_gb[23] aux_gb[24] aux_gb[25] aux_gb[26] aux_gb[27] aux_gb[28] aux_gb[29] aux_gb[30] aux_gb[31] aux_gb[32] aux_gb[33] aux_gb[34] aux_gb[35] aux_gb[36] aux_gb[37] aux_gb[38] aux_gb[39] aux_gb[40] aux_gb[41] aux_gb[42] aux_gb[43] aux_gb[44] aux_gb[45] aux_gb[46] aux_gb[47] aux_gb[48] aux_gb[49] aux_gb[50] aux_gb[51] aux_gb[52] aux_gb[53] aux_gb[54] aux_gb[55] aux_gb[56] aux_gb[57] aux_gb[58] aux_gb[59] aux_gb[60] aux_gb[61] aux_gb[62] aux_gb[63] aux_gb[64] aux_gb[65] aux_gb[66] aux_gb[67] aux_gb[68] aux_gb[69] aux_gb[70] aux_gb[71] aux_gb[72] aux_gb[73] aux_gb[74] aux_gb[75] aux_gb[76] aux_gb[77] aux_gb[78] aux_gb[79] aux_gb[80] aux_gb[81] aux_gb[82] aux_gb[83] aux_gb[84] </list>
+v   <values> 2829 1855 2036 630 1023 965 1759 127 1247 143 2206 839 184 84 1 210 183 31 14 157 207 33 289 0 0 2 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1855 2036 899 702 630 1023 965 1759 127 1247 143 2448 2206 839 184 84 1 1 1 210 183 31 14 157 207 175 33 289 181 170 74 197 72 127 56 65 213 72 112 268 510 196 131 231 147 204 138 29 100 121 75 145 75 130 142 26 1485 1535 1585 1645 1695 249 299 349 1674 1724 1774 1 1 1 76 76 89 89 89 176 176 176 0 0 1 0 1 0 0 1 0 0 1 0 0 269 72 0 0 0 0 0 0 0 242 0 0 0 0 0 142 0 50 50 50 50 50 50 50 50 50 50 50 88 88 88 88 88 88 88 88 88 88 88 88 88 88 88 88 88 88 88 88 88 88 50 50 50 50 50 50 50 50 50 50 50 50 88 50 88 50 88 50 88 50 88 50 88 50 88 50 88 50 88 50 88 50 88 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 2829
+d OPTIMAL 0
+d SOURCE_CONSTRAINTS 235
+d NORMALIZED_CONSTRAINTS 235
+d LOWERED_CONSTRAINTS 235
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 2
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_ROUNDS 2
+d OBJECTIVE_IMPROVEMENTS 0
+d PROPAGATE_MS 1
+d NORMALIZE_MS 0
+d LOWER_MS 2603
+d POST_LOWER_MS 616
+d PREENCODE_MS 106
+d ENCODE_MS 26268
+d SAT_SOLVE_MS 42921
+d TOTAL_MS 205061
+d SAT_VARS 24475549
+d SAT_CLAUSES_BASE 62708994
+d SAT_CLAUSES_FINAL 62708994
+d SAT_CLAUSES_CEGAR_DELTA 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":104201,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":104128,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"},"3":{"count":28,"max_domain_product_excluding_one_var":"7461","p95_domain_product_excluding_one_var":"7461"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":44,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":104100,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":104186,"max_domain_product_excluding_one_var":"2780","p95_domain_product_excluding_one_var":"2"},"3":{"count":1225,"max_domain_product_excluding_one_var":"5602","p95_domain_product_excluding_one_var":"5516"},"11":{"count":1,"max_domain_product_excluding_one_var":"128","p95_domain_product_excluding_one_var":"128"},"25":{"count":3339,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"26":{"count":825,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"2":{"count":32,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS skipped
+d OBJECTIVE_NAIVE_LOWER 1069
+d OBJECTIVE_NAIVE_UPPER 2829
+d ROOT_LP_MS 131127
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 213676
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 208357
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 26
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 340282366920938463463374607431768211455
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 2
+d ROOT_LP_REASON scip-ffi: root LP skipped: wall-clock time limit reached during LP shape gate
+d PROPAGATE_PRUNED_VALUES 3387
+d PROPAGATE_CHANGED_DOMAINS 54
+d PROPAGATE_ENTAILED_TABLES 11
+d POST_LOWER_ROUNDS 3452
+d POST_LOWER_TIGHTENED_DOMAINS 46868
+d POST_LOWER_REMOVED_CLAUSES 59586
+d POST_LOWER_REMOVED_LITS 48203
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 104330
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 672970
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 672970
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 672970
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d DECODE_INT_ASSIGNMENTS 230
+d CSV /bench/competition/2022-2025/COP22to25/CarpetCutting-test04_c23.xml.lzma,sat,235,235,235,0,24475549,62708994,205061,1,0,2603,106,26268,42921,1,skipped,1069,2829,,,,131127,,,,,,,,"best incumbent shown; guarded improvement search stopped before optimality proof: relaxation produced 1188332 clauses in one round, exceeding limit 1000000"

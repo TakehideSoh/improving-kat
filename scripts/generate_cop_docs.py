@@ -43,6 +43,7 @@ tr:nth-child(even) td { background: #fafafa; }
 SCRIPT = """(() => {
   const DEFAULT_COP1000_COLUMNS = new Set([
     '835f8aaf SCIP direct-order dynamic',
+    '835f8aaf SCIP log-scop dynamic',
     'aac6b714 SCIP direct-order dynamic',
     'bd3c9f7d SCIP direct-order dynamic',
     'bd3c9f7d SCIP log-scop dynamic',

@@ -71,6 +71,13 @@ RUNS = [
         "runsolver-kat-c22-c25-csp800-order-direct-mdd-tl-scip-dynamic-20260508-835f8aaf-q10672",
         GR10672,
     ),
+    Run(
+        "csp800-835f8aaf-log-scop",
+        "835f8aaf log-scop",
+        "kat-c22-c25-csp800-log-scop-mdd-tl-scip-dynamic-20260508-835f8aaf-q10672",
+        "runsolver-kat-c22-c25-csp800-log-scop-mdd-tl-scip-dynamic-20260508-835f8aaf-q10672",
+        GR10672,
+    ),
 ]
 
 

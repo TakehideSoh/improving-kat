@@ -182,6 +182,14 @@ RUNS = [
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
+        "835f8aaf-scip-log-scop-dynamic",
+        "835f8aaf SCIP log-scop dynamic",
+        "kat-cop1000-log-scop-mdd-tl-scip-dynamic-20260508-835f8aaf-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-log-scop-mdd-tl-scip-dynamic-20260508-835f8aaf-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
         "ace64g-rr-20260505",
         "ACE 64G rr 20260505",
         "",

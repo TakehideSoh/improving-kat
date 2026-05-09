@@ -1,0 +1,43 @@
+c cmd: /host-parser-bin/kat_xcsp_835f8aaf_scip_dynamic /bench/competition/2022-2025/COP22to25/FAPP-aux-18-0350_c25.xml.lzma --encoder log-scop --order-ge-table mdd-tl --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=3812
+c 00h00m00s | stage:propagate:start
+c 00h00m03s | stage:propagate:done ms=3256 pruned=12385 changed_domains=1747 entailed_tables=9
+c 00h00m03s | stage:normalize:start
+c 00h00m03s | stage:normalize:done ms=0 high_constraints=3812
+c 00h00m03s | stage:lower:start
+c 00h00m03s | stage:lower:done ms=454 lowered=3812 unsupported=0
+c 00h00m03s | stage:post_lower:start
+c 00h00m03s | stage:post_lower:done ms=5 rounds=2 tightened=2 removed_cls=600 removed_lits=172 unsat=false precise_hits=14 precise_rounds=1 pivot_recomputes=8 pivot_exact_attempts=0 pivot_general_attempts=8 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=8 pivot_general_tightened=0 setup_ms=3 loop_ms=1 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m03s | stage:lowered-shape int_vars=4976 bool_vars=4241 linear_atoms=8228 table_atoms=1416 table_tuples=1667319 table_scope=8496 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=10991
+c 00h00m03s | stage:root-lp:start backend=scip-ffi
+c 00h00m37s | stage:root-lp:bound backend=scip-ffi status=objective_bound objective_value=0.00000000000474953409934642 naive_bounds=[0,243689250] lp_bounds=[0,243689250] improved=0 rows=19482 vars=1676536 ms=33781
+c 00h00m37s | stage:preencode(log-scop):start
+c 00h00m37s | stage:preencode(log-scop):done ms=2 int_vars=4976
+c 00h00m37s | stage:encode(log-scop):start
+c 00h00m43s | stage:encode(log-scop):done ms=5686 sat_vars=4050163 sat_clauses=8352959 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=10008 log_scop_pb_mixed=0 log_scop_pb_bdd2=0 log_scop_pb_bdd3=10008 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=10008 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m43s | stage:sat:init solver=CaDiCaL vars=4050163 clauses=8352959
+c 00h00m43s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h01m56s | stage:sat:solve:done round=1 ms=72946 result=Sat assumptions=0 phase_lits=0
+c 00h01m56s | stage:decode:start round=1 requested_int_ids=4976
+c 00h01m56s | stage:decode:final:start round=1 requested_int_ids=4976
+c 00h01m56s | stage:decode:done round=1 int_assignments=4976
+c 00h01m56s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h01m56s | result:Sat
+c 00h01m56s | objective:incumbent kind=initial value=233151237 rounds=1 improvements=0
+o 233151237
+c 00h01m56s | stage:sat:init solver=CaDiCaL vars=4050163 clauses=8352959
+c 00h01m56s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=21335
+c 00h01m57s | stage:sat:solve:done round=1 ms=1006 result=Sat assumptions=0 phase_lits=21335
+c 00h01m57s | stage:decode:start round=1 requested_int_ids=4976
+c 00h01m57s | stage:decode:final:start round=1 requested_int_ids=4976
+c 00h01m57s | stage:decode:done round=1 int_assignments=4976
+c 00h01m57s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=2 cop_cegar_added_clauses=0
+c 00h01m57s | result:Sat
+c 00h01m57s | objective:incumbent kind=improvement value=233122717 rounds=2 improvements=1
+o 233122717
+c 00h01m57s | stage:sat:init solver=CaDiCaL vars=4050163 clauses=8352959
+c 00h01m57s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=3 assumptions=0 phase_lits=21335
+c 00h01m58s | stage:sat:solve:done round=1 ms=753 result=Sat assumptions=0 phase_lits=21335
+c 00h01m58s | stage:decode:start round=1 requested_int_ids=4976
+bash: line 8: 1421279 Killed                  "$PARSER_BIN" "$INSTANCE_PATH" "$@"
