@@ -26,12 +26,21 @@ VALIDATION_BEGIN = "<!-- BEGIN COP1000_VALIDATION_STATS -->"
 VALIDATION_END = "<!-- END COP1000_VALIDATION_STATS -->"
 CONSISTENCY_BEGIN = "<!-- BEGIN COP1000_CONSISTENCY_STATS -->"
 CONSISTENCY_END = "<!-- END COP1000_CONSISTENCY_STATS -->"
+REFERENCE_COMPARE_BEGIN = "<!-- BEGIN COP1000_REFERENCE_COMPARISON_STATS -->"
+REFERENCE_COMPARE_END = "<!-- END COP1000_REFERENCE_COMPARISON_STATS -->"
 SUMMARY_BEGIN = "<!-- BEGIN COP1000_RESULT_SUMMARY -->"
 SUMMARY_END = "<!-- END COP1000_RESULT_SUMMARY -->"
 DEFAULT_CHECKER_JAR = Path(
     "/home/soh/02_prog/xcsp3instances/XCSP3-Java-Tools/target/xcsp3-solutionChecker-2.6.0.jar"
 )
 DEFAULT_BENCHMARK_DIR = Path("/home/soh/02_prog/benchmark")
+BAD_VALIDATION = {"invalid", "checker_error", "checker_timeout"}
+REFERENCE_COMPARE_TARGET = "835f8aaf-scip-direct-order-dynamic"
+REFERENCE_COMPARE_RUNS = [
+    "ace64g-rr-20260505",
+    "pycsp3-extra-ortools-20260505",
+    "pycsp3-extra-ortools-1t-rerun1-20260505",
+]
 
 
 @dataclass(frozen=True)
@@ -898,7 +907,7 @@ def consistency_issues(root: Path, benchmark_dir: Path) -> list[dict[str, str]]:
             status = fields[1] if len(fields) > 1 else ""
             value = parse_decimal(incumbent)
             check = validation.get((run.slug, instance_id), "")
-            if check in {"invalid", "checker_error", "checker_timeout"}:
+            if check in BAD_VALIDATION:
                 continue
             entries.append(
                 {
@@ -1033,12 +1042,245 @@ def build_consistency_stats(root: Path) -> str:
     return "\n".join(lines)
 
 
+def comparison_cell(
+    root: Path,
+    run: Run,
+    rows: dict[int, tuple[Path, list[str]]],
+    validation: dict[tuple[str, int], str],
+    instance_id: int,
+) -> dict[str, object]:
+    row_path, fields = rows.get(instance_id, (None, []))
+    log_path = log_path_for_row(root, run, instance_id, row_path)
+    incumbent, _, _ = parse_log(log_path)
+    return {
+        "status": fields[1] if len(fields) > 1 else "",
+        "value": parse_decimal(incumbent),
+        "validation": validation.get((run.slug, instance_id), ""),
+    }
+
+
+def cell_value_text(cell: dict[str, object]) -> str:
+    status = str(cell.get("status", ""))
+    value = cell.get("value")
+    value_text = format_decimal(value) if isinstance(value, Decimal) else "NA"
+    return f"{status or 'unknown'}:{value_text}"
+
+
+def reference_comparison(
+    root: Path, benchmark_dir: Path
+) -> tuple[list[dict[str, int | str]], list[dict[str, str]]]:
+    instances = read_instances(root)
+    runs = {run.slug: run for run in RUNS}
+    target = runs[REFERENCE_COMPARE_TARGET]
+    references = [runs[slug] for slug in REFERENCE_COMPARE_RUNS]
+    selected = [target] + references
+    all_rows = {run.slug: load_rows(root, run) for run in selected}
+    validation = load_validation(root)
+    stats: list[dict[str, int | str]] = []
+    issues: list[dict[str, str]] = []
+
+    for reference in references:
+        counts: Counter[str] = Counter()
+        for instance_id, instance in instances:
+            target_cell = comparison_cell(
+                root,
+                target,
+                all_rows[target.slug],
+                validation,
+                instance_id,
+            )
+            reference_cell = comparison_cell(
+                root,
+                reference,
+                all_rows[reference.slug],
+                validation,
+                instance_id,
+            )
+            if (
+                target_cell["validation"] in BAD_VALIDATION
+                or reference_cell["validation"] in BAD_VALIDATION
+            ):
+                counts["excluded_by_validation"] += 1
+                continue
+
+            counts["comparable"] += 1
+            target_value = target_cell["value"]
+            reference_value = reference_cell["value"]
+            target_status = str(target_cell["status"])
+            reference_status = str(reference_cell["status"])
+            target_has_value = isinstance(target_value, Decimal)
+            reference_has_value = isinstance(reference_value, Decimal)
+
+            if target_has_value:
+                counts["target_incumbent"] += 1
+            if reference_has_value:
+                counts["reference_incumbent"] += 1
+            if target_has_value and reference_has_value:
+                counts["both_incumbent"] += 1
+                if target_value == reference_value:
+                    counts["same_value"] += 1
+                else:
+                    counts["value_mismatch"] += 1
+
+            sense = objective_sense(benchmark_dir, instance)
+            issue = ""
+            if (target_status == "unsat" and reference_has_value) or (
+                reference_status == "unsat" and target_has_value
+            ):
+                issue = "unsat_with_value"
+            elif (
+                target_status == "optimum"
+                and reference_status == "optimum"
+                and target_has_value
+                and reference_has_value
+                and target_value != reference_value
+            ):
+                issue = "proved_optimum_mismatch"
+            elif (
+                target_status == "optimum"
+                and target_has_value
+                and reference_has_value
+                and is_better(reference_value, target_value, sense)
+            ):
+                issue = "reference_beats_target_optimum"
+            elif (
+                reference_status == "optimum"
+                and target_has_value
+                and reference_has_value
+                and is_better(target_value, reference_value, sense)
+            ):
+                issue = "target_beats_reference_optimum"
+            elif target_has_value and reference_has_value and target_value != reference_value:
+                issue = "value_mismatch"
+
+            if issue:
+                if issue != "value_mismatch":
+                    counts[issue] += 1
+                issues.append(
+                    {
+                        "reference_run": reference.slug,
+                        "instance_id": str(instance_id),
+                        "instance": instance,
+                        "sense": sense,
+                        "issue": issue,
+                        "target": cell_value_text(target_cell),
+                        "reference": cell_value_text(reference_cell),
+                    }
+                )
+
+        stats.append(
+            {
+                "reference_run": reference.slug,
+                "comparable": counts["comparable"],
+                "target_incumbent": counts["target_incumbent"],
+                "reference_incumbent": counts["reference_incumbent"],
+                "both_incumbent": counts["both_incumbent"],
+                "same_value": counts["same_value"],
+                "value_mismatch": counts["value_mismatch"],
+                "proved_optimum_mismatch": counts["proved_optimum_mismatch"],
+                "incumbent_beats_proved_optimum": counts["reference_beats_target_optimum"]
+                + counts["target_beats_reference_optimum"],
+                "unsat_with_value": counts["unsat_with_value"],
+                "excluded_by_validation": counts["excluded_by_validation"],
+            }
+        )
+
+    return stats, issues
+
+
+def write_reference_comparison_results(root: Path, benchmark_dir: Path) -> None:
+    _, rows = reference_comparison(root, benchmark_dir)
+    path = logs_root(root) / "reference-comparison" / "results.csv"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="") as f:
+        fieldnames = [
+            "reference_run",
+            "instance_id",
+            "instance",
+            "sense",
+            "issue",
+            "target",
+            "reference",
+        ]
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def build_reference_comparison_stats(root: Path, benchmark_dir: Path) -> str:
+    stats, issues = reference_comparison(root, benchmark_dir)
+    lines = [
+        REFERENCE_COMPARE_BEGIN,
+        "",
+        "## 835f8aaf reference solver comparison",
+        "",
+        f"This compares `{REFERENCE_COMPARE_TARGET}` with ACE and OR-Tools reference runs after excluding cells marked `invalid`, `checker_error`, or `checker_timeout` by validation.",
+        "`value_mismatch` means both runs reported an incumbent objective value but the values differ; it is not necessarily a correctness issue unless one of the proved/UNSAT issue columns is nonzero.",
+        "",
+        "| reference run | comparable | target incumbent | reference incumbent | both incumbent | same value | value_mismatch | proved_optimum_mismatch | incumbent_beats_proved_optimum | unsat_with_value | excluded_by_validation |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+    ]
+    for row in stats:
+        lines.append(
+            "| "
+            + " | ".join(
+                [
+                    f"`{row['reference_run']}`",
+                    str(row["comparable"]),
+                    str(row["target_incumbent"]),
+                    str(row["reference_incumbent"]),
+                    str(row["both_incumbent"]),
+                    str(row["same_value"]),
+                    str(row["value_mismatch"]),
+                    str(row["proved_optimum_mismatch"]),
+                    str(row["incumbent_beats_proved_optimum"]),
+                    str(row["unsat_with_value"]),
+                    str(row["excluded_by_validation"]),
+                ]
+            )
+            + " |"
+        )
+
+    if issues:
+        lines.extend(
+            [
+                "",
+                "Detailed mismatch rows are in `docs/logs/reference-comparison/results.csv`. Rows shown below are capped at 50:",
+                "",
+                "| reference run | # | instance | sense | issue | target | reference |",
+                "|---|---:|---|---|---|---|---|",
+            ]
+        )
+        for row in issues[:50]:
+            lines.append(
+                "| "
+                + " | ".join(
+                    [
+                        f"`{md_escape(row['reference_run'])}`",
+                        row["instance_id"],
+                        f"`{md_escape(Path(row['instance']).name)}`",
+                        md_escape(row["sense"]),
+                        f"`{md_escape(row['issue'])}`",
+                        f"`{md_escape(row['target'])}`",
+                        f"`{md_escape(row['reference'])}`",
+                    ]
+                )
+                + " |"
+            )
+    else:
+        lines.extend(["", "No mismatches were found for the configured reference comparisons."])
+
+    lines.extend(["", REFERENCE_COMPARE_END, ""])
+    return "\n".join(lines)
+
+
 def update_doc(root: Path, benchmark_dir: Path) -> None:
     doc = root / "cop-results.md"
     table = build_table(root)
     result_summary = build_result_summary(root)
     validation_stats = build_validation_stats(root)
     consistency_stats = build_consistency_stats(root)
+    reference_comparison_stats = build_reference_comparison_stats(root, benchmark_dir)
     if doc.exists():
         text = doc.read_text()
     else:
@@ -1065,6 +1307,17 @@ def update_doc(root: Path, benchmark_dir: Path) -> None:
             text = pre.rstrip() + "\n\n" + consistency_stats + "\n" + marker + post
         else:
             text = text.rstrip() + "\n\n" + consistency_stats
+    if REFERENCE_COMPARE_BEGIN in text and REFERENCE_COMPARE_END in text:
+        pre = text.split(REFERENCE_COMPARE_BEGIN, 1)[0].rstrip()
+        post = text.split(REFERENCE_COMPARE_END, 1)[1].lstrip()
+        text = pre + "\n\n" + reference_comparison_stats + ("\n" + post if post else "")
+    else:
+        marker = BEGIN if BEGIN in text else None
+        if marker:
+            pre, post = text.split(marker, 1)
+            text = pre.rstrip() + "\n\n" + reference_comparison_stats + "\n" + marker + post
+        else:
+            text = text.rstrip() + "\n\n" + reference_comparison_stats
     if VALIDATION_BEGIN in text and VALIDATION_END in text:
         pre = text.split(VALIDATION_BEGIN, 1)[0].rstrip()
         post = text.split(VALIDATION_END, 1)[1].lstrip()
@@ -1118,6 +1371,7 @@ def main() -> None:
             validation_targets,
         )
     write_consistency_results(root, args.benchmark_dir)
+    write_reference_comparison_results(root, args.benchmark_dir)
     update_doc(root, args.benchmark_dir)
 
 

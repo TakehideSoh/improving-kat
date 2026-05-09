@@ -207,6 +207,76 @@ Detailed results are in `docs/logs/consistency/results.csv`. Issues shown below 
 
 <!-- END COP1000_CONSISTENCY_STATS -->
 
+<!-- BEGIN COP1000_REFERENCE_COMPARISON_STATS -->
+
+## 835f8aaf reference solver comparison
+
+This compares `835f8aaf-scip-direct-order-dynamic` with ACE and OR-Tools reference runs after excluding cells marked `invalid`, `checker_error`, or `checker_timeout` by validation.
+`value_mismatch` means both runs reported an incumbent objective value but the values differ; it is not necessarily a correctness issue unless one of the proved/UNSAT issue columns is nonzero.
+
+| reference run | comparable | target incumbent | reference incumbent | both incumbent | same value | value_mismatch | proved_optimum_mismatch | incumbent_beats_proved_optimum | unsat_with_value | excluded_by_validation |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| `ace64g-rr-20260505` | 999 | 748 | 924 | 731 | 276 | 455 | 0 | 0 | 0 | 1 |
+| `pycsp3-extra-ortools-20260505` | 1000 | 749 | 830 | 649 | 254 | 395 | 0 | 0 | 0 | 0 |
+| `pycsp3-extra-ortools-1t-rerun1-20260505` | 1000 | 749 | 830 | 654 | 258 | 396 | 0 | 0 | 0 | 0 |
+
+Detailed mismatch rows are in `docs/logs/reference-comparison/results.csv`. Rows shown below are capped at 50:
+
+| reference run | # | instance | sense | issue | target | reference |
+|---|---:|---|---|---|---|---|
+| `ace64g-rr-20260505` | 37 | `AircraftLanding-table-airland01_c22.xml.lzma` | minimize | `value_mismatch` | `unknown:1528000` | `optimum:70000` |
+| `ace64g-rr-20260505` | 38 | `AircraftLanding-table-airland02_c22.xml.lzma` | minimize | `value_mismatch` | `unknown:7023000` | `optimum:148000` |
+| `ace64g-rr-20260505` | 39 | `AircraftLanding-table-airland03_c22.xml.lzma` | minimize | `value_mismatch` | `unknown:7420000` | `optimum:82000` |
+| `ace64g-rr-20260505` | 40 | `AircraftLanding-table-airland04_c22.xml.lzma` | minimize | `value_mismatch` | `unknown:11247000` | `optimum:252000` |
+| `ace64g-rr-20260505` | 41 | `AircraftLanding-table-airland05_c22.xml.lzma` | minimize | `value_mismatch` | `unknown:8545000` | `sat:310000` |
+| `ace64g-rr-20260505` | 43 | `AircraftLanding-table-airland07_c22.xml.lzma` | minimize | `value_mismatch` | `unknown:775000` | `optimum:155000` |
+| `ace64g-rr-20260505` | 44 | `AircraftLanding-table-airland08_c22.xml.lzma` | minimize | `value_mismatch` | `unknown:9597000` | `sat:195000` |
+| `ace64g-rr-20260505` | 45 | `AircraftLanding-table-airland09_c22.xml.lzma` | minimize | `value_mismatch` | `unknown:19682693` | `sat:571171` |
+| `ace64g-rr-20260505` | 46 | `AircraftLanding-table-airland10_c22.xml.lzma` | minimize | `value_mismatch` | `unknown:30080096` | `sat:1520206` |
+| `ace64g-rr-20260505` | 47 | `AircraftLanding-table-airland11_c22.xml.lzma` | minimize | `value_mismatch` | `unknown:9612481` | `sat:1342404` |
+| `ace64g-rr-20260505` | 48 | `AircraftLanding-table-airland12_c22.xml.lzma` | minimize | `value_mismatch` | `unknown:13484019` | `sat:1941558` |
+| `ace64g-rr-20260505` | 49 | `AircraftLanding-table-airland13_c22.xml.lzma` | minimize | `value_mismatch` | `internal_error:18462542` | `sat:4849395` |
+| `ace64g-rr-20260505` | 52 | `AlteredStates-04_c25.xml.lzma` | maximize | `value_mismatch` | `sat:55` | `sat:56` |
+| `ace64g-rr-20260505` | 53 | `AlteredStates-05_c25.xml.lzma` | maximize | `value_mismatch` | `sat:65` | `sat:86` |
+| `ace64g-rr-20260505` | 54 | `AlteredStates-06_c25.xml.lzma` | maximize | `value_mismatch` | `sat:109` | `sat:135` |
+| `ace64g-rr-20260505` | 55 | `AlteredStates-08_c25.xml.lzma` | maximize | `value_mismatch` | `sat:135` | `sat:176` |
+| `ace64g-rr-20260505` | 56 | `AlteredStates-10_c25.xml.lzma` | maximize | `value_mismatch` | `sat:139` | `sat:292` |
+| `ace64g-rr-20260505` | 57 | `AlteredStates-12_c25.xml.lzma` | maximize | `value_mismatch` | `sat:187` | `sat:352` |
+| `ace64g-rr-20260505` | 58 | `AlteredStates-15_c25.xml.lzma` | maximize | `value_mismatch` | `sat:247` | `optimum:412` |
+| `ace64g-rr-20260505` | 59 | `AlteredStates-bis-02_c25.xml.lzma` | maximize | `value_mismatch` | `unknown:0` | `optimum:29145505` |
+| `ace64g-rr-20260505` | 60 | `AlteredStates-bis-03_c25.xml.lzma` | maximize | `value_mismatch` | `unknown:15566668` | `sat:84727416` |
+| `ace64g-rr-20260505` | 61 | `AlteredStates-bis-04_c25.xml.lzma` | maximize | `value_mismatch` | `unknown:12376299` | `sat:179429556` |
+| `ace64g-rr-20260505` | 62 | `AlteredStates-bis-05_c25.xml.lzma` | maximize | `value_mismatch` | `unknown:0` | `sat:224390101` |
+| `ace64g-rr-20260505` | 63 | `AlteredStates-bis-06_c25.xml.lzma` | maximize | `value_mismatch` | `unknown:0` | `sat:268601823` |
+| `ace64g-rr-20260505` | 64 | `AlteredStates-bis-08_c25.xml.lzma` | maximize | `value_mismatch` | `unknown:0` | `sat:300108000` |
+| `ace64g-rr-20260505` | 65 | `AlteredStates-bis-10_c25.xml.lzma` | maximize | `value_mismatch` | `unknown:0` | `optimum:330759736` |
+| `ace64g-rr-20260505` | 66 | `AlteredStates-bis-12_c25.xml.lzma` | maximize | `value_mismatch` | `unknown:0` | `optimum:330759736` |
+| `ace64g-rr-20260505` | 67 | `AlteredStates-bis-15_c25.xml.lzma` | maximize | `value_mismatch` | `unknown:0` | `optimum:330759736` |
+| `ace64g-rr-20260505` | 69 | `AztecDiamondSym-04_c24.xml.lzma` | minimize | `value_mismatch` | `sat:793` | `sat:341` |
+| `ace64g-rr-20260505` | 70 | `AztecDiamondSym-05_c24.xml.lzma` | minimize | `value_mismatch` | `sat:2623` | `sat:1189` |
+| `ace64g-rr-20260505` | 71 | `AztecDiamondSym-06_c24.xml.lzma` | minimize | `value_mismatch` | `sat:7063` | `sat:3324` |
+| `ace64g-rr-20260505` | 72 | `AztecDiamondSym-07_c24.xml.lzma` | minimize | `value_mismatch` | `sat:16478` | `sat:7968` |
+| `ace64g-rr-20260505` | 73 | `AztecDiamondSym-08_c24.xml.lzma` | minimize | `value_mismatch` | `unknown:34566` | `sat:17067` |
+| `ace64g-rr-20260505` | 74 | `AztecDiamondSym-09_c24.xml.lzma` | minimize | `value_mismatch` | `unknown:66786` | `sat:33509` |
+| `ace64g-rr-20260505` | 75 | `AztecDiamondSym-10_c24.xml.lzma` | minimize | `value_mismatch` | `unknown:120846` | `sat:61442` |
+| `ace64g-rr-20260505` | 76 | `AztecDiamondSym-12_c24.xml.lzma` | minimize | `value_mismatch` | `unknown:339911` | `sat:176172` |
+| `ace64g-rr-20260505` | 77 | `AztecDiamondSym-15_c24.xml.lzma` | minimize | `value_mismatch` | `unknown:1220044` | `sat:645766` |
+| `ace64g-rr-20260505` | 86 | `Benzenoide-06_c23.xml.lzma` | minimize | `value_mismatch` | `sat:346` | `optimum:64` |
+| `ace64g-rr-20260505` | 87 | `Benzenoide-07_c23.xml.lzma` | minimize | `value_mismatch` | `sat:604` | `optimum:87` |
+| `ace64g-rr-20260505` | 88 | `Benzenoide-08_c23.xml.lzma` | minimize | `value_mismatch` | `sat:136` | `optimum:101` |
+| `ace64g-rr-20260505` | 89 | `Benzenoide-09_c23.xml.lzma` | minimize | `value_mismatch` | `sat:901` | `optimum:102` |
+| `ace64g-rr-20260505` | 103 | `BinPacking-table-n3c3w2a_c24.xml.lzma` | minimize | `value_mismatch` | `sat:86` | `sat:85` |
+| `ace64g-rr-20260505` | 106 | `BinPacking2-n3c2w1a_c24.xml.lzma` | minimize | `value_mismatch` | `sat:107` | `sat:91` |
+| `ace64g-rr-20260505` | 107 | `BinPacking2-n3c3w1a_c24.xml.lzma` | minimize | `value_mismatch` | `sat:74` | `optimum:66` |
+| `ace64g-rr-20260505` | 108 | `BinPacking2-n3c3w2a_c24.xml.lzma` | minimize | `value_mismatch` | `sat:97` | `sat:87` |
+| `ace64g-rr-20260505` | 109 | `BinPacking2-n3c3w4a_c24.xml.lzma` | minimize | `value_mismatch` | `sat:105` | `sat:93` |
+| `ace64g-rr-20260505` | 111 | `BlockModeling-kansas-02_c25.xml.lzma` | minimize | `value_mismatch` | `sat:148` | `optimum:96` |
+| `ace64g-rr-20260505` | 112 | `BlockModeling-kansas-03_c25.xml.lzma` | minimize | `value_mismatch` | `sat:148` | `sat:88` |
+| `ace64g-rr-20260505` | 115 | `BlockModeling-karate-02_c25.xml.lzma` | minimize | `value_mismatch` | `sat:78` | `sat:77` |
+| `ace64g-rr-20260505` | 120 | `BlockModeling-politicalactor-03_c25.xml.lzma` | minimize | `value_mismatch` | `sat:56` | `sat:36` |
+
+<!-- END COP1000_REFERENCE_COMPARISON_STATS -->
+
 <!-- BEGIN COP1000_INSTANCE_TABLE -->
 
 ## COP1000 instance table
