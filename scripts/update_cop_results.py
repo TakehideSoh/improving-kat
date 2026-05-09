@@ -165,6 +165,14 @@ RUNS = [
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
+        "835f8aaf-scip-direct-order-dynamic",
+        "835f8aaf SCIP direct-order dynamic",
+        "kat-cop1000-direct-order-mdd-tl-scip-dynamic-20260508-835f8aaf-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-scip-dynamic-20260508-835f8aaf-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
         "ace64g-rr-20260505",
         "ACE 64G rr 20260505",
         "",
@@ -545,7 +553,13 @@ def reusable_validation_row(existing: dict[str, str] | None, current: dict[str, 
     return reused
 
 
-def validate_solutions(root: Path, checker_jar: Path, benchmark_dir: Path, workers: int) -> None:
+def validate_solutions(
+    root: Path,
+    checker_jar: Path,
+    benchmark_dir: Path,
+    workers: int,
+    target_slugs: set[str] | None = None,
+) -> None:
     if not checker_jar.exists():
         raise SystemExit(f"solution checker jar not found: {checker_jar}")
     instances = dict(read_instances(root))
@@ -554,6 +568,9 @@ def validate_solutions(root: Path, checker_jar: Path, benchmark_dir: Path, worke
     validation_dir = logs_root(root) / "validation"
     output_dir = validation_dir / "checker-output"
     output_dir.mkdir(parents=True, exist_ok=True)
+    selected_runs = [run for run in RUNS if target_slugs is None or run.slug in target_slugs]
+    current_slugs = {run.slug for run in RUNS}
+
     def validate_one(run: Run, instance_id: int, instance: str) -> dict[str, str]:
         row_path, fields = all_rows[run.slug].get(instance_id, (None, []))
         log_path = log_path_for_row(root, run, instance_id, row_path)
@@ -636,8 +653,14 @@ def validate_solutions(root: Path, checker_jar: Path, benchmark_dir: Path, worke
             "detail": detail,
         }
 
-    tasks = [(run, instance_id, instance) for run in RUNS for instance_id, instance in instances.items()]
+    tasks = [(run, instance_id, instance) for run in selected_runs for instance_id, instance in instances.items()]
     rows: list[dict[str, str]] = []
+    if target_slugs is not None:
+        rows.extend(
+            {field: row.get(field, "") for field in VALIDATION_FIELDNAMES}
+            for (slug, _), row in previous.items()
+            if slug in current_slugs and slug not in target_slugs
+        )
     with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
         futures = [pool.submit(validate_one, *task) for task in tasks]
         for i, future in enumerate(as_completed(futures), 1):
@@ -1066,6 +1089,13 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--no-fetch", action="store_true", help="Regenerate from existing logs only")
     parser.add_argument("--validate", action="store_true", help="Run XCSP3 solutionChecker before regenerating")
+    parser.add_argument(
+        "--validate-run",
+        action="append",
+        default=[],
+        metavar="SLUG",
+        help="Validate only the given run slug and keep existing validation rows for other runs",
+    )
     parser.add_argument("--checker-jar", type=Path, default=DEFAULT_CHECKER_JAR)
     parser.add_argument("--benchmark-dir", type=Path, default=DEFAULT_BENCHMARK_DIR)
     parser.add_argument("--validation-workers", type=int, default=4)
@@ -1073,8 +1103,20 @@ def main() -> None:
     root = Path(__file__).resolve().parents[1]
     if not args.no_fetch:
         fetch_logs(root)
-    if args.validate:
-        validate_solutions(root, args.checker_jar, args.benchmark_dir, args.validation_workers)
+    validation_targets = set(args.validate_run) or None
+    if validation_targets is not None:
+        known_slugs = {run.slug for run in RUNS}
+        unknown = sorted(validation_targets - known_slugs)
+        if unknown:
+            raise SystemExit(f"unknown --validate-run slug(s): {', '.join(unknown)}")
+    if args.validate or validation_targets is not None:
+        validate_solutions(
+            root,
+            args.checker_jar,
+            args.benchmark_dir,
+            args.validation_workers,
+            validation_targets,
+        )
     write_consistency_results(root, args.benchmark_dir)
     update_doc(root, args.benchmark_dir)
 

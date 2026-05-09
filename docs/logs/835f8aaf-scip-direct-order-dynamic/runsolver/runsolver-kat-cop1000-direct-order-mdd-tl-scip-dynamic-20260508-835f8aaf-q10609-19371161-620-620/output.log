@@ -1,0 +1,43 @@
+c cmd: /host-parser-bin/kat_xcsp_835f8aaf_scip_dynamic /bench/competition/2022-2025/COP22to25/NurseRostering-12_c22.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=8519
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=148 pruned=20188 changed_domains=2669 entailed_tables=28
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=8519
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=737 lowered=8519 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m01s | stage:post_lower:done ms=155 rounds=3968 tightened=9621 removed_cls=14838 removed_lits=8283 unsat=false precise_hits=2772 precise_rounds=1 pivot_recomputes=175636 pivot_exact_attempts=171320 pivot_general_attempts=172864 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=170092 pivot_general_tightened=2772 setup_ms=83 loop_ms=47 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=1 sat_ms=0 precise_ms=8
+c 00h00m01s | stage:lowered-shape int_vars=61708 bool_vars=0 linear_atoms=113060 table_atoms=11480 table_tuples=169410 table_scope=32540 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=91404
+c 00h00m01s | stage:root-lp:start backend=scip-ffi
+c 00h00m48s | stage:root-lp:skip backend=scip-ffi reason=root LP skipped: wall-clock time limit reached during LP shape gate ms=47462
+c 00h00m48s | stage:preencode(order-ge):start
+c 00h00m56s | stage:preencode(order-ge):done ms=7843 int_vars=73068
+c 00h00m56s | stage:encode(order-ge):start
+c 00h01m13s | stage:encode(order-ge):done ms=16821 sat_vars=403697 sat_clauses=38165224 ext_ge_specs=0 relaxed_circuits=0
+c 00h01m13s | stage:sat:init solver=CaDiCaL vars=403697 clauses=38165224
+c 00h01m13s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h03m06s | stage:sat:solve:done round=1 ms=113075 result=Sat assumptions=0 phase_lits=0
+c 00h03m06s | stage:decode:start round=1 requested_int_ids=3618
+c 00h03m06s | stage:decode:final:start round=1 requested_int_ids=3618
+c 00h03m06s | stage:decode:done round=1 int_assignments=3618
+c 00h03m06s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h03m06s | result:Sat
+c 00h03m06s | objective:incumbent kind=initial value=35479 rounds=1 improvements=0
+o 35479
+c 00h03m06s | stage:sat:init solver=CaDiCaL vars=403697 clauses=38165224
+c 00h03m06s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=41254
+c 00h03m30s | stage:sat:solve:done round=1 ms=24057 result=Sat assumptions=0 phase_lits=41254
+c 00h03m30s | stage:decode:start round=1 requested_int_ids=3618
+c 00h03m30s | stage:decode:final:start round=1 requested_int_ids=3618
+c 00h03m30s | stage:decode:done round=1 int_assignments=3618
+c 00h03m30s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=2 cop_cegar_added_clauses=0
+c 00h03m30s | result:Sat
+c 00h03m30s | objective:incumbent kind=improvement value=33168 rounds=2 improvements=1
+o 33168
+c 00h03m30s | stage:sat:init solver=CaDiCaL vars=403697 clauses=38165224
+c 00h03m30s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=3 assumptions=0 phase_lits=41254
+c 00h03m30s | stage:sat:solve:done round=1 ms=201 result=Sat assumptions=0 phase_lits=41254
+c 00h03m30s | stage:decode:start round=1 requested_int_ids=3618
+bash: line 8: 3322679 Killed                  "$PARSER_BIN" "$INSTANCE_PATH" "$@"

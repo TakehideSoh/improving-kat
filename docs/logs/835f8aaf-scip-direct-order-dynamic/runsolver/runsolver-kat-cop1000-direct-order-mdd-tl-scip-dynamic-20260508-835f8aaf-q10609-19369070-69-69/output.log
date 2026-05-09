@@ -1,0 +1,101 @@
+c cmd: /host-parser-bin/kat_xcsp_835f8aaf_scip_dynamic /bench/competition/2022-2025/COP22to25/AztecDiamondSym-04_c24.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=41
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=1 pruned=0 changed_domains=0 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=41
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=11 lowered=41 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=1 rounds=0 tightened=0 removed_cls=0 removed_lits=0 unsat=false precise_hits=0 precise_rounds=1 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=1 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:lowered-shape int_vars=864 bool_vars=0 linear_atoms=2420 table_atoms=40 table_tuples=2560 table_scope=168 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=1660
+c 00h00m00s | stage:root-lp:start backend=scip-ffi
+c 00h00m00s | stage:root-lp:bound backend=scip-ffi status=optimal objective_value=0 naive_bounds=[0,1330] lp_bounds=[0,1330] improved=0 rows=20 vars=864 ms=34
+c 00h00m00s | stage:preencode(order-ge):start
+c 00h00m00s | stage:preencode(order-ge):done ms=8 int_vars=1224
+c 00h00m00s | stage:encode(order-ge):start
+c 00h00m00s | stage:encode(order-ge):done ms=542 sat_vars=11924 sat_clauses=90396 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=11924 clauses=90396
+c 00h00m00s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h00m00s | stage:sat:solve:done round=1 ms=2 result=Sat assumptions=0 phase_lits=0
+c 00h00m00s | stage:decode:start round=1 requested_int_ids=64
+c 00h00m00s | stage:decode:final:start round=1 requested_int_ids=64
+c 00h00m00s | stage:decode:done round=1 int_assignments=64
+c 00h00m00s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h00m00s | result:Sat
+c 00h00m00s | objective:incumbent kind=initial value=793 rounds=1 improvements=0
+o 793
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=11924 clauses=90396
+c 00h00m00s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=1216
+c 00h00m00s | stage:sat:solve:done round=1 ms=0 result=Sat assumptions=0 phase_lits=1216
+c 00h00m00s | stage:decode:start round=1 requested_int_ids=64
+c 00h00m00s | result:unknown reason=relaxation_budget_exceeded detail=relaxation produced 2044344 clauses in one round, exceeding limit 1000000
+s SATISFIABLE
+o 793
+v <instantiation>
+v   <list> x[0][0] x[0][1] x[0][2] x[0][3] x[0][4] x[0][5] x[0][6] x[0][7] x[1][0] x[1][1] x[1][2] x[1][3] x[1][4] x[1][5] x[1][6] x[1][7] x[2][0] x[2][1] x[2][2] x[2][3] x[2][4] x[2][5] x[2][6] x[2][7] x[3][0] x[3][1] x[3][2] x[3][3] x[3][4] x[3][5] x[3][6] x[3][7] x[4][0] x[4][1] x[4][2] x[4][3] x[4][4] x[4][5] x[4][6] x[4][7] x[5][0] x[5][1] x[5][2] x[5][3] x[5][4] x[5][5] x[5][6] x[5][7] x[6][0] x[6][1] x[6][2] x[6][3] x[6][4] x[6][5] x[6][6] x[6][7] x[7][0] x[7][1] x[7][2] x[7][3] x[7][4] x[7][5] x[7][6] x[7][7] </list>
+v   <values> 19 19 19 0 0 19 19 19 19 19 19 19 18 18 19 19 19 17 17 16 16 15 15 19 14 14 13 13 12 12 11 11 10 10 9 9 8 8 7 7 19 6 6 5 5 4 4 19 19 19 3 3 2 2 19 19 19 19 19 1 1 19 19 19 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 793
+d OPTIMAL 0
+d SOURCE_CONSTRAINTS 41
+d NORMALIZED_CONSTRAINTS 41
+d LOWERED_CONSTRAINTS 41
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 2
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_ROUNDS 2
+d OBJECTIVE_IMPROVEMENTS 0
+d PROPAGATE_MS 1
+d NORMALIZE_MS 0
+d LOWER_MS 11
+d POST_LOWER_MS 1
+d PREENCODE_MS 8
+d ENCODE_MS 542
+d SAT_SOLVE_MS 2
+d TOTAL_MS 945
+d SAT_VARS 11924
+d SAT_CLAUSES_BASE 90396
+d SAT_CLAUSES_FINAL 90396
+d SAT_CLAUSES_CEGAR_DELTA 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":2400,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"40":{"count":20,"max_domain_product_excluding_one_var":"549755813888","p95_domain_product_excluding_one_var":"549755813888"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 1330
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 1330
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 34
+d ROOT_LP_ROWS 20
+d ROOT_LP_VARS 864
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 0
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 2420
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 0
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 0
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 0
+d ROOT_LP_OBJECTIVE_VALUE 0
+d PROPAGATE_PRUNED_VALUES 0
+d PROPAGATE_CHANGED_DOMAINS 0
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 0
+d POST_LOWER_TIGHTENED_DOMAINS 0
+d POST_LOWER_REMOVED_CLAUSES 0
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 1224
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d DECODE_INT_ASSIGNMENTS 64
+d CSV /bench/competition/2022-2025/COP22to25/AztecDiamondSym-04_c24.xml.lzma,sat,41,41,41,0,11924,90396,945,1,0,11,8,542,2,1,optimal,0,1330,0,1330,0,34,20,864,0,0,0,0,,"best incumbent shown; guarded improvement search stopped before optimality proof: relaxation produced 2044344 clauses in one round, exceeding limit 1000000"

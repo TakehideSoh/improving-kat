@@ -42,6 +42,7 @@ tr:nth-child(even) td { background: #fafafa; }
 
 SCRIPT = """(() => {
   const DEFAULT_COP1000_COLUMNS = new Set([
+    '835f8aaf SCIP direct-order dynamic',
     'aac6b714 SCIP direct-order dynamic',
     'bd3c9f7d SCIP direct-order dynamic',
     'bd3c9f7d SCIP log-scop dynamic',
@@ -268,6 +269,16 @@ def markdown_to_html(markdown: str) -> str:
         if line.startswith("<!--"):
             output.append(line)
             i += 1
+            continue
+        if line.startswith("```"):
+            i += 1
+            code_lines: list[str] = []
+            while i < len(lines) and not lines[i].startswith("```"):
+                code_lines.append(lines[i])
+                i += 1
+            if i < len(lines):
+                i += 1
+            output.append("<pre><code>" + html.escape("\n".join(code_lines)) + "</code></pre>")
             continue
         if line.startswith("#"):
             level = len(line) - len(line.lstrip("#"))

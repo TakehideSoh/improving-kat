@@ -1,0 +1,93 @@
+c cmd: /host-parser-bin/kat_xcsp_835f8aaf_scip_dynamic /bench/competition/2022-2025/COP22to25/RIP-25-3-j120-30-01_c23.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=338
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=1 pruned=9864 changed_domains=120 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=338
+c 00h00m00s | stage:lower:start
+c 00h00m01s | stage:lower:done ms=1203 lowered=338 unsupported=0
+c 00h00m01s | stage:post_lower:start
+c 00h00m01s | stage:post_lower:done ms=50 rounds=0 tightened=0 removed_cls=79035 removed_lits=42100 unsat=false precise_hits=0 precise_rounds=0 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=14 loop_ms=27 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=3 sat_ms=0 precise_ms=0
+c 00h00m01s | stage:lowered-shape int_vars=124 bool_vars=121920 linear_atoms=31202 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=165647
+c 00h00m01s | stage:root-lp:start backend=scip-ffi
+c 00h00m34s | stage:root-lp:skip backend=scip-ffi reason=failed to build root LP: LP wall-clock time limit reached during LP model Boolean variable build ms=33447
+c 00h00m34s | stage:preencode(order-ge):start
+c 00h00m44s | stage:preencode(order-ge):done ms=9549 int_vars=4950
+c 00h00m44s | stage:encode(order-ge):start
+c 00h01m53s | stage:encode(order-ge):done ms=69269 sat_vars=875010 sat_clauses=200615068 ext_ge_specs=0 relaxed_circuits=0
+c 00h01m53s | stage:sat:init solver=CaDiCaL vars=875010 clauses=200615068
+c 00h01m53s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h01m59s | stage:sat:solve:done round=1 ms=6030 result=Sat assumptions=0 phase_lits=0
+c 00h01m59s | stage:decode:start round=1 requested_int_ids=124
+c 00h01m59s | stage:decode:final:start round=1 requested_int_ids=124
+c 00h01m59s | stage:decode:done round=1 int_assignments=124
+c 00h01m59s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h01m59s | result:Sat
+c 00h01m59s | objective:incumbent kind=initial value=8475 rounds=1 improvements=0
+o 8475
+c 00h01m59s | stage:sat:init solver=CaDiCaL vars=875010 clauses=200615068
+c 00h01m59s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=6670
+c 00h02m00s | stage:sat:solve:done round=1 ms=428 result=Sat assumptions=0 phase_lits=6670
+c 00h02m00s | stage:decode:start round=1 requested_int_ids=124
+c 00h02m00s | result:unknown reason=relaxation_budget_exceeded detail=relaxation produced 4570613 clauses in one round, exceeding limit 1000000
+s SATISFIABLE
+o 8475
+v <instantiation>
+v   <list> s[0] s[1] s[2] s[3] s[4] s[5] s[6] s[7] s[8] s[9] s[10] s[11] s[12] s[13] s[14] s[15] s[16] s[17] s[18] s[19] s[20] s[21] s[22] s[23] s[24] s[25] s[26] s[27] s[28] s[29] s[30] s[31] s[32] s[33] s[34] s[35] s[36] s[37] s[38] s[39] s[40] s[41] s[42] s[43] s[44] s[45] s[46] s[47] s[48] s[49] s[50] s[51] s[52] s[53] s[54] s[55] s[56] s[57] s[58] s[59] s[60] s[61] s[62] s[63] s[64] s[65] s[66] s[67] s[68] s[69] s[70] s[71] s[72] s[73] s[74] s[75] s[76] s[77] s[78] s[79] s[80] s[81] s[82] s[83] s[84] s[85] s[86] s[87] s[88] s[89] s[90] s[91] s[92] s[93] s[94] s[95] s[96] s[97] s[98] s[99] s[100] s[101] s[102] s[103] s[104] s[105] s[106] s[107] s[108] s[109] s[110] s[111] s[112] s[113] s[114] s[115] s[116] s[117] s[118] s[119] u[0] u[1] u[2] u[3] </list>
+v   <values> 0 0 0 10 10 15 12 20 10 26 24 14 9 4 20 20 27 26 25 23 9 32 14 22 27 4 14 14 26 24 32 17 36 28 25 19 28 29 14 32 33 17 17 25 19 22 32 34 29 14 37 33 24 27 12 22 33 36 40 35 32 28 29 29 46 44 23 35 56 49 49 42 34 55 45 43 22 30 39 40 32 15 47 60 51 51 53 32 48 48 56 36 41 42 39 57 53 56 56 58 43 60 51 61 63 55 64 57 60 73 64 69 78 78 79 85 94 47 97 67 293 286 363 392 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 8475
+d OPTIMAL 0
+d SOURCE_CONSTRAINTS 338
+d NORMALIZED_CONSTRAINTS 338
+d LOWERED_CONSTRAINTS 338
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 2
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_ROUNDS 2
+d OBJECTIVE_IMPROVEMENTS 0
+d PROPAGATE_MS 1
+d NORMALIZE_MS 0
+d LOWER_MS 1203
+d POST_LOWER_MS 50
+d PREENCODE_MS 9549
+d ENCODE_MS 69269
+d SAT_SOLVE_MS 6458
+d TOTAL_MS 120932
+d SAT_VARS 875010
+d SAT_CLAUSES_BASE 200615068
+d SAT_CLAUSES_FINAL 200615068
+d SAT_CLAUSES_CEGAR_DELTA 0
+d LINEAR_INT_EQ_ARITY_STATS {}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":30480,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":214,"max_domain_product_excluding_one_var":"75","p95_domain_product_excluding_one_var":"67"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"56":{"count":127,"max_domain_product_excluding_one_var":"36028797018963968","p95_domain_product_excluding_one_var":"36028797018963968"},"58":{"count":127,"max_domain_product_excluding_one_var":"144115188075855872","p95_domain_product_excluding_one_var":"144115188075855872"},"64":{"count":127,"max_domain_product_excluding_one_var":"9223372036854775808","p95_domain_product_excluding_one_var":"9223372036854775808"},"67":{"count":127,"max_domain_product_excluding_one_var":"73786976294838206464","p95_domain_product_excluding_one_var":"73786976294838206464"}}
+d ROOT_LP_ENTERED 0
+d ROOT_LP_STATUS skipped
+d OBJECTIVE_NAIVE_LOWER 260
+d OBJECTIVE_NAIVE_UPPER 8475
+d ROOT_LP_MS 33447
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 30694
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 0
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 2
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 75
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 67
+d ROOT_LP_REASON scip-ffi: failed to build root LP: LP wall-clock time limit reached during LP model Boolean variable build
+d PROPAGATE_PRUNED_VALUES 9864
+d PROPAGATE_CHANGED_DOMAINS 120
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 0
+d POST_LOWER_TIGHTENED_DOMAINS 0
+d POST_LOWER_REMOVED_CLAUSES 79035
+d POST_LOWER_REMOVED_LITS 42100
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 4950
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d DECODE_INT_ASSIGNMENTS 124
+d CSV /bench/competition/2022-2025/COP22to25/RIP-25-3-j120-30-01_c23.xml.lzma,sat,338,338,338,0,875010,200615068,120932,1,0,1203,9549,69269,6458,0,skipped,260,8475,,,,33447,,,,,,,,"best incumbent shown; guarded improvement search stopped before optimality proof: relaxation produced 4570613 clauses in one round, exceeding limit 1000000"

@@ -1,0 +1,35 @@
+c cmd: /host-parser-bin/kat_xcsp_835f8aaf_scip_dynamic /bench/competition/2022-2025/COP22to25/GBACP-table-UD01_c23.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=1789
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=730 pruned=7407 changed_domains=580 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=1789
+c 00h00m00s | stage:lower:start
+c 00h00m01s | stage:lower:done ms=466 lowered=1789 unsupported=0
+c 00h00m01s | stage:post_lower:start
+c 00h00m01s | stage:post_lower:done ms=90 rounds=7207 tightened=9616 removed_cls=14232 removed_lits=7111 unsat=false precise_hits=0 precise_rounds=1 pivot_recomputes=242089 pivot_exact_attempts=85817 pivot_general_attempts=242089 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=239680 pivot_general_tightened=2409 setup_ms=46 loop_ms=32 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=1 sat_ms=0 precise_ms=3
+c 00h00m01s | stage:lowered-shape int_vars=34966 bool_vars=0 linear_atoms=73113 table_atoms=333 table_tuples=546120 table_scope=666 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=56451
+c 00h00m01s | stage:root-lp:start backend=scip-ffi
+c 00h00m31s | stage:root-lp:skip backend=scip-ffi reason=failed to build root LP: LP wall-clock time limit reached during LP model integer variable build ms=30127
+c 00h00m31s | stage:preencode(order-ge):start
+c 00h00m36s | stage:preencode(order-ge):done ms=5054 int_vars=47048
+c 00h00m36s | stage:encode(order-ge):start
+c 00h00m59s | stage:encode(order-ge):done ms=23398 sat_vars=1867361 sat_clauses=58374205 ext_ge_specs=0 relaxed_circuits=0
+c 00h01m00s | stage:sat:init solver=CaDiCaL vars=1867361 clauses=58374205
+c 00h01m00s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h01m22s | stage:sat:solve:done round=1 ms=22605 result=Sat assumptions=0 phase_lits=0
+c 00h01m22s | stage:decode:start round=1 requested_int_ids=973
+c 00h01m22s | stage:decode:final:start round=1 requested_int_ids=973
+c 00h01m22s | stage:decode:done round=1 int_assignments=973
+c 00h01m22s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h01m22s | result:Sat
+c 00h01m22s | objective:incumbent kind=initial value=20362 rounds=1 improvements=0
+o 20362
+c 00h01m22s | stage:sat:init solver=CaDiCaL vars=1867361 clauses=58374205
+c 00h01m22s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=588225
+c 00h01m24s | stage:sat:solve:done round=1 ms=1860 result=Sat assumptions=0 phase_lits=588225
+c 00h01m24s | stage:decode:start round=1 requested_int_ids=973
+s UNKNOWN
+c reason: internal_error: incremental SAT variable id is too large: 2183160675
+d CSV /bench/competition/2022-2025/COP22to25/GBACP-table-UD01_c23.xml.lzma,internal_error,,,,,,,,,,,,,,,,,,,,,,,,,,,,internal_error,incremental SAT variable id is too large: 2183160675

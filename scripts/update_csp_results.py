@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import csv
+import argparse
 import html
 import json
 import re
@@ -12,6 +13,7 @@ import sys
 import tempfile
 from collections import Counter
 from dataclasses import dataclass
+from datetime import date
 from pathlib import Path
 
 csv.field_size_limit(sys.maxsize)
@@ -60,6 +62,13 @@ RUNS = [
         "pycsp3-extra OR-Tools 1t 20260507",
         "pycsp3-extra-ortools-csp800-1t-20260507-q10672",
         "runsolver-pycsp3-extra-ortools-csp800-1t-20260507-q10672",
+        GR10672,
+    ),
+    Run(
+        "csp800-835f8aaf-direct-order",
+        "835f8aaf direct-order",
+        "kat-c22-c25-csp800-order-direct-mdd-tl-scip-dynamic-20260508-835f8aaf-q10672",
+        "runsolver-kat-c22-c25-csp800-order-direct-mdd-tl-scip-dynamic-20260508-835f8aaf-q10672",
         GR10672,
     ),
 ]
@@ -397,7 +406,7 @@ def generate_html(root: Path) -> None:
 
     body = [
         "<h1 id=\"csp-results\">CSP Results</h1>",
-        "<p>最終更新: 2026-05-08</p>",
+        f"<p>最終更新: {date.today().isoformat()}</p>",
         "<p>対象は c22-c25 CSP-only 800 instances。ログは <code>direct-order</code>, <code>log-scop</code>, <code>portfolio</code>, <code>OR-Tools</code>, <code>ace-rr</code> の run を同期したもの。</p>",
         build_summary(labels, cell_table),
         "<h2 id=\"csp800-instance-table\">CSP800 instance table</h2>",
@@ -433,11 +442,15 @@ def generate_html(root: Path) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--no-fetch", action="store_true", help="Regenerate docs/csp.html from existing logs only")
+    args = parser.parse_args()
     root = root_dir()
-    fetch_instance_list(root)
-    for run in RUNS:
-        fetch_kat_run(root, run)
-    fetch_ace_logs(root)
+    if not args.no_fetch:
+        fetch_instance_list(root)
+        for run in RUNS:
+            fetch_kat_run(root, run)
+        fetch_ace_logs(root)
     generate_html(root)
 
 

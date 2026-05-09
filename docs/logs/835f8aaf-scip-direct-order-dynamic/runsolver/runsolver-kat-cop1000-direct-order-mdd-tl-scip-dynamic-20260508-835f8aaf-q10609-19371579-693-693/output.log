@@ -1,0 +1,101 @@
+c cmd: /host-parser-bin/kat_xcsp_835f8aaf_scip_dynamic /bench/competition/2022-2025/COP22to25/RIP-25-3-j060-30-01_c23.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=170
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=3425 changed_domains=60 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=170
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=401 lowered=170 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=12 rounds=0 tightened=0 removed_cls=27461 removed_lits=14904 unsat=false precise_hits=0 precise_rounds=0 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=3 loop_ms=7 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:lowered-shape int_vars=64 bool_vars=41760 linear_atoms=10894 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=56573
+c 00h00m00s | stage:root-lp:start backend=scip-ffi
+c 00h00m21s | stage:root-lp:bound backend=scip-ffi status=optimal objective_value=260 naive_bounds=[260,8500] lp_bounds=[260,8500] improved=0 rows=56573 vars=41824 ms=21173
+c 00h00m21s | stage:preencode(order-ge):start
+c 00h00m22s | stage:preencode(order-ge):done ms=1230 int_vars=3196
+c 00h00m22s | stage:encode(order-ge):start
+c 00h01m50s | stage:encode(order-ge):done ms=87828 sat_vars=505811 sat_clauses=247339510 ext_ge_specs=0 relaxed_circuits=0
+c 00h01m50s | stage:sat:init solver=CaDiCaL vars=505811 clauses=247339510
+c 00h01m50s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h02m00s | stage:sat:solve:done round=1 ms=9604 result=Sat assumptions=0 phase_lits=0
+c 00h02m00s | stage:decode:start round=1 requested_int_ids=64
+c 00h02m00s | stage:decode:final:start round=1 requested_int_ids=64
+c 00h02m00s | stage:decode:done round=1 int_assignments=64
+c 00h02m00s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h02m00s | result:Sat
+c 00h02m00s | objective:incumbent kind=initial value=8500 rounds=1 improvements=0
+o 8500
+c 00h02m00s | stage:sat:init solver=CaDiCaL vars=505811 clauses=247339510
+c 00h02m00s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=3079
+c 00h02m00s | stage:sat:solve:done round=1 ms=488 result=Sat assumptions=0 phase_lits=3079
+c 00h02m00s | stage:decode:start round=1 requested_int_ids=64
+c 00h02m01s | result:unknown reason=relaxation_budget_exceeded detail=relaxation produced 4528328 clauses in one round, exceeding limit 1000000
+s SATISFIABLE
+o 8500
+v <instantiation>
+v   <list> s[0] s[1] s[2] s[3] s[4] s[5] s[6] s[7] s[8] s[9] s[10] s[11] s[12] s[13] s[14] s[15] s[16] s[17] s[18] s[19] s[20] s[21] s[22] s[23] s[24] s[25] s[26] s[27] s[28] s[29] s[30] s[31] s[32] s[33] s[34] s[35] s[36] s[37] s[38] s[39] s[40] s[41] s[42] s[43] s[44] s[45] s[46] s[47] s[48] s[49] s[50] s[51] s[52] s[53] s[54] s[55] s[56] s[57] s[58] s[59] u[0] u[1] u[2] u[3] </list>
+v   <values> 0 0 0 2 5 10 17 5 14 6 14 15 5 7 7 9 9 17 23 24 9 25 25 25 19 13 19 23 9 18 19 19 10 13 31 31 34 40 23 43 30 31 31 32 13 43 48 14 34 35 33 51 33 37 56 39 54 61 45 47 329 317 330 348 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 8500
+d OPTIMAL 0
+d SOURCE_CONSTRAINTS 170
+d NORMALIZED_CONSTRAINTS 170
+d LOWERED_CONSTRAINTS 170
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 2
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_ROUNDS 2
+d OBJECTIVE_IMPROVEMENTS 0
+d PROPAGATE_MS 0
+d NORMALIZE_MS 0
+d LOWER_MS 401
+d POST_LOWER_MS 12
+d PREENCODE_MS 1230
+d ENCODE_MS 87828
+d SAT_SOLVE_MS 10092
+d TOTAL_MS 121576
+d SAT_VARS 505811
+d SAT_CLAUSES_BASE 247339510
+d SAT_CLAUSES_FINAL 247339510
+d SAT_CLAUSES_CEGAR_DELTA 0
+d LINEAR_INT_EQ_ARITY_STATS {}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":10440,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":106,"max_domain_product_excluding_one_var":"60","p95_domain_product_excluding_one_var":"40"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"61":{"count":348,"max_domain_product_excluding_one_var":"1152921504606846976","p95_domain_product_excluding_one_var":"1152921504606846976"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 260
+d OBJECTIVE_NAIVE_UPPER 8500
+d OBJECTIVE_LP_LOWER 260
+d OBJECTIVE_LP_UPPER 8500
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 21173
+d ROOT_LP_ROWS 56573
+d ROOT_LP_VARS 41824
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 10546
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 0
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 2
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 60
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 61
+d ROOT_LP_OBJECTIVE_VALUE 260
+d PROPAGATE_PRUNED_VALUES 3425
+d PROPAGATE_CHANGED_DOMAINS 60
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 0
+d POST_LOWER_TIGHTENED_DOMAINS 0
+d POST_LOWER_REMOVED_CLAUSES 27461
+d POST_LOWER_REMOVED_LITS 14904
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 3196
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d DECODE_INT_ASSIGNMENTS 64
+d CSV /bench/competition/2022-2025/COP22to25/RIP-25-3-j060-30-01_c23.xml.lzma,sat,170,170,170,0,505811,247339510,121576,0,0,401,1230,87828,10092,1,optimal,260,8500,260,8500,0,21173,56573,41824,0,0,0,260,,"best incumbent shown; guarded improvement search stopped before optimality proof: relaxation produced 4528328 clauses in one round, exceeding limit 1000000"
