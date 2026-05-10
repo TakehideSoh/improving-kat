@@ -50,6 +50,7 @@ SCRIPT = """(() => {
     'ACE 64G rr 20260505',
     'pycsp3-extra OR-Tools 28t 20260505',
     'pycsp3-extra OR-Tools 1t 20260505',
+    'pycsp3-extra OR-Tools 1t verbose1 20260509',
   ]);
 
   function setupStickyLabels() {

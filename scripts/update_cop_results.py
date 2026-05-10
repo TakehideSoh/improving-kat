@@ -14,6 +14,7 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
+from functools import lru_cache
 from pathlib import Path
 
 csv.field_size_limit(sys.maxsize)
@@ -211,6 +212,14 @@ RUNS = [
         "pycsp3-extra-ortools-cop1000-20260505-q10609-1t-rerun1",
         "runsolver",
         runsolver_prefix="runsolver-pycsp3-extra-ortools-cop1000-20260505-q10609-1t-rerun1",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "pycsp3-extra-ortools-1t-verbose1-20260509",
+        "pycsp3-extra OR-Tools 1t verbose1 20260509",
+        "pycsp3-extra-ortools-cop1000-verbose1-20260509-q10609-1t",
+        "runsolver",
+        runsolver_prefix="runsolver-pycsp3-extra-ortools-cop1000-verbose1-20260509-q10609-1t",
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
 ]
@@ -415,6 +424,7 @@ def runsolver_values_path(log_path: Path) -> Path | None:
     return None
 
 
+@lru_cache(maxsize=None)
 def parse_log(log_path: Path | None) -> tuple[str | None, str | None, str | None]:
     if log_path is None or not log_path.exists():
         return None, None, None
@@ -488,6 +498,7 @@ def instance_path(benchmark_dir: Path, instance: str) -> Path:
     return benchmark_dir / instance.lstrip("/")
 
 
+@lru_cache(maxsize=None)
 def objective_sense(benchmark_dir: Path, instance: str) -> str:
     path = instance_path(benchmark_dir, instance)
     if not path.exists():
