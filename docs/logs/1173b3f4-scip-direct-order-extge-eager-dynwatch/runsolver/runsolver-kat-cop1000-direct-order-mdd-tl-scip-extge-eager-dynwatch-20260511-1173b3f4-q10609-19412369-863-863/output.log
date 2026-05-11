@@ -1,0 +1,154 @@
+c cmd: /host-parser-bin/kat_xcsp_1173b3f4_scip_extge_eager_dynwatch /bench/competition/2022-2025/COP22to25/TAL-10_c22.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --cop-objective-ext-ge --cop-objective-ext-ge-eager --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=875
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=101 pruned=7109 changed_domains=406 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=875
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=87 lowered=875 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=6 rounds=24 tightened=25 removed_cls=2666 removed_lits=3100 unsat=false precise_hits=514 precise_rounds=2 pivot_recomputes=180 pivot_exact_attempts=180 pivot_general_attempts=66 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=66 pivot_general_tightened=0 setup_ms=1 loop_ms=4 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:lowered-shape int_vars=1556 bool_vars=31611 linear_atoms=1635 table_atoms=169 table_tuples=32690 table_scope=1660 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=49320
+c 00h00m00s | stage:root-lp:start backend=scip-ffi
+c 00h00m13s | stage:root-lp:bound backend=scip-ffi status=optimal objective_value=0 naive_bounds=[0,1664] lp_bounds=[0,1664] improved=0 rows=38127 vars=33167 ms=12907
+c 00h00m13s | stage:preencode(order-ge):start
+c 00h00m13s | stage:preencode(order-ge):done ms=173 int_vars=1676
+c 00h00m13s | stage:encode(order-ge):start
+c 00h00m16s | stage:encode(order-ge):done ms=3502 sat_vars=69237 sat_clauses=271318 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m16s | stage:sat:init solver=CaDiCaL vars=69237 clauses=271318
+c 00h00m16s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h00m21s | stage:sat:solve:done round=1 ms=5006 result=Sat assumptions=0 phase_lits=0
+c 00h00m21s | stage:decode:start round=1 requested_int_ids=1376
+c 00h00m21s | stage:decode:final:start round=1 requested_int_ids=1376
+c 00h00m21s | stage:decode:done round=1 int_assignments=1376
+c 00h00m21s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h00m21s | result:Sat
+c 00h00m21s | objective:incumbent kind=initial value=364 rounds=1 improvements=0
+o 364
+c 00h00m21s | stage:sat:init solver=CaDiCaL vars=69237 clauses=271318
+c 00h00m21s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=3058
+c 00h00m29s | stage:sat:solve:done round=1 ms=7638 result=Sat assumptions=0 phase_lits=3058
+c 00h00m29s | stage:decode:start round=1 requested_int_ids=1376
+c 00h00m29s | stage:decode:final:start round=1 requested_int_ids=1376
+c 00h00m29s | stage:decode:done round=1 int_assignments=1376
+c 00h00m29s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=2 cop_cegar_added_clauses=0
+c 00h00m29s | result:Sat
+c 00h00m29s | objective:incumbent kind=improvement value=328 rounds=2 improvements=1
+o 328
+c 00h00m29s | stage:sat:init solver=CaDiCaL vars=69237 clauses=271318
+c 00h00m29s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=3 assumptions=0 phase_lits=3058
+s SATISFIABLE
+o 328
+v <instantiation>
+v   <list> c[0][0] c[0][1] c[0][2] c[0][3] c[0][4] c[0][5] c[0][6] c[0][7] c[0][8] c[0][9] c[0][10] c[0][11] c[0][12] c[1][0] c[1][1] c[1][2] c[1][3] c[1][4] c[1][5] c[1][6] c[1][7] c[1][8] c[1][9] c[1][10] c[1][11] c[1][12] c[2][0] c[2][1] c[2][2] c[2][3] c[2][4] c[2][5] c[2][6] c[2][7] c[2][8] c[2][9] c[2][10] c[2][11] c[2][12] c[3][0] c[3][1] c[3][2] c[3][3] c[3][4] c[3][5] c[3][6] c[3][7] c[3][8] c[3][9] c[3][10] c[3][11] c[3][12] c[4][0] c[4][1] c[4][2] c[4][3] c[4][4] c[4][5] c[4][6] c[4][7] c[4][8] c[4][9] c[4][10] c[4][11] c[4][12] c[5][0] c[5][1] c[5][2] c[5][3] c[5][4] c[5][5] c[5][6] c[5][7] c[5][8] c[5][9] c[5][10] c[5][11] c[5][12] c[6][0] c[6][1] c[6][2] c[6][3] c[6][4] c[6][5] c[6][6] c[6][7] c[6][8] c[6][9] c[6][10] c[6][11] c[6][12] c[7][0] c[7][1] c[7][2] c[7][3] c[7][4] c[7][5] c[7][6] c[7][7] c[7][8] c[7][9] c[7][10] c[7][11] c[7][12] c[8][0] c[8][1] c[8][2] c[8][3] c[8][4] c[8][5] c[8][6] c[8][7] c[8][8] c[8][9] c[8][10] c[8][11] c[8][12] c[9][0] c[9][1] c[9][2] c[9][3] c[9][4] c[9][5] c[9][6] c[9][7] c[9][8] c[9][9] c[9][10] c[9][11] c[9][12] c[10][0] c[10][1] c[10][2] c[10][3] c[10][4] c[10][5] c[10][6] c[10][7] c[10][8] c[10][9] c[10][10] c[10][11] c[10][12] c[11][0] c[11][1] c[11][2] c[11][3] c[11][4] c[11][5] c[11][6] c[11][7] c[11][8] c[11][9] c[11][10] c[11][11] c[11][12] c[12][0] c[12][1] c[12][2] c[12][3] c[12][4] c[12][5] c[12][6] c[12][7] c[12][8] c[12][9] c[12][10] c[12][11] c[12][12] c[13][0] c[13][1] c[13][2] c[13][3] c[13][4] c[13][5] c[13][6] c[13][7] c[13][8] c[13][9] c[13][10] c[13][11] c[13][12] c[14][0] c[14][1] c[14][2] c[14][3] c[14][4] c[14][5] c[14][6] c[14][7] c[14][8] c[14][9] c[14][10] c[14][11] c[14][12] c[15][0] c[15][1] c[15][2] c[15][3] c[15][4] c[15][5] c[15][6] c[15][7] c[15][8] c[15][9] c[15][10] c[15][11] c[15][12] c[16][0] c[16][1] c[16][2] c[16][3] c[16][4] c[16][5] c[16][6] c[16][7] c[16][8] c[16][9] c[16][10] c[16][11] c[16][12] c[17][0] c[17][1] c[17][2] c[17][3] c[17][4] c[17][5] c[17][6] c[17][7] c[17][8] c[17][9] c[17][10] c[17][11] c[17][12] c[18][0] c[18][1] c[18][2] c[18][3] c[18][4] c[18][5] c[18][6] c[18][7] c[18][8] c[18][9] c[18][10] c[18][11] c[18][12] c[19][0] c[19][1] c[19][2] c[19][3] c[19][4] c[19][5] c[19][6] c[19][7] c[19][8] c[19][9] c[19][10] c[19][11] c[19][12] c[20][0] c[20][1] c[20][2] c[20][3] c[20][4] c[20][5] c[20][6] c[20][7] c[20][8] c[20][9] c[20][10] c[20][11] c[20][12] c[21][0] c[21][1] c[21][2] c[21][3] c[21][4] c[21][5] c[21][6] c[21][7] c[21][8] c[21][9] c[21][10] c[21][11] c[21][12] c[22][0] c[22][1] c[22][2] c[22][3] c[22][4] c[22][5] c[22][6] c[22][7] c[22][8] c[22][9] c[22][10] c[22][11] c[22][12] c[23][0] c[23][1] c[23][2] c[23][3] c[23][4] c[23][5] c[23][6] c[23][7] c[23][8] c[23][9] c[23][10] c[23][11] c[23][12] c[24][0] c[24][1] c[24][2] c[24][3] c[24][4] c[24][5] c[24][6] c[24][7] c[24][8] c[24][9] c[24][10] c[24][11] c[24][12] c[25][0] c[25][1] c[25][2] c[25][3] c[25][4] c[25][5] c[25][6] c[25][7] c[25][8] c[25][9] c[25][10] c[25][11] c[25][12] l[0][0] l[0][1] l[0][2] l[0][3] l[0][4] l[0][5] l[0][6] l[0][7] l[0][8] l[0][9] l[0][10] l[0][11] l[0][12] l[1][0] l[1][1] l[1][2] l[1][3] l[1][4] l[1][5] l[1][6] l[1][7] l[1][8] l[1][9] l[1][10] l[1][11] l[1][12] l[2][0] l[2][1] l[2][2] l[2][3] l[2][4] l[2][5] l[2][6] l[2][7] l[2][8] l[2][9] l[2][10] l[2][11] l[2][12] l[3][0] l[3][1] l[3][2] l[3][3] l[3][4] l[3][5] l[3][6] l[3][7] l[3][8] l[3][9] l[3][10] l[3][11] l[3][12] l[4][0] l[4][1] l[4][2] l[4][3] l[4][4] l[4][5] l[4][6] l[4][7] l[4][8] l[4][9] l[4][10] l[4][11] l[4][12] l[5][0] l[5][1] l[5][2] l[5][3] l[5][4] l[5][5] l[5][6] l[5][7] l[5][8] l[5][9] l[5][10] l[5][11] l[5][12] l[6][0] l[6][1] l[6][2] l[6][3] l[6][4] l[6][5] l[6][6] l[6][7] l[6][8] l[6][9] l[6][10] l[6][11] l[6][12] l[7][0] l[7][1] l[7][2] l[7][3] l[7][4] l[7][5] l[7][6] l[7][7] l[7][8] l[7][9] l[7][10] l[7][11] l[7][12] l[8][0] l[8][1] l[8][2] l[8][3] l[8][4] l[8][5] l[8][6] l[8][7] l[8][8] l[8][9] l[8][10] l[8][11] l[8][12] l[9][0] l[9][1] l[9][2] l[9][3] l[9][4] l[9][5] l[9][6] l[9][7] l[9][8] l[9][9] l[9][10] l[9][11] l[9][12] l[10][0] l[10][1] l[10][2] l[10][3] l[10][4] l[10][5] l[10][6] l[10][7] l[10][8] l[10][9] l[10][10] l[10][11] l[10][12] l[11][0] l[11][1] l[11][2] l[11][3] l[11][4] l[11][5] l[11][6] l[11][7] l[11][8] l[11][9] l[11][10] l[11][11] l[11][12] l[12][0] l[12][1] l[12][2] l[12][3] l[12][4] l[12][5] l[12][6] l[12][7] l[12][8] l[12][9] l[12][10] l[12][11] l[12][12] l[13][0] l[13][1] l[13][2] l[13][3] l[13][4] l[13][5] l[13][6] l[13][7] l[13][8] l[13][9] l[13][10] l[13][11] l[13][12] l[14][0] l[14][1] l[14][2] l[14][3] l[14][4] l[14][5] l[14][6] l[14][7] l[14][8] l[14][9] l[14][10] l[14][11] l[14][12] l[15][0] l[15][1] l[15][2] l[15][3] l[15][4] l[15][5] l[15][6] l[15][7] l[15][8] l[15][9] l[15][10] l[15][11] l[15][12] l[16][0] l[16][1] l[16][2] l[16][3] l[16][4] l[16][5] l[16][6] l[16][7] l[16][8] l[16][9] l[16][10] l[16][11] l[16][12] l[17][0] l[17][1] l[17][2] l[17][3] l[17][4] l[17][5] l[17][6] l[17][7] l[17][8] l[17][9] l[17][10] l[17][11] l[17][12] l[18][0] l[18][1] l[18][2] l[18][3] l[18][4] l[18][5] l[18][6] l[18][7] l[18][8] l[18][9] l[18][10] l[18][11] l[18][12] l[19][0] l[19][1] l[19][2] l[19][3] l[19][4] l[19][5] l[19][6] l[19][7] l[19][8] l[19][9] l[19][10] l[19][11] l[19][12] l[20][0] l[20][1] l[20][2] l[20][3] l[20][4] l[20][5] l[20][6] l[20][7] l[20][8] l[20][9] l[20][10] l[20][11] l[20][12] l[21][0] l[21][1] l[21][2] l[21][3] l[21][4] l[21][5] l[21][6] l[21][7] l[21][8] l[21][9] l[21][10] l[21][11] l[21][12] l[22][0] l[22][1] l[22][2] l[22][3] l[22][4] l[22][5] l[22][6] l[22][7] l[22][8] l[22][9] l[22][10] l[22][11] l[22][12] l[23][0] l[23][1] l[23][2] l[23][3] l[23][4] l[23][5] l[23][6] l[23][7] l[23][8] l[23][9] l[23][10] l[23][11] l[23][12] l[24][0] l[24][1] l[24][2] l[24][3] l[24][4] l[24][5] l[24][6] l[24][7] l[24][8] l[24][9] l[24][10] l[24][11] l[24][12] l[25][0] l[25][1] l[25][2] l[25][3] l[25][4] l[25][5] l[25][6] l[25][7] l[25][8] l[25][9] l[25][10] l[25][11] l[25][12] a[0][0] a[0][1] a[0][2] a[0][3] a[0][4] a[0][5] a[0][6] a[0][7] a[0][8] a[0][9] a[0][10] a[0][11] a[0][12] a[1][0] a[1][1] a[1][2] a[1][3] a[1][4] a[1][5] a[1][6] a[1][7] a[1][8] a[1][9] a[1][10] a[1][11] a[1][12] a[2][0] a[2][1] a[2][2] a[2][3] a[2][4] a[2][5] a[2][6] a[2][7] a[2][8] a[2][9] a[2][10] a[2][11] a[2][12] a[3][0] a[3][1] a[3][2] a[3][3] a[3][4] a[3][5] a[3][6] a[3][7] a[3][8] a[3][9] a[3][10] a[3][11] a[3][12] a[4][0] a[4][1] a[4][2] a[4][3] a[4][4] a[4][5] a[4][6] a[4][7] a[4][8] a[4][9] a[4][10] a[4][11] a[4][12] a[5][0] a[5][1] a[5][2] a[5][3] a[5][4] a[5][5] a[5][6] a[5][7] a[5][8] a[5][9] a[5][10] a[5][11] a[5][12] a[6][0] a[6][1] a[6][2] a[6][3] a[6][4] a[6][5] a[6][6] a[6][7] a[6][8] a[6][9] a[6][10] a[6][11] a[6][12] a[7][0] a[7][1] a[7][2] a[7][3] a[7][4] a[7][5] a[7][6] a[7][7] a[7][8] a[7][9] a[7][10] a[7][11] a[7][12] a[8][0] a[8][1] a[8][2] a[8][3] a[8][4] a[8][5] a[8][6] a[8][7] a[8][8] a[8][9] a[8][10] a[8][11] a[8][12] a[9][0] a[9][1] a[9][2] a[9][3] a[9][4] a[9][5] a[9][6] a[9][7] a[9][8] a[9][9] a[9][10] a[9][11] a[9][12] a[10][0] a[10][1] a[10][2] a[10][3] a[10][4] a[10][5] a[10][6] a[10][7] a[10][8] a[10][9] a[10][10] a[10][11] a[10][12] a[11][0] a[11][1] a[11][2] a[11][3] a[11][4] a[11][5] a[11][6] a[11][7] a[11][8] a[11][9] a[11][10] a[11][11] a[11][12] a[12][0] a[12][1] a[12][2] a[12][3] a[12][4] a[12][5] a[12][6] a[12][7] a[12][8] a[12][9] a[12][10] a[12][11] a[12][12] a[13][0] a[13][1] a[13][2] a[13][3] a[13][4] a[13][5] a[13][6] a[13][7] a[13][8] a[13][9] a[13][10] a[13][11] a[13][12] a[14][0] a[14][1] a[14][2] a[14][3] a[14][4] a[14][5] a[14][6] a[14][7] a[14][8] a[14][9] a[14][10] a[14][11] a[14][12] a[15][0] a[15][1] a[15][2] a[15][3] a[15][4] a[15][5] a[15][6] a[15][7] a[15][8] a[15][9] a[15][10] a[15][11] a[15][12] a[16][0] a[16][1] a[16][2] a[16][3] a[16][4] a[16][5] a[16][6] a[16][7] a[16][8] a[16][9] a[16][10] a[16][11] a[16][12] a[17][0] a[17][1] a[17][2] a[17][3] a[17][4] a[17][5] a[17][6] a[17][7] a[17][8] a[17][9] a[17][10] a[17][11] a[17][12] a[18][0] a[18][1] a[18][2] a[18][3] a[18][4] a[18][5] a[18][6] a[18][7] a[18][8] a[18][9] a[18][10] a[18][11] a[18][12] a[19][0] a[19][1] a[19][2] a[19][3] a[19][4] a[19][5] a[19][6] a[19][7] a[19][8] a[19][9] a[19][10] a[19][11] a[19][12] a[20][0] a[20][1] a[20][2] a[20][3] a[20][4] a[20][5] a[20][6] a[20][7] a[20][8] a[20][9] a[20][10] a[20][11] a[20][12] a[21][0] a[21][1] a[21][2] a[21][3] a[21][4] a[21][5] a[21][6] a[21][7] a[21][8] a[21][9] a[21][10] a[21][11] a[21][12] a[22][0] a[22][1] a[22][2] a[22][3] a[22][4] a[22][5] a[22][6] a[22][7] a[22][8] a[22][9] a[22][10] a[22][11] a[22][12] a[23][0] a[23][1] a[23][2] a[23][3] a[23][4] a[23][5] a[23][6] a[23][7] a[23][8] a[23][9] a[23][10] a[23][11] a[23][12] a[24][0] a[24][1] a[24][2] a[24][3] a[24][4] a[24][5] a[24][6] a[24][7] a[24][8] a[24][9] a[24][10] a[24][11] a[24][12] a[25][0] a[25][1] a[25][2] a[25][3] a[25][4] a[25][5] a[25][6] a[25][7] a[25][8] a[25][9] a[25][10] a[25][11] a[25][12] i[0][0] i[0][1] i[0][2] i[0][3] i[0][4] i[0][5] i[0][6] i[0][7] i[0][8] i[0][9] i[0][10] i[0][11] i[0][12] i[1][0] i[1][1] i[1][2] i[1][3] i[1][4] i[1][5] i[1][6] i[1][7] i[1][8] i[1][9] i[1][10] i[1][11] i[1][12] i[2][0] i[2][1] i[2][2] i[2][3] i[2][4] i[2][5] i[2][6] i[2][7] i[2][8] i[2][9] i[2][10] i[2][11] i[2][12] i[3][0] i[3][1] i[3][2] i[3][3] i[3][4] i[3][5] i[3][6] i[3][7] i[3][8] i[3][9] i[3][10] i[3][11] i[3][12] i[4][0] i[4][1] i[4][2] i[4][3] i[4][4] i[4][5] i[4][6] i[4][7] i[4][8] i[4][9] i[4][10] i[4][11] i[4][12] i[5][0] i[5][1] i[5][2] i[5][3] i[5][4] i[5][5] i[5][6] i[5][7] i[5][8] i[5][9] i[5][10] i[5][11] i[5][12] i[6][0] i[6][1] i[6][2] i[6][3] i[6][4] i[6][5] i[6][6] i[6][7] i[6][8] i[6][9] i[6][10] i[6][11] i[6][12] i[7][0] i[7][1] i[7][2] i[7][3] i[7][4] i[7][5] i[7][6] i[7][7] i[7][8] i[7][9] i[7][10] i[7][11] i[7][12] i[8][0] i[8][1] i[8][2] i[8][3] i[8][4] i[8][5] i[8][6] i[8][7] i[8][8] i[8][9] i[8][10] i[8][11] i[8][12] i[9][0] i[9][1] i[9][2] i[9][3] i[9][4] i[9][5] i[9][6] i[9][7] i[9][8] i[9][9] i[9][10] i[9][11] i[9][12] i[10][0] i[10][1] i[10][2] i[10][3] i[10][4] i[10][5] i[10][6] i[10][7] i[10][8] i[10][9] i[10][10] i[10][11] i[10][12] i[11][0] i[11][1] i[11][2] i[11][3] i[11][4] i[11][5] i[11][6] i[11][7] i[11][8] i[11][9] i[11][10] i[11][11] i[11][12] i[12][0] i[12][1] i[12][2] i[12][3] i[12][4] i[12][5] i[12][6] i[12][7] i[12][8] i[12][9] i[12][10] i[12][11] i[12][12] i[13][0] i[13][1] i[13][2] i[13][3] i[13][4] i[13][5] i[13][6] i[13][7] i[13][8] i[13][9] i[13][10] i[13][11] i[13][12] i[14][0] i[14][1] i[14][2] i[14][3] i[14][4] i[14][5] i[14][6] i[14][7] i[14][8] i[14][9] i[14][10] i[14][11] i[14][12] i[15][0] i[15][1] i[15][2] i[15][3] i[15][4] i[15][5] i[15][6] i[15][7] i[15][8] i[15][9] i[15][10] i[15][11] i[15][12] i[16][0] i[16][1] i[16][2] i[16][3] i[16][4] i[16][5] i[16][6] i[16][7] i[16][8] i[16][9] i[16][10] i[16][11] i[16][12] i[17][0] i[17][1] i[17][2] i[17][3] i[17][4] i[17][5] i[17][6] i[17][7] i[17][8] i[17][9] i[17][10] i[17][11] i[17][12] i[18][0] i[18][1] i[18][2] i[18][3] i[18][4] i[18][5] i[18][6] i[18][7] i[18][8] i[18][9] i[18][10] i[18][11] i[18][12] i[19][0] i[19][1] i[19][2] i[19][3] i[19][4] i[19][5] i[19][6] i[19][7] i[19][8] i[19][9] i[19][10] i[19][11] i[19][12] i[20][0] i[20][1] i[20][2] i[20][3] i[20][4] i[20][5] i[20][6] i[20][7] i[20][8] i[20][9] i[20][10] i[20][11] i[20][12] i[21][0] i[21][1] i[21][2] i[21][3] i[21][4] i[21][5] i[21][6] i[21][7] i[21][8] i[21][9] i[21][10] i[21][11] i[21][12] i[22][0] i[22][1] i[22][2] i[22][3] i[22][4] i[22][5] i[22][6] i[22][7] i[22][8] i[22][9] i[22][10] i[22][11] i[22][12] i[23][0] i[23][1] i[23][2] i[23][3] i[23][4] i[23][5] i[23][6] i[23][7] i[23][8] i[23][9] i[23][10] i[23][11] i[23][12] i[24][0] i[24][1] i[24][2] i[24][3] i[24][4] i[24][5] i[24][6] i[24][7] i[24][8] i[24][9] i[24][10] i[24][11] i[24][12] i[25][0] i[25][1] i[25][2] i[25][3] i[25][4] i[25][5] i[25][6] i[25][7] i[25][8] i[25][9] i[25][10] i[25][11] i[25][12] cnt[0] cnt[1] cnt[2] cnt[3] cnt[4] cnt[5] cnt[6] cnt[7] cnt[8] cnt[9] cnt[10] cnt[11] cnt[12] cnt[13] cnt[14] cnt[15] cnt[16] cnt[17] cnt[18] cnt[19] cnt[20] cnt[21] cnt[22] cnt[23] </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16 0 0 8 0 4 16 0 0 0 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16 0 8 16 16 16 0 0 0 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16 0 0 4 4 0 0 0 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16 0 0 0 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16 16 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16 0 0 0 0 0 0 0 0 0 0 0 0 15 5 3 12 10 3 4 11 2 10 3 11 3 15 4 3 12 11 0 5 7 3 10 3 7 3 15 4 3 12 11 5 7 3 10 3 7 3 0 15 4 0 3 7 4 4 3 10 3 4 3 0 15 4 3 7 4 4 3 10 3 4 3 0 0 15 4 0 7 5 4 3 10 3 4 0 0 0 15 4 7 5 4 3 10 3 4 0 0 0 0 1 0 7 5 4 0 10 3 3 0 0 0 0 1 7 5 4 10 3 3 0 0 0 0 0 0 5 4 7 0 0 3 3 0 0 0 0 0 0 5 4 7 3 3 0 0 0 0 0 0 0 0 8 0 7 3 3 0 0 0 0 0 0 0 0 8 7 3 3 0 0 0 0 0 0 0 0 0 3 7 3 3 0 0 0 0 0 0 0 0 0 3 7 3 3 0 0 0 0 0 0 0 0 0 3 7 3 3 0 0 0 0 0 0 0 0 0 3 7 3 3 0 0 0 0 0 0 0 0 0 3 4 3 3 0 0 0 0 0 0 0 0 0 3 4 3 3 0 0 0 0 0 0 0 0 0 3 4 0 3 0 0 0 0 0 0 0 0 0 3 4 3 0 0 0 0 0 0 0 0 0 0 3 4 0 0 0 0 0 0 0 0 0 0 0 3 4 0 0 0 0 0 0 0 0 0 0 0 3 3 0 0 0 0 0 0 0 0 0 0 0 3 3 0 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 2 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 0 1 1 1 1 1 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 1 1 2 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 3 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 3 4 6 7 8 9 10 11 12 12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 3 4 5 6 7 8 9 10 11 11 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 3 4 5 6 7 8 9 10 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 3 4 6 7 8 9 9 9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 5 6 8 8 8 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 3 4 7 7 7 7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 3 6 6 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 3 5 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 3 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 3 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 2 2 3 3 4 4 4 4 3 3 2 2 1 1 1 1 1 1 0 0 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 328
+d OPTIMAL 0
+d OBJECTIVE_ROUNDS 2
+d OBJECTIVE_IMPROVEMENTS 1
+d COP_INCUMBENT_ELAPSED_MS 29498
+d SOLVE_ELAPSED_MS 1799778
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 1770279
+d LAST_COMPLETED_STAGE relaxation
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS done
+d STAGE_RELAXATION_STATUS done
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 875
+d NORMALIZED_CONSTRAINTS 875
+d LOWERED_CONSTRAINTS 875
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 69237
+d SAT_CLAUSES_BASE 271318
+d SAT_CLAUSES_FINAL 271318
+d SAT_CLAUSES_CEGAR_DELTA 0
+d SAT_CONFLICTS 23616
+d EXTPROP_CONSTRAINTS 1
+d EXTPROP_OBSERVED_VARS 387
+d EXTPROP_OBSERVED_LITS 387
+d EXTPROP_OBSERVED_LIT_OCCURRENCES 387
+d EXTPROP_CALLBACK_CALLS 41802654
+d EXTPROP_CALLBACK_NS 83302750293
+d EXTPROP_NOTIFY_ASSIGNMENT_CALLS 128880
+d EXTPROP_NOTIFY_ASSIGNMENT_NS 82238893
+d EXTPROP_NOTIFY_ASSIGNMENT_LITS 168047
+d EXTPROP_NOTIFY_NEW_DECISION_LEVEL_CALLS 106080
+d EXTPROP_NOTIFY_NEW_DECISION_LEVEL_NS 30694181
+d EXTPROP_NOTIFY_BACKTRACK_CALLS 19138
+d EXTPROP_NOTIFY_BACKTRACK_NS 436888345
+d EXTPROP_CB_CHECK_FOUND_MODEL_CALLS 1114289
+d EXTPROP_CB_CHECK_FOUND_MODEL_NS 75031852473
+d EXTPROP_CB_CHECK_FOUND_MODEL_REJECTS 1114288
+d EXTPROP_CB_DECIDE_CALLS 106080
+d EXTPROP_CB_DECIDE_NS 3045357
+d EXTPROP_CB_PROPAGATE_CALLS 106912
+d EXTPROP_CB_PROPAGATE_NS 920551529
+d EXTPROP_PROPAGATED_LITS 5
+d EXTPROP_CB_ADD_REASON_CLAUSE_LIT_CALLS 0
+d EXTPROP_CB_ADD_REASON_CLAUSE_LIT_NS 0
+d EXTPROP_REASON_CLAUSES 5
+d EXTPROP_REASON_CLAUSE_LITS 155
+d EXTPROP_REASON_CLAUSE_MAX_LEN 31
+d EXTPROP_CB_HAS_EXTERNAL_CLAUSE_CALLS 2335483
+d EXTPROP_CB_HAS_EXTERNAL_CLAUSE_NS 917076057
+d EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_CALLS 37885792
+d EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_NS 5880403458
+d EXTPROP_EXTERNAL_CLAUSES 1114288
+d EXTPROP_EXTERNAL_CLAUSE_LITS 36771504
+d EXTPROP_EXTERNAL_CLAUSE_MAX_LEN 33
+d EXTPROP_STRONG_REASON_ATTEMPTS 0
+d EXTPROP_STRONG_REASON_NS 0
+d EXTPROP_STRONG_REASON_LIFTS 0
+d EXTPROP_STRONG_REASON_DROPPED_TERMS 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":761,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":24,"max_domain_product_excluding_one_var":"15","p95_domain_product_excluding_one_var":"15"},"3":{"count":2,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"},"4":{"count":2,"max_domain_product_excluding_one_var":"4","p95_domain_product_excluding_one_var":"4"},"5":{"count":2,"max_domain_product_excluding_one_var":"8","p95_domain_product_excluding_one_var":"8"},"6":{"count":2,"max_domain_product_excluding_one_var":"16","p95_domain_product_excluding_one_var":"16"},"7":{"count":2,"max_domain_product_excluding_one_var":"32","p95_domain_product_excluding_one_var":"32"},"8":{"count":2,"max_domain_product_excluding_one_var":"64","p95_domain_product_excluding_one_var":"64"},"9":{"count":2,"max_domain_product_excluding_one_var":"128","p95_domain_product_excluding_one_var":"128"},"10":{"count":2,"max_domain_product_excluding_one_var":"256","p95_domain_product_excluding_one_var":"256"},"11":{"count":2,"max_domain_product_excluding_one_var":"512","p95_domain_product_excluding_one_var":"512"},"12":{"count":2,"max_domain_product_excluding_one_var":"1024","p95_domain_product_excluding_one_var":"1024"},"13":{"count":2,"max_domain_product_excluding_one_var":"2048","p95_domain_product_excluding_one_var":"2048"},"14":{"count":2,"max_domain_product_excluding_one_var":"4096","p95_domain_product_excluding_one_var":"4096"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":748,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":78,"max_domain_product_excluding_one_var":"11","p95_domain_product_excluding_one_var":"9"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 1664
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 1664
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 12907
+d ROOT_LP_ROWS 38127
+d ROOT_LP_VARS 33167
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 826
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 809
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 2
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 11
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 0
+d ROOT_LP_OBJECTIVE_VALUE 0
+d PROPAGATE_PRUNED_VALUES 7109
+d PROPAGATE_CHANGED_DOMAINS 406
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 24
+d POST_LOWER_TIGHTENED_DOMAINS 25
+d POST_LOWER_REMOVED_CLAUSES 2666
+d POST_LOWER_REMOVED_LITS 3100
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 1676
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d DECODE_INT_ASSIGNMENTS 1376
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 3
+d COP_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/competition/2022-2025/COP22to25/TAL-10_c22.xml.lzma,sat,875,875,875,0,69237,271318,1799778,,,,,,,1,optimal,0,1664,0,1664,0,12907,38127,33167,0,0,0,0,timeout_signal,incumbent_interrupted_by_signal
+signal=15; emitted incumbent csv row

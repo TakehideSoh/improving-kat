@@ -1,0 +1,154 @@
+c cmd: /host-parser-bin/kat_xcsp_1173b3f4_scip_extge_eager_dynwatch /bench/competition/2022-2025/COP22to25/RollerSplat-07b-50_c25.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --cop-objective-ext-ge --cop-objective-ext-ge-eager --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=5202
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=40 pruned=40867 changed_domains=199 entailed_tables=101
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=5202
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=130 lowered=5202 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=11 rounds=0 tightened=0 removed_cls=2382 removed_lits=86 unsat=false precise_hits=2 precise_rounds=1 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=5 loop_ms=5 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:lowered-shape int_vars=333 bool_vars=4900 linear_atoms=30495 table_atoms=49 table_tuples=12439 table_scope=98 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=67991
+c 00h00m00s | stage:root-lp:start backend=scip-ffi
+c 00h00m00s | stage:root-lp:bound backend=scip-ffi status=optimal objective_value=0 naive_bounds=[0,49] lp_bounds=[0,49] improved=0 rows=4901 vars=17623 ms=388
+c 00h00m00s | stage:preencode(order-ge):start
+c 00h00m02s | stage:preencode(order-ge):done ms=1864 int_vars=333
+c 00h00m02s | stage:encode(order-ge):start
+c 00h00m02s | stage:encode(order-ge):done ms=247 sat_vars=71788 sat_clauses=723221 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m02s | stage:sat:init solver=CaDiCaL vars=71788 clauses=723221
+c 00h00m02s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h00m07s | stage:sat:solve:done round=1 ms=5007 result=Sat assumptions=0 phase_lits=0
+c 00h00m07s | stage:decode:start round=1 requested_int_ids=333
+c 00h00m07s | stage:decode:final:start round=1 requested_int_ids=333
+c 00h00m07s | stage:decode:done round=1 int_assignments=333
+c 00h00m07s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h00m07s | result:Sat
+c 00h00m07s | objective:incumbent kind=initial value=49 rounds=1 improvements=0
+o 49
+c 00h00m07s | stage:sat:init solver=CaDiCaL vars=71788 clauses=723221
+c 00h00m07s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=14552
+c 00h00m09s | stage:sat:solve:done round=1 ms=1485 result=Sat assumptions=0 phase_lits=14552
+c 00h00m09s | stage:decode:start round=1 requested_int_ids=333
+c 00h00m09s | stage:decode:final:start round=1 requested_int_ids=333
+c 00h00m09s | stage:decode:done round=1 int_assignments=333
+c 00h00m09s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=2 cop_cegar_added_clauses=0
+c 00h00m09s | result:Sat
+c 00h00m09s | objective:incumbent kind=improvement value=48 rounds=2 improvements=1
+o 48
+c 00h00m09s | stage:sat:init solver=CaDiCaL vars=71788 clauses=723221
+c 00h00m09s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=3 assumptions=0 phase_lits=14552
+s SATISFIABLE
+o 48
+v <instantiation>
+v   <list> x[0][0] x[0][1] x[0][2] x[0][3] x[0][4] x[0][5] x[0][6] x[0][7] x[0][8] x[0][9] x[0][10] x[0][11] x[0][12] x[0][13] x[0][14] x[0][15] x[0][16] x[0][17] x[1][0] x[1][1] x[1][2] x[1][3] x[1][4] x[1][5] x[1][6] x[1][7] x[1][8] x[1][9] x[1][10] x[1][11] x[1][12] x[1][13] x[1][14] x[1][15] x[1][16] x[1][17] x[2][0] x[2][1] x[2][2] x[2][3] x[2][4] x[2][5] x[2][6] x[2][7] x[2][8] x[2][9] x[2][10] x[2][11] x[2][12] x[2][13] x[2][14] x[2][15] x[2][16] x[2][17] x[3][0] x[3][1] x[3][2] x[3][3] x[3][4] x[3][5] x[3][6] x[3][7] x[3][8] x[3][9] x[3][10] x[3][11] x[3][12] x[3][13] x[3][14] x[3][15] x[3][16] x[3][17] x[4][0] x[4][1] x[4][2] x[4][3] x[4][4] x[4][5] x[4][6] x[4][7] x[4][8] x[4][9] x[4][10] x[4][11] x[4][12] x[4][13] x[4][14] x[4][15] x[4][16] x[4][17] x[5][0] x[5][1] x[5][2] x[5][3] x[5][4] x[5][5] x[5][6] x[5][7] x[5][8] x[5][9] x[5][10] x[5][11] x[5][12] x[5][13] x[5][14] x[5][15] x[5][16] x[5][17] x[6][0] x[6][1] x[6][2] x[6][3] x[6][4] x[6][5] x[6][6] x[6][7] x[6][8] x[6][9] x[6][10] x[6][11] x[6][12] x[6][13] x[6][14] x[6][15] x[6][16] x[6][17] x[7][0] x[7][1] x[7][2] x[7][3] x[7][4] x[7][5] x[7][6] x[7][7] x[7][8] x[7][9] x[7][10] x[7][11] x[7][12] x[7][13] x[7][14] x[7][15] x[7][16] x[7][17] x[8][0] x[8][1] x[8][2] x[8][3] x[8][4] x[8][5] x[8][6] x[8][7] x[8][8] x[8][9] x[8][10] x[8][11] x[8][12] x[8][13] x[8][14] x[8][15] x[8][16] x[8][17] x[9][0] x[9][1] x[9][2] x[9][3] x[9][4] x[9][5] x[9][6] x[9][7] x[9][8] x[9][9] x[9][10] x[9][11] x[9][12] x[9][13] x[9][14] x[9][15] x[9][16] x[9][17] y[0] y[1] y[2] y[3] y[4] y[5] y[6] y[7] y[8] y[9] y[10] y[11] y[12] y[13] y[14] y[15] y[16] y[17] y[18] y[19] y[20] y[21] y[22] y[23] y[24] y[25] y[26] y[27] y[28] y[29] y[30] y[31] y[32] y[33] y[34] y[35] y[36] y[37] y[38] y[39] y[40] y[41] y[42] y[43] y[44] y[45] y[46] y[47] y[48] y[49] y[50] z aux_gb[0] aux_gb[1] aux_gb[2] aux_gb[3] aux_gb[4] aux_gb[5] aux_gb[6] aux_gb[7] aux_gb[8] aux_gb[9] aux_gb[10] aux_gb[11] aux_gb[12] aux_gb[13] aux_gb[14] aux_gb[15] aux_gb[16] aux_gb[17] aux_gb[18] aux_gb[19] aux_gb[20] aux_gb[21] aux_gb[22] aux_gb[23] aux_gb[24] aux_gb[25] aux_gb[26] aux_gb[27] aux_gb[28] aux_gb[29] aux_gb[30] aux_gb[31] aux_gb[32] aux_gb[33] aux_gb[34] aux_gb[35] aux_gb[36] aux_gb[37] aux_gb[38] aux_gb[39] aux_gb[40] aux_gb[41] aux_gb[42] aux_gb[43] aux_gb[44] aux_gb[45] aux_gb[46] aux_gb[47] aux_gb[48] aux_gb[49] aux_gb[50] aux_gb[51] aux_gb[52] aux_gb[53] aux_gb[54] aux_gb[55] aux_gb[56] aux_gb[57] aux_gb[58] aux_gb[59] aux_gb[60] aux_gb[61] aux_gb[62] aux_gb[63] aux_gb[64] aux_gb[65] aux_gb[66] aux_gb[67] aux_gb[68] aux_gb[69] aux_gb[70] aux_gb[71] aux_gb[72] aux_gb[73] aux_gb[74] aux_gb[75] aux_gb[76] aux_gb[77] aux_gb[78] aux_gb[79] aux_gb[80] aux_gb[81] aux_gb[82] aux_gb[83] aux_gb[84] aux_gb[85] aux_gb[86] aux_gb[87] aux_gb[88] aux_gb[89] aux_gb[90] aux_gb[91] aux_gb[92] aux_gb[93] aux_gb[94] aux_gb[95] aux_gb[96] aux_gb[97] aux_gb[98] aux_gb[99] aux_gb[100] </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 44 44 44 37 38 38 0 0 0 4 5 5 5 5 1 5 0 0 45 46 46 37 46 39 46 0 0 0 7 7 7 7 1 6 0 0 0 48 48 37 48 39 47 0 0 12 8 13 13 0 1 0 0 0 33 36 36 36 0 39 0 0 0 12 8 0 14 20 1 17 21 21 21 21 0 28 28 28 27 0 0 11 8 10 14 20 1 17 0 0 33 22 24 25 25 25 25 0 0 15 8 10 14 16 1 16 0 0 30 22 24 29 31 31 26 0 0 0 8 9 0 19 1 18 0 0 0 22 23 0 40 39 26 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 12 5 303 27 0 44 26 95 46 275 301 206 239 116 85 249 238 284 133 286 302 162 138 288 306 222 193 309 195 143 267 256 273 287 97 287 134 185 34 11 298 307 192 226 39 6 60 42 115 -1 -1 48 12 12 12 12 12 12 39 39 39 185 34 34 0 44 44 44 44 5 44 6 60 60 185 60 11 60 95 95 95 95 5 26 115 115 185 115 11 42 239 46 116 116 5 287 134 134 134 11 239 46 85 302 5 284 162 162 162 162 195 195 195 309 206 46 301 85 302 5 284 287 138 306 222 222 222 222 249 46 301 85 238 5 238 267 138 306 143 256 256 193 46 275 286 5 133 138 288 298 11 193 49 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 48
+d OPTIMAL 0
+d OBJECTIVE_ROUNDS 2
+d OBJECTIVE_IMPROVEMENTS 1
+d COP_INCUMBENT_ELAPSED_MS 9201
+d SOLVE_ELAPSED_MS 1799917
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 1790715
+d LAST_COMPLETED_STAGE relaxation
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS done
+d STAGE_RELAXATION_STATUS done
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 5202
+d NORMALIZED_CONSTRAINTS 5202
+d LOWERED_CONSTRAINTS 5202
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 71788
+d SAT_CLAUSES_BASE 723221
+d SAT_CLAUSES_FINAL 723221
+d SAT_CLAUSES_CEGAR_DELTA 0
+d SAT_CONFLICTS 8756
+d EXTPROP_CONSTRAINTS 1
+d EXTPROP_OBSERVED_VARS 49
+d EXTPROP_OBSERVED_LITS 1
+d EXTPROP_OBSERVED_LIT_OCCURRENCES 1
+d EXTPROP_CALLBACK_CALLS 8288916
+d EXTPROP_CALLBACK_NS 2412531074
+d EXTPROP_NOTIFY_ASSIGNMENT_CALLS 20878
+d EXTPROP_NOTIFY_ASSIGNMENT_NS 6939562
+d EXTPROP_NOTIFY_ASSIGNMENT_LITS 1249
+d EXTPROP_NOTIFY_NEW_DECISION_LEVEL_CALLS 18425
+d EXTPROP_NOTIFY_NEW_DECISION_LEVEL_NS 5347343
+d EXTPROP_NOTIFY_BACKTRACK_CALLS 1997
+d EXTPROP_NOTIFY_BACKTRACK_NS 2275485
+d EXTPROP_CB_CHECK_FOUND_MODEL_CALLS 1638451
+d EXTPROP_CB_CHECK_FOUND_MODEL_NS 426395958
+d EXTPROP_CB_CHECK_FOUND_MODEL_REJECTS 1638450
+d EXTPROP_CB_DECIDE_CALLS 18425
+d EXTPROP_CB_DECIDE_NS 526449
+d EXTPROP_CB_PROPAGATE_CALLS 18469
+d EXTPROP_CB_PROPAGATE_NS 6072405
+d EXTPROP_PROPAGATED_LITS 2
+d EXTPROP_CB_ADD_REASON_CLAUSE_LIT_CALLS 4
+d EXTPROP_CB_ADD_REASON_CLAUSE_LIT_NS 1348
+d EXTPROP_REASON_CLAUSES 2
+d EXTPROP_REASON_CLAUSE_LITS 2
+d EXTPROP_REASON_CLAUSE_MAX_LEN 1
+d EXTPROP_CB_HAS_EXTERNAL_CLAUSE_CALLS 3295367
+d EXTPROP_CB_HAS_EXTERNAL_CLAUSE_NS 1251145131
+d EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_CALLS 3276900
+d EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_NS 713827393
+d EXTPROP_EXTERNAL_CLAUSES 1638450
+d EXTPROP_EXTERNAL_CLAUSE_LITS 1638450
+d EXTPROP_EXTERNAL_CLAUSE_MAX_LEN 1
+d EXTPROP_STRONG_REASON_ATTEMPTS 0
+d EXTPROP_STRONG_REASON_NS 0
+d EXTPROP_STRONG_REASON_LIFTS 0
+d EXTPROP_STRONG_REASON_DROPPED_TERMS 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":15241,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":5101,"max_domain_product_excluding_one_var":"50","p95_domain_product_excluding_one_var":"9"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":5253,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":4900,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 49
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 49
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 388
+d ROOT_LP_ROWS 4901
+d ROOT_LP_VARS 17623
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 4900
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 20342
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 1
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 1
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 0
+d ROOT_LP_OBJECTIVE_VALUE 0
+d PROPAGATE_PRUNED_VALUES 40867
+d PROPAGATE_CHANGED_DOMAINS 199
+d PROPAGATE_ENTAILED_TABLES 101
+d POST_LOWER_ROUNDS 0
+d POST_LOWER_TIGHTENED_DOMAINS 0
+d POST_LOWER_REMOVED_CLAUSES 2382
+d POST_LOWER_REMOVED_LITS 86
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 333
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d DECODE_INT_ASSIGNMENTS 333
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 3
+d COP_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/competition/2022-2025/COP22to25/RollerSplat-07b-50_c25.xml.lzma,sat,5202,5202,5202,0,71788,723221,1799912,,,,,,,1,optimal,0,49,0,49,0,388,4901,17623,0,0,0,0,timeout_signal,incumbent_interrupted_by_signal
+signal=15; emitted incumbent csv row

@@ -1,0 +1,85 @@
+c cmd: /host-parser-bin/kat_xcsp_1173b3f4_scip_extge_eager_dynwatch /bench/competition/2022-2025/COP22to25/RoadefPlaning2-2023-12_c25.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --cop-objective-ext-ge --cop-objective-ext-ge-eager --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=199
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=1 pruned=93 changed_domains=34 entailed_tables=17
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=199
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=32 lowered=199 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=7 rounds=310 tightened=297 removed_cls=436 removed_lits=218 unsat=false precise_hits=182 precise_rounds=2 pivot_recomputes=21598 pivot_exact_attempts=16 pivot_general_attempts=21582 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=21582 pivot_general_tightened=0 setup_ms=4 loop_ms=1 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:lowered-shape int_vars=2070 bool_vars=22 linear_atoms=4188 table_atoms=83 table_tuples=1577 table_scope=166 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=2993
+c 00h00m00s | stage:root-lp:start backend=scip-ffi
+c 00h00m00s | stage:root-lp:bound backend=scip-ffi status=optimal objective_value=0 naive_bounds=[0,288] lp_bounds=[0,288] improved=0 rows=648 vars=4523 ms=323
+c 00h00m00s | stage:preencode(order-ge):start
+c 00h00m00s | stage:preencode(order-ge):done ms=14 int_vars=2394
+c 00h00m00s | stage:encode(order-ge):start
+c 00h00m00s | stage:encode(order-ge):done ms=73 sat_vars=14259 sat_clauses=132470 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=14259 clauses=132470
+c 00h00m00s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+s UNKNOWN
+d SOLVE_ELAPSED_MS 1800028
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 1799493
+d LAST_COMPLETED_STAGE encode(order-ge)
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS pending
+d STAGE_RELAXATION_STATUS pending
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 199
+d NORMALIZED_CONSTRAINTS 199
+d LOWERED_CONSTRAINTS 199
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 14259
+d SAT_CLAUSES_BASE 132470
+d SAT_CLAUSES_FINAL 132470
+d SAT_CLAUSES_CEGAR_DELTA 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":4000,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":13,"max_domain_product_excluding_one_var":"3","p95_domain_product_excluding_one_var":"3"},"3":{"count":13,"max_domain_product_excluding_one_var":"25","p95_domain_product_excluding_one_var":"25"},"4":{"count":2,"max_domain_product_excluding_one_var":"125","p95_domain_product_excluding_one_var":"125"},"5":{"count":2,"max_domain_product_excluding_one_var":"625","p95_domain_product_excluding_one_var":"625"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":53,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":11,"max_domain_product_excluding_one_var":"8","p95_domain_product_excluding_one_var":"8"}}
+d LINEAR_INT_GE_ARITY_STATS {"2":{"count":78,"max_domain_product_excluding_one_var":"8","p95_domain_product_excluding_one_var":"8"},"100":{"count":16,"max_domain_product_excluding_one_var":"633825300114114700748351602688","p95_domain_product_excluding_one_var":"633825300114114700748351602688"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 288
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 288
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 323
+d ROOT_LP_ROWS 648
+d ROOT_LP_VARS 4523
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 94
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 4030
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 100
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 633825300114114700748351602688
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 0
+d ROOT_LP_OBJECTIVE_VALUE 0
+d PROPAGATE_PRUNED_VALUES 93
+d PROPAGATE_CHANGED_DOMAINS 34
+d PROPAGATE_ENTAILED_TABLES 17
+d POST_LOWER_ROUNDS 310
+d POST_LOWER_TIGHTENED_DOMAINS 297
+d POST_LOWER_REMOVED_CLAUSES 436
+d POST_LOWER_REMOVED_LITS 218
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 2394
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 1
+d COP_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/competition/2022-2025/COP22to25/RoadefPlaning2-2023-12_c25.xml.lzma,unknown,199,199,199,0,14259,132470,1799973,,,,,,,1,optimal,0,288,0,288,0,323,648,4523,0,0,0,0,timeout_signal,terminated_by_signal
+signal=15; emitted fallback csv row

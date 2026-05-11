@@ -1,0 +1,94 @@
+c cmd: /host-parser-bin/kat_xcsp_1173b3f4_scip_extge_eager_dynwatch /bench/competition/2022-2025/COP22to25/BlockModeling-karate-03_c25.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --cop-objective-ext-ge --cop-objective-ext-ge-eager --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=2
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=3 changed_domains=2 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=2
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=0 lowered=2 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=0 rounds=0 tightened=0 removed_cls=2 removed_lits=0 unsat=false precise_hits=0 precise_rounds=0 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=0 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:lowered-shape int_vars=43 bool_vars=0 linear_atoms=2 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=0
+c 00h00m00s | stage:root-lp:start backend=scip-ffi
+c 00h00m00s | stage:root-lp:skip backend=scip-ffi reason=objective is not linear for root LP: objective expression is too large for root LP linearization: 374422 bytes > 262144 bytes ms=29
+c 00h00m00s | stage:preencode(order-ge):start
+c 00h00m00s | stage:preencode(order-ge):done ms=0 int_vars=43
+c 00h00m00s | stage:encode(order-ge):start
+c 00h00m00s | stage:encode(order-ge):done ms=0 sat_vars=74 sat_clauses=32 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=74 clauses=32
+c 00h00m00s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h00m00s | stage:sat:solve:done round=1 ms=0 result=Sat assumptions=0 phase_lits=0
+c 00h00m00s | stage:decode:start round=1 requested_int_ids=43
+c 00h00m00s | stage:decode:final:start round=1 requested_int_ids=43
+c 00h00m00s | stage:decode:done round=1 int_assignments=43
+c 00h00m00s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h00m00s | result:Sat
+c 00h00m00s | objective:incumbent kind=initial value=78 rounds=1 improvements=0
+o 78
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=74 clauses=32
+c 00h00m00s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=74
+c 00h00m00s | stage:sat:solve:done round=1 ms=0 result=Sat assumptions=0 phase_lits=74
+c 00h00m00s | stage:decode:start round=1 requested_int_ids=43
+c 00h00m59s | result:unknown reason=relaxation_budget_exceeded detail=relaxation produced 91640594 clauses in one round, exceeding limit 1000000
+s SATISFIABLE
+o 78
+v <instantiation>
+v   <list> x[0][0] x[0][1] x[0][2] x[1][0] x[1][1] x[1][2] x[2][0] x[2][1] x[2][2] y[0] y[1] y[2] y[3] y[4] y[5] y[6] y[7] y[8] y[9] y[10] y[11] y[12] y[13] y[14] y[15] y[16] y[17] y[18] y[19] y[20] y[21] y[22] y[23] y[24] y[25] y[26] y[27] y[28] y[29] y[30] y[31] y[32] y[33] </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 78
+d OPTIMAL 0
+d SOURCE_CONSTRAINTS 2
+d NORMALIZED_CONSTRAINTS 2
+d LOWERED_CONSTRAINTS 2
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 2
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_ROUNDS 2
+d OBJECTIVE_IMPROVEMENTS 0
+d PROPAGATE_MS 0
+d NORMALIZE_MS 0
+d LOWER_MS 0
+d POST_LOWER_MS 0
+d PREENCODE_MS 0
+d ENCODE_MS 0
+d SAT_SOLVE_MS 0
+d TOTAL_MS 61265
+d SAT_VARS 74
+d SAT_CLAUSES_BASE 32
+d SAT_CLAUSES_FINAL 32
+d SAT_CLAUSES_CEGAR_DELTA 0
+d SAT_CONFLICTS 0
+d LINEAR_INT_EQ_ARITY_STATS {}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":2,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 0
+d ROOT_LP_STATUS skipped
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 10200
+d ROOT_LP_MS 29
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 2
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 0
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 1
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 1
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 0
+d ROOT_LP_REASON scip-ffi: objective is not linear for root LP: objective expression is too large for root LP linearization: 374422 bytes > 262144 bytes
+d PROPAGATE_PRUNED_VALUES 3
+d PROPAGATE_CHANGED_DOMAINS 2
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 0
+d POST_LOWER_TIGHTENED_DOMAINS 0
+d POST_LOWER_REMOVED_CLAUSES 2
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 43
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d DECODE_INT_ASSIGNMENTS 43
+d CSV /bench/competition/2022-2025/COP22to25/BlockModeling-karate-03_c25.xml.lzma,sat,2,2,2,0,74,32,61265,0,0,0,0,0,0,0,skipped,0,10200,,,,29,,,,,,,,"best incumbent shown; guarded improvement search stopped before optimality proof: relaxation produced 91640594 clauses in one round, exceeding limit 1000000"
