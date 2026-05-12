@@ -78,6 +78,13 @@ RUNS = [
         "runsolver-kat-c22-c25-csp800-log-scop-mdd-tl-scip-dynamic-20260508-835f8aaf-q10672",
         GR10672,
     ),
+    Run(
+        "csp800-1173b3f4-order-direct-extprop8196-s40",
+        "1173b3f4 order-direct extprop8196 s40",
+        "kat-c22-c25-csp800-order-direct-mdd-tl-extprop-dp8196-s40-20260511-1173b3f4-q10672",
+        "runsolver-kat-c22-c25-csp800-order-direct-mdd-tl-extprop-dp8196-s40-20260511-1173b3f4-q10672",
+        GR10672,
+    ),
 ]
 
 
@@ -414,7 +421,7 @@ def generate_html(root: Path) -> None:
     body = [
         "<h1 id=\"csp-results\">CSP Results</h1>",
         f"<p>最終更新: {date.today().isoformat()}</p>",
-        "<p>対象は c22-c25 CSP-only 800 instances。ログは <code>direct-order</code>, <code>log-scop</code>, <code>portfolio</code>, <code>OR-Tools</code>, <code>ace-rr</code> の run を同期したもの。</p>",
+        "<p>対象は c22-c25 CSP-only 800 instances。複数コミット・設定の kat 結果（従来の direct-order / log-scop / portfolio、835f8aaf SCIP dynamic、1173b3f4 extprop8196 s40 など）と OR-Tools、ACE を同期したもの。</p>",
         build_summary(labels, cell_table),
         "<h2 id=\"csp800-instance-table\">CSP800 instance table</h2>",
         "<div class=\"table-wrap\"><table>",
