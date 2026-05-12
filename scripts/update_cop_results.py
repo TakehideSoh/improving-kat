@@ -199,6 +199,14 @@ RUNS = [
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
+        "1173b3f4-direct-order-extprop8196-s40-20260512",
+        "1173b3f4 direct-order extprop8196 s40",
+        "kat-cop1000-direct-order-mdd-tl-extprop-dp8196-s40-20260512-1173b3f4-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-extprop-dp8196-s40-20260512-1173b3f4-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
         "ace64g-rr-20260505",
         "ACE 64G rr 20260505",
         "",
