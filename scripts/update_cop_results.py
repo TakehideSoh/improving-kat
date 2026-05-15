@@ -31,6 +31,22 @@ REFERENCE_COMPARE_BEGIN = "<!-- BEGIN COP1000_REFERENCE_COMPARISON_STATS -->"
 REFERENCE_COMPARE_END = "<!-- END COP1000_REFERENCE_COMPARISON_STATS -->"
 SUMMARY_BEGIN = "<!-- BEGIN COP1000_RESULT_SUMMARY -->"
 SUMMARY_END = "<!-- END COP1000_RESULT_SUMMARY -->"
+NOINC_SUBSET_BEGIN = "<!-- BEGIN COP1000_NOINC_SUBSET_SUMMARY -->"
+NOINC_SUBSET_END = "<!-- END COP1000_NOINC_SUBSET_SUMMARY -->"
+NOINC_SUBSET_CSV = "cop1000_no_incumbent_203_instance_list.csv"
+NOINC_DIAGNOSIS_CSV = "cop1000_noinc203_reach_sat_diagnosis.csv"
+NOINC_SACCT_CSV = "cop1000_noinc203_sacct_19442938.csv"
+NOINC_BASELINE_RUN = "1173b3f4-direct-order-extprop8196-s40-20260512"
+NOINC_TARGET_RUN = "10c9c43b-dirty-noinc203-cegar-norootlp"
+NOINC_SUBSET_RUNS = [
+    NOINC_BASELINE_RUN,
+    NOINC_TARGET_RUN,
+    "835f8aaf-scip-direct-order-dynamic",
+    "835f8aaf-scip-log-scop-dynamic",
+    "1173b3f4-scip-direct-order-extge-eager-dynwatch",
+    "ace64g-rr-20260505",
+    "pycsp3-extra-ortools-20260505",
+]
 DEFAULT_CHECKER_JAR = Path(
     "/home/soh/02_prog/xcsp3instances/XCSP3-Java-Tools/target/xcsp3-solutionChecker-2.6.0.jar"
 )
@@ -204,6 +220,14 @@ RUNS = [
         "kat-cop1000-direct-order-mdd-tl-extprop-dp8196-s40-20260512-1173b3f4-q10609",
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-extprop-dp8196-s40-20260512-1173b3f4-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "10c9c43b-dirty-noinc203-cegar-norootlp",
+        "10c9c43b-dirty noinc203 CEGAR no-root-lp",
+        "kat-cop1000-noinc203-order-direct-mdd-tl-extprop8196-s40-cegar-norootlp-20260513-10c9c43b-dirty-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-noinc203-order-direct-mdd-tl-extprop8196-s40-cegar-norootlp-20260513-10c9c43b-dirty-q10609",
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
@@ -866,6 +890,458 @@ def build_result_summary(root: Path) -> str:
     return "\n".join(lines)
 
 
+def read_noinc_subset(root: Path) -> list[tuple[int, str]]:
+    path = logs_root(root) / NOINC_SUBSET_CSV
+    if not path.exists():
+        return []
+    rows: list[tuple[int, str]] = []
+    with path.open(newline="") as f:
+        for raw in csv.reader(f):
+            if not raw or raw[0] == "instance_id":
+                continue
+            try:
+                instance_id = int(raw[0])
+            except ValueError:
+                continue
+            rows.append((instance_id, raw[-1]))
+    rows.sort()
+    return rows
+
+
+def log_reached_sat(log_path: Path | None) -> bool:
+    if log_path is None or not log_path.exists():
+        return False
+    text = log_path.read_text(errors="replace")
+    return "stage:sat:solve:start" in text or "stage:sat:init" in text
+
+
+def family_name(instance: str) -> str:
+    name = Path(instance).name
+    return name.split("-", 1)[0].split("_", 1)[0]
+
+
+def parse_elapsed_ms(line: str) -> int | None:
+    m = re.match(r"c\s+(\d+)h(\d+)m(\d+)s\s+\|", line)
+    if not m:
+        return None
+    hours, minutes, seconds = (int(part) for part in m.groups())
+    return ((hours * 60 + minutes) * 60 + seconds) * 1000
+
+
+def parse_key_values(line: str) -> dict[str, str]:
+    return dict(re.findall(r"([A-Za-z_][A-Za-z0-9_-]*)=([^\s]+)", line))
+
+
+def read_runsolver_values(values_path: Path | None) -> dict[str, str]:
+    if values_path is None or not values_path.exists():
+        return {}
+    values: dict[str, str] = {}
+    for line in values_path.read_text(errors="replace").splitlines():
+        if "=" not in line or line.startswith("#"):
+            continue
+        key, value = line.split("=", 1)
+        values[key.strip()] = value.strip()
+    return values
+
+
+def read_noinc_sacct(root: Path) -> dict[str, dict[str, str]]:
+    path = logs_root(root) / NOINC_SACCT_CSV
+    if not path.exists():
+        return {}
+    rows: dict[str, dict[str, str]] = {}
+    with path.open(newline="") as f:
+        for row in csv.DictReader(f):
+            job_id = row.get("JobID", "")
+            m = re.fullmatch(r"19442938_(\d+)", job_id)
+            if m:
+                rows[m.group(1)] = row
+    return rows
+
+
+def runsolver_task_id(log_path: Path | None, run: Run) -> str:
+    if log_path is None:
+        return ""
+    escaped = re.escape(run.runsolver_prefix)
+    m = re.fullmatch(rf"{escaped}-(\d+)-(\d+)-(\d+)", log_path.parent.name)
+    return m.group(2) if m else ""
+
+
+def parse_reach_sat_details(log_path: Path | None) -> dict[str, str]:
+    details: dict[str, str] = {
+        "sat_started": "0",
+        "sat_rounds": "0",
+        "sat_solve_done_rounds": "0",
+        "sat_solve_ms_total": "0",
+        "first_sat_start_ms": "",
+        "last_sat_start_ms": "",
+    }
+    if log_path is None or not log_path.exists():
+        return details
+
+    stage_done_patterns = [
+        ("propagate_ms", r"stage:propagate:done ms=(\d+)"),
+        ("normalize_ms", r"stage:normalize:done ms=(\d+)"),
+        ("lower_ms", r"stage:lower:done ms=(\d+)"),
+        ("post_lower_ms", r"stage:post_lower:done ms=(\d+)"),
+        ("preencode_ms", r"stage:preencode(?:\([^)]*\))?:done ms=(\d+)"),
+        ("encode_ms", r"stage:encode(?:\([^)]*\))?:done ms=(\d+)"),
+        ("root_lp_ms", r"stage:root-lp:(?:done|skip).* ms=(\d+)"),
+    ]
+    latest_stage = ""
+    last_completed_stage = ""
+    sat_rounds = 0
+    sat_done_rounds = 0
+    sat_solve_ms_total = 0
+
+    for line in log_path.read_text(errors="replace").splitlines():
+        elapsed_ms = parse_elapsed_ms(line)
+        if "| stage:" in line:
+            m = re.search(r"\|\s+stage:([a-z0-9_-]+)", line)
+            if m:
+                latest_stage = m.group(1)
+        if line.startswith("d CURRENT_STAGE "):
+            details["current_stage"] = line.split(None, 2)[2].strip()
+        elif line.startswith("d LAST_COMPLETED_STAGE "):
+            details["last_completed_stage"] = line.split(None, 2)[2].strip()
+        elif line.startswith("d "):
+            parts = line.split(None, 2)
+            if len(parts) == 3:
+                key = parts[1].lower()
+                if key in {
+                    "source_constraints",
+                    "normalized_constraints",
+                    "sat_clauses_base",
+                    "sat_clauses_final",
+                    "sat_clauses_cegar_delta",
+                    "circuit_cegar_failures",
+                    "circuit_cegar_rounds",
+                    "circuit_cegar_added_clauses",
+                    "cumulative_cegar_failures",
+                    "cumulative_cegar_rounds",
+                    "cumulative_cegar_added_clauses",
+                    "cop_cegar_failures",
+                    "cop_cegar_rounds",
+                    "cop_cegar_added_clauses",
+                }:
+                    details[key] = parts[2].strip()
+
+        for key, pattern in stage_done_patterns:
+            m = re.search(pattern, line)
+            if m:
+                details[key] = m.group(1)
+                last_completed_stage = key.removesuffix("_ms")
+
+        if "stage:lowered-shape" in line:
+            for key, value in parse_key_values(line).items():
+                details[f"lowered_{key}"] = value
+        elif "stage:encode" in line and ":done" in line:
+            for key, value in parse_key_values(line).items():
+                if key in {"sat_vars", "sat_clauses", "ext_ge_specs", "relaxed_circuits"}:
+                    details[key] = value
+        elif "stage:sat:init" in line:
+            details["sat_started"] = "1"
+            for key, value in parse_key_values(line).items():
+                if key in {"vars", "clauses"}:
+                    details[f"sat_init_{key}"] = value
+        elif "stage:sat:solve:start" in line:
+            details["sat_started"] = "1"
+            sat_rounds += 1
+            if elapsed_ms is not None:
+                if not details.get("first_sat_start_ms"):
+                    details["first_sat_start_ms"] = str(elapsed_ms)
+                details["last_sat_start_ms"] = str(elapsed_ms)
+            values = parse_key_values(line)
+            if "round" in values:
+                details["last_sat_round"] = values["round"]
+        elif "stage:sat:solve:done" in line:
+            sat_done_rounds += 1
+            values = parse_key_values(line)
+            if "ms" in values and values["ms"].isdigit():
+                sat_solve_ms_total += int(values["ms"])
+            if "result" in values:
+                details["last_sat_result"] = values["result"]
+        elif "stage:relaxation:done" in line:
+            for key, value in parse_key_values(line).items():
+                if key.endswith("_clauses_added") or key.endswith("_cegar_failures") or key.endswith("_cegar_rounds") or key.endswith("_cegar_added_clauses"):
+                    details[key] = value
+
+    details["sat_rounds"] = str(sat_rounds)
+    details["sat_solve_done_rounds"] = str(sat_done_rounds)
+    details["sat_solve_ms_total"] = str(sat_solve_ms_total)
+    details.setdefault("current_stage", latest_stage)
+    details.setdefault("last_completed_stage", last_completed_stage)
+    return details
+
+
+def failure_class(
+    row_path: Path | None,
+    fields: list[str],
+    incumbent: str | None,
+    sat_started: bool,
+    log_outcome: str | None,
+    values: dict[str, str],
+    slurm_state: str = "",
+) -> str:
+    status = fields[1] if len(fields) > 1 else ""
+    reason, _ = row_reason(fields)
+    if incumbent is not None:
+        return "incumbent"
+    if status in {"optimum", "sat", "unsat"}:
+        return "solved_no_incumbent"
+    if reason == "lower_unsupported_constraints":
+        return "unsupported_before_sat"
+    if reason == "encode_failed":
+        return "encode_failed_before_sat"
+    memout = (
+        values.get("MEMOUT", "").lower() == "true"
+        or log_outcome == "MO"
+        or slurm_state == "OUT_OF_MEMORY"
+    )
+    timeout = values.get("TIMEOUT", "").lower() == "true" or log_outcome == "TO"
+    if memout:
+        return "oom_after_sat" if sat_started else "oom_before_sat"
+    if timeout:
+        return "timeout_after_sat" if sat_started else "timeout_before_sat"
+    if row_path is None:
+        return "missing_row"
+    if sat_started:
+        return "sat_reached_no_incumbent"
+    if not fields:
+        return "empty_row"
+    return "stopped_before_sat"
+
+
+DIAGNOSIS_FIELDNAMES = [
+    "instance_id",
+    "instance",
+    "family",
+    "row_present",
+    "row_nonempty",
+    "log_present",
+    "values_present",
+    "status",
+    "reason",
+    "detail",
+    "incumbent",
+    "validation",
+    "sat_started",
+    "failure_class",
+    "current_stage",
+    "last_completed_stage",
+    "log_outcome",
+    "wctime",
+    "cputime",
+    "maxrss_kib",
+    "maxmm_kib",
+    "maxvm_kib",
+    "timeout_flag",
+    "memout_flag",
+    "exitstatus",
+    "slurm_task_id",
+    "slurm_state",
+    "slurm_exit_code",
+    "slurm_elapsed",
+    "slurm_maxrss",
+    "first_sat_start_ms",
+    "last_sat_start_ms",
+    "sat_rounds",
+    "sat_solve_done_rounds",
+    "sat_solve_ms_total",
+    "source_constraints",
+    "normalized_constraints",
+    "propagate_ms",
+    "normalize_ms",
+    "lower_ms",
+    "post_lower_ms",
+    "root_lp_ms",
+    "preencode_ms",
+    "encode_ms",
+    "sat_vars",
+    "sat_clauses",
+    "sat_init_vars",
+    "sat_init_clauses",
+    "ext_ge_specs",
+    "relaxed_circuits",
+    "lowered_int_vars",
+    "lowered_bool_vars",
+    "lowered_linear_atoms",
+    "lowered_table_atoms",
+    "lowered_table_tuples",
+    "lowered_alldiff_atoms",
+    "lowered_circuit_atoms",
+    "lowered_logical_clauses",
+    "circuit_cegar_failures",
+    "circuit_cegar_rounds",
+    "circuit_cegar_added_clauses",
+    "cumulative_cegar_failures",
+    "cumulative_cegar_rounds",
+    "cumulative_cegar_added_clauses",
+    "cop_cegar_failures",
+    "cop_cegar_rounds",
+    "cop_cegar_added_clauses",
+    "baseline_status",
+    "baseline_sat_started",
+    "baseline_stage",
+    "baseline_outcome",
+    "log_path",
+    "values_path",
+]
+
+
+def write_noinc_subset_diagnosis(root: Path) -> None:
+    subset = read_noinc_subset(root)
+    runs = {run.slug: run for run in RUNS}
+    if NOINC_TARGET_RUN not in runs or NOINC_BASELINE_RUN not in runs:
+        return
+    target = runs[NOINC_TARGET_RUN]
+    baseline = runs[NOINC_BASELINE_RUN]
+    target_rows = load_rows(root, target)
+    baseline_rows = load_rows(root, baseline)
+    validation = load_validation(root)
+    sacct = read_noinc_sacct(root)
+    rows: list[dict[str, str]] = []
+
+    for instance_id, instance in subset:
+        row_path, fields = target_rows.get(instance_id, (None, []))
+        log_path = log_path_for_row(root, target, instance_id, row_path)
+        values_path = runsolver_values_path(log_path) if log_path is not None else None
+        values = read_runsolver_values(values_path)
+        incumbent, stage, log_outcome = parse_log(log_path)
+        details = parse_reach_sat_details(log_path)
+        reason, detail = row_reason(fields)
+        slurm_task_id = runsolver_task_id(log_path, target)
+        slurm = sacct.get(slurm_task_id, {})
+        baseline_row_path, baseline_fields = baseline_rows.get(instance_id, (None, []))
+        baseline_log_path = log_path_for_row(root, baseline, instance_id, baseline_row_path)
+        _, baseline_stage, baseline_outcome = parse_log(baseline_log_path)
+        sat_started = details.get("sat_started", "0") == "1"
+
+        row = {
+            "instance_id": str(instance_id),
+            "instance": instance,
+            "family": family_name(instance),
+            "row_present": "1" if row_path is not None else "0",
+            "row_nonempty": "1" if fields else "0",
+            "log_present": "1" if log_path is not None else "0",
+            "values_present": "1" if values_path is not None else "0",
+            "status": fields[1] if len(fields) > 1 else "",
+            "reason": reason,
+            "detail": detail,
+            "incumbent": incumbent or "",
+            "validation": validation.get((target.slug, instance_id), ""),
+            "sat_started": "1" if sat_started else "0",
+            "failure_class": failure_class(row_path, fields, incumbent, sat_started, log_outcome, values),
+            "current_stage": details.get("current_stage") or stage or "",
+            "last_completed_stage": details.get("last_completed_stage", ""),
+            "log_outcome": log_outcome or "",
+            "wctime": values.get("WCTIME", ""),
+            "cputime": values.get("CPUTIME", ""),
+            "maxrss_kib": values.get("MAXRSS", ""),
+            "maxmm_kib": values.get("MAXMM", ""),
+            "maxvm_kib": values.get("MAXVM", ""),
+            "timeout_flag": values.get("TIMEOUT", ""),
+            "memout_flag": values.get("MEMOUT", ""),
+            "exitstatus": values.get("EXITSTATUS", ""),
+            "slurm_task_id": slurm_task_id,
+            "slurm_state": slurm.get("State", ""),
+            "slurm_exit_code": slurm.get("ExitCode", ""),
+            "slurm_elapsed": slurm.get("Elapsed", ""),
+            "slurm_maxrss": slurm.get("MaxRSS", ""),
+            "baseline_status": baseline_fields[1] if len(baseline_fields) > 1 else "",
+            "baseline_sat_started": "1" if log_reached_sat(baseline_log_path) else "0",
+            "baseline_stage": baseline_stage or "",
+            "baseline_outcome": baseline_outcome or "",
+            "log_path": log_path.relative_to(root).as_posix() if log_path is not None else "",
+            "values_path": values_path.relative_to(root).as_posix() if values_path is not None else "",
+        }
+        row["failure_class"] = failure_class(
+            row_path,
+            fields,
+            incumbent,
+            sat_started,
+            log_outcome,
+            values,
+            slurm.get("State", ""),
+        )
+        for field in DIAGNOSIS_FIELDNAMES:
+            row.setdefault(field, details.get(field, ""))
+        rows.append(row)
+
+    path = logs_root(root) / NOINC_DIAGNOSIS_CSV
+    with path.open("w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=DIAGNOSIS_FIELDNAMES)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def build_noinc_subset_summary(root: Path) -> str:
+    subset = read_noinc_subset(root)
+    runs = {run.slug: run for run in RUNS}
+    selected_runs = [runs[slug] for slug in NOINC_SUBSET_RUNS if slug in runs]
+    all_rows = {run.slug: load_rows(root, run) for run in selected_runs}
+    lines = [
+        NOINC_SUBSET_BEGIN,
+        "",
+        "## COP1000 no-incumbent subset summary",
+        "",
+        f"This table is restricted to the `{NOINC_SUBSET_CSV}` subset ({len(subset)} instances):",
+        "instances where `1173b3f4-direct-order-extprop8196-s40-20260512` had no incumbent.",
+        "`sat_started` counts rows whose log reached the SAT solve stage, even if no incumbent was found.",
+        "",
+        "| run | row_files | nonempty_csv | incumbent | sat_started | optimum | sat | UNSAT | TO | MO | missing_file |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+    ]
+    for run in selected_runs:
+        counts: Counter[str] = Counter()
+        for instance_id, _ in subset:
+            row_path, fields = all_rows[run.slug].get(instance_id, (None, []))
+            log_path = log_path_for_row(root, run, instance_id, row_path)
+            incumbent, _, log_outcome = parse_log(log_path)
+            status = fields[1] if len(fields) > 1 else ""
+            if row_path is not None:
+                counts["row_files"] += 1
+            if fields:
+                counts["nonempty_csv"] += 1
+            if row_path is None:
+                counts["missing_file"] += 1
+            if incumbent is not None:
+                counts["incumbent"] += 1
+            if log_reached_sat(log_path):
+                counts["sat_started"] += 1
+            if status == "optimum":
+                counts["optimum"] += 1
+            if status == "sat":
+                counts["sat"] += 1
+            if status == "unsat":
+                counts["unsat"] += 1
+            label = classify_cell(fields, incumbent, None, log_path is not None, log_outcome)
+            if label.startswith("TO("):
+                counts["to"] += 1
+            if label.startswith("MO("):
+                counts["mo"] += 1
+        lines.append(
+            "| "
+            + " | ".join(
+                [
+                    f"`{run.slug}`",
+                    str(counts["row_files"]),
+                    str(counts["nonempty_csv"]),
+                    str(counts["incumbent"]),
+                    str(counts["sat_started"]),
+                    str(counts["optimum"]),
+                    str(counts["sat"]),
+                    str(counts["unsat"]),
+                    str(counts["to"]),
+                    str(counts["mo"]),
+                    str(counts["missing_file"]),
+                ]
+            )
+            + " |"
+        )
+    lines.extend(["", NOINC_SUBSET_END, ""])
+    return "\n".join(lines)
+
+
 def build_validation_stats(root: Path) -> str:
     validation = load_validation(root)
     lines = [
@@ -1313,6 +1789,7 @@ def update_doc(root: Path, benchmark_dir: Path) -> None:
     doc = root / "cop-results.md"
     table = build_table(root)
     result_summary = build_result_summary(root)
+    noinc_subset_summary = build_noinc_subset_summary(root)
     validation_stats = build_validation_stats(root)
     consistency_stats = build_consistency_stats(root)
     reference_comparison_stats = build_reference_comparison_stats(root, benchmark_dir)
@@ -1331,6 +1808,17 @@ def update_doc(root: Path, benchmark_dir: Path) -> None:
             text = pre.rstrip() + "\n\n" + result_summary + "\n" + marker + post
         else:
             text = text.rstrip() + "\n\n" + result_summary
+    if NOINC_SUBSET_BEGIN in text and NOINC_SUBSET_END in text:
+        pre = text.split(NOINC_SUBSET_BEGIN, 1)[0].rstrip()
+        post = text.split(NOINC_SUBSET_END, 1)[1].lstrip()
+        text = pre + "\n\n" + noinc_subset_summary + ("\n" + post if post else "")
+    else:
+        marker = VALIDATION_BEGIN if VALIDATION_BEGIN in text else (BEGIN if BEGIN in text else None)
+        if marker:
+            pre, post = text.split(marker, 1)
+            text = pre.rstrip() + "\n\n" + noinc_subset_summary + "\n" + marker + post
+        else:
+            text = text.rstrip() + "\n\n" + noinc_subset_summary
     if CONSISTENCY_BEGIN in text and CONSISTENCY_END in text:
         pre = text.split(CONSISTENCY_BEGIN, 1)[0].rstrip()
         post = text.split(CONSISTENCY_END, 1)[1].lstrip()
@@ -1405,6 +1893,7 @@ def main() -> None:
             args.validation_workers,
             validation_targets,
         )
+    write_noinc_subset_diagnosis(root)
     write_consistency_results(root, args.benchmark_dir)
     write_reference_comparison_results(root, args.benchmark_dir)
     update_doc(root, args.benchmark_dir)

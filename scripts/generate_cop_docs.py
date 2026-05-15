@@ -42,6 +42,7 @@ tr:nth-child(even) td { background: #fafafa; }
 
 SCRIPT = """(() => {
   const DEFAULT_COP1000_COLUMNS = new Set([
+    '10c9c43b-dirty noinc203 CEGAR no-root-lp',
     '1173b3f4 direct-order extprop8196 s40',
     '1173b3f4 SCIP direct-order extge eager dynwatch',
     '835f8aaf SCIP direct-order dynamic',
