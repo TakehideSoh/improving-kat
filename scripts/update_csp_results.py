@@ -24,6 +24,12 @@ GR10609 = "/LARGE0/gr10609/b39275/xcsp3instances"
 HOME_ROOT = "/home/b/b39275/xcsp3instances"
 CSP_LIST_REMOTE = f"{GR10609}/adhoc/c22-c25-csp800/competition_all_c22_c25_csp_only.csv"
 RAW_LOG_BASE = "https://raw.githubusercontent.com/TakehideSoh/improving-kat/main/"
+SOLUTION_VALIDATION_CSV = "ae651e02_856af1fd_solution_checker_20260516.csv"
+SAT_UNSAT_CONSISTENCY_LABELS = [
+    "ae651e02 direct-order 2opt-off",
+    "856af1fd dirty log-scop autoBDD agg",
+    "ACE 64G rr",
+]
 
 
 @dataclass(frozen=True)
@@ -251,30 +257,30 @@ def fetch_kat_run(root: Path, run: Run) -> None:
 def fetch_ace_logs(root: Path) -> None:
     instances_json = json.dumps(read_instances(root))
     manifest_script = r"""
-import csv, json
+import json
 from pathlib import Path
+import re
 
 instances = json.loads(INSTANCES_JSON)
-no2025 = {}
-with Path('/home/b/b39275/xcsp3instances/instance-lists/competition_no2025.csv').open(newline='') as f:
-    for row in csv.DictReader(f):
-        no2025[row['instance_relpath']] = int(row['instance_id'])
-
 base = Path('/home/b/b39275/xcsp3instances/slurm-logs/runsolver')
-c25_index = 0
+logs_by_name = {}
+for out in sorted(base.glob('runsolver-ace64g-rr-*.out')):
+    try:
+        text = out.read_text(errors='replace')
+    except OSError:
+        continue
+    m = re.search(r'^\s*name:([^\n]+)', text, re.MULTILINE)
+    if not m:
+        continue
+    logs_by_name[m.group(1).strip()] = out
+
 records = []
 files = []
 for instance_id, relpath in instances:
     suffix = Path(relpath).name
     stem = suffix[:-9] if suffix.endswith('.xml.lzma') else suffix
-    if stem.endswith('_c25'):
-        c25_index += 1
-        matches = sorted(base.glob(f'runsolver-ace64g-rr-c25-*-{c25_index}-{c25_index}.out'))
-    else:
-        no2025_id = no2025.get(relpath)
-        matches = sorted(base.glob(f'runsolver-ace64g-rr-p*-*-*-{no2025_id}.out')) if no2025_id else []
-    if matches:
-        out = matches[-1]
+    out = logs_by_name.get(stem)
+    if out:
         files.append(out.name)
         var = out.with_suffix('.var')
         if var.exists():
@@ -455,6 +461,110 @@ def build_run_options() -> str:
     return "\n".join(lines)
 
 
+def load_solution_validation(root: Path) -> list[dict[str, str]]:
+    path = logs_root(root) / "validation" / SOLUTION_VALIDATION_CSV
+    if not path.exists():
+        return []
+    with path.open(newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def build_solution_validation(root: Path) -> str:
+    rows = load_solution_validation(root)
+    if not rows:
+        return ""
+    by_label: dict[str, Counter[str]] = {}
+    for row in rows:
+        label = row.get("label") or row.get("run") or "unknown"
+        by_label.setdefault(label, Counter())[row.get("validation", "")] += 1
+
+    validation_path = logs_root(root) / "validation" / SOLUTION_VALIDATION_CSV
+    lines = [
+        "<h2 id=\"solution-validation\">Solution validation</h2>",
+        "<p>SAT と報告された解を <code>xcsp3-solutionChecker-2.6.0.jar</code> で検証した結果。</p>",
+        "<div class=\"table-wrap\"><table>",
+        "<thead><tr><th>run</th><th>checked SAT solutions</th><th>valid</th><th>invalid</th><th>checker_error</th><th>no_solution</th><th>missing_instance</th><th>checker_timeout</th></tr></thead>",
+        "<tbody>",
+    ]
+    for label in sorted(by_label):
+        counts = by_label[label]
+        checked = sum(counts.values())
+        lines.append(
+            "<tr>"
+            f"<td>{html.escape(label)}</td>"
+            f"<td>{checked}</td>"
+            f"<td>{counts['valid']}</td>"
+            f"<td>{counts['invalid']}</td>"
+            f"<td>{counts['checker_error']}</td>"
+            f"<td>{counts['no_solution']}</td>"
+            f"<td>{counts['missing_instance']}</td>"
+            f"<td>{counts['checker_timeout']}</td>"
+            "</tr>"
+        )
+    lines.extend(["</tbody>", "</table></div>"])
+    lines.append(f"<p>詳細 CSV: {rel_link(root, validation_path, SOLUTION_VALIDATION_CSV)}</p>")
+    return "\n".join(lines)
+
+
+def build_sat_unsat_consistency(
+    root: Path,
+    instances: list[tuple[int, str]],
+    labels: list[str],
+    cell_table: list[list[tuple[str, Path | None]]],
+) -> str:
+    selected = [(label, labels.index(label)) for label in SAT_UNSAT_CONSISTENCY_LABELS if label in labels]
+    if len(selected) < 2:
+        return ""
+
+    issue_rows: list[str] = []
+    pair_counts: Counter[str] = Counter()
+    for (instance_id, relpath), cells in zip(instances, cell_table):
+        selected_cells = [(label, cells[index]) for label, index in selected]
+        statuses = {label: cell[0] for label, cell in selected_cells}
+        sat_labels = [label for label, status in statuses.items() if status == "SAT"]
+        unsat_labels = [label for label, status in statuses.items() if status == "UNSAT"]
+        if not sat_labels or not unsat_labels:
+            continue
+        for sat_label in sat_labels:
+            for unsat_label in unsat_labels:
+                pair_counts[f"{sat_label} SAT vs {unsat_label} UNSAT"] += 1
+        issue_rows.append(
+            "<tr>"
+            f"<td>{instance_id}</td>"
+            f"<td><code>{html.escape(Path(relpath).name)}</code></td>"
+            + "".join(f"<td>{rel_link(root, path, label)}</td>" for _, (label, path) in selected_cells)
+            + "</tr>"
+        )
+
+    lines = [
+        "<h2 id=\"sat-unsat-consistency\">SAT/UNSAT consistency</h2>",
+        "<p><code>ae651e02 direct-order 2opt-off</code>、<code>856af1fd dirty log-scop autoBDD agg</code>、<code>ACE 64G rr</code> の間で、同一インスタンスに SAT と UNSAT が混在する矛盾を調べた結果。</p>",
+        "<div class=\"table-wrap\"><table>",
+        "<thead><tr><th>check</th><th>count</th></tr></thead>",
+        "<tbody>",
+        f"<tr><td>SAT/UNSAT conflicts</td><td>{len(issue_rows)}</td></tr>",
+    ]
+    for label, count in sorted(pair_counts.items()):
+        lines.append(f"<tr><td>{html.escape(label)}</td><td>{count}</td></tr>")
+    lines.extend(["</tbody>", "</table></div>"])
+
+    if issue_rows:
+        lines.extend(
+            [
+                "<h3>Conflict instances</h3>",
+                "<div class=\"table-wrap\"><table>",
+                "<thead><tr><th>#</th><th>instance</th>"
+                + "".join(f"<th>{html.escape(label)}</th>" for label, _ in selected)
+                + "</tr></thead>",
+                "<tbody>",
+                *issue_rows,
+                "</tbody>",
+                "</table></div>",
+            ]
+        )
+    return "\n".join(lines)
+
+
 def generate_html(root: Path) -> None:
     instances = read_instances(root)
     kat_rows = {run.slug: load_rows(root, run) for run in RUNS}
@@ -484,6 +594,8 @@ def generate_html(root: Path) -> None:
         "<p>対象は c22-c25 CSP-only 800 instances。複数コミット・設定の kat 結果（従来の direct-order / log-scop / portfolio、835f8aaf SCIP dynamic、1173b3f4 extprop8196 s40、10c9c43b extprop rule / eqne2、ae651e02 direct-order 2opt-off、ee715ee4 log-scop autoBDD など）と OR-Tools、ACE を同期したもの。</p>",
         build_summary(labels, cell_table),
         build_run_options(),
+        build_solution_validation(root),
+        build_sat_unsat_consistency(root, instances, labels, cell_table),
         "<h2 id=\"csp800-instance-table\">CSP800 instance table</h2>",
         "<div class=\"table-wrap\"><table>",
         "<thead><tr><th>#</th><th>instance</th>" + "".join(f"<th>{html.escape(label)}</th>" for label in labels) + "</tr></thead>",
