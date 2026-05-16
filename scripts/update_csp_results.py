@@ -33,6 +33,7 @@ class Run:
     result_dir: str
     runsolver_prefix: str
     remote_base: str
+    options: str = ""
 
 
 RUNS = [
@@ -77,6 +78,7 @@ RUNS = [
         "kat-c22-c25-csp800-log-scop-mdd-tl-scip-dynamic-20260508-835f8aaf-q10672",
         "runsolver-kat-c22-c25-csp800-log-scop-mdd-tl-scip-dynamic-20260508-835f8aaf-q10672",
         GR10672,
+        "--encoder log-scop --order-ge-table mdd-tl --progress",
     ),
     Run(
         "csp800-1173b3f4-order-direct-extprop8196-s40",
@@ -105,6 +107,14 @@ RUNS = [
         "kat-c22-c25-csp800-order-direct-mdd-tl-20260515-ae651e02-q10672",
         "runsolver-kat-c22-c25-csp800-order-direct-mdd-tl-20260515-ae651e02-q10672",
         GR10672,
+    ),
+    Run(
+        "csp800-ee715ee4-log-scop-autobdd",
+        "ee715ee4 log-scop autoBDD",
+        "kat-c22-c25-csp800-log-scop-mdd-tl-autobdd-20260515-ee715ee4-q10672",
+        "runsolver-kat-c22-c25-csp800-log-scop-mdd-tl-autobdd-20260515-ee715ee4-q10672",
+        GR10672,
+        "--encoder log-scop --order-ge-table mdd-tl --progress (default: auto-monotone-bdd2)",
     ),
 ]
 
@@ -416,6 +426,27 @@ def build_summary(labels: list[str], table: list[list[tuple[str, Path | None]]])
     return "\n".join(lines)
 
 
+def build_run_options() -> str:
+    runs = [run for run in RUNS if run.options]
+    if not runs:
+        return ""
+    lines = [
+        "<h2 id=\"run-options\">Run options</h2>",
+        "<div class=\"table-wrap\"><table>",
+        "<thead><tr><th>run</th><th>options</th></tr></thead>",
+        "<tbody>",
+    ]
+    for run in runs:
+        lines.append(
+            "<tr>"
+            f"<td>{html.escape(run.column)}</td>"
+            f"<td><code>{html.escape(run.options)}</code></td>"
+            "</tr>"
+        )
+    lines.extend(["</tbody>", "</table></div>"])
+    return "\n".join(lines)
+
+
 def generate_html(root: Path) -> None:
     instances = read_instances(root)
     kat_rows = {run.slug: load_rows(root, run) for run in RUNS}
@@ -442,8 +473,9 @@ def generate_html(root: Path) -> None:
     body = [
         "<h1 id=\"csp-results\">CSP Results</h1>",
         f"<p>最終更新: {date.today().isoformat()}</p>",
-        "<p>対象は c22-c25 CSP-only 800 instances。複数コミット・設定の kat 結果（従来の direct-order / log-scop / portfolio、835f8aaf SCIP dynamic、1173b3f4 extprop8196 s40、10c9c43b extprop rule / eqne2、ae651e02 direct-order 2opt-off など）と OR-Tools、ACE を同期したもの。</p>",
+        "<p>対象は c22-c25 CSP-only 800 instances。複数コミット・設定の kat 結果（従来の direct-order / log-scop / portfolio、835f8aaf SCIP dynamic、1173b3f4 extprop8196 s40、10c9c43b extprop rule / eqne2、ae651e02 direct-order 2opt-off、ee715ee4 log-scop autoBDD など）と OR-Tools、ACE を同期したもの。</p>",
         build_summary(labels, cell_table),
+        build_run_options(),
         "<h2 id=\"csp800-instance-table\">CSP800 instance table</h2>",
         "<div class=\"table-wrap\"><table>",
         "<thead><tr><th>#</th><th>instance</th>" + "".join(f"<th>{html.escape(label)}</th>" for label in labels) + "</tr></thead>",
