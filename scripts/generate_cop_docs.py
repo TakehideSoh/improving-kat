@@ -47,6 +47,8 @@ SCRIPT = """(() => {
     '1173b3f4 SCIP direct-order extge eager dynwatch',
     '835f8aaf SCIP direct-order dynamic',
     '835f8aaf SCIP log-scop dynamic',
+    '10c9c43b-dirty log-scop dadda no-root-lp',
+    '10c9c43b-dirty log-scop autoBDD no-root-lp rerun1',
     'aac6b714 SCIP direct-order dynamic',
     'bd3c9f7d SCIP direct-order dynamic',
     'bd3c9f7d SCIP log-scop dynamic',
