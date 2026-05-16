@@ -116,6 +116,14 @@ RUNS = [
         GR10672,
         "--encoder log-scop --order-ge-table mdd-tl --progress (default: auto-monotone-bdd2)",
     ),
+    Run(
+        "csp800-856af1fd-dirty-log-scop-autobdd-agg",
+        "856af1fd dirty log-scop autoBDD agg",
+        "kat-c22-c25-csp800-log-scop-mdd-tl-autobdd-agg-20260515-856af1fd-dirty-q10609",
+        "runsolver-kat-c22-c25-csp800-log-scop-mdd-tl-autobdd-agg-20260515-856af1fd-dirty-q10609",
+        GR10609,
+        "--encoder log-scop --order-ge-table mdd-tl --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --progress",
+    ),
 ]
 
 
