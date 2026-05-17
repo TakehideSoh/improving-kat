@@ -130,6 +130,14 @@ RUNS = [
         GR10609,
         "--encoder log-scop --order-ge-table mdd-tl --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --progress",
     ),
+    Run(
+        "csp800-261d4b72-portfolio-autobdd-agg",
+        "261d4b72 portfolio autoBDD agg",
+        "kat-c22-c25-csp800-portfolio-mdd-tl-autobdd-agg-20260516-261d4b72-q10672",
+        "runsolver-kat-c22-c25-csp800-portfolio-mdd-tl-autobdd-agg-20260516-261d4b72-q10672",
+        GR10672,
+        "--encoder portfolio --order-ge-table mdd-tl --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --progress",
+    ),
 ]
 
 
