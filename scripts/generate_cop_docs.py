@@ -49,6 +49,8 @@ SCRIPT = """(() => {
     '835f8aaf SCIP log-scop dynamic',
     '10c9c43b-dirty log-scop dadda no-root-lp',
     '10c9c43b-dirty log-scop autoBDD no-root-lp rerun1',
+    'a5249e5b log-scop autoBDD no-root-lp',
+    '261d4b72 direct-order extprop8196 s40 extobj no-root-lp no max-arity',
     'aac6b714 SCIP direct-order dynamic',
     'bd3c9f7d SCIP direct-order dynamic',
     'bd3c9f7d SCIP log-scop dynamic',

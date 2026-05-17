@@ -225,6 +225,14 @@ RUNS = [
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
+        "a5249e5b-log-scop-autobdd-norootlp",
+        "a5249e5b log-scop autoBDD no-root-lp",
+        "kat-cop1000-log-scop-mdd-tl-autobdd-norootlp-20260516-a5249e5b-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-log-scop-mdd-tl-autobdd-norootlp-20260516-a5249e5b-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
         "1173b3f4-scip-direct-order-extge-eager-dynwatch",
         "1173b3f4 SCIP direct-order extge eager dynwatch",
         "kat-cop1000-direct-order-mdd-tl-scip-extge-eager-dynwatch-20260511-1173b3f4-q10609",
@@ -238,6 +246,14 @@ RUNS = [
         "kat-cop1000-direct-order-mdd-tl-extprop-dp8196-s40-20260512-1173b3f4-q10609",
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-extprop-dp8196-s40-20260512-1173b3f4-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "261d4b72-direct-order-extprop8196-s40-extobj-norootlp-nomaxarity",
+        "261d4b72 direct-order extprop8196 s40 extobj no-root-lp no max-arity",
+        "kat-cop1000-direct-order-mdd-tl-extprop8196-s40-extobj-norootlp-nomaxarity-20260516-261d4b72-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-extprop8196-s40-extobj-norootlp-nomaxarity-20260516-261d4b72-q10609",
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(

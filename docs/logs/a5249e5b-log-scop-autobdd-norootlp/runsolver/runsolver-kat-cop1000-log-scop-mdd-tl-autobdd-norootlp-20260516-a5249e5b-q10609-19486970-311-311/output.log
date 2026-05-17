@@ -1,0 +1,106 @@
+c cmd: /host-parser-bin/kat_xcsp_a5249e5b_logscop_autobdd_norootlp_20260516 /bench/competition/2022-2025/COP22to25/Drinking-000050_c24.xml.lzma --encoder log-scop --order-ge-table mdd-tl --log-scop-linear-pb-backend auto --no-root-lp-bound --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=64
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=7 changed_domains=1 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=64
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=1 lowered=64 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=0 rounds=6 tightened=6 removed_cls=0 removed_lits=0 unsat=false precise_hits=440 precise_rounds=1 pivot_recomputes=27 pivot_exact_attempts=27 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=0 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:lowered-shape int_vars=100 bool_vars=0 linear_atoms=79 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=79
+c 00h00m00s | stage:root-lp:skip reason=disabled_by_option ms=0
+c 00h00m00s | stage:preencode(log-scop):start
+c 00h00m00s | stage:preencode(log-scop):done ms=0 int_vars=100
+c 00h00m00s | stage:encode(log-scop):start
+c 00h00m00s | stage:encode(log-scop):done ms=3 sat_vars=4514 sat_clauses=7891 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=128 log_scop_pb_mixed=0 log_scop_pb_bdd2=128 log_scop_pb_bdd3=0 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=128 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=4514 clauses=7891
+c 00h00m00s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cumulative_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h00m00s | stage:sat:solve:done round=1 ms=0 result=Sat assumptions=0 phase_lits=0
+c 00h00m00s | stage:decode:start round=1 requested_int_ids=100
+c 00h00m00s | stage:decode:final:start round=1 requested_int_ids=100
+c 00h00m00s | stage:decode:done round=1 int_assignments=100
+c 00h00m00s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h00m00s | result:Sat
+c 00h00m00s | objective:incumbent kind=initial value=35 rounds=1 improvements=0
+o 35
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=4514 clauses=7891
+c 00h00m00s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cumulative_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=235
+c 00h00m00s | stage:sat:solve:done round=1 ms=0 result=Sat assumptions=0 phase_lits=235
+c 00h00m00s | stage:decode:start round=1 requested_int_ids=100
+s SATISFIABLE
+o 35
+v <instantiation>
+v   <list> x[0] x[1] x[2] x[3] x[4] x[5] x[6] x[7] x[8] x[9] x[10] x[11] x[12] x[13] x[14] x[15] x[16] x[17] x[18] x[19] x[20] x[21] x[22] x[23] x[24] x[25] x[26] x[27] x[28] x[29] x[30] x[31] x[32] x[33] x[34] x[35] x[36] x[37] x[38] x[39] x[40] x[41] x[42] x[43] x[44] x[45] x[46] x[47] x[48] x[49] y[0] y[1] y[2] y[3] y[4] y[5] y[6] y[7] y[8] y[9] y[10] y[11] y[12] y[13] y[14] y[15] y[16] y[17] y[18] y[19] y[20] y[21] y[22] y[23] y[24] y[25] y[26] y[27] y[28] y[29] y[30] y[31] y[32] y[33] y[34] y[35] y[36] y[37] y[38] y[39] y[40] y[41] y[42] y[43] y[44] y[45] y[46] y[47] y[48] y[49] </list>
+v   <values> 1 1 1 1 1 0 1 0 1 1 0 1 1 1 0 0 1 1 1 1 0 0 1 1 1 0 1 1 0 1 0 1 1 1 1 0 1 1 1 1 0 1 0 1 1 0 1 1 1 0 0 1 2 3 4 5 5 6 6 6 6 5 5 5 6 5 5 5 5 6 6 5 4 5 6 6 5 5 5 5 6 5 5 5 6 6 5 6 6 7 7 6 6 5 6 6 5 5 5 6 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 35
+d OPTIMAL 0
+d SOURCE_CONSTRAINTS 64
+d NORMALIZED_CONSTRAINTS 64
+d LOWERED_CONSTRAINTS 64
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 1
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_ROUNDS 1
+d OBJECTIVE_IMPROVEMENTS 0
+d PROPAGATE_MS 0
+d NORMALIZE_MS 0
+d LOWER_MS 1
+d POST_LOWER_MS 0
+d PREENCODE_MS 0
+d ENCODE_MS 3
+d SAT_SOLVE_MS 0
+d TOTAL_MS 8
+d SAT_VARS 4514
+d SAT_CLAUSES_BASE 7891
+d SAT_CLAUSES_FINAL 7891
+d SAT_CLAUSES_CEGAR_DELTA 0
+d SAT_CONFLICTS 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":30,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":1,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"},"3":{"count":1,"max_domain_product_excluding_one_var":"4","p95_domain_product_excluding_one_var":"4"},"4":{"count":1,"max_domain_product_excluding_one_var":"8","p95_domain_product_excluding_one_var":"8"},"5":{"count":1,"max_domain_product_excluding_one_var":"16","p95_domain_product_excluding_one_var":"16"},"6":{"count":1,"max_domain_product_excluding_one_var":"32","p95_domain_product_excluding_one_var":"32"},"7":{"count":1,"max_domain_product_excluding_one_var":"64","p95_domain_product_excluding_one_var":"64"},"8":{"count":1,"max_domain_product_excluding_one_var":"128","p95_domain_product_excluding_one_var":"128"},"9":{"count":42,"max_domain_product_excluding_one_var":"256","p95_domain_product_excluding_one_var":"256"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 0
+d ROOT_LP_STATUS skipped
+d ROOT_LP_MS 0
+d ROOT_LP_REASON --no-root-lp-bound
+d PROPAGATE_PRUNED_VALUES 7
+d PROPAGATE_CHANGED_DOMAINS 1
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 6
+d POST_LOWER_TIGHTENED_DOMAINS 6
+d POST_LOWER_REMOVED_CLAUSES 0
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 100
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 128
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 128
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 0
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 128
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d DECODE_INT_ASSIGNMENTS 100
+d CSV /bench/competition/2022-2025/COP22to25/Drinking-000050_c24.xml.lzma,sat,64,64,64,0,4514,7891,8,0,0,1,0,3,0,0,skipped,,,,,,0,,,,,,,,best incumbent shown; objective improvement search stopped before optimality proof: log-scop objective-variable cut encode failed: log-scop incremental cut is missing base integer code for id=100
