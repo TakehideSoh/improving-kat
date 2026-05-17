@@ -250,7 +250,7 @@ RUNS = [
     ),
     Run(
         "261d4b72-direct-order-extprop8196-s40-extobj-norootlp-nomaxarity",
-        "261d4b72 direct-order extprop8196 s40 extobj no-root-lp no max-arity",
+        "[BUG] 261d4b72 direct-order extprop8196 s40 extobj no-root-lp no max-arity",
         "kat-cop1000-direct-order-mdd-tl-extprop8196-s40-extobj-norootlp-nomaxarity-20260516-261d4b72-q10609",
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-extprop8196-s40-extobj-norootlp-nomaxarity-20260516-261d4b72-q10609",

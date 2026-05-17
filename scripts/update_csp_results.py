@@ -132,7 +132,7 @@ RUNS = [
     ),
     Run(
         "csp800-261d4b72-portfolio-autobdd-agg",
-        "261d4b72 portfolio autoBDD agg",
+        "[BUG] 261d4b72 portfolio autoBDD agg",
         "kat-c22-c25-csp800-portfolio-mdd-tl-autobdd-agg-20260516-261d4b72-q10672",
         "runsolver-kat-c22-c25-csp800-portfolio-mdd-tl-autobdd-agg-20260516-261d4b72-q10672",
         GR10672,
