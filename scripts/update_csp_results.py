@@ -24,10 +24,11 @@ GR10609 = "/LARGE0/gr10609/b39275/xcsp3instances"
 HOME_ROOT = "/home/b/b39275/xcsp3instances"
 CSP_LIST_REMOTE = f"{GR10609}/adhoc/c22-c25-csp800/competition_all_c22_c25_csp_only.csv"
 RAW_LOG_BASE = "https://raw.githubusercontent.com/TakehideSoh/improving-kat/main/"
-SOLUTION_VALIDATION_CSV = "ae651e02_856af1fd_solution_checker_20260516.csv"
+SOLUTION_VALIDATION_CSV = "csp800_solution_checker_20260517.csv"
 SAT_UNSAT_CONSISTENCY_LABELS = [
     "ae651e02 direct-order 2opt-off",
     "856af1fd dirty log-scop autoBDD agg",
+    "261d4b72 dirty portfolio v2 autoBDD agg",
     "ACE 64G rr",
 ]
 
@@ -137,6 +138,14 @@ RUNS = [
         "runsolver-kat-c22-c25-csp800-portfolio-mdd-tl-autobdd-agg-20260516-261d4b72-q10672",
         GR10672,
         "--encoder portfolio --order-ge-table mdd-tl --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --progress",
+    ),
+    Run(
+        "csp800-261d4b72-dirty-portfolio-v2-autobdd-agg",
+        "261d4b72 dirty portfolio v2 autoBDD agg",
+        "kat-c22-c25-csp800-portfolio-v2-mdd-tl-autobdd-agg-20260517-261d4b72-dirty-q10672",
+        "runsolver-kat-c22-c25-csp800-portfolio-v2-mdd-tl-autobdd-agg-20260517-261d4b72-dirty-q10672",
+        GR10672,
+        "--encoder portfolio --portfolio-strategy v2 --order-ge-table mdd-tl --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --progress",
     ),
 ]
 
@@ -546,7 +555,7 @@ def build_sat_unsat_consistency(
 
     lines = [
         "<h2 id=\"sat-unsat-consistency\">SAT/UNSAT consistency</h2>",
-        "<p><code>ae651e02 direct-order 2opt-off</code>、<code>856af1fd dirty log-scop autoBDD agg</code>、<code>ACE 64G rr</code> の間で、同一インスタンスに SAT と UNSAT が混在する矛盾を調べた結果。</p>",
+        "<p><code>ae651e02 direct-order 2opt-off</code>、<code>856af1fd dirty log-scop autoBDD agg</code>、<code>261d4b72 dirty portfolio v2 autoBDD agg</code>、<code>ACE 64G rr</code> の間で、同一インスタンスに SAT と UNSAT が混在する矛盾を調べた結果。</p>",
         "<div class=\"table-wrap\"><table>",
         "<thead><tr><th>check</th><th>count</th></tr></thead>",
         "<tbody>",
@@ -599,7 +608,7 @@ def generate_html(root: Path) -> None:
     body = [
         "<h1 id=\"csp-results\">CSP Results</h1>",
         f"<p>最終更新: {date.today().isoformat()}</p>",
-        "<p>対象は c22-c25 CSP-only 800 instances。複数コミット・設定の kat 結果（従来の direct-order / log-scop / portfolio、835f8aaf SCIP dynamic、1173b3f4 extprop8196 s40、10c9c43b extprop rule / eqne2、ae651e02 direct-order 2opt-off、ee715ee4 log-scop autoBDD など）と OR-Tools、ACE を同期したもの。</p>",
+        "<p>対象は c22-c25 CSP-only 800 instances。複数コミット・設定の kat 結果（従来の direct-order / log-scop / portfolio、835f8aaf SCIP dynamic、1173b3f4 extprop8196 s40、10c9c43b extprop rule / eqne2、ae651e02 direct-order 2opt-off、ee715ee4 log-scop autoBDD、261d4b72 portfolio v2 autoBDD agg など）と OR-Tools、ACE を同期したもの。</p>",
         build_summary(labels, cell_table),
         build_run_options(),
         build_solution_validation(root),
