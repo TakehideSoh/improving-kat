@@ -1,0 +1,36 @@
+c cmd: /host-parser-bin/kat_xcsp_f85951b8_direct_order_extprop8196_s40_extobj_norootlp_nomaxarity_20260517 /bench/competition/2022-2025/COP22to25/Drinking-010000_c24.xml.lzma --encoder order-ge --cop-pipeline guarded-basic --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-extprop --order-ge-extprop-min-domain-product 8196 --order-ge-extprop-shorten-strategy balanced-chunks --order-ge-extprop-shorten-max-arity 40 --cop-objective-ext-ge --cop-objective-ext-ge-eager --no-root-lp-bound --progress
+c 00h00m17s | solve:start
+c 00h00m17s | input: constraints=13142
+c 00h00m17s | stage:propagate:start
+c 00h00m17s | stage:propagate:done ms=17 pruned=7 changed_domains=1 entailed_tables=0
+c 00h00m17s | stage:normalize:start
+c 00h00m17s | stage:normalize:done ms=0 high_constraints=13142
+c 00h00m17s | stage:lower:start
+c 00h00m17s | stage:lower:done ms=226 lowered=13142 unsupported=0
+c 00h00m17s | stage:post_lower:start
+c 00h00m17s | stage:post_lower:done ms=185 rounds=6 tightened=6 removed_cls=0 removed_lits=0 unsat=false precise_hits=89990 precise_rounds=1 pivot_recomputes=27 pivot_exact_attempts=27 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=28 loop_ms=4 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=1 sat_ms=0 precise_ms=144
+c 00h00m17s | stage:lowered-shape int_vars=20001 bool_vars=0 linear_atoms=16285 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=16284
+c 00h00m17s | stage:root-lp:skip reason=disabled_by_option ms=0
+c 00h00m17s | stage:preencode(order-ge):start
+c 00h00m18s | stage:preencode(order-ge):done ms=470 int_vars=59987
+c 00h00m18s | stage:encode(order-ge):start
+c 00h00m19s | stage:encode(order-ge):done ms=1262 sat_vars=422406 sat_clauses=2677432 ext_ge_specs=0 relaxed_circuits=0
+c 00h01m18s | stage:sat:init solver=CaDiCaL vars=422406 clauses=2677432
+c 00h01m18s | stage:sat:solve:start assumptions=0 phase_lits=0
+c 00h01m22s | stage:sat:solve:done ms=4509 result=Sat assumptions=0 phase_lits=0
+c 00h01m22s | stage:decode:start
+c 00h01m22s | stage:decode:done int_assignments=20001
+c 00h01m22s | result:Sat
+c 00h01m22s | objective:incumbent kind=initial value=1287 rounds=1 improvements=0
+o 1287
+c 00h01m22s | stage:sat:init solver=CaDiCaL vars=422406 clauses=2677433
+c 00h01m22s | stage:sat:solve:start assumptions=0 phase_lits=89972
+c 00h01m23s | stage:sat:solve:done ms=365 result=Sat assumptions=0 phase_lits=89972
+c 00h01m23s | stage:decode:start
+c 00h01m23s | stage:decode:done int_assignments=20001
+c 00h01m23s | result:Sat
+c 00h01m23s | objective:incumbent kind=improvement value=1286 rounds=2 improvements=1
+o 1286
+c 00h01m23s | stage:sat:init solver=CaDiCaL vars=422406 clauses=2677434
+c 00h01m23s | stage:sat:solve:start assumptions=0 phase_lits=89972
+bash: line 8: 4096703 Segmentation fault      (core dumped) "$PARSER_BIN" "$INSTANCE_PATH" "$@"
