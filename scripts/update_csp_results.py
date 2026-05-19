@@ -27,9 +27,12 @@ RAW_LOG_BASE = "https://raw.githubusercontent.com/TakehideSoh/improving-kat/main
 SOLUTION_VALIDATION_CSV = "csp800_solution_checker_20260517.csv"
 SAT_UNSAT_CONSISTENCY_LABELS = [
     "ae651e02 direct-order 2opt-off",
+    "cdc9557a order-direct extprop8196 s40 (ae651e02+bba76233)",
     "856af1fd dirty log-scop autoBDD agg",
     "261d4b72 dirty portfolio v2 autoBDD agg",
     "0a36be0b portfolio v2 shortsum2m autoBDD agg",
+    "6bbc2e40 portfolio v2 linear-simple autoBDD agg",
+    "bba76233 dirty portfolio v2 estcost autoBDD agg",
     "ACE 64G rr",
 ]
 
@@ -96,6 +99,14 @@ RUNS = [
         GR10672,
     ),
     Run(
+        "csp800-cdc9557a-order-direct-extprop8196-s40-ae651e02-bba76233",
+        "cdc9557a order-direct extprop8196 s40 (ae651e02+bba76233)",
+        "kat-c22-c25-csp800-order-direct-mdd-tl-extprop8196-s40-ae651e02-bba76233-20260519-cdc9557a-q10609",
+        "runsolver-kat-c22-c25-csp800-order-direct-mdd-tl-extprop8196-s40-ae651e02-bba76233-20260519-cdc9557a-q10609",
+        GR10609,
+        "--encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity all --order-ge-extprop --order-ge-extprop-min-domain-product 8196 --order-ge-extprop-shorten-strategy balanced-chunks --order-ge-extprop-shorten-max-arity 40 --progress",
+    ),
+    Run(
         "csp800-10c9c43b-order-direct-extprop-rule-dp1e10-specs200-saved1m",
         "10c9c43b order-direct extprop rule dp1e10 specs200 saved1m",
         "kat-c22-c25-csp800-order-direct-mdd-tl-extprop-rule-dp1e10-specs200-saved1m-20260513-10c9c43b-q10672",
@@ -154,6 +165,22 @@ RUNS = [
         "kat-c22-c25-csp800-portfolio-v2-shortsum2m-mdd-tl-autobdd-agg-20260517-0a36be0b-q10672",
         "runsolver-kat-c22-c25-csp800-portfolio-v2-shortsum2m-mdd-tl-autobdd-agg-20260517-0a36be0b-q10672",
         GR10672,
+        "--encoder portfolio --portfolio-strategy v2 --order-ge-table mdd-tl --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --progress",
+    ),
+    Run(
+        "csp800-6bbc2e40-portfolio-v2-linear-simple-autobdd-agg",
+        "6bbc2e40 portfolio v2 linear-simple autoBDD agg",
+        "kat-c22-c25-csp800-portfolio-v2-linear-simple-mdd-tl-autobdd-agg-20260518-6bbc2e40-q10672",
+        "runsolver-kat-c22-c25-csp800-portfolio-v2-linear-simple-mdd-tl-autobdd-agg-20260518-6bbc2e40-q10672",
+        GR10672,
+        "--encoder portfolio --portfolio-strategy v2 --order-ge-table mdd-tl --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --progress",
+    ),
+    Run(
+        "csp800-bba76233-dirty-portfolio-v2-estcost-autobdd-agg",
+        "bba76233 dirty portfolio v2 estcost autoBDD agg",
+        "kat-c22-c25-csp800-portfolio-v2-estcost-mdd-tl-autobdd-agg-20260519-bba76233-dirty-q10609",
+        "runsolver-kat-c22-c25-csp800-portfolio-v2-estcost-mdd-tl-autobdd-agg-20260519-bba76233-dirty-q10609",
+        GR10609,
         "--encoder portfolio --portfolio-strategy v2 --order-ge-table mdd-tl --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --progress",
     ),
 ]
@@ -564,7 +591,7 @@ def build_sat_unsat_consistency(
 
     lines = [
         "<h2 id=\"sat-unsat-consistency\">SAT/UNSAT consistency</h2>",
-        "<p><code>ae651e02 direct-order 2opt-off</code>、<code>856af1fd dirty log-scop autoBDD agg</code>、<code>261d4b72 dirty portfolio v2 autoBDD agg</code>、<code>0a36be0b portfolio v2 shortsum2m autoBDD agg</code>、<code>ACE 64G rr</code> の間で、同一インスタンスに SAT と UNSAT が混在する矛盾を調べた結果。</p>",
+        "<p><code>ae651e02 direct-order 2opt-off</code>、<code>cdc9557a order-direct extprop8196 s40 (ae651e02+bba76233)</code>、<code>856af1fd dirty log-scop autoBDD agg</code>、<code>261d4b72 dirty portfolio v2 autoBDD agg</code>、<code>0a36be0b portfolio v2 shortsum2m autoBDD agg</code>、<code>6bbc2e40 portfolio v2 linear-simple autoBDD agg</code>、<code>bba76233 dirty portfolio v2 estcost autoBDD agg</code>、<code>ACE 64G rr</code> の間で、同一インスタンスに SAT と UNSAT が混在する矛盾を調べた結果。</p>",
         "<div class=\"table-wrap\"><table>",
         "<thead><tr><th>check</th><th>count</th></tr></thead>",
         "<tbody>",
@@ -617,7 +644,7 @@ def generate_html(root: Path) -> None:
     body = [
         "<h1 id=\"csp-results\">CSP Results</h1>",
         f"<p>最終更新: {date.today().isoformat()}</p>",
-        "<p>対象は c22-c25 CSP-only 800 instances。複数コミット・設定の kat 結果（従来の direct-order / log-scop / portfolio、835f8aaf SCIP dynamic、1173b3f4 extprop8196 s40、10c9c43b extprop rule / eqne2、ae651e02 direct-order 2opt-off、ee715ee4 log-scop autoBDD、261d4b72 portfolio v2 autoBDD agg、0a36be0b portfolio v2 shortsum2m autoBDD agg など）と OR-Tools、ACE を同期したもの。</p>",
+        "<p>対象は c22-c25 CSP-only 800 instances。複数コミット・設定の kat 結果（従来の direct-order / log-scop / portfolio、835f8aaf SCIP dynamic、1173b3f4 extprop8196 s40、10c9c43b extprop rule / eqne2、ae651e02 direct-order 2opt-off、cdc9557a ae651e02+bba76233 extprop8196 s40、ee715ee4 log-scop autoBDD、261d4b72 portfolio v2 autoBDD agg、0a36be0b portfolio v2 shortsum2m autoBDD agg、6bbc2e40 portfolio v2 linear-simple autoBDD agg、bba76233 dirty portfolio v2 estcost autoBDD agg など）と OR-Tools、ACE を同期したもの。</p>",
         build_summary(labels, cell_table),
         build_run_options(),
         build_solution_validation(root),
