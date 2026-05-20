@@ -54,6 +54,12 @@ DEFAULT_CHECKER_JAR = Path(
 )
 DEFAULT_BENCHMARK_DIR = Path("/home/soh/02_prog/benchmark")
 BAD_VALIDATION = {"invalid", "checker_error", "checker_timeout"}
+CONSISTENCY_RUNS = [
+    "ace64g-rr-20260505",
+    "pycsp3-extra-ortools-20260505",
+    "pycsp3-extra-ortools-1t-rerun1-20260505",
+    "pycsp3-extra-ortools-1t-verbose1-20260509",
+]
 REFERENCE_COMPARE_TARGET = "835f8aaf-scip-direct-order-dynamic"
 REFERENCE_COMPARE_RUNS = [
     "ace64g-rr-20260505",
@@ -270,6 +276,30 @@ RUNS = [
         "kat-cop1000-direct-order-mdd-tl-extprop8196-s40-extobj-norootlp-nomaxarity-20260517-f85951b8-q10609",
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-extprop8196-s40-extobj-norootlp-nomaxarity-20260517-f85951b8-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "c70e1a64-direct-order-extprop8196-s40-extobj-linkcost-maxarity2-norootlp",
+        "c70e1a64 direct-order extprop8196 s40 extobj link-cost maxarity2 no-root-lp",
+        "kat-cop1000-direct-order-mdd-tl-extprop8196-s40-extobj-linkcost-maxarity2-norootlp-20260519-c70e1a64-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-extprop8196-s40-extobj-linkcost-maxarity2-norootlp-20260519-c70e1a64-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "c70e1a64-direct-order-extprop8196-s40-linkcost-maxarity2-norootlp",
+        "c70e1a64 direct-order extprop8196 s40 link-cost maxarity2 no-root-lp",
+        "kat-cop1000-direct-order-mdd-tl-extprop8196-s40-linkcost-maxarity2-norootlp-20260519-c70e1a64-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-extprop8196-s40-linkcost-maxarity2-norootlp-20260519-c70e1a64-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "489538e3-direct-order-extprop8196-s40-directexpr-linkcost-maxarity2-norootlp",
+        "489538e3 direct-order extprop8196 s40 directexpr link-cost maxarity2 no-root-lp",
+        "kat-cop1000-direct-order-mdd-tl-extprop8196-s40-directexpr-linkcost-maxarity2-norootlp-20260519-489538e3-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-extprop8196-s40-directexpr-linkcost-maxarity2-norootlp-20260519-489538e3-q10609",
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
@@ -1454,14 +1484,16 @@ def format_decimal(value: object) -> str:
 
 def consistency_issues(root: Path, benchmark_dir: Path) -> list[dict[str, str]]:
     instances = read_instances(root)
-    all_rows = {run.slug: load_rows(root, run) for run in RUNS}
+    runs = {run.slug: run for run in RUNS}
+    selected_runs = [runs[slug] for slug in CONSISTENCY_RUNS if slug in runs]
+    all_rows = {run.slug: load_rows(root, run) for run in selected_runs}
     validation = load_validation(root)
     issues: list[dict[str, str]] = []
 
     for instance_id, instance in instances:
         sense = objective_sense(benchmark_dir, instance)
         entries: list[dict[str, object]] = []
-        for run in RUNS:
+        for run in selected_runs:
             row_path, fields = all_rows[run.slug].get(instance_id, (None, []))
             log_path = log_path_for_row(root, run, instance_id, row_path)
             incumbent, _, _ = parse_log(log_path)
@@ -1565,7 +1597,7 @@ def build_consistency_stats(root: Path) -> str:
         "",
         "## Cross-solver consistency stats",
         "",
-        "This check compares solver results for each instance after excluding cells marked `invalid`, `checker_error`, or `checker_timeout` by validation.",
+        "This check compares only the trusted ACE rr and OR-Tools runs for each instance after excluding cells marked `invalid`, `checker_error`, or `checker_timeout` by validation.",
         "It reports differing proved optima, incumbents that beat a proved optimum according to the XCSP3 objective sense, and UNSAT/value contradictions.",
         "",
         "| issue | count |",

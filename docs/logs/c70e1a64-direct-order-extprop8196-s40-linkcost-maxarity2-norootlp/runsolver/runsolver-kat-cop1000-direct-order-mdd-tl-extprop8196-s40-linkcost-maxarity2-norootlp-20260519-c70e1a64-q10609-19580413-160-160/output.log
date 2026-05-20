@@ -1,0 +1,32 @@
+c cmd: /host-parser-bin/kat_xcsp_c70e1a64_linkcost_20260519 /bench/competition/2022-2025/COP22to25/Cargo-01-0s-1913_c24.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --order-ge-extprop --order-ge-extprop-min-domain-product 8196 --order-ge-extprop-shorten-strategy balanced-chunks --order-ge-extprop-shorten-max-arity 40 --order-ge-shorten-link-cost --no-root-lp-bound --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=198
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=1091175 changed_domains=73 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=198
+c 00h00m00s | stage:lower:start
+c 00h00m08s | stage:lower:done ms=8417 lowered=198 unsupported=0
+c 00h00m08s | stage:post_lower:start
+c 00h00m09s | stage:post_lower:done ms=755 rounds=60 tightened=115 removed_cls=475234 removed_lits=253587 unsat=false precise_hits=143 precise_rounds=2 pivot_recomputes=230 pivot_exact_attempts=43 pivot_general_attempts=187 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=172 pivot_general_tightened=15 setup_ms=367 loop_ms=231 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=112 sat_ms=0 precise_ms=44
+c 00h00m09s | stage:lowered-shape int_vars=193 bool_vars=1071760 linear_atoms=1098049 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=1694745
+c 00h00m09s | stage:root-lp:skip reason=disabled_by_option ms=0
+c 00h00m09s | stage:preencode(order-ge):start
+c 00h00m12s | stage:preencode(order-ge):done ms=3629 int_vars=240604
+c 00h00m12s | stage:encode(order-ge):start
+c 00h00m46s | stage:encode(order-ge):done ms=33193 sat_vars=4601384 sat_clauses=103824542 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m47s | stage:sat:init solver=CaDiCaL vars=4601384 clauses=103824542
+c 00h00m47s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cumulative_cegar_rounds=1 cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h01m11s | stage:sat:solve:done round=1 ms=23867 result=Sat assumptions=0 phase_lits=0
+c 00h01m11s | stage:decode:start round=1 requested_int_ids=153
+c 00h01m11s | stage:decode:final:start round=1 requested_int_ids=153
+c 00h01m11s | stage:decode:done round=1 int_assignments=153
+c 00h01m11s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=1 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h01m11s | result:Sat
+c 00h01m11s | objective:incumbent kind=initial value=57483 rounds=1 improvements=0
+o 57483
+c 00h01m11s | stage:sat:init solver=CaDiCaL vars=4601384 clauses=103824542
+c 00h01m11s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cumulative_cegar_rounds=2 cop_cegar_rounds=2 assumptions=0 phase_lits=525791
+c 00h01m14s | stage:sat:solve:done round=1 ms=2989 result=Sat assumptions=0 phase_lits=525791
+c 00h01m14s | stage:decode:start round=1 requested_int_ids=153
+bash: line 8: 2861536 Killed                  "$PARSER_BIN" "$INSTANCE_PATH" "$@"

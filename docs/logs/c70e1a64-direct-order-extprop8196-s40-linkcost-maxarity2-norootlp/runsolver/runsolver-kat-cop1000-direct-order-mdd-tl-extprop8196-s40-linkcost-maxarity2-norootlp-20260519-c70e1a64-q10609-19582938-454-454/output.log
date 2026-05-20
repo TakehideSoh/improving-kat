@@ -1,0 +1,93 @@
+c cmd: /host-parser-bin/kat_xcsp_c70e1a64_linkcost_20260519 /bench/competition/2022-2025/COP22to25/HSP-14409_c23.xml.lzma --encoder order-ge --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --order-ge-extprop --order-ge-extprop-min-domain-product 8196 --order-ge-extprop-shorten-strategy balanced-chunks --order-ge-extprop-shorten-max-arity 40 --order-ge-shorten-link-cost --no-root-lp-bound --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=157
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=1200 changed_domains=20 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=157
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=1 lowered=157 unsupported=0
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=0 rounds=9 tightened=9 removed_cls=48 removed_lits=38 unsat=false precise_hits=0 precise_rounds=0 pivot_recomputes=9 pivot_exact_attempts=0 pivot_general_attempts=9 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=9 pivot_general_tightened=0 setup_ms=0 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | stage:lowered-shape int_vars=31 bool_vars=495 linear_atoms=406 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=1 circuit_atoms=0 product_atoms=0 logical_clauses=710
+c 00h00m00s | stage:root-lp:skip reason=disabled_by_option ms=0
+c 00h00m00s | stage:preencode(order-ge):start
+c 00h00m00s | stage:preencode(order-ge):done ms=0 int_vars=47
+c 00h00m00s | stage:encode(order-ge):start
+c 00h00m01s | stage:encode(order-ge):done ms=1543 sat_vars=21241 sat_clauses=4852995 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m01s | stage:sat:init solver=CaDiCaL vars=21241 clauses=4852995
+c 00h00m01s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cumulative_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h00m01s | stage:sat:solve:done round=1 ms=92 result=Sat assumptions=0 phase_lits=0
+c 00h00m01s | stage:decode:start round=1 requested_int_ids=31
+c 00h00m01s | stage:decode:final:start round=1 requested_int_ids=31
+c 00h00m01s | stage:decode:done round=1 int_assignments=31
+c 00h00m01s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h00m01s | result:Sat
+c 00h00m01s | objective:incumbent kind=initial value=610 rounds=1 improvements=0
+o 610
+c 00h00m01s | stage:sat:init solver=CaDiCaL vars=21241 clauses=4852995
+c 00h00m01s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cumulative_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=5691
+c 00h00m01s | stage:sat:solve:done round=1 ms=11 result=Sat assumptions=0 phase_lits=5691
+c 00h00m01s | stage:decode:start round=1 requested_int_ids=31
+c 00h00m01s | stage:relaxation:done round=1 clauses_added=1 circuit_clauses_added=0 cumulative_clauses_added=0 cop_clauses_added=1 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=1 cop_cegar_rounds=2 cop_cegar_added_clauses=1
+c 00h00m01s | stage:sat:solve:start round=2 circuit_cegar_rounds=- cumulative_cegar_rounds=- cop_cegar_rounds=3 assumptions=0 phase_lits=5691
+c 00h00m03s | stage:sat:solve:done round=2 ms=2120 result=Unsat assumptions=0 phase_lits=5691
+c 00h00m03s | result:Unsat
+s OPTIMUM FOUND
+o 610
+v <instantiation>
+v   <list> t[0] t[1] t[2] t[3] t[4] t[5] t[6] t[7] t[8] t[9] o[0] o[1] o[2] o[3] o[4] o[5] o[6] o[7] o[8] o[9] d[0] d[1] d[2] d[3] d[4] d[5] d[6] d[7] d[8] d[9] z </list>
+v   <values> 0 55 134 183 217 259 304 385 458 507 0 1 2 3 4 5 6 7 8 9 0 55 79 49 34 42 45 81 73 49 610 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 610
+d OPTIMAL 1
+d SOURCE_CONSTRAINTS 157
+d NORMALIZED_CONSTRAINTS 157
+d LOWERED_CONSTRAINTS 157
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 1
+d COP_CEGAR_ROUNDS 3
+d COP_CEGAR_ADDED_CLAUSES 1
+d OBJECTIVE_ROUNDS 2
+d OBJECTIVE_IMPROVEMENTS 0
+d OBJECTIVE_OPTIMALITY_PROOF strict_cut_unsat
+d PROPAGATE_MS 0
+d NORMALIZE_MS 0
+d LOWER_MS 1
+d POST_LOWER_MS 0
+d PREENCODE_MS 0
+d ENCODE_MS 1543
+d SAT_SOLVE_MS 2223
+d TOTAL_MS 3773
+d SAT_VARS 21241
+d SAT_CLAUSES_BASE 4852995
+d SAT_CLAUSES_FINAL 4852996
+d SAT_CLAUSES_CEGAR_DELTA 1
+d SAT_CONFLICTS 776
+d LINEAR_INT_EQ_ARITY_STATS {"2":{"count":99,"max_domain_product_excluding_one_var":"391","p95_domain_product_excluding_one_var":"391"},"3":{"count":9,"max_domain_product_excluding_one_var":"50904","p95_domain_product_excluding_one_var":"50904"},"4":{"count":9,"max_domain_product_excluding_one_var":"19903464","p95_domain_product_excluding_one_var":"19903464"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":9,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":280,"max_domain_product_excluding_one_var":"549","p95_domain_product_excluding_one_var":"531"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 0
+d ROOT_LP_STATUS skipped
+d ROOT_LP_MS 0
+d ROOT_LP_REASON --no-root-lp-bound
+d PROPAGATE_PRUNED_VALUES 1200
+d PROPAGATE_CHANGED_DOMAINS 20
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 9
+d POST_LOWER_TIGHTENED_DOMAINS 9
+d POST_LOWER_REMOVED_CLAUSES 48
+d POST_LOWER_REMOVED_LITS 38
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 47
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d DECODE_INT_ASSIGNMENTS 31
+d CSV /bench/competition/2022-2025/COP22to25/HSP-14409_c23.xml.lzma,optimum,157,157,157,0,21241,4852996,3773,0,0,1,0,1543,2223,0,skipped,,,,,,0,,,,,,,,

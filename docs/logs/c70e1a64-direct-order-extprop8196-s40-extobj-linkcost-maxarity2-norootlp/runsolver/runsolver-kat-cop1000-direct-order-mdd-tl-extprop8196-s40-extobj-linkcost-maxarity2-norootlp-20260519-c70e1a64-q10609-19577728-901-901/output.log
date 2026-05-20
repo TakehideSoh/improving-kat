@@ -1,0 +1,89 @@
+c cmd: /host-parser-bin/kat_xcsp_c70e1a64_linkcost_20260519 /bench/competition/2022-2025/COP22to25/TestScheduling-t030m10r03-1_c24.xml.lzma --encoder order-ge --cop-objective-ext-ge-eager --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --order-ge-extprop --order-ge-extprop-min-domain-product 8196 --order-ge-extprop-shorten-strategy balanced-chunks --order-ge-extprop-shorten-max-arity 40 --order-ge-shorten-link-cost --no-root-lp-bound --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=387
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=2 pruned=0 changed_domains=0 entailed_tables=0
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=387
+c 00h00m00s | stage:lower:start
+c 00h00m05s | stage:lower:done ms=5942 lowered=387 unsupported=0
+c 00h00m05s | stage:post_lower:start
+c 00h00m06s | stage:post_lower:done ms=410 rounds=0 tightened=0 removed_cls=46440 removed_lits=34321 unsat=false precise_hits=0 precise_rounds=0 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=231 loop_ms=151 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=26 sat_ms=0 precise_ms=0
+c 00h00m06s | stage:lowered-shape int_vars=61 bool_vars=713752 linear_atoms=725605 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=1392123
+c 00h00m06s | stage:root-lp:skip reason=disabled_by_option ms=0
+c 00h00m06s | stage:preencode(order-ge):start
+c 00h00m09s | stage:preencode(order-ge):done ms=3453 int_vars=249436
+c 00h00m09s | stage:encode(order-ge):start
+c 00h00m17s | stage:encode(order-ge):done ms=7542 sat_vars=3460403 sat_clauses=18089351 ext_ge_specs=0 relaxed_circuits=0
+c 00h13m13s | stage:sat:init solver=CaDiCaL vars=3460403 clauses=18089351
+c 00h13m13s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cumulative_cegar_rounds=1 cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h13m15s | stage:sat:solve:done round=1 ms=1433 result=Sat assumptions=0 phase_lits=0
+c 00h13m15s | stage:decode:start round=1 requested_int_ids=61
+c 00h13m15s | stage:decode:final:start round=1 requested_int_ids=61
+c 00h13m15s | stage:decode:done round=1 int_assignments=61
+c 00h13m15s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=1 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h13m15s | result:Sat
+c 00h13m15s | objective:incumbent kind=initial value=11558 rounds=1 improvements=0
+o 11558
+c 00h13m15s | stage:sat:init solver=CaDiCaL vars=3460403 clauses=18089351
+c 00h13m15s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cumulative_cegar_rounds=2 cop_cegar_rounds=2 assumptions=0 phase_lits=333254
+c 00h13m16s | stage:sat:solve:done round=1 ms=516 result=Sat assumptions=0 phase_lits=333254
+c 00h13m16s | stage:decode:start round=1 requested_int_ids=61
+c 00h13m17s | result:unknown reason=relaxation_budget_exceeded detail=relaxation produced 1484583 clauses in one round, exceeding limit 1000000
+s SATISFIABLE
+o 11558
+v <instantiation>
+v   <list> s[0] s[1] s[2] s[3] s[4] s[5] s[6] s[7] s[8] s[9] s[10] s[11] s[12] s[13] s[14] s[15] s[16] s[17] s[18] s[19] s[20] s[21] s[22] s[23] s[24] s[25] s[26] s[27] s[28] s[29] m[0] m[1] m[2] m[3] m[4] m[5] m[6] m[7] m[8] m[9] m[10] m[11] m[12] m[13] m[14] m[15] m[16] m[17] m[18] m[19] m[20] m[21] m[22] m[23] m[24] m[25] m[26] m[27] m[28] m[29] </list>
+v   <values> 11101 10643 10165 9937 9878 9349 9439 9334 9129 8741 8610 8205 7900 7316 6556 6270 6123 5697 5217 4993 4633 4369 4218 4070 3650 2966 2674 1929 1788 1014 7 0 0 0 2 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 11558
+d OPTIMAL 0
+d SOURCE_CONSTRAINTS 387
+d NORMALIZED_CONSTRAINTS 387
+d LOWERED_CONSTRAINTS 387
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 2
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 2
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_ROUNDS 2
+d OBJECTIVE_IMPROVEMENTS 0
+d PROPAGATE_MS 2
+d NORMALIZE_MS 0
+d LOWER_MS 5942
+d POST_LOWER_MS 410
+d PREENCODE_MS 3453
+d ENCODE_MS 7542
+d SAT_SOLVE_MS 1949
+d TOTAL_MS 797246
+d SAT_VARS 3460403
+d SAT_CLAUSES_BASE 18089351
+d SAT_CLAUSES_FINAL 18089351
+d SAT_CLAUSES_CEGAR_DELTA 0
+d SAT_CONFLICTS 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":1,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":1,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":382,"max_domain_product_excluding_one_var":"10","p95_domain_product_excluding_one_var":"10"}}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":712500,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":846,"max_domain_product_excluding_one_var":"11102","p95_domain_product_excluding_one_var":"11102"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"30":{"count":11875,"max_domain_product_excluding_one_var":"536870912","p95_domain_product_excluding_one_var":"536870912"}}
+d ROOT_LP_ENTERED 0
+d ROOT_LP_STATUS skipped
+d ROOT_LP_MS 0
+d ROOT_LP_REASON --no-root-lp-bound
+d PROPAGATE_PRUNED_VALUES 0
+d PROPAGATE_CHANGED_DOMAINS 0
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 0
+d POST_LOWER_TIGHTENED_DOMAINS 0
+d POST_LOWER_REMOVED_CLAUSES 46440
+d POST_LOWER_REMOVED_LITS 34321
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 249436
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d DECODE_INT_ASSIGNMENTS 61
+d CSV /bench/competition/2022-2025/COP22to25/TestScheduling-t030m10r03-1_c24.xml.lzma,sat,387,387,387,0,3460403,18089351,797246,2,0,5942,3453,7542,1949,0,skipped,,,,,,0,,,,,,,,"best incumbent shown; guarded improvement search stopped before optimality proof: relaxation produced 1484583 clauses in one round, exceeding limit 1000000"
