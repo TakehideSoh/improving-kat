@@ -1,0 +1,646 @@
+c cmd: /host-parser-bin/kat_xcsp_b85de3f1_dirty_memoryguard_20260521 /bench/competition/2022-2025/COP22to25/AztecDiamondSym-09_c24.xml.lzma --encoder order-ge --order-ge-eq-ne direct-order --order-ge-table mdd-tl --memory-guard-gib 64 --memory-guard-fallback extprop --cop-pipeline guarded-basic --cop-objective-cut direct-expr --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=181
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=31 pruned=0 changed_domains=0 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=10534912
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=181
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=114 lowered=181 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=11792384
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=4 rounds=0 tightened=0 removed_cls=0 removed_lits=0 unsat=false precise_hits=0 precise_rounds=0 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=1 loop_ms=2 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=12599296
+c 00h00m00s | stage:lowered-shape int_vars=324 bool_vars=16200 linear_atoms=16290 table_atoms=180 table_tuples=58320 table_scope=828 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=32670
+c 00h00m00s | stage:root-lp:start backend=native-simplex
+c 00h00m09s | stage:root-lp:bound backend=native-simplex status=optimal objective_value=0 naive_bounds=[0,121485] lp_bounds=[0,121485] improved=0 rows=90 vars=16524 ms=9101
+c 00h00m09s | memory:rss checkpoint=before_preencode bytes=3343552512
+c 00h00m09s | stage:preencode(order-ge):start
+c 00h00m09s | stage:preencode(order-ge):done ms=125 int_vars=8424
+c 00h00m09s | memory:rss checkpoint=after_preencode bytes=3343699968
+c 00h00m09s | memory:guard limit_bytes=68719476736 rss_bytes=3343699968 reserve_bytes=10737418240 available_bytes=54638358528 fallback=extprop
+c 00h00m09s | memory:rss checkpoint=before_encode bytes=3343699968
+c 00h00m09s | stage:encode(order-ge):start
+c 00h00m10s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=1000000 bytes=3344244736 interval_clauses=1000000
+c 00h00m10s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=2000000 bytes=3344244736 interval_clauses=1000000
+c 00h00m10s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=3000000 bytes=3344244736 interval_clauses=1000000
+c 00h00m11s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=4000000 bytes=3344244736 interval_clauses=1000000
+c 00h00m11s | stage:encode(order-ge):done ms=1908 sat_vars=281718 sat_clauses=4013622 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m12s | stage:sat:init solver=CaDiCaL vars=281718 clauses=4013622
+c 00h00m12s | stage:sat:solve:start assumptions=0 phase_lits=0
+c 00h05m44s | stage:sat:solve:done ms=332172 result=Sat assumptions=0 phase_lits=0
+c 00h05m44s | stage:decode:start
+c 00h05m44s | stage:decode:done int_assignments=324
+c 00h05m44s | result:Sat
+c 00h05m44s | objective:incumbent kind=initial value=61557 rounds=1 improvements=0
+o 61557
+c 00h05m44s | stage:sat:init solver=CaDiCaL vars=281719 clauses=4013622
+c 00h05m44s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h05m44s | stage:sat:solve:done ms=103 result=Sat assumptions=1 phase_lits=28836
+c 00h05m44s | stage:decode:start
+c 00h05m44s | stage:decode:done int_assignments=324
+c 00h05m44s | result:Sat
+c 00h05m44s | objective:incumbent kind=improvement value=61550 rounds=2 improvements=1
+o 61550
+c 00h05m44s | stage:sat:init solver=CaDiCaL vars=281720 clauses=4013623
+c 00h05m44s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h05m44s | stage:sat:solve:done ms=83 result=Sat assumptions=1 phase_lits=28836
+c 00h05m44s | stage:decode:start
+c 00h05m44s | stage:decode:done int_assignments=324
+c 00h05m44s | result:Sat
+c 00h05m44s | objective:incumbent kind=improvement value=61508 rounds=3 improvements=2
+o 61508
+c 00h05m44s | stage:sat:init solver=CaDiCaL vars=281721 clauses=4013624
+c 00h05m44s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h05m44s | stage:sat:solve:done ms=55 result=Sat assumptions=1 phase_lits=28836
+c 00h05m44s | stage:decode:start
+c 00h05m44s | stage:decode:done int_assignments=324
+c 00h05m44s | result:Sat
+c 00h05m44s | objective:incumbent kind=improvement value=61452 rounds=4 improvements=3
+o 61452
+c 00h05m44s | stage:sat:init solver=CaDiCaL vars=281722 clauses=4013625
+c 00h05m44s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h05m44s | stage:sat:solve:done ms=49 result=Sat assumptions=1 phase_lits=28836
+c 00h05m44s | stage:decode:start
+c 00h05m44s | stage:decode:done int_assignments=324
+c 00h05m44s | result:Sat
+c 00h05m44s | objective:incumbent kind=improvement value=61389 rounds=5 improvements=4
+o 61389
+c 00h05m44s | stage:sat:init solver=CaDiCaL vars=281723 clauses=4013626
+c 00h05m44s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h05m44s | stage:sat:solve:done ms=43 result=Sat assumptions=1 phase_lits=28836
+c 00h05m44s | stage:decode:start
+c 00h05m44s | stage:decode:done int_assignments=324
+c 00h05m44s | result:Sat
+c 00h05m44s | objective:incumbent kind=improvement value=61236 rounds=6 improvements=5
+o 61236
+c 00h05m44s | stage:sat:init solver=CaDiCaL vars=281724 clauses=4013627
+c 00h05m44s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h05m44s | stage:sat:solve:done ms=66 result=Sat assumptions=1 phase_lits=28836
+c 00h05m44s | stage:decode:start
+c 00h05m44s | stage:decode:done int_assignments=324
+c 00h05m44s | result:Sat
+c 00h05m44s | objective:incumbent kind=improvement value=61193 rounds=7 improvements=6
+o 61193
+c 00h05m44s | stage:sat:init solver=CaDiCaL vars=281725 clauses=4013628
+c 00h05m44s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h05m44s | stage:sat:solve:done ms=61 result=Sat assumptions=1 phase_lits=28836
+c 00h05m44s | stage:decode:start
+c 00h05m44s | stage:decode:done int_assignments=324
+c 00h05m44s | result:Sat
+c 00h05m44s | objective:incumbent kind=improvement value=61175 rounds=8 improvements=7
+o 61175
+c 00h05m44s | stage:sat:init solver=CaDiCaL vars=281726 clauses=4013629
+c 00h05m44s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h06m04s | stage:sat:solve:done ms=19298 result=Sat assumptions=1 phase_lits=28836
+c 00h06m04s | stage:decode:start
+c 00h06m04s | stage:decode:done int_assignments=324
+c 00h06m04s | result:Sat
+c 00h06m04s | objective:incumbent kind=improvement value=60999 rounds=9 improvements=8
+o 60999
+c 00h06m04s | stage:sat:init solver=CaDiCaL vars=281727 clauses=4013630
+c 00h06m04s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h06m04s | stage:sat:solve:done ms=79 result=Sat assumptions=1 phase_lits=28836
+c 00h06m04s | stage:decode:start
+c 00h06m04s | stage:decode:done int_assignments=324
+c 00h06m04s | result:Sat
+c 00h06m04s | objective:incumbent kind=improvement value=60981 rounds=10 improvements=9
+o 60981
+c 00h06m04s | stage:sat:init solver=CaDiCaL vars=281728 clauses=4013631
+c 00h06m04s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h06m04s | stage:sat:solve:done ms=85 result=Sat assumptions=1 phase_lits=28836
+c 00h06m04s | stage:decode:start
+c 00h06m04s | stage:decode:done int_assignments=324
+c 00h06m04s | result:Sat
+c 00h06m04s | objective:incumbent kind=improvement value=60883 rounds=11 improvements=10
+o 60883
+c 00h06m04s | stage:sat:init solver=CaDiCaL vars=281729 clauses=4013632
+c 00h06m04s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h06m04s | stage:sat:solve:done ms=62 result=Sat assumptions=1 phase_lits=28836
+c 00h06m04s | stage:decode:start
+c 00h06m04s | stage:decode:done int_assignments=324
+c 00h06m04s | result:Sat
+c 00h06m04s | objective:incumbent kind=improvement value=60857 rounds=12 improvements=11
+o 60857
+c 00h06m04s | stage:sat:init solver=CaDiCaL vars=281730 clauses=4013633
+c 00h06m04s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h10m17s | stage:sat:solve:done ms=253245 result=Sat assumptions=1 phase_lits=28836
+c 00h10m17s | stage:decode:start
+c 00h10m17s | stage:decode:done int_assignments=324
+c 00h10m17s | result:Sat
+c 00h10m17s | objective:incumbent kind=improvement value=60661 rounds=13 improvements=12
+o 60661
+c 00h10m17s | stage:sat:init solver=CaDiCaL vars=281731 clauses=4013634
+c 00h10m17s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h10m17s | stage:sat:solve:done ms=71 result=Sat assumptions=1 phase_lits=28836
+c 00h10m17s | stage:decode:start
+c 00h10m17s | stage:decode:done int_assignments=324
+c 00h10m17s | result:Sat
+c 00h10m17s | objective:incumbent kind=improvement value=60181 rounds=14 improvements=13
+o 60181
+c 00h10m17s | stage:sat:init solver=CaDiCaL vars=281732 clauses=4013635
+c 00h10m17s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h10m17s | stage:sat:solve:done ms=66 result=Sat assumptions=1 phase_lits=28836
+c 00h10m17s | stage:decode:start
+c 00h10m17s | stage:decode:done int_assignments=324
+c 00h10m17s | result:Sat
+c 00h10m17s | objective:incumbent kind=improvement value=60164 rounds=15 improvements=14
+o 60164
+c 00h10m17s | stage:sat:init solver=CaDiCaL vars=281733 clauses=4013636
+c 00h10m17s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h10m17s | stage:sat:solve:done ms=56 result=Sat assumptions=1 phase_lits=28836
+c 00h10m17s | stage:decode:start
+c 00h10m17s | stage:decode:done int_assignments=324
+c 00h10m17s | result:Sat
+c 00h10m17s | objective:incumbent kind=improvement value=60122 rounds=16 improvements=15
+o 60122
+c 00h10m17s | stage:sat:init solver=CaDiCaL vars=281734 clauses=4013637
+c 00h10m17s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h10m18s | stage:sat:solve:done ms=48 result=Sat assumptions=1 phase_lits=28836
+c 00h10m18s | stage:decode:start
+c 00h10m18s | stage:decode:done int_assignments=324
+c 00h10m18s | result:Sat
+c 00h10m18s | objective:incumbent kind=improvement value=59861 rounds=17 improvements=16
+o 59861
+c 00h10m18s | stage:sat:init solver=CaDiCaL vars=281735 clauses=4013638
+c 00h10m18s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h15m21s | stage:sat:solve:done ms=303208 result=Sat assumptions=1 phase_lits=28836
+c 00h15m21s | stage:decode:start
+c 00h15m21s | stage:decode:done int_assignments=324
+c 00h15m21s | result:Sat
+c 00h15m21s | objective:incumbent kind=improvement value=59696 rounds=18 improvements=17
+o 59696
+c 00h15m21s | stage:sat:init solver=CaDiCaL vars=281736 clauses=4013639
+c 00h15m21s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h15m21s | stage:sat:solve:done ms=94 result=Sat assumptions=1 phase_lits=28836
+c 00h15m21s | stage:decode:start
+c 00h15m21s | stage:decode:done int_assignments=324
+c 00h15m21s | result:Sat
+c 00h15m21s | objective:incumbent kind=improvement value=59500 rounds=19 improvements=18
+o 59500
+c 00h15m21s | stage:sat:init solver=CaDiCaL vars=281737 clauses=4013640
+c 00h15m21s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h15m23s | stage:sat:solve:done ms=2521 result=Sat assumptions=1 phase_lits=28836
+c 00h15m23s | stage:decode:start
+c 00h15m23s | stage:decode:done int_assignments=324
+c 00h15m23s | result:Sat
+c 00h15m23s | objective:incumbent kind=improvement value=59497 rounds=20 improvements=19
+o 59497
+c 00h15m23s | stage:sat:init solver=CaDiCaL vars=281738 clauses=4013641
+c 00h15m23s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h15m24s | stage:sat:solve:done ms=65 result=Sat assumptions=1 phase_lits=28836
+c 00h15m24s | stage:decode:start
+c 00h15m24s | stage:decode:done int_assignments=324
+c 00h15m24s | result:Sat
+c 00h15m24s | objective:incumbent kind=improvement value=59473 rounds=21 improvements=20
+o 59473
+c 00h15m24s | stage:sat:init solver=CaDiCaL vars=281739 clauses=4013642
+c 00h15m24s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h15m24s | stage:sat:solve:done ms=81 result=Sat assumptions=1 phase_lits=28836
+c 00h15m24s | stage:decode:start
+c 00h15m24s | stage:decode:done int_assignments=324
+c 00h15m24s | result:Sat
+c 00h15m24s | objective:incumbent kind=improvement value=59431 rounds=22 improvements=21
+o 59431
+c 00h15m24s | stage:sat:init solver=CaDiCaL vars=281740 clauses=4013643
+c 00h15m24s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h15m24s | stage:sat:solve:done ms=48 result=Sat assumptions=1 phase_lits=28836
+c 00h15m24s | stage:decode:start
+c 00h15m24s | stage:decode:done int_assignments=324
+c 00h15m24s | result:Sat
+c 00h15m24s | objective:incumbent kind=improvement value=59191 rounds=23 improvements=22
+o 59191
+c 00h15m24s | stage:sat:init solver=CaDiCaL vars=281741 clauses=4013644
+c 00h15m24s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h15m30s | stage:sat:solve:done ms=5921 result=Sat assumptions=1 phase_lits=28836
+c 00h15m30s | stage:decode:start
+c 00h15m30s | stage:decode:done int_assignments=324
+c 00h15m30s | result:Sat
+c 00h15m30s | objective:incumbent kind=improvement value=59032 rounds=24 improvements=23
+o 59032
+c 00h15m30s | stage:sat:init solver=CaDiCaL vars=281742 clauses=4013645
+c 00h15m30s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h15m30s | stage:sat:solve:done ms=68 result=Sat assumptions=1 phase_lits=28836
+c 00h15m30s | stage:decode:start
+c 00h15m30s | stage:decode:done int_assignments=324
+c 00h15m30s | result:Sat
+c 00h15m30s | objective:incumbent kind=improvement value=58828 rounds=25 improvements=24
+o 58828
+c 00h15m30s | stage:sat:init solver=CaDiCaL vars=281743 clauses=4013646
+c 00h15m30s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h15m30s | stage:sat:solve:done ms=65 result=Sat assumptions=1 phase_lits=28836
+c 00h15m30s | stage:decode:start
+c 00h15m30s | stage:decode:done int_assignments=324
+c 00h15m30s | result:Sat
+c 00h15m30s | objective:incumbent kind=improvement value=58378 rounds=26 improvements=25
+o 58378
+c 00h15m30s | stage:sat:init solver=CaDiCaL vars=281744 clauses=4013647
+c 00h15m30s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h15m38s | stage:sat:solve:done ms=7894 result=Sat assumptions=1 phase_lits=28836
+c 00h15m38s | stage:decode:start
+c 00h15m38s | stage:decode:done int_assignments=324
+c 00h15m38s | result:Sat
+c 00h15m38s | objective:incumbent kind=improvement value=58367 rounds=27 improvements=26
+o 58367
+c 00h15m38s | stage:sat:init solver=CaDiCaL vars=281745 clauses=4013648
+c 00h15m38s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h15m38s | stage:sat:solve:done ms=76 result=Sat assumptions=1 phase_lits=28836
+c 00h15m38s | stage:decode:start
+c 00h15m38s | stage:decode:done int_assignments=324
+c 00h15m38s | result:Sat
+c 00h15m38s | objective:incumbent kind=improvement value=58095 rounds=28 improvements=27
+o 58095
+c 00h15m38s | stage:sat:init solver=CaDiCaL vars=281746 clauses=4013649
+c 00h15m38s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h16m06s | stage:sat:solve:done ms=27694 result=Sat assumptions=1 phase_lits=28836
+c 00h16m06s | stage:decode:start
+c 00h16m06s | stage:decode:done int_assignments=324
+c 00h16m06s | result:Sat
+c 00h16m06s | objective:incumbent kind=improvement value=56913 rounds=29 improvements=28
+o 56913
+c 00h16m06s | stage:sat:init solver=CaDiCaL vars=281747 clauses=4013650
+c 00h16m06s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h16m06s | stage:sat:solve:done ms=79 result=Sat assumptions=1 phase_lits=28836
+c 00h16m06s | stage:decode:start
+c 00h16m06s | stage:decode:done int_assignments=324
+c 00h16m06s | result:Sat
+c 00h16m06s | objective:incumbent kind=improvement value=56533 rounds=30 improvements=29
+o 56533
+c 00h16m06s | stage:sat:init solver=CaDiCaL vars=281748 clauses=4013651
+c 00h16m06s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h16m06s | stage:sat:solve:done ms=62 result=Sat assumptions=1 phase_lits=28836
+c 00h16m06s | stage:decode:start
+c 00h16m06s | stage:decode:done int_assignments=324
+c 00h16m06s | result:Sat
+c 00h16m06s | objective:incumbent kind=improvement value=56433 rounds=31 improvements=30
+o 56433
+c 00h16m06s | stage:sat:init solver=CaDiCaL vars=281749 clauses=4013652
+c 00h16m06s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h16m06s | stage:sat:solve:done ms=61 result=Sat assumptions=1 phase_lits=28836
+c 00h16m06s | stage:decode:start
+c 00h16m06s | stage:decode:done int_assignments=324
+c 00h16m06s | result:Sat
+c 00h16m06s | objective:incumbent kind=improvement value=56403 rounds=32 improvements=31
+o 56403
+c 00h16m06s | stage:sat:init solver=CaDiCaL vars=281750 clauses=4013653
+c 00h16m06s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h16m06s | stage:sat:solve:done ms=125 result=Sat assumptions=1 phase_lits=28836
+c 00h16m06s | stage:decode:start
+c 00h16m06s | stage:decode:done int_assignments=324
+c 00h16m06s | result:Sat
+c 00h16m06s | objective:incumbent kind=improvement value=56387 rounds=33 improvements=32
+o 56387
+c 00h16m06s | stage:sat:init solver=CaDiCaL vars=281751 clauses=4013654
+c 00h16m06s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h21m40s | stage:sat:solve:done ms=334083 result=Sat assumptions=1 phase_lits=28836
+c 00h21m40s | stage:decode:start
+c 00h21m40s | stage:decode:done int_assignments=324
+c 00h21m40s | result:Sat
+c 00h21m40s | objective:incumbent kind=improvement value=56249 rounds=34 improvements=33
+o 56249
+c 00h21m40s | stage:sat:init solver=CaDiCaL vars=281752 clauses=4013655
+c 00h21m40s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h21m40s | stage:sat:solve:done ms=71 result=Sat assumptions=1 phase_lits=28836
+c 00h21m40s | stage:decode:start
+c 00h21m40s | stage:decode:done int_assignments=324
+c 00h21m40s | result:Sat
+c 00h21m40s | objective:incumbent kind=improvement value=56004 rounds=35 improvements=34
+o 56004
+c 00h21m40s | stage:sat:init solver=CaDiCaL vars=281753 clauses=4013656
+c 00h21m40s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h21m40s | stage:sat:solve:done ms=68 result=Sat assumptions=1 phase_lits=28836
+c 00h21m40s | stage:decode:start
+c 00h21m40s | stage:decode:done int_assignments=324
+c 00h21m40s | result:Sat
+c 00h21m40s | objective:incumbent kind=improvement value=55850 rounds=36 improvements=35
+o 55850
+c 00h21m40s | stage:sat:init solver=CaDiCaL vars=281754 clauses=4013657
+c 00h21m40s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h21m40s | stage:sat:solve:done ms=160 result=Sat assumptions=1 phase_lits=28836
+c 00h21m40s | stage:decode:start
+c 00h21m40s | stage:decode:done int_assignments=324
+c 00h21m40s | result:Sat
+c 00h21m40s | objective:incumbent kind=improvement value=55682 rounds=37 improvements=36
+o 55682
+c 00h21m40s | stage:sat:init solver=CaDiCaL vars=281755 clauses=4013658
+c 00h21m40s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h21m40s | stage:sat:solve:done ms=48 result=Sat assumptions=1 phase_lits=28836
+c 00h21m40s | stage:decode:start
+c 00h21m40s | stage:decode:done int_assignments=324
+c 00h21m40s | result:Sat
+c 00h21m40s | objective:incumbent kind=improvement value=55619 rounds=38 improvements=37
+o 55619
+c 00h21m40s | stage:sat:init solver=CaDiCaL vars=281756 clauses=4013659
+c 00h21m40s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h21m41s | stage:sat:solve:done ms=51 result=Sat assumptions=1 phase_lits=28836
+c 00h21m41s | stage:decode:start
+c 00h21m41s | stage:decode:done int_assignments=324
+c 00h21m41s | result:Sat
+c 00h21m41s | objective:incumbent kind=improvement value=55542 rounds=39 improvements=38
+o 55542
+c 00h21m41s | stage:sat:init solver=CaDiCaL vars=281757 clauses=4013660
+c 00h21m41s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h21m41s | stage:sat:solve:done ms=44 result=Sat assumptions=1 phase_lits=28836
+c 00h21m41s | stage:decode:start
+c 00h21m41s | stage:decode:done int_assignments=324
+c 00h21m41s | result:Sat
+c 00h21m41s | objective:incumbent kind=improvement value=55465 rounds=40 improvements=39
+o 55465
+c 00h21m41s | stage:sat:init solver=CaDiCaL vars=281758 clauses=4013661
+c 00h21m41s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h24m03s | stage:sat:solve:done ms=142519 result=Sat assumptions=1 phase_lits=28836
+c 00h24m03s | stage:decode:start
+c 00h24m03s | stage:decode:done int_assignments=324
+c 00h24m03s | result:Sat
+c 00h24m03s | objective:incumbent kind=improvement value=55200 rounds=41 improvements=40
+o 55200
+c 00h24m03s | stage:sat:init solver=CaDiCaL vars=281759 clauses=4013662
+c 00h24m03s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h24m03s | stage:sat:solve:done ms=86 result=Sat assumptions=1 phase_lits=28836
+c 00h24m03s | stage:decode:start
+c 00h24m03s | stage:decode:done int_assignments=324
+c 00h24m03s | result:Sat
+c 00h24m03s | objective:incumbent kind=improvement value=55178 rounds=42 improvements=41
+o 55178
+c 00h24m03s | stage:sat:init solver=CaDiCaL vars=281760 clauses=4013663
+c 00h24m03s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h24m03s | stage:sat:solve:done ms=77 result=Sat assumptions=1 phase_lits=28836
+c 00h24m03s | stage:decode:start
+c 00h24m03s | stage:decode:done int_assignments=324
+c 00h24m03s | result:Sat
+c 00h24m03s | objective:incumbent kind=improvement value=55154 rounds=43 improvements=42
+o 55154
+c 00h24m03s | stage:sat:init solver=CaDiCaL vars=281761 clauses=4013664
+c 00h24m03s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h24m03s | stage:sat:solve:done ms=64 result=Sat assumptions=1 phase_lits=28836
+c 00h24m03s | stage:decode:start
+c 00h24m03s | stage:decode:done int_assignments=324
+c 00h24m03s | result:Sat
+c 00h24m03s | objective:incumbent kind=improvement value=54853 rounds=44 improvements=43
+o 54853
+c 00h24m03s | stage:sat:init solver=CaDiCaL vars=281762 clauses=4013665
+c 00h24m03s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h28m27s | stage:sat:solve:done ms=263191 result=Sat assumptions=1 phase_lits=28836
+c 00h28m27s | stage:decode:start
+c 00h28m27s | stage:decode:done int_assignments=324
+c 00h28m27s | result:Sat
+c 00h28m27s | objective:incumbent kind=improvement value=54697 rounds=45 improvements=44
+o 54697
+c 00h28m27s | stage:sat:init solver=CaDiCaL vars=281763 clauses=4013666
+c 00h28m27s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h28m27s | stage:sat:solve:done ms=69 result=Sat assumptions=1 phase_lits=28836
+c 00h28m27s | stage:decode:start
+c 00h28m27s | stage:decode:done int_assignments=324
+c 00h28m27s | result:Sat
+c 00h28m27s | objective:incumbent kind=improvement value=54537 rounds=46 improvements=45
+o 54537
+c 00h28m27s | stage:sat:init solver=CaDiCaL vars=281764 clauses=4013667
+c 00h28m27s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h28m27s | stage:sat:solve:done ms=64 result=Sat assumptions=1 phase_lits=28836
+c 00h28m27s | stage:decode:start
+c 00h28m27s | stage:decode:done int_assignments=324
+c 00h28m27s | result:Sat
+c 00h28m27s | objective:incumbent kind=improvement value=54467 rounds=47 improvements=46
+o 54467
+c 00h28m27s | stage:sat:init solver=CaDiCaL vars=281765 clauses=4013668
+c 00h28m27s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h28m27s | stage:sat:solve:done ms=66 result=Sat assumptions=1 phase_lits=28836
+c 00h28m27s | stage:decode:start
+c 00h28m27s | stage:decode:done int_assignments=324
+c 00h28m27s | result:Sat
+c 00h28m27s | objective:incumbent kind=improvement value=54273 rounds=48 improvements=47
+o 54273
+c 00h28m27s | stage:sat:init solver=CaDiCaL vars=281766 clauses=4013669
+c 00h28m27s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h28m27s | stage:sat:solve:done ms=51 result=Sat assumptions=1 phase_lits=28836
+c 00h28m27s | stage:decode:start
+c 00h28m27s | stage:decode:done int_assignments=324
+c 00h28m27s | result:Sat
+c 00h28m27s | objective:incumbent kind=improvement value=54201 rounds=49 improvements=48
+o 54201
+c 00h28m27s | stage:sat:init solver=CaDiCaL vars=281767 clauses=4013670
+c 00h28m27s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h28m34s | stage:sat:solve:done ms=7028 result=Sat assumptions=1 phase_lits=28836
+c 00h28m34s | stage:decode:start
+c 00h28m34s | stage:decode:done int_assignments=324
+c 00h28m34s | result:Sat
+c 00h28m34s | objective:incumbent kind=improvement value=53755 rounds=50 improvements=49
+o 53755
+c 00h28m34s | stage:sat:init solver=CaDiCaL vars=281768 clauses=4013671
+c 00h28m34s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h28m34s | stage:sat:solve:done ms=90 result=Sat assumptions=1 phase_lits=28836
+c 00h28m34s | stage:decode:start
+c 00h28m34s | stage:decode:done int_assignments=324
+c 00h28m34s | result:Sat
+c 00h28m34s | objective:incumbent kind=improvement value=53671 rounds=51 improvements=50
+o 53671
+c 00h28m34s | stage:sat:init solver=CaDiCaL vars=281769 clauses=4013672
+c 00h28m34s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h28m44s | stage:sat:solve:done ms=10230 result=Sat assumptions=1 phase_lits=28836
+c 00h28m44s | stage:decode:start
+c 00h28m44s | stage:decode:done int_assignments=324
+c 00h28m44s | result:Sat
+c 00h28m44s | objective:incumbent kind=improvement value=53557 rounds=52 improvements=51
+o 53557
+c 00h28m44s | stage:sat:init solver=CaDiCaL vars=281770 clauses=4013673
+c 00h28m44s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h28m44s | stage:sat:solve:done ms=71 result=Sat assumptions=1 phase_lits=28836
+c 00h28m44s | stage:decode:start
+c 00h28m44s | stage:decode:done int_assignments=324
+c 00h28m44s | result:Sat
+c 00h28m44s | objective:incumbent kind=improvement value=53555 rounds=53 improvements=52
+o 53555
+c 00h28m44s | stage:sat:init solver=CaDiCaL vars=281771 clauses=4013674
+c 00h28m44s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h28m45s | stage:sat:solve:done ms=58 result=Sat assumptions=1 phase_lits=28836
+c 00h28m45s | stage:decode:start
+c 00h28m45s | stage:decode:done int_assignments=324
+c 00h28m45s | result:Sat
+c 00h28m45s | objective:incumbent kind=improvement value=53505 rounds=54 improvements=53
+o 53505
+c 00h28m45s | stage:sat:init solver=CaDiCaL vars=281772 clauses=4013675
+c 00h28m45s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h28m45s | stage:sat:solve:done ms=44 result=Sat assumptions=1 phase_lits=28836
+c 00h28m45s | stage:decode:start
+c 00h28m45s | stage:decode:done int_assignments=324
+c 00h28m45s | result:Sat
+c 00h28m45s | objective:incumbent kind=improvement value=53411 rounds=55 improvements=54
+o 53411
+c 00h28m45s | stage:sat:init solver=CaDiCaL vars=281773 clauses=4013676
+c 00h28m45s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h28m45s | stage:sat:solve:done ms=56 result=Sat assumptions=1 phase_lits=28836
+c 00h28m45s | stage:decode:start
+c 00h28m45s | stage:decode:done int_assignments=324
+c 00h28m45s | result:Sat
+c 00h28m45s | objective:incumbent kind=improvement value=53203 rounds=56 improvements=55
+o 53203
+c 00h28m45s | stage:sat:init solver=CaDiCaL vars=281774 clauses=4013677
+c 00h28m45s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h28m45s | stage:sat:solve:done ms=51 result=Sat assumptions=1 phase_lits=28836
+c 00h28m45s | stage:decode:start
+c 00h28m45s | stage:decode:done int_assignments=324
+c 00h28m45s | result:Sat
+c 00h28m45s | objective:incumbent kind=improvement value=53139 rounds=57 improvements=56
+o 53139
+c 00h28m45s | stage:sat:init solver=CaDiCaL vars=281775 clauses=4013678
+c 00h28m45s | stage:sat:solve:start assumptions=1 phase_lits=28836
+c 00h28m45s | stage:sat:solve:done ms=64 result=Sat assumptions=1 phase_lits=28836
+c 00h28m45s | stage:decode:start
+c 00h28m45s | stage:decode:done int_assignments=324
+c 00h28m45s | result:Sat
+c 00h28m45s | objective:incumbent kind=improvement value=53087 rounds=58 improvements=57
+o 53087
+c 00h28m45s | stage:sat:init solver=CaDiCaL vars=281776 clauses=4013679
+c 00h28m45s | stage:sat:solve:start assumptions=1 phase_lits=28836
+s SATISFIABLE
+o 53087
+v <instantiation>
+v   <list> x[0][0] x[0][1] x[0][2] x[0][3] x[0][4] x[0][5] x[0][6] x[0][7] x[0][8] x[0][9] x[0][10] x[0][11] x[0][12] x[0][13] x[0][14] x[0][15] x[0][16] x[0][17] x[1][0] x[1][1] x[1][2] x[1][3] x[1][4] x[1][5] x[1][6] x[1][7] x[1][8] x[1][9] x[1][10] x[1][11] x[1][12] x[1][13] x[1][14] x[1][15] x[1][16] x[1][17] x[2][0] x[2][1] x[2][2] x[2][3] x[2][4] x[2][5] x[2][6] x[2][7] x[2][8] x[2][9] x[2][10] x[2][11] x[2][12] x[2][13] x[2][14] x[2][15] x[2][16] x[2][17] x[3][0] x[3][1] x[3][2] x[3][3] x[3][4] x[3][5] x[3][6] x[3][7] x[3][8] x[3][9] x[3][10] x[3][11] x[3][12] x[3][13] x[3][14] x[3][15] x[3][16] x[3][17] x[4][0] x[4][1] x[4][2] x[4][3] x[4][4] x[4][5] x[4][6] x[4][7] x[4][8] x[4][9] x[4][10] x[4][11] x[4][12] x[4][13] x[4][14] x[4][15] x[4][16] x[4][17] x[5][0] x[5][1] x[5][2] x[5][3] x[5][4] x[5][5] x[5][6] x[5][7] x[5][8] x[5][9] x[5][10] x[5][11] x[5][12] x[5][13] x[5][14] x[5][15] x[5][16] x[5][17] x[6][0] x[6][1] x[6][2] x[6][3] x[6][4] x[6][5] x[6][6] x[6][7] x[6][8] x[6][9] x[6][10] x[6][11] x[6][12] x[6][13] x[6][14] x[6][15] x[6][16] x[6][17] x[7][0] x[7][1] x[7][2] x[7][3] x[7][4] x[7][5] x[7][6] x[7][7] x[7][8] x[7][9] x[7][10] x[7][11] x[7][12] x[7][13] x[7][14] x[7][15] x[7][16] x[7][17] x[8][0] x[8][1] x[8][2] x[8][3] x[8][4] x[8][5] x[8][6] x[8][7] x[8][8] x[8][9] x[8][10] x[8][11] x[8][12] x[8][13] x[8][14] x[8][15] x[8][16] x[8][17] x[9][0] x[9][1] x[9][2] x[9][3] x[9][4] x[9][5] x[9][6] x[9][7] x[9][8] x[9][9] x[9][10] x[9][11] x[9][12] x[9][13] x[9][14] x[9][15] x[9][16] x[9][17] x[10][0] x[10][1] x[10][2] x[10][3] x[10][4] x[10][5] x[10][6] x[10][7] x[10][8] x[10][9] x[10][10] x[10][11] x[10][12] x[10][13] x[10][14] x[10][15] x[10][16] x[10][17] x[11][0] x[11][1] x[11][2] x[11][3] x[11][4] x[11][5] x[11][6] x[11][7] x[11][8] x[11][9] x[11][10] x[11][11] x[11][12] x[11][13] x[11][14] x[11][15] x[11][16] x[11][17] x[12][0] x[12][1] x[12][2] x[12][3] x[12][4] x[12][5] x[12][6] x[12][7] x[12][8] x[12][9] x[12][10] x[12][11] x[12][12] x[12][13] x[12][14] x[12][15] x[12][16] x[12][17] x[13][0] x[13][1] x[13][2] x[13][3] x[13][4] x[13][5] x[13][6] x[13][7] x[13][8] x[13][9] x[13][10] x[13][11] x[13][12] x[13][13] x[13][14] x[13][15] x[13][16] x[13][17] x[14][0] x[14][1] x[14][2] x[14][3] x[14][4] x[14][5] x[14][6] x[14][7] x[14][8] x[14][9] x[14][10] x[14][11] x[14][12] x[14][13] x[14][14] x[14][15] x[14][16] x[14][17] x[15][0] x[15][1] x[15][2] x[15][3] x[15][4] x[15][5] x[15][6] x[15][7] x[15][8] x[15][9] x[15][10] x[15][11] x[15][12] x[15][13] x[15][14] x[15][15] x[15][16] x[15][17] x[16][0] x[16][1] x[16][2] x[16][3] x[16][4] x[16][5] x[16][6] x[16][7] x[16][8] x[16][9] x[16][10] x[16][11] x[16][12] x[16][13] x[16][14] x[16][15] x[16][16] x[16][17] x[17][0] x[17][1] x[17][2] x[17][3] x[17][4] x[17][5] x[17][6] x[17][7] x[17][8] x[17][9] x[17][10] x[17][11] x[17][12] x[17][13] x[17][14] x[17][15] x[17][16] x[17][17] </list>
+v   <values> 0 0 0 0 0 0 0 0 46 46 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 77 39 39 0 0 0 0 0 0 0 0 0 0 0 0 0 79 79 64 35 31 31 0 0 0 0 0 0 0 0 0 0 0 16 16 56 64 35 1 44 44 0 0 0 0 0 0 0 0 0 19 19 72 56 58 58 1 12 11 11 0 0 0 0 0 0 0 65 43 43 72 9 33 23 23 12 49 73 73 0 0 0 0 0 36 65 7 6 6 9 33 85 29 38 49 10 24 24 0 0 0 5 36 42 7 52 52 25 26 85 29 38 0 10 88 45 45 0 66 5 37 42 55 55 81 25 26 89 89 54 0 22 88 50 50 47 66 40 37 75 75 27 81 70 70 61 61 54 69 22 67 67 74 47 0 40 86 32 32 27 78 78 83 13 13 63 69 53 53 2 74 0 0 0 86 48 51 51 41 41 83 82 57 63 84 84 18 2 0 0 0 0 0 48 8 68 3 28 28 82 57 71 17 30 18 0 0 0 0 0 0 0 8 68 3 76 34 62 80 71 17 30 0 0 0 0 0 0 0 0 0 15 15 76 34 62 80 20 20 0 0 0 0 0 0 0 0 0 0 0 4 4 60 60 87 87 0 0 0 0 0 0 0 0 0 0 0 0 0 21 21 59 59 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 14 0 0 0 0 0 0 0 0 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 53087
+d OPTIMAL 0
+d OBJECTIVE_ROUNDS 58
+d OBJECTIVE_IMPROVEMENTS 57
+d COP_INCUMBENT_ELAPSED_MS 1725329
+d SOLVE_ELAPSED_MS 1800097
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 74753
+d LAST_COMPLETED_STAGE decode
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS done
+d STAGE_RELAXATION_STATUS pending
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 181
+d NORMALIZED_CONSTRAINTS 181
+d LOWERED_CONSTRAINTS 181
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 281718
+d SAT_CLAUSES_BASE 4013622
+d SAT_CLAUSES_FINAL 4013622
+d SAT_CLAUSES_CEGAR_DELTA 0
+d MEMORY_RSS_BYTES 3344244736
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 10534912
+d MEMORY_RSS_AFTER_LOWER_BYTES 11792384
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 12599296
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 3343552512
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 3343699968
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 3343699968
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 4
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 4000000
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 3344244736
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 3344244736
+d MEMORY_GUARD_LIMIT_BYTES 68719476736
+d MEMORY_GUARD_RESERVE_BYTES 10737418240
+d MEMORY_GUARD_AVAILABLE_BYTES 54638358528
+d MEMORY_GUARD_DECISION rss-monitor
+d MEMORY_GUARD_REASON rss_available
+d SAT_CONFLICTS 768786
+d EXTPROP_CONSTRAINTS 1
+d EXTPROP_OBSERVED_VARS 12906
+d EXTPROP_OBSERVED_LITS 12906
+d EXTPROP_OBSERVED_LIT_OCCURRENCES 12906
+d EXTPROP_CALLBACK_CALLS 185011705
+d EXTPROP_CALLBACK_NS 0
+d EXTPROP_NOTIFY_ASSIGNMENT_CALLS 4492040
+d EXTPROP_NOTIFY_ASSIGNMENT_NS 0
+d EXTPROP_NOTIFY_ASSIGNMENT_LITS 213853049
+d EXTPROP_NOTIFY_NEW_DECISION_LEVEL_CALLS 66418123
+d EXTPROP_NOTIFY_NEW_DECISION_LEVEL_NS 0
+d EXTPROP_NOTIFY_BACKTRACK_CALLS 987558
+d EXTPROP_NOTIFY_BACKTRACK_NS 0
+d EXTPROP_CB_CHECK_FOUND_MODEL_CALLS 3883
+d EXTPROP_CB_CHECK_FOUND_MODEL_NS 0
+d EXTPROP_CB_CHECK_FOUND_MODEL_REJECTS 3825
+d EXTPROP_CB_DECIDE_CALLS 0
+d EXTPROP_CB_DECIDE_NS 0
+d EXTPROP_CB_PROPAGATE_CALLS 35586042
+d EXTPROP_CB_PROPAGATE_NS 0
+d EXTPROP_PROPAGATED_LITS 12117
+d EXTPROP_CB_ADD_REASON_CLAUSE_LIT_CALLS 1143311
+d EXTPROP_CB_ADD_REASON_CLAUSE_LIT_NS 0
+d EXTPROP_REASON_CLAUSES 171496
+d EXTPROP_REASON_CLAUSE_LITS 24438117
+d EXTPROP_REASON_CLAUSE_MAX_LEN 146
+d EXTPROP_CB_HAS_EXTERNAL_CLAUSE_CALLS 66523069
+d EXTPROP_CB_HAS_EXTERNAL_CLAUSE_NS 0
+d EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_CALLS 9857679
+d EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_NS 0
+d EXTPROP_EXTERNAL_CLAUSES 66314
+d EXTPROP_EXTERNAL_CLAUSE_LITS 9791365
+d EXTPROP_EXTERNAL_CLAUSE_MAX_LEN 290
+d EXTPROP_STRONG_REASON_ATTEMPTS 62508
+d EXTPROP_STRONG_REASON_NS 0
+d EXTPROP_STRONG_REASON_LIFTS 120171
+d EXTPROP_STRONG_REASON_DROPPED_TERMS 296757
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":16200,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"180":{"count":90,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 121485
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 121485
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 9101
+d ROOT_LP_ROWS 90
+d ROOT_LP_VARS 16524
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 0
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 16200
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 0
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 0
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 180
+d ROOT_LP_OBJECTIVE_VALUE 0
+d PROPAGATE_PRUNED_VALUES 0
+d PROPAGATE_CHANGED_DOMAINS 0
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 0
+d POST_LOWER_TIGHTENED_DOMAINS 0
+d POST_LOWER_REMOVED_CLAUSES 0
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 8424
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d MEMORY_RSS_BYTES 3344244736
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 10534912
+d MEMORY_RSS_AFTER_LOWER_BYTES 11792384
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 12599296
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 3343552512
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 3343699968
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 3343699968
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 4
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 4000000
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 3344244736
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 3344244736
+d MEMORY_GUARD_LIMIT_BYTES 68719476736
+d MEMORY_GUARD_RESERVE_BYTES 10737418240
+d MEMORY_GUARD_AVAILABLE_BYTES 54638358528
+d MEMORY_GUARD_DECISION rss-monitor
+d MEMORY_GUARD_REASON rss_available
+d DECODE_INT_ASSIGNMENTS 324
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/competition/2022-2025/COP22to25/AztecDiamondSym-09_c24.xml.lzma,sat,181,181,181,0,281718,4013622,1800096,,,,,,,1,optimal,0,121485,0,121485,0,9101,90,16524,0,0,0,0,timeout_signal,incumbent_interrupted_by_signal
+signal=15; emitted incumbent csv row

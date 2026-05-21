@@ -1,0 +1,267 @@
+c cmd: /host-parser-bin/kat_xcsp_b85de3f1_dirty_memoryguard_20260521 /bench/competition/2022-2025/COP22to25/TSPTW2-n040w040-1_c23.xml.lzma --encoder order-ge --order-ge-eq-ne direct-order --order-ge-table mdd-tl --memory-guard-gib 64 --memory-guard-fallback extprop --cop-pipeline guarded-basic --cop-objective-cut direct-expr --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=207
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=4 pruned=2696 changed_domains=125 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=4460544
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=207
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=14 lowered=207 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=5804032
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=12 rounds=42 tightened=43 removed_cls=7 removed_lits=40 unsat=false precise_hits=327 precise_rounds=2 pivot_recomputes=82 pivot_exact_attempts=82 pivot_general_attempts=1 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=1 pivot_general_tightened=0 setup_ms=0 loop_ms=3 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=7
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=6340608
+c 00h00m00s | stage:lowered-shape int_vars=205 bool_vars=0 linear_atoms=4616 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=1 product_atoms=0 logical_clauses=3480
+c 00h00m00s | stage:root-lp:start backend=native-simplex
+c 00h00m00s | stage:root-lp:bound backend=native-simplex status=optimal objective_value=158 naive_bounds=[0,1969] lp_bounds=[158,1969] improved=1 rows=42 vars=205 ms=3
+c 00h00m00s | memory:rss checkpoint=before_preencode bytes=6811648
+c 00h00m00s | stage:preencode(order-ge):start
+c 00h00m00s | stage:preencode(order-ge):done ms=5 int_vars=205
+c 00h00m00s | memory:rss checkpoint=after_preencode bytes=8159232
+c 00h00m00s | memory:guard limit_bytes=68719476736 rss_bytes=8159232 reserve_bytes=10737418240 available_bytes=57973899264 fallback=extprop
+c 00h00m00s | memory:rss checkpoint=before_encode bytes=8159232
+c 00h00m00s | stage:encode(order-ge):start
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=1000000 bytes=126648320 interval_clauses=1000000
+c 00h00m00s | stage:encode(order-ge):done ms=353 sat_vars=59762 sat_clauses=1204872 ext_ge_specs=0 relaxed_circuits=1
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=59762 clauses=1204872
+c 00h00m00s | stage:sat:solve:start round=1 circuit_cegar_rounds=1 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=0 phase_lits=0
+c 00h00m03s | stage:sat:solve:done round=1 ms=3030 result=Sat assumptions=0 phase_lits=0
+c 00h00m03s | stage:decode:start round=1 requested_int_ids=41
+c 00h00m03s | stage:decode:final:start round=1 requested_int_ids=205
+c 00h00m03s | stage:decode:done round=1 int_assignments=205
+c 00h00m03s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=1 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h00m03s | result:Sat
+c 00h00m03s | objective:incumbent kind=initial value=513 rounds=1 improvements=0
+o 513
+c 00h00m03s | stage:sat:init solver=CaDiCaL vars=59763 clauses=1204872
+c 00h00m03s | stage:sat:solve:start round=1 circuit_cegar_rounds=2 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=28447
+c 00h00m03s | stage:sat:solve:done round=1 ms=14 result=Sat assumptions=1 phase_lits=28447
+c 00h00m03s | stage:decode:start round=1 requested_int_ids=41
+c 00h00m03s | stage:decode:final:start round=1 requested_int_ids=205
+c 00h00m03s | stage:decode:done round=1 int_assignments=205
+c 00h00m03s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=2 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h00m03s | result:Sat
+c 00h00m03s | objective:incumbent kind=improvement value=507 rounds=2 improvements=1
+o 507
+c 00h00m03s | stage:sat:init solver=CaDiCaL vars=59764 clauses=1204873
+c 00h00m03s | stage:sat:solve:start round=1 circuit_cegar_rounds=3 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=28447
+c 00h00m05s | stage:sat:solve:done round=1 ms=1762 result=Sat assumptions=1 phase_lits=28447
+c 00h00m05s | stage:decode:start round=1 requested_int_ids=41
+c 00h00m05s | stage:decode:final:start round=1 requested_int_ids=205
+c 00h00m05s | stage:decode:done round=1 int_assignments=205
+c 00h00m05s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=3 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h00m05s | result:Sat
+c 00h00m05s | objective:incumbent kind=improvement value=495 rounds=3 improvements=2
+o 495
+c 00h00m05s | stage:sat:init solver=CaDiCaL vars=59765 clauses=1204874
+c 00h00m05s | stage:sat:solve:start round=1 circuit_cegar_rounds=4 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=28447
+c 00h00m06s | stage:sat:solve:done round=1 ms=979 result=Sat assumptions=1 phase_lits=28447
+c 00h00m06s | stage:decode:start round=1 requested_int_ids=41
+c 00h00m06s | stage:decode:final:start round=1 requested_int_ids=205
+c 00h00m06s | stage:decode:done round=1 int_assignments=205
+c 00h00m06s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=4 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h00m06s | result:Sat
+c 00h00m06s | objective:incumbent kind=improvement value=487 rounds=4 improvements=3
+o 487
+c 00h00m06s | stage:sat:init solver=CaDiCaL vars=59766 clauses=1204875
+c 00h00m06s | stage:sat:solve:start round=1 circuit_cegar_rounds=5 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=28447
+c 00h00m06s | stage:sat:solve:done round=1 ms=365 result=Sat assumptions=1 phase_lits=28447
+c 00h00m06s | stage:decode:start round=1 requested_int_ids=41
+c 00h00m06s | stage:decode:final:start round=1 requested_int_ids=205
+c 00h00m06s | stage:decode:done round=1 int_assignments=205
+c 00h00m06s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=5 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h00m06s | result:Sat
+c 00h00m06s | objective:incumbent kind=improvement value=484 rounds=5 improvements=4
+o 484
+c 00h00m06s | stage:sat:init solver=CaDiCaL vars=59767 clauses=1204876
+c 00h00m06s | stage:sat:solve:start round=1 circuit_cegar_rounds=6 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=28447
+c 00h00m07s | stage:sat:solve:done round=1 ms=429 result=Sat assumptions=1 phase_lits=28447
+c 00h00m07s | stage:decode:start round=1 requested_int_ids=41
+c 00h00m07s | stage:decode:final:start round=1 requested_int_ids=205
+c 00h00m07s | stage:decode:done round=1 int_assignments=205
+c 00h00m07s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=6 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h00m07s | result:Sat
+c 00h00m07s | objective:incumbent kind=improvement value=481 rounds=6 improvements=5
+o 481
+c 00h00m07s | stage:sat:init solver=CaDiCaL vars=59768 clauses=1204877
+c 00h00m07s | stage:sat:solve:start round=1 circuit_cegar_rounds=7 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=28447
+c 00h00m07s | stage:sat:solve:done round=1 ms=599 result=Sat assumptions=1 phase_lits=28447
+c 00h00m07s | stage:decode:start round=1 requested_int_ids=41
+c 00h00m07s | stage:decode:final:start round=1 requested_int_ids=205
+c 00h00m07s | stage:decode:done round=1 int_assignments=205
+c 00h00m07s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=7 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h00m07s | result:Sat
+c 00h00m07s | objective:incumbent kind=improvement value=478 rounds=7 improvements=6
+o 478
+c 00h00m07s | stage:sat:init solver=CaDiCaL vars=59769 clauses=1204878
+c 00h00m07s | stage:sat:solve:start round=1 circuit_cegar_rounds=8 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=28447
+c 00h00m14s | stage:sat:solve:done round=1 ms=6518 result=Sat assumptions=1 phase_lits=28447
+c 00h00m14s | stage:decode:start round=1 requested_int_ids=41
+c 00h00m14s | stage:decode:final:start round=1 requested_int_ids=205
+c 00h00m14s | stage:decode:done round=1 int_assignments=205
+c 00h00m14s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=8 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h00m14s | result:Sat
+c 00h00m14s | objective:incumbent kind=improvement value=477 rounds=8 improvements=7
+o 477
+c 00h00m14s | stage:sat:init solver=CaDiCaL vars=59770 clauses=1204879
+c 00h00m14s | stage:sat:solve:start round=1 circuit_cegar_rounds=9 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=28447
+c 00h00m21s | stage:sat:solve:done round=1 ms=7793 result=Sat assumptions=1 phase_lits=28447
+c 00h00m21s | stage:decode:start round=1 requested_int_ids=41
+c 00h00m21s | stage:decode:final:start round=1 requested_int_ids=205
+c 00h00m21s | stage:decode:done round=1 int_assignments=205
+c 00h00m21s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=9 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h00m21s | result:Sat
+c 00h00m21s | objective:incumbent kind=improvement value=469 rounds=9 improvements=8
+o 469
+c 00h00m21s | stage:sat:init solver=CaDiCaL vars=59771 clauses=1204880
+c 00h00m21s | stage:sat:solve:start round=1 circuit_cegar_rounds=10 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=28447
+c 00h00m31s | stage:sat:solve:done round=1 ms=9498 result=Sat assumptions=1 phase_lits=28447
+c 00h00m31s | stage:decode:start round=1 requested_int_ids=41
+c 00h00m31s | stage:decode:final:start round=1 requested_int_ids=205
+c 00h00m31s | stage:decode:done round=1 int_assignments=205
+c 00h00m31s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=10 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h00m31s | result:Sat
+c 00h00m31s | objective:incumbent kind=improvement value=467 rounds=10 improvements=9
+o 467
+c 00h00m31s | stage:sat:init solver=CaDiCaL vars=59772 clauses=1204881
+c 00h00m31s | stage:sat:solve:start round=1 circuit_cegar_rounds=11 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=28447
+c 00h00m55s | stage:sat:solve:done round=1 ms=23732 result=Sat assumptions=1 phase_lits=28447
+c 00h00m55s | stage:decode:start round=1 requested_int_ids=41
+c 00h00m55s | stage:decode:final:start round=1 requested_int_ids=205
+c 00h00m55s | stage:decode:done round=1 int_assignments=205
+c 00h00m55s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=11 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h00m55s | result:Sat
+c 00h00m55s | objective:incumbent kind=improvement value=465 rounds=11 improvements=10
+o 465
+c 00h00m55s | stage:sat:init solver=CaDiCaL vars=59773 clauses=1204882
+c 00h00m55s | stage:sat:solve:start round=1 circuit_cegar_rounds=12 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=28447
+c 00h13m19s | stage:sat:solve:done round=1 ms=744503 result=Unsat assumptions=1 phase_lits=28447
+c 00h13m19s | result:Unsat
+s OPTIMUM FOUND
+o 465
+v <instantiation>
+v   <list> x[0] x[1] x[2] x[3] x[4] x[5] x[6] x[7] x[8] x[9] x[10] x[11] x[12] x[13] x[14] x[15] x[16] x[17] x[18] x[19] x[20] x[21] x[22] x[23] x[24] x[25] x[26] x[27] x[28] x[29] x[30] x[31] x[32] x[33] x[34] x[35] x[36] x[37] x[38] x[39] x[40] a[0] a[1] a[2] a[3] a[4] a[5] a[6] a[7] a[8] a[9] a[10] a[11] a[12] a[13] a[14] a[15] a[16] a[17] a[18] a[19] a[20] a[21] a[22] a[23] a[24] a[25] a[26] a[27] a[28] a[29] a[30] a[31] a[32] a[33] a[34] a[35] a[36] a[37] a[38] a[39] a[40] aux_gb[0] aux_gb[1] aux_gb[2] aux_gb[3] aux_gb[4] aux_gb[5] aux_gb[6] aux_gb[7] aux_gb[8] aux_gb[9] aux_gb[10] aux_gb[11] aux_gb[12] aux_gb[13] aux_gb[14] aux_gb[15] aux_gb[16] aux_gb[17] aux_gb[18] aux_gb[19] aux_gb[20] aux_gb[21] aux_gb[22] aux_gb[23] aux_gb[24] aux_gb[25] aux_gb[26] aux_gb[27] aux_gb[28] aux_gb[29] aux_gb[30] aux_gb[31] aux_gb[32] aux_gb[33] aux_gb[34] aux_gb[35] aux_gb[36] aux_gb[37] aux_gb[38] aux_gb[39] aux_gb[40] aux_gb[41] aux_gb[42] aux_gb[43] aux_gb[44] aux_gb[45] aux_gb[46] aux_gb[47] aux_gb[48] aux_gb[49] aux_gb[50] aux_gb[51] aux_gb[52] aux_gb[53] aux_gb[54] aux_gb[55] aux_gb[56] aux_gb[57] aux_gb[58] aux_gb[59] aux_gb[60] aux_gb[61] aux_gb[62] aux_gb[63] aux_gb[64] aux_gb[65] aux_gb[66] aux_gb[67] aux_gb[68] aux_gb[69] aux_gb[70] aux_gb[71] aux_gb[72] aux_gb[73] aux_gb[74] aux_gb[75] aux_gb[76] aux_gb[77] aux_gb[78] aux_gb[79] aux_gb[80] aux_gb[81] aux_gb[82] aux_gb[83] aux_gb[84] aux_gb[85] aux_gb[86] aux_gb[87] aux_gb[88] aux_gb[89] aux_gb[90] aux_gb[91] aux_gb[92] aux_gb[93] aux_gb[94] aux_gb[95] aux_gb[96] aux_gb[97] aux_gb[98] aux_gb[99] aux_gb[100] aux_gb[101] aux_gb[102] aux_gb[103] aux_gb[104] aux_gb[105] aux_gb[106] aux_gb[107] aux_gb[108] aux_gb[109] aux_gb[110] aux_gb[111] aux_gb[112] aux_gb[113] aux_gb[114] aux_gb[115] aux_gb[116] aux_gb[117] aux_gb[118] aux_gb[119] aux_gb[120] aux_gb[121] aux_gb[122] </list>
+v   <values> 10 16 20 25 11 22 1 40 3 30 32 5 0 14 31 26 17 15 7 27 19 13 38 34 4 37 35 33 29 9 6 28 2 23 21 24 8 18 36 12 39 0 180 17 344 254 259 172 429 308 140 5 255 514 78 83 214 194 205 398 30 23 69 261 47 244 359 225 40 121 132 160 96 10 43 63 234 291 382 267 475 463 1 1 5 14 194 194 6 23 23 11 355 359 1 255 255 2 261 261 8 180 180 33 462 463 35 343 344 20 160 160 5 10 10 4 259 259 24 538 0 5 83 83 11 94 96 11 225 225 11 205 205 9 214 214 12 410 429 9 39 40 5 28 30 9 78 78 6 267 267 4 51 63 10 254 254 23 382 382 9 234 234 3 43 43 11 132 132 7 139 140 9 169 172 10 106 121 7 17 17 4 47 47 6 69 69 10 244 244 16 307 308 16 398 398 17 284 291 39 514 514 12 475 475 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 465
+d OPTIMAL 1
+d SOURCE_CONSTRAINTS 207
+d NORMALIZED_CONSTRAINTS 207
+d LOWERED_CONSTRAINTS 207
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 12
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_ROUNDS 12
+d OBJECTIVE_IMPROVEMENTS 10
+d OBJECTIVE_OPTIMALITY_PROOF strict_cut_unsat
+d PROPAGATE_MS 4
+d NORMALIZE_MS 0
+d LOWER_MS 14
+d POST_LOWER_MS 12
+d PREENCODE_MS 5
+d ENCODE_MS 353
+d SAT_SOLVE_MS 799222
+d TOTAL_MS 799683
+d SAT_VARS 59773
+d SAT_CLAUSES_BASE 1204882
+d SAT_CLAUSES_FINAL 1204882
+d SAT_CLAUSES_CEGAR_DELTA 0
+d SAT_CONFLICTS 159764
+d EXTPROP_CONSTRAINTS 1
+d EXTPROP_OBSERVED_VARS 1049
+d EXTPROP_OBSERVED_LITS 1049
+d EXTPROP_OBSERVED_LIT_OCCURRENCES 1049
+d EXTPROP_CALLBACK_CALLS 235948912
+d EXTPROP_CALLBACK_NS 0
+d EXTPROP_NOTIFY_ASSIGNMENT_CALLS 838026
+d EXTPROP_NOTIFY_ASSIGNMENT_NS 0
+d EXTPROP_NOTIFY_ASSIGNMENT_LITS 28804474
+d EXTPROP_NOTIFY_NEW_DECISION_LEVEL_CALLS 109999172
+d EXTPROP_NOTIFY_NEW_DECISION_LEVEL_NS 0
+d EXTPROP_NOTIFY_BACKTRACK_CALLS 511950
+d EXTPROP_NOTIFY_BACKTRACK_NS 0
+d EXTPROP_CB_CHECK_FOUND_MODEL_CALLS 135398
+d EXTPROP_CB_CHECK_FOUND_MODEL_NS 0
+d EXTPROP_CB_CHECK_FOUND_MODEL_REJECTS 135387
+d EXTPROP_CB_DECIDE_CALLS 0
+d EXTPROP_CB_DECIDE_NS 0
+d EXTPROP_CB_PROPAGATE_CALLS 1167757
+d EXTPROP_CB_PROPAGATE_NS 0
+d EXTPROP_PROPAGATED_LITS 186502
+d EXTPROP_CB_ADD_REASON_CLAUSE_LIT_CALLS 883308
+d EXTPROP_CB_ADD_REASON_CLAUSE_LIT_NS 0
+d EXTPROP_REASON_CLAUSES 744362
+d EXTPROP_REASON_CLAUSE_LITS 24059388
+d EXTPROP_REASON_CLAUSE_MAX_LEN 39
+d EXTPROP_CB_HAS_EXTERNAL_CLAUSE_CALLS 110322700
+d EXTPROP_CB_HAS_EXTERNAL_CLAUSE_NS 0
+d EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_CALLS 12090601
+d EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_NS 0
+d EXTPROP_EXTERNAL_CLAUSES 178962
+d EXTPROP_EXTERNAL_CLAUSE_LITS 11911639
+d EXTPROP_EXTERNAL_CLAUSE_MAX_LEN 82
+d EXTPROP_STRONG_REASON_ATTEMPTS 43575
+d EXTPROP_STRONG_REASON_NS 0
+d EXTPROP_STRONG_REASON_LIFTS 27525
+d EXTPROP_STRONG_REASON_DROPPED_TERMS 84012
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":1172,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":1681,"max_domain_product_excluding_one_var":"68","p95_domain_product_excluding_one_var":"61"},"3":{"count":41,"max_domain_product_excluding_one_var":"1904","p95_domain_product_excluding_one_var":"1643"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":1681,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_GE_ARITY_STATS {"2":{"count":41,"max_domain_product_excluding_one_var":"122","p95_domain_product_excluding_one_var":"104"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 1969
+d OBJECTIVE_LP_LOWER 158
+d OBJECTIVE_LP_UPPER 1969
+d ROOT_LP_IMPROVED 1
+d ROOT_LP_MS 3
+d ROOT_LP_ROWS 42
+d ROOT_LP_VARS 205
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 41
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 2894
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 2
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 122
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 0
+d ROOT_LP_OBJECTIVE_VALUE 158
+d PROPAGATE_PRUNED_VALUES 2696
+d PROPAGATE_CHANGED_DOMAINS 125
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 42
+d POST_LOWER_TIGHTENED_DOMAINS 43
+d POST_LOWER_REMOVED_CLAUSES 7
+d POST_LOWER_REMOVED_LITS 40
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 205
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 1
+d MEMORY_RSS_BYTES 126648320
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 4460544
+d MEMORY_RSS_AFTER_LOWER_BYTES 5804032
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 6340608
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 6811648
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 8159232
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 8159232
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 1
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 1000000
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 126648320
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 126648320
+d MEMORY_GUARD_LIMIT_BYTES 68719476736
+d MEMORY_GUARD_RESERVE_BYTES 10737418240
+d MEMORY_GUARD_AVAILABLE_BYTES 57973899264
+d MEMORY_GUARD_DECISION rss-monitor
+d MEMORY_GUARD_REASON rss_available
+d DECODE_INT_ASSIGNMENTS 205
+d CSV /bench/competition/2022-2025/COP22to25/TSPTW2-n040w040-1_c23.xml.lzma,optimum,207,207,207,0,59773,1204882,799683,4,0,14,5,353,799222,1,optimal,0,1969,158,1969,1,3,42,205,0,0,0,158,,

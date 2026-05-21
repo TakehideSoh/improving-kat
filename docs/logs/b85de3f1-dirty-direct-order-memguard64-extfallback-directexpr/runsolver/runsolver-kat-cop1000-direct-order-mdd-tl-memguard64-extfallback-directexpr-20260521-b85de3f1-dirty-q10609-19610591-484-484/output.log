@@ -1,0 +1,120 @@
+c cmd: /host-parser-bin/kat_xcsp_b85de3f1_dirty_memoryguard_20260521 /bench/competition/2022-2025/COP22to25/ItemsetMining-k1-anneal_c22.xml.lzma --encoder order-ge --order-ge-eq-ne direct-order --order-ge-table mdd-tl --memory-guard-gib 64 --memory-guard-fallback extprop --cop-pipeline guarded-basic --cop-objective-cut direct-expr --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=1435
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=7 pruned=0 changed_domains=0 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=7626752
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=1435
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=355 lowered=1435 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=23855104
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=14 rounds=0 tightened=0 removed_cls=0 removed_lits=0 unsat=false precise_hits=903 precise_rounds=1 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=3 loop_ms=8 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=2 sat_ms=0 precise_ms=0
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=26365952
+c 00h00m00s | stage:lowered-shape int_vars=1439 bool_vars=50012 linear_atoms=2686 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=101459
+c 00h00m00s | stage:root-lp:start backend=native-simplex
+c 00h01m50s | stage:root-lp:bound backend=native-simplex status=optimal objective_value=622.9800000000008 naive_bounds=[-187,624] lp_bounds=[-187,622] improved=1 rows=3233 vars=51451 ms=110450
+c 00h01m50s | memory:rss checkpoint=before_preencode bytes=66293379072
+c 00h01m50s | stage:preencode(order-ge):start
+c 00h01m51s | stage:preencode(order-ge):done ms=577 int_vars=23677
+c 00h01m51s | memory:rss checkpoint=after_preencode bytes=66118475776
+c 00h01m51s | memory:guard limit_bytes=68719476736 rss_bytes=66118475776 reserve_bytes=10737418240 available_bytes=0 fallback=extprop
+c 00h01m51s | fallback:encoding order-ge->extprop reason=memory_guard_rss_threshold_exceeded
+c 00h01m51s | stage:encode(order-ge-budget-probe):start strategy=exact
+c 00h01m51s | stage:encode(order-ge-budget-probe):done ms=44 strategy=exact sat_vars=843703 sat_clauses=1 sat_lits=2 raw_clause_bytes=12 est_loaded_bytes=26998536 uncapped_est_loaded_bytes=26998536 budget_bytes=0 correction_milli=2000 risk=none decision=extprop
+c 00h01m51s | fallback:encoding order-ge->extprop reason=memory_guard_rss_threshold_exceeded est_loaded_bytes=26998536 budget_bytes=0
+c 00h01m51s | memory:rss checkpoint=before_encode bytes=66119077888
+c 00h01m51s | stage:encode(order-ge):start
+c 00h01m51s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=1000000 bytes=65754677248 interval_clauses=1000000
+c 00h01m52s | result:unknown reason=memory_guard_budget_exceeded detail=memory guard encode RSS threshold exceeded: stage=order-ge clauses=1000000 rss_bytes=65754677248 threshold_bytes=57982058496 limit_bytes=68719476736 reserve_bytes=10737418240 fallback=extprop
+s UNKNOWN
+c reason_code: memory_guard_budget_exceeded
+c reason: memory guard encode RSS threshold exceeded: stage=order-ge clauses=1000000 rss_bytes=65754677248 threshold_bytes=57982058496 limit_bytes=68719476736 reserve_bytes=10737418240 fallback=extprop
+d UNKNOWN_REASON memory_guard_budget_exceeded
+d OPTIMAL 0
+d SOURCE_CONSTRAINTS 1435
+d NORMALIZED_CONSTRAINTS 1435
+d LOWERED_CONSTRAINTS 1435
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_ROUNDS 0
+d OBJECTIVE_IMPROVEMENTS 0
+d PROPAGATE_MS 7
+d NORMALIZE_MS 0
+d LOWER_MS 355
+d POST_LOWER_MS 14
+d PREENCODE_MS 577
+d ENCODE_MS 586
+d SAT_SOLVE_MS 0
+d TOTAL_MS 112073
+d SAT_VARS 0
+d SAT_CLAUSES_BASE 0
+d SAT_CLAUSES_FINAL 0
+d SAT_CLAUSES_CEGAR_DELTA 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":715,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":536,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"2":{"count":899,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"},"3":{"count":1,"max_domain_product_excluding_one_var":"4","p95_domain_product_excluding_one_var":"4"},"6":{"count":2,"max_domain_product_excluding_one_var":"32","p95_domain_product_excluding_one_var":"32"},"11":{"count":1,"max_domain_product_excluding_one_var":"1024","p95_domain_product_excluding_one_var":"1024"},"16":{"count":1,"max_domain_product_excluding_one_var":"32768","p95_domain_product_excluding_one_var":"32768"},"20":{"count":1,"max_domain_product_excluding_one_var":"524288","p95_domain_product_excluding_one_var":"524288"},"21":{"count":1,"max_domain_product_excluding_one_var":"1048576","p95_domain_product_excluding_one_var":"1048576"},"37":{"count":1,"max_domain_product_excluding_one_var":"68719476736","p95_domain_product_excluding_one_var":"68719476736"},"39":{"count":1,"max_domain_product_excluding_one_var":"274877906944","p95_domain_product_excluding_one_var":"274877906944"},"40":{"count":1,"max_domain_product_excluding_one_var":"549755813888","p95_domain_product_excluding_one_var":"549755813888"},"42":{"count":1,"max_domain_product_excluding_one_var":"2199023255552","p95_domain_product_excluding_one_var":"2199023255552"},"51":{"count":458,"max_domain_product_excluding_one_var":"1125899906842624","p95_domain_product_excluding_one_var":"1125899906842624"},"57":{"count":1,"max_domain_product_excluding_one_var":"72057594037927936","p95_domain_product_excluding_one_var":"72057594037927936"},"59":{"count":1,"max_domain_product_excluding_one_var":"288230376151711744","p95_domain_product_excluding_one_var":"288230376151711744"},"68":{"count":1,"max_domain_product_excluding_one_var":"147573952589676412928","p95_domain_product_excluding_one_var":"147573952589676412928"},"73":{"count":1,"max_domain_product_excluding_one_var":"4722366482869645213696","p95_domain_product_excluding_one_var":"4722366482869645213696"},"74":{"count":1,"max_domain_product_excluding_one_var":"9444732965739290427392","p95_domain_product_excluding_one_var":"9444732965739290427392"},"80":{"count":1,"max_domain_product_excluding_one_var":"604462909807314587353088","p95_domain_product_excluding_one_var":"604462909807314587353088"},"97":{"count":1,"max_domain_product_excluding_one_var":"79228162514264337593543950336","p95_domain_product_excluding_one_var":"79228162514264337593543950336"},"119":{"count":1,"max_domain_product_excluding_one_var":"332306998946228968225951765070086144","p95_domain_product_excluding_one_var":"332306998946228968225951765070086144"},"124":{"count":1,"max_domain_product_excluding_one_var":"10633823966279326983230456482242756608","p95_domain_product_excluding_one_var":"10633823966279326983230456482242756608"},"126":{"count":1,"max_domain_product_excluding_one_var":"42535295865117307932921825928971026432","p95_domain_product_excluding_one_var":"42535295865117307932921825928971026432"},"141":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"158":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"159":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"161":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"178":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"202":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"226":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"238":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"251":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"266":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"275":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"282":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"297":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"306":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"310":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"316":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"320":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"329":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"344":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"360":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"375":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"388":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"400":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"424":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"441":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"448":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"465":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"467":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"468":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"485":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"500":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"502":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"507":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"529":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"546":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"552":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"553":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"558":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"567":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"569":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"574":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"584":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"586":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"587":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"598":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"605":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"606":{"count":2,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"610":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"615":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"616":{"count":2,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"619":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"620":{"count":2,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"623":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"625":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER -187
+d OBJECTIVE_NAIVE_UPPER 624
+d OBJECTIVE_LP_LOWER -187
+d OBJECTIVE_LP_UPPER 622
+d ROOT_LP_IMPROVED 1
+d ROOT_LP_MS 110450
+d ROOT_LP_ROWS 3233
+d ROOT_LP_VARS 51451
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 536
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 715
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 1
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 1
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 625
+d ROOT_LP_OBJECTIVE_VALUE 622.9800000000008
+d PROPAGATE_PRUNED_VALUES 0
+d PROPAGATE_CHANGED_DOMAINS 0
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 0
+d POST_LOWER_TIGHTENED_DOMAINS 0
+d POST_LOWER_REMOVED_CLAUSES 0
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 23677
+d ORDER_GE_BUDGET_STRATEGY exact
+d ORDER_GE_BUDGET_CHOICE extprop
+d ORDER_GE_BUDGET_LIMIT_BYTES 0
+d ORDER_GE_BUDGET_ESTIMATED_BYTES 26998536
+d ORDER_GE_BUDGET_RAW_CLAUSE_BYTES 12
+d ORDER_GE_BUDGET_NUM_LITS 2
+d ORDER_GE_BUDGET_PROBE_MS 44
+d ORDER_GE_BUDGET_CORRECTION_MILLI 2000
+d MEMORY_RSS_BYTES 65754677248
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 7626752
+d MEMORY_RSS_AFTER_LOWER_BYTES 23855104
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 26365952
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 66293379072
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 66118475776
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 66119077888
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 1
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 1000000
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 65754677248
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 65754677248
+d MEMORY_GUARD_LIMIT_BYTES 68719476736
+d MEMORY_GUARD_RESERVE_BYTES 10737418240
+d MEMORY_GUARD_AVAILABLE_BYTES 57982058496
+d MEMORY_GUARD_DECISION extprop
+d MEMORY_GUARD_REASON encode_rss_threshold_exceeded
+d CSV /bench/competition/2022-2025/COP22to25/ItemsetMining-k1-anneal_c22.xml.lzma,unknown,1435,1435,1435,0,0,0,112073,7,0,355,577,586,0,1,optimal,-187,624,-187,622,1,110450,3233,51451,0,0,0,622.9800000000008,memory_guard_budget_exceeded,memory guard encode RSS threshold exceeded: stage=order-ge clauses=1000000 rss_bytes=65754677248 threshold_bytes=57982058496 limit_bytes=68719476736 reserve_bytes=10737418240 fallback=extprop

@@ -303,6 +303,14 @@ RUNS = [
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
+        "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr",
+        "b85de3f1-dirty direct-order memguard64 extfallback directexpr",
+        "kat-cop1000-direct-order-mdd-tl-memguard64-extfallback-directexpr-20260521-b85de3f1-dirty-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-memguard64-extfallback-directexpr-20260521-b85de3f1-dirty-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
         "10c9c43b-dirty-noinc203-cegar-norootlp",
         "10c9c43b-dirty noinc203 CEGAR no-root-lp",
         "kat-cop1000-noinc203-order-direct-mdd-tl-extprop8196-s40-cegar-norootlp-20260513-10c9c43b-dirty-q10609",

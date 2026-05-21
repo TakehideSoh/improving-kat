@@ -56,6 +56,7 @@ SCRIPT = """(() => {
     'c70e1a64 direct-order extprop8196 s40 extobj link-cost maxarity2 no-root-lp',
     'c70e1a64 direct-order extprop8196 s40 link-cost maxarity2 no-root-lp',
     '489538e3 direct-order extprop8196 s40 directexpr link-cost maxarity2 no-root-lp',
+    'b85de3f1-dirty direct-order memguard64 extfallback directexpr',
     'aac6b714 SCIP direct-order dynamic',
     'bd3c9f7d SCIP direct-order dynamic',
     'bd3c9f7d SCIP log-scop dynamic',

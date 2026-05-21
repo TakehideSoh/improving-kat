@@ -1,0 +1,159 @@
+c cmd: /host-parser-bin/kat_xcsp_b85de3f1_dirty_memoryguard_20260521 /bench/competition/2022-2025/COP22to25/BusScheduling-t1_c25.xml.lzma --encoder order-ge --order-ge-eq-ne direct-order --order-ge-table mdd-tl --memory-guard-gib 64 --memory-guard-fallback extprop --cop-pipeline guarded-basic --cop-objective-cut direct-expr --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=24
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=0 changed_domains=0 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=1605632
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=24
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=2 lowered=24 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=2146304
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=0 rounds=0 tightened=0 removed_cls=0 removed_lits=0 unsat=false precise_hits=0 precise_rounds=0 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=0 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=2146304
+c 00h00m00s | stage:lowered-shape int_vars=77 bool_vars=271 linear_atoms=101 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=566
+c 00h00m00s | stage:root-lp:start backend=native-simplex
+c 00h00m00s | stage:root-lp:bound backend=native-simplex status=optimal objective_value=0 naive_bounds=[0,77] lp_bounds=[0,77] improved=0 rows=24 vars=348 ms=5
+c 00h00m00s | memory:rss checkpoint=before_preencode bytes=3649536
+c 00h00m00s | stage:preencode(order-ge):start
+c 00h00m00s | stage:preencode(order-ge):done ms=1 int_vars=219
+c 00h00m00s | memory:rss checkpoint=after_preencode bytes=3649536
+c 00h00m00s | memory:guard limit_bytes=68719476736 rss_bytes=3649536 reserve_bytes=10737418240 available_bytes=57978408960 fallback=extprop
+c 00h00m00s | memory:rss checkpoint=before_encode bytes=3649536
+c 00h00m00s | stage:encode(order-ge):start
+c 00h00m00s | stage:encode(order-ge):done ms=4 sat_vars=1162 sat_clauses=8673 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=1162 clauses=8673
+c 00h00m00s | stage:sat:solve:start assumptions=0 phase_lits=0
+c 00h00m00s | stage:sat:solve:done ms=1 result=Sat assumptions=0 phase_lits=0
+c 00h00m00s | stage:decode:start
+c 00h00m00s | stage:decode:done int_assignments=77
+c 00h00m00s | result:Sat
+c 00h00m00s | objective:incumbent kind=initial value=7 rounds=1 improvements=0
+o 7
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=1163 clauses=8673
+c 00h00m00s | stage:sat:solve:start assumptions=1 phase_lits=77
+c 00h00m00s | stage:sat:solve:done ms=11 result=Unsat assumptions=1 phase_lits=77
+c 00h00m00s | result:Unsat
+s OPTIMUM FOUND
+o 7
+v <instantiation>
+v   <list> x[0] x[1] x[2] x[3] x[4] x[5] x[6] x[7] x[8] x[9] x[10] x[11] x[12] x[13] x[14] x[15] x[16] x[17] x[18] x[19] x[20] x[21] x[22] x[23] x[24] x[25] x[26] x[27] x[28] x[29] x[30] x[31] x[32] x[33] x[34] x[35] x[36] x[37] x[38] x[39] x[40] x[41] x[42] x[43] x[44] x[45] x[46] x[47] x[48] x[49] x[50] x[51] x[52] x[53] x[54] x[55] x[56] x[57] x[58] x[59] x[60] x[61] x[62] x[63] x[64] x[65] x[66] x[67] x[68] x[69] x[70] x[71] x[72] x[73] x[74] x[75] x[76] </list>
+v   <values> 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 7
+d OPTIMAL 1
+d SOURCE_CONSTRAINTS 24
+d NORMALIZED_CONSTRAINTS 24
+d LOWERED_CONSTRAINTS 24
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_ROUNDS 2
+d OBJECTIVE_IMPROVEMENTS 0
+d OBJECTIVE_OPTIMALITY_PROOF strict_cut_unsat
+d PROPAGATE_MS 0
+d NORMALIZE_MS 0
+d LOWER_MS 2
+d POST_LOWER_MS 0
+d PREENCODE_MS 1
+d ENCODE_MS 4
+d SAT_SOLVE_MS 12
+d TOTAL_MS 29
+d SAT_VARS 1163
+d SAT_CLAUSES_BASE 8673
+d SAT_CLAUSES_FINAL 8673
+d SAT_CLAUSES_CEGAR_DELTA 0
+d SAT_CONFLICTS 199
+d EXTPROP_CONSTRAINTS 1
+d EXTPROP_OBSERVED_VARS 78
+d EXTPROP_OBSERVED_LITS 78
+d EXTPROP_OBSERVED_LIT_OCCURRENCES 78
+d EXTPROP_CALLBACK_CALLS 15578
+d EXTPROP_CALLBACK_NS 0
+d EXTPROP_NOTIFY_ASSIGNMENT_CALLS 455
+d EXTPROP_NOTIFY_ASSIGNMENT_NS 0
+d EXTPROP_NOTIFY_ASSIGNMENT_LITS 2673
+d EXTPROP_NOTIFY_NEW_DECISION_LEVEL_CALLS 4862
+d EXTPROP_NOTIFY_NEW_DECISION_LEVEL_NS 0
+d EXTPROP_NOTIFY_BACKTRACK_CALLS 258
+d EXTPROP_NOTIFY_BACKTRACK_NS 0
+d EXTPROP_CB_CHECK_FOUND_MODEL_CALLS 1
+d EXTPROP_CB_CHECK_FOUND_MODEL_NS 0
+d EXTPROP_CB_CHECK_FOUND_MODEL_REJECTS 0
+d EXTPROP_CB_DECIDE_CALLS 0
+d EXTPROP_CB_DECIDE_NS 0
+d EXTPROP_CB_PROPAGATE_CALLS 4911
+d EXTPROP_CB_PROPAGATE_NS 0
+d EXTPROP_PROPAGATED_LITS 0
+d EXTPROP_CB_ADD_REASON_CLAUSE_LIT_CALLS 0
+d EXTPROP_CB_ADD_REASON_CLAUSE_LIT_NS 0
+d EXTPROP_REASON_CLAUSES 0
+d EXTPROP_REASON_CLAUSE_LITS 0
+d EXTPROP_REASON_CLAUSE_MAX_LEN 0
+d EXTPROP_CB_HAS_EXTERNAL_CLAUSE_CALLS 4911
+d EXTPROP_CB_HAS_EXTERNAL_CLAUSE_NS 0
+d EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_CALLS 180
+d EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_NS 0
+d EXTPROP_EXTERNAL_CLAUSES 20
+d EXTPROP_EXTERNAL_CLAUSE_LITS 160
+d EXTPROP_EXTERNAL_CLAUSE_MAX_LEN 8
+d EXTPROP_STRONG_REASON_ATTEMPTS 20
+d EXTPROP_STRONG_REASON_NS 0
+d EXTPROP_STRONG_REASON_LIFTS 0
+d EXTPROP_STRONG_REASON_DROPPED_TERMS 4
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":77,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"5":{"count":1,"max_domain_product_excluding_one_var":"16","p95_domain_product_excluding_one_var":"16"},"6":{"count":3,"max_domain_product_excluding_one_var":"32","p95_domain_product_excluding_one_var":"32"},"7":{"count":2,"max_domain_product_excluding_one_var":"64","p95_domain_product_excluding_one_var":"64"},"8":{"count":3,"max_domain_product_excluding_one_var":"128","p95_domain_product_excluding_one_var":"128"},"9":{"count":3,"max_domain_product_excluding_one_var":"256","p95_domain_product_excluding_one_var":"256"},"10":{"count":1,"max_domain_product_excluding_one_var":"512","p95_domain_product_excluding_one_var":"512"},"11":{"count":1,"max_domain_product_excluding_one_var":"1024","p95_domain_product_excluding_one_var":"1024"},"13":{"count":3,"max_domain_product_excluding_one_var":"4096","p95_domain_product_excluding_one_var":"4096"},"14":{"count":1,"max_domain_product_excluding_one_var":"8192","p95_domain_product_excluding_one_var":"8192"},"16":{"count":1,"max_domain_product_excluding_one_var":"32768","p95_domain_product_excluding_one_var":"32768"},"17":{"count":1,"max_domain_product_excluding_one_var":"65536","p95_domain_product_excluding_one_var":"65536"},"18":{"count":1,"max_domain_product_excluding_one_var":"131072","p95_domain_product_excluding_one_var":"131072"},"19":{"count":2,"max_domain_product_excluding_one_var":"262144","p95_domain_product_excluding_one_var":"262144"},"20":{"count":1,"max_domain_product_excluding_one_var":"524288","p95_domain_product_excluding_one_var":"524288"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 77
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 77
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 5
+d ROOT_LP_ROWS 24
+d ROOT_LP_VARS 348
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 0
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 77
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 0
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 0
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 20
+d ROOT_LP_OBJECTIVE_VALUE 0
+d PROPAGATE_PRUNED_VALUES 0
+d PROPAGATE_CHANGED_DOMAINS 0
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 0
+d POST_LOWER_TIGHTENED_DOMAINS 0
+d POST_LOWER_REMOVED_CLAUSES 0
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 219
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d MEMORY_RSS_BYTES 3649536
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 1605632
+d MEMORY_RSS_AFTER_LOWER_BYTES 2146304
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 2146304
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 3649536
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 3649536
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 3649536
+d MEMORY_GUARD_LIMIT_BYTES 68719476736
+d MEMORY_GUARD_RESERVE_BYTES 10737418240
+d MEMORY_GUARD_AVAILABLE_BYTES 57978408960
+d MEMORY_GUARD_DECISION rss-monitor
+d MEMORY_GUARD_REASON rss_available
+d DECODE_INT_ASSIGNMENTS 77
+d CSV /bench/competition/2022-2025/COP22to25/BusScheduling-t1_c25.xml.lzma,optimum,24,24,24,0,1163,8673,29,0,0,2,1,4,12,1,optimal,0,77,0,77,0,5,24,348,0,0,0,0,,

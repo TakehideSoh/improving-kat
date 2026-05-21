@@ -1,0 +1,120 @@
+c cmd: /host-parser-bin/kat_xcsp_b85de3f1_dirty_memoryguard_20260521 /bench/competition/2022-2025/COP22to25/BinPacking-n3c3w2a_c24.xml.lzma --encoder order-ge --order-ge-eq-ne direct-order --order-ge-table mdd-tl --memory-guard-gib 64 --memory-guard-fallback extprop --cop-pipeline guarded-basic --cop-objective-cut direct-expr --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=233
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=2 pruned=0 changed_domains=0 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=3764224
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=233
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=448 lowered=233 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=31608832
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=26 rounds=0 tightened=0 removed_cls=0 removed_lits=0 unsat=false precise_hits=0 precise_rounds=1 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=13 loop_ms=10 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=1 sat_ms=0 precise_ms=0
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=40726528
+c 00h00m00s | stage:lowered-shape int_vars=806 bool_vars=61060 linear_atoms=62853 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=123229
+c 00h00m00s | stage:root-lp:start backend=native-simplex
+c 00h05m22s | stage:root-lp:bound backend=native-simplex status=optimal objective_value=84 naive_bounds=[84,115] lp_bounds=[84,115] improved=0 rows=1565 vars=61866 ms=322238
+c 00h05m22s | memory:rss checkpoint=before_preencode bytes=93672009728
+c 00h05m22s | stage:preencode(order-ge):start
+c 00h05m23s | stage:preencode(order-ge):done ms=1073 int_vars=29543
+c 00h05m23s | memory:rss checkpoint=after_preencode bytes=93733351424
+c 00h05m23s | memory:guard limit_bytes=68719476736 rss_bytes=93733351424 reserve_bytes=10737418240 available_bytes=0 fallback=extprop
+c 00h05m23s | fallback:encoding order-ge->extprop reason=memory_guard_rss_threshold_exceeded
+c 00h05m23s | stage:encode(order-ge-budget-probe):start strategy=exact
+c 00h05m23s | stage:encode(order-ge-budget-probe):done ms=159 strategy=exact sat_vars=926613 sat_clauses=1 sat_lits=2 raw_clause_bytes=12 est_loaded_bytes=29651656 uncapped_est_loaded_bytes=29651656 budget_bytes=0 correction_milli=2000 risk=none decision=extprop
+c 00h05m23s | fallback:encoding order-ge->extprop reason=memory_guard_rss_threshold_exceeded est_loaded_bytes=29651656 budget_bytes=0
+c 00h05m24s | memory:rss checkpoint=before_encode bytes=93733756928
+c 00h05m24s | stage:encode(order-ge):start
+c 00h05m24s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=1000000 bytes=93840068608 interval_clauses=1000000
+c 00h05m24s | result:unknown reason=memory_guard_budget_exceeded detail=memory guard encode RSS threshold exceeded: stage=order-ge clauses=1000000 rss_bytes=93840068608 threshold_bytes=57982058496 limit_bytes=68719476736 reserve_bytes=10737418240 fallback=extprop
+s UNKNOWN
+c reason_code: memory_guard_budget_exceeded
+c reason: memory guard encode RSS threshold exceeded: stage=order-ge clauses=1000000 rss_bytes=93840068608 threshold_bytes=57982058496 limit_bytes=68719476736 reserve_bytes=10737418240 fallback=extprop
+d UNKNOWN_REASON memory_guard_budget_exceeded
+d OPTIMAL 0
+d SOURCE_CONSTRAINTS 233
+d NORMALIZED_CONSTRAINTS 233
+d LOWERED_CONSTRAINTS 233
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_ROUNDS 0
+d OBJECTIVE_IMPROVEMENTS 0
+d PROPAGATE_MS 2
+d NORMALIZE_MS 0
+d LOWER_MS 448
+d POST_LOWER_MS 26
+d PREENCODE_MS 1073
+d ENCODE_MS 732
+d SAT_SOLVE_MS 0
+d TOTAL_MS 324740
+d SAT_VARS 0
+d SAT_CLAUSES_BASE 0
+d SAT_CLAUSES_FINAL 0
+d SAT_CLAUSES_CEGAR_DELTA 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":60375,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":115,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":684,"max_domain_product_excluding_one_var":"75","p95_domain_product_excluding_one_var":"75"}}
+d LINEAR_INT_GE_ARITY_STATS {"2":{"count":1488,"max_domain_product_excluding_one_var":"75","p95_domain_product_excluding_one_var":"75"},"7":{"count":115,"max_domain_product_excluding_one_var":"177978515625","p95_domain_product_excluding_one_var":"177978515625"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"116":{"count":1,"max_domain_product_excluding_one_var":"41538374868278621028243970633760768","p95_domain_product_excluding_one_var":"41538374868278621028243970633760768"},"805":{"count":75,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 84
+d OBJECTIVE_NAIVE_UPPER 115
+d OBJECTIVE_LP_LOWER 84
+d OBJECTIVE_LP_UPPER 115
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 322238
+d ROOT_LP_ROWS 1565
+d ROOT_LP_VARS 61866
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 1603
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 60375
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 7
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 177978515625
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 805
+d ROOT_LP_OBJECTIVE_VALUE 84
+d PROPAGATE_PRUNED_VALUES 0
+d PROPAGATE_CHANGED_DOMAINS 0
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 0
+d POST_LOWER_TIGHTENED_DOMAINS 0
+d POST_LOWER_REMOVED_CLAUSES 0
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 29543
+d ORDER_GE_BUDGET_STRATEGY exact
+d ORDER_GE_BUDGET_CHOICE extprop
+d ORDER_GE_BUDGET_LIMIT_BYTES 0
+d ORDER_GE_BUDGET_ESTIMATED_BYTES 29651656
+d ORDER_GE_BUDGET_RAW_CLAUSE_BYTES 12
+d ORDER_GE_BUDGET_NUM_LITS 2
+d ORDER_GE_BUDGET_PROBE_MS 159
+d ORDER_GE_BUDGET_CORRECTION_MILLI 2000
+d MEMORY_RSS_BYTES 93840068608
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 3764224
+d MEMORY_RSS_AFTER_LOWER_BYTES 31608832
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 40726528
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 93672009728
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 93733351424
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 93733756928
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 1
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 1000000
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 93840068608
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 93840068608
+d MEMORY_GUARD_LIMIT_BYTES 68719476736
+d MEMORY_GUARD_RESERVE_BYTES 10737418240
+d MEMORY_GUARD_AVAILABLE_BYTES 57982058496
+d MEMORY_GUARD_DECISION extprop
+d MEMORY_GUARD_REASON encode_rss_threshold_exceeded
+d CSV /bench/competition/2022-2025/COP22to25/BinPacking-n3c3w2a_c24.xml.lzma,unknown,233,233,233,0,0,0,324740,2,0,448,1073,732,0,1,optimal,84,115,84,115,0,322238,1565,61866,0,0,0,84,memory_guard_budget_exceeded,memory guard encode RSS threshold exceeded: stage=order-ge clauses=1000000 rss_bytes=93840068608 threshold_bytes=57982058496 limit_bytes=68719476736 reserve_bytes=10737418240 fallback=extprop

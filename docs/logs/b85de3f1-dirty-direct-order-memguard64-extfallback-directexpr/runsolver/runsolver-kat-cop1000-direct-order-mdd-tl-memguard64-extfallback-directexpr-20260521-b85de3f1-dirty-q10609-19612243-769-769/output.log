@@ -1,0 +1,156 @@
+c cmd: /host-parser-bin/kat_xcsp_b85de3f1_dirty_memoryguard_20260521 /bench/competition/2022-2025/COP22to25/SREFLP-Cl12_c23.xml.lzma --encoder order-ge --order-ge-eq-ne direct-order --order-ge-table mdd-tl --memory-guard-gib 64 --memory-guard-fallback extprop --cop-pipeline guarded-basic --cop-objective-cut direct-expr --progress
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=123
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=0 changed_domains=0 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=2150400
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=123
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=36 lowered=123 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=3502080
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=3 rounds=0 tightened=40 removed_cls=0 removed_lits=0 unsat=false precise_hits=212 precise_rounds=2 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=0 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=1
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=4382720
+c 00h00m00s | stage:lowered-shape int_vars=134 bool_vars=0 linear_atoms=639 table_atoms=12 table_tuples=144 table_scope=24 alldiff_atoms=1 circuit_atoms=0 product_atoms=0 logical_clauses=7988
+c 00h00m00s | stage:root-lp:start backend=native-simplex
+c 00h00m00s | stage:root-lp:bound backend=native-simplex status=optimal objective_value=0 naive_bounds=[0,121500] lp_bounds=[0,121500] improved=0 rows=92 vars=334 ms=53
+c 00h00m00s | memory:rss checkpoint=before_preencode bytes=6832128
+c 00h00m00s | stage:preencode(order-ge):start
+c 00h00m00s | stage:preencode(order-ge):done ms=2 int_vars=230
+c 00h00m00s | memory:rss checkpoint=after_preencode bytes=6832128
+c 00h00m00s | memory:guard limit_bytes=68719476736 rss_bytes=6832128 reserve_bytes=10737418240 available_bytes=57975226368 fallback=extprop
+c 00h00m00s | memory:rss checkpoint=before_encode bytes=6832128
+c 00h00m00s | stage:encode(order-ge):start
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=1000000 bytes=120803328 interval_clauses=1000000
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=2000000 bytes=225820672 interval_clauses=1000000
+c 00h00m01s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=3000000 bytes=332439552 interval_clauses=1000000
+c 00h00m01s | stage:encode(order-ge):done ms=991 sat_vars=30210 sat_clauses=3021935 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m01s | stage:sat:init solver=CaDiCaL vars=30210 clauses=3021935
+c 00h00m01s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cumulative_cegar_rounds=- cop_cegar_rounds=1 assumptions=0 phase_lits=0
+c 00h00m01s | stage:sat:solve:done round=1 ms=109 result=Sat assumptions=0 phase_lits=0
+c 00h00m01s | stage:decode:start round=1 requested_int_ids=134
+c 00h00m01s | stage:decode:final:start round=1 requested_int_ids=134
+c 00h00m01s | stage:decode:done round=1 int_assignments=134
+c 00h00m01s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=0 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=1 cop_cegar_added_clauses=0
+c 00h00m01s | result:Sat
+c 00h00m01s | objective:incumbent kind=initial value=19630 rounds=1 improvements=0
+o 19630
+c 00h00m01s | stage:sat:init solver=CaDiCaL vars=30210 clauses=3021935
+c 00h00m01s | stage:sat:solve:start round=1 circuit_cegar_rounds=- cumulative_cegar_rounds=- cop_cegar_rounds=2 assumptions=0 phase_lits=4007
+c 00h00m01s | stage:sat:solve:done round=1 ms=8 result=Sat assumptions=0 phase_lits=4007
+c 00h00m01s | stage:decode:start round=1 requested_int_ids=134
+s SATISFIABLE
+o 19630
+v <instantiation>
+v   <list> x[0] x[1] x[2] x[3] x[4] x[5] x[6] x[7] x[8] x[9] x[10] x[11] y[0] y[1] y[2] y[3] y[4] y[5] y[6] y[7] y[8] y[9] y[10] y[11] d[0][2] d[0][3] d[0][4] d[0][5] d[0][6] d[0][7] d[0][8] d[0][9] d[0][10] d[0][11] d[1][3] d[1][4] d[1][5] d[1][6] d[1][7] d[1][8] d[1][9] d[1][10] d[1][11] d[2][4] d[2][5] d[2][6] d[2][7] d[2][8] d[2][9] d[2][10] d[2][11] d[3][5] d[3][6] d[3][7] d[3][8] d[3][9] d[3][10] d[3][11] d[4][6] d[4][7] d[4][8] d[4][9] d[4][10] d[4][11] d[5][7] d[5][8] d[5][9] d[5][10] d[5][11] d[6][8] d[6][9] d[6][10] d[6][11] d[7][9] d[7][10] d[7][11] d[8][10] d[8][11] d[9][11] aux_gb[0] aux_gb[1] aux_gb[2] aux_gb[3] aux_gb[4] aux_gb[5] aux_gb[6] aux_gb[7] aux_gb[8] aux_gb[9] aux_gb[10] aux_gb[11] aux_gb[12] aux_gb[13] aux_gb[14] aux_gb[15] aux_gb[16] aux_gb[17] aux_gb[18] aux_gb[19] aux_gb[20] aux_gb[21] aux_gb[22] aux_gb[23] aux_gb[24] aux_gb[25] aux_gb[26] aux_gb[27] aux_gb[28] aux_gb[29] aux_gb[30] aux_gb[31] aux_gb[32] aux_gb[33] aux_gb[34] aux_gb[35] aux_gb[36] aux_gb[37] aux_gb[38] aux_gb[39] aux_gb[40] aux_gb[41] aux_gb[42] aux_gb[43] aux_gb[44] aux_gb[45] aux_gb[46] aux_gb[47] aux_gb[48] aux_gb[49] aux_gb[50] aux_gb[51] aux_gb[52] aux_gb[53] aux_gb[54] </list>
+v   <values> 11 10 9 8 7 6 5 4 3 2 1 0 10 50 40 50 10 80 50 10 30 50 20 40 50 90 140 150 230 280 290 320 370 390 40 90 100 180 230 240 270 320 340 50 60 140 190 200 230 280 300 10 90 140 150 180 230 250 80 130 140 170 220 240 50 60 90 140 160 10 40 90 110 30 80 100 50 70 20 0 10 0 3 0 1 5 2 0 1 10 5 3 4 1 5 2 0 1 0 2 5 5 0 2 5 1 5 1 0 0 5 4 2 1 0 10 5 0 6 0 2 0 2 0 2 0 2 0 0 2 1 0 4 2 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 19630
+d OPTIMAL 0
+d OBJECTIVE_ROUNDS 1
+d OBJECTIVE_IMPROVEMENTS 0
+d COP_INCUMBENT_ELAPSED_MS 1203
+d SOLVE_ELAPSED_MS 1800125
+d CURRENT_STAGE relaxation
+d CURRENT_STAGE_ELAPSED_MS 1798912
+d LAST_COMPLETED_STAGE decode
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS done
+d STAGE_DECODE_STATUS done
+d STAGE_RELAXATION_STATUS running
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 123
+d NORMALIZED_CONSTRAINTS 123
+d LOWERED_CONSTRAINTS 123
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 30210
+d SAT_CLAUSES_BASE 3021935
+d SAT_CLAUSES_FINAL 3021935
+d SAT_CLAUSES_CEGAR_DELTA 0
+d MEMORY_RSS_BYTES 332439552
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 2150400
+d MEMORY_RSS_AFTER_LOWER_BYTES 3502080
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 4382720
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 6832128
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 6832128
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 6832128
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 3
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 3000000
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 332439552
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 332439552
+d MEMORY_GUARD_LIMIT_BYTES 68719476736
+d MEMORY_GUARD_RESERVE_BYTES 10737418240
+d MEMORY_GUARD_AVAILABLE_BYTES 57975226368
+d MEMORY_GUARD_DECISION rss-monitor
+d MEMORY_GUARD_REASON rss_available
+d SAT_CONFLICTS 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":440,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":10,"max_domain_product_excluding_one_var":"6","p95_domain_product_excluding_one_var":"6"},"3":{"count":9,"max_domain_product_excluding_one_var":"36","p95_domain_product_excluding_one_var":"36"},"4":{"count":8,"max_domain_product_excluding_one_var":"216","p95_domain_product_excluding_one_var":"216"},"5":{"count":7,"max_domain_product_excluding_one_var":"1296","p95_domain_product_excluding_one_var":"1296"},"6":{"count":6,"max_domain_product_excluding_one_var":"7776","p95_domain_product_excluding_one_var":"7776"},"7":{"count":5,"max_domain_product_excluding_one_var":"46656","p95_domain_product_excluding_one_var":"46656"},"8":{"count":4,"max_domain_product_excluding_one_var":"279936","p95_domain_product_excluding_one_var":"279936"},"9":{"count":3,"max_domain_product_excluding_one_var":"1679616","p95_domain_product_excluding_one_var":"1679616"},"10":{"count":2,"max_domain_product_excluding_one_var":"10077696","p95_domain_product_excluding_one_var":"10077696"},"11":{"count":1,"max_domain_product_excluding_one_var":"60466176","p95_domain_product_excluding_one_var":"60466176"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":144,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_GE_ARITY_STATS {}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 121500
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 121500
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 53
+d ROOT_LP_ROWS 92
+d ROOT_LP_VARS 334
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 0
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 495
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 0
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 0
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 0
+d ROOT_LP_OBJECTIVE_VALUE 0
+d PROPAGATE_PRUNED_VALUES 0
+d PROPAGATE_CHANGED_DOMAINS 0
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 0
+d POST_LOWER_TIGHTENED_DOMAINS 40
+d POST_LOWER_REMOVED_CLAUSES 0
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 230
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d MEMORY_RSS_BYTES 332439552
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 2150400
+d MEMORY_RSS_AFTER_LOWER_BYTES 3502080
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 4382720
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 6832128
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 6832128
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 6832128
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 3
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 3000000
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 332439552
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 332439552
+d MEMORY_GUARD_LIMIT_BYTES 68719476736
+d MEMORY_GUARD_RESERVE_BYTES 10737418240
+d MEMORY_GUARD_AVAILABLE_BYTES 57975226368
+d MEMORY_GUARD_DECISION rss-monitor
+d MEMORY_GUARD_REASON rss_available
+d DECODE_INT_ASSIGNMENTS 134
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 2
+d COP_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/competition/2022-2025/COP22to25/SREFLP-Cl12_c23.xml.lzma,sat,123,123,123,0,30210,3021935,1800084,,,,,,,1,optimal,0,121500,0,121500,0,53,92,334,0,0,0,0,timeout_signal,incumbent_interrupted_by_signal
+signal=15; emitted incumbent csv row
