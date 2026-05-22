@@ -1,0 +1,153 @@
+c cmd: /host-parser-bin/kat_xcsp_b85de3f1_dirty_memguard64_directexpr_linkcost_20260521 /bench/competition/2022-2025/COP22to25/HSP-14409_c23.xml.lzma --encoder order-ge --cop-objective-cut direct-expr --order-ge-table mdd-tl --order-ge-eq-ne direct-order --order-ge-direct-eq-ne-max-arity 2 --order-ge-shorten-link-cost --no-root-lp-bound --progress --memory-guard-gib 64 --memory-guard-fallback extprop
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=157
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=1200 changed_domains=20 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=3338240
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=157
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:done ms=2 lowered=157 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=4149248
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=0 rounds=9 tightened=9 removed_cls=48 removed_lits=38 unsat=false precise_hits=0 precise_rounds=0 pivot_recomputes=9 pivot_exact_attempts=0 pivot_general_attempts=9 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=9 pivot_general_tightened=0 setup_ms=0 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=4149248
+c 00h00m00s | stage:lowered-shape int_vars=31 bool_vars=495 linear_atoms=406 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=1 circuit_atoms=0 product_atoms=0 logical_clauses=710
+c 00h00m00s | stage:root-lp:skip reason=disabled_by_option ms=0
+c 00h00m00s | memory:rss checkpoint=before_preencode bytes=4149248
+c 00h00m00s | stage:preencode(order-ge):start
+c 00h00m00s | stage:preencode(order-ge):done ms=0 int_vars=47
+c 00h00m00s | memory:rss checkpoint=after_preencode bytes=4419584
+c 00h00m00s | memory:guard limit_bytes=68719476736 rss_bytes=4689920 reserve_bytes=10737418240 available_bytes=57977368576 fallback=extprop
+c 00h00m00s | stage:encode(order-ge-early-extprop-probe):done ms=418 estimated_total_clauses=4852995
+c 00h00m00s | memory:rss checkpoint=before_encode bytes=5054464
+c 00h00m00s | stage:encode(order-ge):start
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=1000000 bytes=98713600 interval_clauses=1000000
+c 00h00m01s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=2000000 bytes=193556480 interval_clauses=1000000
+c 00h00m01s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=3000000 bytes=285782016 interval_clauses=1000000
+c 00h00m01s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=4000000 bytes=374988800 interval_clauses=1000000
+c 00h00m02s | stage:encode(order-ge):done ms=1706 sat_vars=21241 sat_clauses=4852995 ext_ge_specs=0 relaxed_circuits=0
+c 00h00m02s | stage:sat:init solver=CaDiCaL vars=21241 clauses=4852995
+c 00h00m02s | stage:sat:solve:start assumptions=0 phase_lits=0
+c 00h00m03s | stage:sat:solve:done ms=1376 result=Sat assumptions=0 phase_lits=0
+c 00h00m03s | stage:decode:start
+c 00h00m03s | stage:decode:done int_assignments=31
+c 00h00m03s | result:Sat
+c 00h00m03s | objective:incumbent kind=initial value=610 rounds=1 improvements=0
+o 610
+c 00h00m03s | stage:sat:init solver=CaDiCaL vars=21242 clauses=4852995
+c 00h00m03s | stage:sat:solve:start assumptions=1 phase_lits=5691
+c 00h00m04s | stage:sat:solve:done ms=1018 result=Unsat assumptions=1 phase_lits=5691
+c 00h00m04s | result:Unsat
+s OPTIMUM FOUND
+o 610
+v <instantiation>
+v   <list> t[0] t[1] t[2] t[3] t[4] t[5] t[6] t[7] t[8] t[9] o[0] o[1] o[2] o[3] o[4] o[5] o[6] o[7] o[8] o[9] d[0] d[1] d[2] d[3] d[4] d[5] d[6] d[7] d[8] d[9] z </list>
+v   <values> 0 55 134 183 217 259 304 385 458 507 0 1 2 3 4 5 6 7 8 9 0 55 79 49 34 42 45 81 73 49 610 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 610
+d OPTIMAL 1
+d SOURCE_CONSTRAINTS 157
+d NORMALIZED_CONSTRAINTS 157
+d LOWERED_CONSTRAINTS 157
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_ROUNDS 2
+d OBJECTIVE_IMPROVEMENTS 0
+d OBJECTIVE_OPTIMALITY_PROOF strict_cut_unsat
+d PROPAGATE_MS 0
+d NORMALIZE_MS 0
+d LOWER_MS 2
+d POST_LOWER_MS 0
+d PREENCODE_MS 0
+d ENCODE_MS 1706
+d SAT_SOLVE_MS 2394
+d TOTAL_MS 4526
+d SAT_VARS 21242
+d SAT_CLAUSES_BASE 4852995
+d SAT_CLAUSES_FINAL 4852995
+d SAT_CLAUSES_CEGAR_DELTA 0
+d SAT_CONFLICTS 338
+d EXTPROP_CONSTRAINTS 1
+d EXTPROP_OBSERVED_VARS 391
+d EXTPROP_OBSERVED_LITS 2
+d EXTPROP_OBSERVED_LIT_OCCURRENCES 2
+d EXTPROP_CALLBACK_CALLS 65452
+d EXTPROP_CALLBACK_NS 0
+d EXTPROP_NOTIFY_ASSIGNMENT_CALLS 202
+d EXTPROP_NOTIFY_ASSIGNMENT_NS 0
+d EXTPROP_NOTIFY_ASSIGNMENT_LITS 14390
+d EXTPROP_NOTIFY_NEW_DECISION_LEVEL_CALLS 21613
+d EXTPROP_NOTIFY_NEW_DECISION_LEVEL_NS 0
+d EXTPROP_NOTIFY_BACKTRACK_CALLS 388
+d EXTPROP_NOTIFY_BACKTRACK_NS 0
+d EXTPROP_CB_CHECK_FOUND_MODEL_CALLS 1
+d EXTPROP_CB_CHECK_FOUND_MODEL_NS 0
+d EXTPROP_CB_CHECK_FOUND_MODEL_REJECTS 0
+d EXTPROP_CB_DECIDE_CALLS 0
+d EXTPROP_CB_DECIDE_NS 0
+d EXTPROP_CB_PROPAGATE_CALLS 21620
+d EXTPROP_CB_PROPAGATE_NS 0
+d EXTPROP_PROPAGATED_LITS 2
+d EXTPROP_CB_ADD_REASON_CLAUSE_LIT_CALLS 6
+d EXTPROP_CB_ADD_REASON_CLAUSE_LIT_NS 0
+d EXTPROP_REASON_CLAUSES 2
+d EXTPROP_REASON_CLAUSE_LITS 4
+d EXTPROP_REASON_CLAUSE_MAX_LEN 2
+d EXTPROP_CB_HAS_EXTERNAL_CLAUSE_CALLS 21619
+d EXTPROP_CB_HAS_EXTERNAL_CLAUSE_NS 0
+d EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_CALLS 3
+d EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_NS 0
+d EXTPROP_EXTERNAL_CLAUSES 1
+d EXTPROP_EXTERNAL_CLAUSE_LITS 2
+d EXTPROP_EXTERNAL_CLAUSE_MAX_LEN 2
+d EXTPROP_STRONG_REASON_ATTEMPTS 0
+d EXTPROP_STRONG_REASON_NS 0
+d EXTPROP_STRONG_REASON_LIFTS 0
+d EXTPROP_STRONG_REASON_DROPPED_TERMS 0
+d LINEAR_INT_EQ_ARITY_STATS {"2":{"count":99,"max_domain_product_excluding_one_var":"391","p95_domain_product_excluding_one_var":"391"},"3":{"count":9,"max_domain_product_excluding_one_var":"50904","p95_domain_product_excluding_one_var":"50904"},"4":{"count":9,"max_domain_product_excluding_one_var":"19903464","p95_domain_product_excluding_one_var":"19903464"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":9,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":280,"max_domain_product_excluding_one_var":"549","p95_domain_product_excluding_one_var":"531"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 0
+d ROOT_LP_STATUS skipped
+d ROOT_LP_MS 0
+d ROOT_LP_REASON --no-root-lp-bound
+d PROPAGATE_PRUNED_VALUES 1200
+d PROPAGATE_CHANGED_DOMAINS 20
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 9
+d POST_LOWER_TIGHTENED_DOMAINS 9
+d POST_LOWER_REMOVED_CLAUSES 48
+d POST_LOWER_REMOVED_LITS 38
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 47
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d MEMORY_RSS_BYTES 374988800
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 3338240
+d MEMORY_RSS_AFTER_LOWER_BYTES 4149248
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 4149248
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 4149248
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 4419584
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 5054464
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 4
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 4000000
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 374988800
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 374988800
+d MEMORY_GUARD_LIMIT_BYTES 68719476736
+d MEMORY_GUARD_RESERVE_BYTES 10737418240
+d MEMORY_GUARD_AVAILABLE_BYTES 57977368576
+d MEMORY_GUARD_DECISION rss-monitor
+d MEMORY_GUARD_REASON rss_available
+d DECODE_INT_ASSIGNMENTS 31
+d CSV /bench/competition/2022-2025/COP22to25/HSP-14409_c23.xml.lzma,optimum,157,157,157,0,21242,4852995,4526,0,0,2,0,1706,2394,0,skipped,,,,,,0,,,,,,,,
