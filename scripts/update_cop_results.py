@@ -319,6 +319,14 @@ RUNS = [
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
+        "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
+        "b85de3f1-dirty log-scop mdd-tl directexpr no-root-lp",
+        "kat-cop1000-log-scop-mdd-tl-directexpr-norootlp-20260521-b85de3f1-dirty-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-log-scop-mdd-tl-directexpr-norootlp-20260521-b85de3f1-dirty-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
         "10c9c43b-dirty-noinc203-cegar-norootlp",
         "10c9c43b-dirty noinc203 CEGAR no-root-lp",
         "kat-cop1000-noinc203-order-direct-mdd-tl-extprop8196-s40-cegar-norootlp-20260513-10c9c43b-dirty-q10609",
