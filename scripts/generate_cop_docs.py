@@ -13,6 +13,16 @@ SOURCE = ROOT / "cop-results.md"
 DESTINATION = ROOT / "docs" / "index.html"
 RAW_LOG_BASE = "https://raw.githubusercontent.com/TakehideSoh/improving-kat/main/"
 
+VISIBLE_RESULT_TOKENS = (
+    "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
+    "kat-cop1000-direct-order-mdd-tl-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
+    "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
+    "kat-cop1000-log-scop-mdd-tl-directexpr-norootlp",
+    "ace64g-rr-20260505",
+    "pycsp3-extra-ortools-20260505",
+    "pycsp3-extra-ortools-1t-verbose1-20260509",
+)
+
 
 CSS = """:root { color-scheme: light; }
 body { margin: 0; padding: 2rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.55; color: #1f2937; background: #f8fafc; }
@@ -42,29 +52,10 @@ tr:nth-child(even) td { background: #fafafa; }
 
 SCRIPT = """(() => {
   const DEFAULT_COP1000_COLUMNS = new Set([
-    '10c9c43b-dirty noinc203 CEGAR no-root-lp',
-    '1173b3f4 direct-order extprop8196 s40',
-    '1173b3f4 SCIP direct-order extge eager dynwatch',
-    '835f8aaf SCIP direct-order dynamic',
-    '835f8aaf SCIP log-scop dynamic',
-    '10c9c43b-dirty log-scop dadda no-root-lp',
-    '10c9c43b-dirty log-scop autoBDD no-root-lp rerun1',
-    'a5249e5b log-scop autoBDD no-root-lp',
-    'f85951b8 log-scop autoBDD no-root-lp',
-    '261d4b72 direct-order extprop8196 s40 extobj no-root-lp no max-arity',
-    '[BUG] f85951b8 direct-order extprop8196 s40 extobj no-root-lp no max-arity',
-    'c70e1a64 direct-order extprop8196 s40 extobj link-cost maxarity2 no-root-lp',
-    'c70e1a64 direct-order extprop8196 s40 link-cost maxarity2 no-root-lp',
-    '489538e3 direct-order extprop8196 s40 directexpr link-cost maxarity2 no-root-lp',
-    'b85de3f1-dirty direct-order memguard64 extfallback directexpr',
     'b85de3f1-dirty direct-order memguard64 extfallback directexpr link-cost maxarity2 no-root-lp',
     'b85de3f1-dirty log-scop mdd-tl directexpr no-root-lp',
-    'aac6b714 SCIP direct-order dynamic',
-    'bd3c9f7d SCIP direct-order dynamic',
-    'bd3c9f7d SCIP log-scop dynamic',
     'ACE 64G rr 20260505',
     'pycsp3-extra OR-Tools 28t 20260505',
-    'pycsp3-extra OR-Tools 1t 20260505',
     'pycsp3-extra OR-Tools 1t verbose1 20260509',
   ]);
 
@@ -251,6 +242,12 @@ def table_html(lines: list[str]) -> str:
     header = split_row(lines[0])
     alignment = split_row(lines[1])
     rows = [split_row(line) for line in lines[2:]]
+    if header and header[0] in {"run", "対象"}:
+        rows = [
+            row
+            for row in rows
+            if row and any(token in row[0] for token in VISIBLE_RESULT_TOKENS)
+        ]
     align_right = [cell.endswith(":") and not cell.startswith(":") for cell in alignment]
 
     def cell_attrs(index: int) -> str:

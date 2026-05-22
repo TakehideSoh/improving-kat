@@ -38,33 +38,42 @@ NOINC_DIAGNOSIS_CSV = "cop1000_noinc203_reach_sat_diagnosis.csv"
 NOINC_SACCT_CSV = "cop1000_noinc203_sacct_19442938.csv"
 NOINC_BASELINE_RUN = "1173b3f4-direct-order-extprop8196-s40-20260512"
 NOINC_TARGET_RUN = "10c9c43b-dirty-noinc203-cegar-norootlp"
-NOINC_SUBSET_RUNS = [
-    NOINC_BASELINE_RUN,
-    NOINC_TARGET_RUN,
-    "835f8aaf-scip-direct-order-dynamic",
-    "835f8aaf-scip-log-scop-dynamic",
-    "10c9c43b-dirty-log-scop-dadda-norootlp",
-    "10c9c43b-dirty-log-scop-autobdd-norootlp-rerun1",
-    "1173b3f4-scip-direct-order-extge-eager-dynwatch",
+DOC_RUN_SLUGS = [
+    "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
+    "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
     "ace64g-rr-20260505",
     "pycsp3-extra-ortools-20260505",
+    "pycsp3-extra-ortools-1t-verbose1-20260509",
+]
+NOINC_SUBSET_RUNS = [
+    slug
+    for slug in DOC_RUN_SLUGS
+    if slug
+    not in {
+        "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
+        "pycsp3-extra-ortools-1t-verbose1-20260509",
+    }
+]
+CONSISTENCY_RUNS = [
+    "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
+    "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
+    "ace64g-rr-20260505",
+    "pycsp3-extra-ortools-20260505",
+    "pycsp3-extra-ortools-1t-verbose1-20260509",
 ]
 DEFAULT_CHECKER_JAR = Path(
     "/home/soh/02_prog/xcsp3instances/XCSP3-Java-Tools/target/xcsp3-solutionChecker-2.6.0.jar"
 )
 DEFAULT_BENCHMARK_DIR = Path("/home/soh/02_prog/benchmark")
 BAD_VALIDATION = {"invalid", "checker_error", "checker_timeout"}
-CONSISTENCY_RUNS = [
-    "ace64g-rr-20260505",
-    "pycsp3-extra-ortools-20260505",
-    "pycsp3-extra-ortools-1t-rerun1-20260505",
-    "pycsp3-extra-ortools-1t-verbose1-20260509",
-]
-REFERENCE_COMPARE_TARGET = "835f8aaf-scip-direct-order-dynamic"
+REFERENCE_COMPARE_TARGET = (
+    "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp"
+)
 REFERENCE_COMPARE_RUNS = [
+    "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
     "ace64g-rr-20260505",
     "pycsp3-extra-ortools-20260505",
-    "pycsp3-extra-ortools-1t-rerun1-20260505",
+    "pycsp3-extra-ortools-1t-verbose1-20260509",
 ]
 
 
@@ -367,6 +376,8 @@ RUNS = [
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
 ]
+
+DOC_RUNS = [run for run in RUNS if run.slug in DOC_RUN_SLUGS]
 
 
 def run_cmd(args: list[str]) -> None:
@@ -930,7 +941,7 @@ def missing_log(root: Path, run: Run, instance_id: int, instance: str, fields: l
 
 def build_table(root: Path) -> str:
     instances = read_instances(root)
-    all_rows = {run.slug: load_rows(root, run) for run in RUNS}
+    all_rows = {run.slug: load_rows(root, run) for run in DOC_RUNS}
     validation = load_validation(root)
     lines = [
         BEGIN,
@@ -942,12 +953,12 @@ def build_table(root: Path) -> str:
         "Each cell links to the corresponding solver log when available.",
         "`INVALID` marks a solution rejected by validation; `CHECKER_ERROR` marks a checker failure such as an unsupported solution variable.",
         "",
-        "| # | instance | " + " | ".join(md_escape(run.column) for run in RUNS) + " |",
-        "|---:|---|" + "|".join("---:" for _ in RUNS) + "|",
+        "| # | instance | " + " | ".join(md_escape(run.column) for run in DOC_RUNS) + " |",
+        "|---:|---|" + "|".join("---:" for _ in DOC_RUNS) + "|",
     ]
     for instance_id, instance in instances:
         row_cells = [str(instance_id), f"`{md_escape(Path(instance).name)}`"]
-        for run in RUNS:
+        for run in DOC_RUNS:
             row_path, fields = all_rows[run.slug].get(instance_id, (None, []))
             log_path = log_path_for_row(root, run, instance_id, row_path)
             incumbent, stage, log_outcome = parse_log(log_path)
@@ -963,7 +974,7 @@ def build_table(root: Path) -> str:
 
 def build_result_summary(root: Path) -> str:
     instances = read_instances(root)
-    all_rows = {run.slug: load_rows(root, run) for run in RUNS}
+    all_rows = {run.slug: load_rows(root, run) for run in DOC_RUNS}
     lines = [
         SUMMARY_BEGIN,
         "",
@@ -974,7 +985,7 @@ def build_result_summary(root: Path) -> str:
         "| run | optimum | incumbent | UNSAT |",
         "|---|---:|---:|---:|",
     ]
-    for run in RUNS:
+    for run in DOC_RUNS:
         optimum = 0
         incumbent = 0
         unsat = 0
@@ -1389,7 +1400,7 @@ def build_noinc_subset_summary(root: Path) -> str:
         "## COP1000 no-incumbent subset summary",
         "",
         f"This table is restricted to the `{NOINC_SUBSET_CSV}` subset ({len(subset)} instances):",
-        "instances where `1173b3f4-direct-order-extprop8196-s40-20260512` had no incumbent.",
+        "a precomputed set of instances with no incumbent in the subset baseline.",
         "`sat_started` counts rows whose log reached the SAT solve stage, even if no incumbent was found.",
         "",
         "| run | row_files | nonempty_csv | incumbent | sat_started | optimum | sat | UNSAT | TO | MO | missing_file |",
@@ -1458,7 +1469,7 @@ def build_validation_stats(root: Path) -> str:
         "| run | valid | invalid | checker_error | no_solution | skipped_unsat | skipped_no_incumbent | missing_instance | checker_timeout |",
         "|---|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
-    for run in RUNS:
+    for run in DOC_RUNS:
         counts = Counter(v for (slug, _), v in validation.items() if slug == run.slug)
         lines.append(
             "| "
@@ -1621,7 +1632,7 @@ def build_consistency_stats(root: Path) -> str:
         "",
         "## Cross-solver consistency stats",
         "",
-        "This check compares only the trusted ACE rr and OR-Tools runs for each instance after excluding cells marked `invalid`, `checker_error`, or `checker_timeout` by validation.",
+        "This check compares only the configured visible runs for each instance after excluding cells marked `invalid`, `checker_error`, or `checker_timeout` by validation.",
         "It reports differing proved optima, incumbents that beat a proved optimum according to the XCSP3 objective sense, and UNSAT/value contradictions.",
         "",
         "| issue | count |",
@@ -1829,7 +1840,7 @@ def build_reference_comparison_stats(root: Path, benchmark_dir: Path) -> str:
     lines = [
         REFERENCE_COMPARE_BEGIN,
         "",
-        "## 835f8aaf reference solver comparison",
+        "## Reference solver comparison",
         "",
         f"This compares `{REFERENCE_COMPARE_TARGET}` with ACE and OR-Tools reference runs after excluding cells marked `invalid`, `checker_error`, or `checker_timeout` by validation.",
         "`value_mismatch` means both runs reported an incumbent objective value but the values differ; it is not necessarily a correctness issue unless one of the proved/UNSAT issue columns is nonzero.",
