@@ -16,8 +16,11 @@ RAW_LOG_BASE = "https://raw.githubusercontent.com/TakehideSoh/improving-kat/main
 VISIBLE_RESULT_TOKENS = (
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "kat-cop1000-direct-order-mdd-tl-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
+    "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
+    "kat-cop1000-direct-order-mdd-tl-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
     "kat-cop1000-log-scop-mdd-tl-directexpr-norootlp",
+    "243acd4c-log-scop-mdd-tl-directexpr-norootlp",
     "ace64g-rr-20260505",
     "pycsp3-extra-ortools-20260505",
     "pycsp3-extra-ortools-1t-verbose1-20260509",
@@ -53,7 +56,9 @@ tr:nth-child(even) td { background: #fafafa; }
 SCRIPT = """(() => {
   const DEFAULT_COP1000_COLUMNS = new Set([
     'b85de3f1-dirty direct-order memguard64 extfallback directexpr link-cost maxarity2 no-root-lp',
+    'b85de3f1-dirty direct-order memguard64 extfallback directexpr no-root-lp',
     'b85de3f1-dirty log-scop mdd-tl directexpr no-root-lp',
+    '243acd4c log-scop mdd-tl directexpr no-root-lp',
     'ACE 64G rr 20260505',
     'pycsp3-extra OR-Tools 28t 20260505',
     'pycsp3-extra OR-Tools 1t verbose1 20260509',

@@ -40,7 +40,9 @@ NOINC_BASELINE_RUN = "1173b3f4-direct-order-extprop8196-s40-20260512"
 NOINC_TARGET_RUN = "10c9c43b-dirty-noinc203-cegar-norootlp"
 DOC_RUN_SLUGS = [
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
+    "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
+    "243acd4c-log-scop-mdd-tl-directexpr-norootlp",
     "ace64g-rr-20260505",
     "pycsp3-extra-ortools-20260505",
     "pycsp3-extra-ortools-1t-verbose1-20260509",
@@ -56,7 +58,9 @@ NOINC_SUBSET_RUNS = [
 ]
 CONSISTENCY_RUNS = [
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
+    "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
+    "243acd4c-log-scop-mdd-tl-directexpr-norootlp",
     "ace64g-rr-20260505",
     "pycsp3-extra-ortools-20260505",
     "pycsp3-extra-ortools-1t-verbose1-20260509",
@@ -70,7 +74,9 @@ REFERENCE_COMPARE_TARGET = (
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp"
 )
 REFERENCE_COMPARE_RUNS = [
+    "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
+    "243acd4c-log-scop-mdd-tl-directexpr-norootlp",
     "ace64g-rr-20260505",
     "pycsp3-extra-ortools-20260505",
     "pycsp3-extra-ortools-1t-verbose1-20260509",
@@ -328,11 +334,27 @@ RUNS = [
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
+        "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
+        "b85de3f1-dirty direct-order memguard64 extfallback directexpr no-root-lp",
+        "kat-cop1000-direct-order-mdd-tl-memguard64-extfallback-directexpr-norootlp-20260522-b85de3f1-dirty-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-memguard64-extfallback-directexpr-norootlp-20260522-b85de3f1-dirty-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
         "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
         "b85de3f1-dirty log-scop mdd-tl directexpr no-root-lp",
         "kat-cop1000-log-scop-mdd-tl-directexpr-norootlp-20260521-b85de3f1-dirty-q10609",
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-log-scop-mdd-tl-directexpr-norootlp-20260521-b85de3f1-dirty-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "243acd4c-log-scop-mdd-tl-directexpr-norootlp",
+        "243acd4c log-scop mdd-tl directexpr no-root-lp",
+        "kat-cop1000-log-scop-mdd-tl-directexpr-norootlp-20260522-243acd4c-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-log-scop-mdd-tl-directexpr-norootlp-20260522-243acd4c-q10609",
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(

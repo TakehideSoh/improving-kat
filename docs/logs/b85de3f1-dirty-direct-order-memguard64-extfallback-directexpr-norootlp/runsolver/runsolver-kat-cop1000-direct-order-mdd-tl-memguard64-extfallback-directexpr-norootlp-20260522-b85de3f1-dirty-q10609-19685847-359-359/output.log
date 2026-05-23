@@ -1,0 +1,101 @@
+c cmd: /host-parser-bin/kat_xcsp_b85de3f1_dirty_memoryguard_20260521 /bench/competition/2022-2025/COP22to25/FlexibleJobshopScen-dh-5-16-080_c25.xml.lzma --encoder order-ge --order-ge-eq-ne direct-order --order-ge-table mdd-tl --memory-guard-gib 64 --memory-guard-fallback extprop --cop-pipeline guarded-basic --cop-objective-cut direct-expr --progress --no-root-lp-bound
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=6114
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=8 pruned=0 changed_domains=0 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=9842688
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=6114
+c 00h00m00s | stage:lower:start
+c 00h07m03s | stage:lower:done ms=423873 lowered=6114 unsupported=0
+c 00h07m03s | memory:rss checkpoint=after_lower bytes=20918362112
+c 00h07m03s | stage:post_lower:start
+c 00h08m15s | stage:post_lower:done ms=71794 rounds=664 tightened=1360 removed_cls=20520756 removed_lits=10564445 unsat=false precise_hits=0 precise_rounds=0 pivot_recomputes=2784 pivot_exact_attempts=0 pivot_general_attempts=2784 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=2144 pivot_general_tightened=640 setup_ms=33226 loop_ms=25436 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=7373 sat_ms=0 precise_ms=0
+c 00h08m18s | memory:rss checkpoint=after_post_lower bytes=26924068864
+c 00h08m25s | stage:lowered-shape int_vars=16917229 bool_vars=33829119 linear_atoms=45327942 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=82508893
+c 00h08m25s | stage:root-lp:skip reason=disabled_by_option ms=0
+c 00h08m28s | memory:rss checkpoint=before_preencode bytes=26924318720
+c 00h08m28s | stage:preencode(order-ge):start
+c 00h12m45s | stage:preencode(order-ge):done ms=257230 int_vars=21527134
+c 00h12m45s | memory:rss checkpoint=after_preencode bytes=51365617664
+c 00h12m45s | memory:guard limit_bytes=68719476736 rss_bytes=51365748736 reserve_bytes=10737418240 available_bytes=6616309760 fallback=extprop
+c 00h12m45s | memory:rss checkpoint=before_encode bytes=51365777408
+c 00h12m45s | stage:encode(order-ge):start
+c 00h13m08s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=1000000 bytes=68949876736 interval_clauses=1000000
+c 00h13m10s | fallback:encoding order-ge->extprop reason=encode_rss_threshold_exceeded clauses=1000000 rss_bytes=68949876736 threshold_bytes=57982058496
+c 00h13m55s | memory:rss checkpoint=before_preencode bytes=40070742016
+c 00h13m55s | stage:preencode(order-ge):start
+c 00h18m07s | stage:preencode(order-ge):done ms=252096 int_vars=21527134
+c 00h18m07s | memory:rss checkpoint=after_preencode bytes=51417636864
+c 00h18m07s | memory:guard limit_bytes=68719476736 rss_bytes=51417739264 reserve_bytes=10737418240 available_bytes=6564319232 fallback=none
+c 00h18m07s | memory:rss checkpoint=before_encode bytes=51417776128
+c 00h18m07s | stage:encode(order-ge):start
+c 00h18m29s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=1000000 bytes=68991434752 interval_clauses=1000000
+c 00h18m31s | result:unknown reason=memory_guard_budget_exceeded detail=memory guard encode RSS threshold exceeded: stage=order-ge clauses=1000000 rss_bytes=68991434752 threshold_bytes=57982058496 limit_bytes=68719476736 reserve_bytes=10737418240 fallback=none
+s UNKNOWN
+c reason_code: memory_guard_budget_exceeded
+c reason: memory guard encode RSS threshold exceeded: stage=order-ge clauses=1000000 rss_bytes=68991434752 threshold_bytes=57982058496 limit_bytes=68719476736 reserve_bytes=10737418240 fallback=none
+d UNKNOWN_REASON memory_guard_budget_exceeded
+d OPTIMAL 0
+d SOURCE_CONSTRAINTS 6114
+d NORMALIZED_CONSTRAINTS 6114
+d LOWERED_CONSTRAINTS 6114
+d UNSUPPORTED_CONSTRAINTS 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_ROUNDS 0
+d OBJECTIVE_IMPROVEMENTS 0
+d PROPAGATE_MS 8
+d NORMALIZE_MS 0
+d LOWER_MS 423873
+d POST_LOWER_MS 71794
+d PREENCODE_MS 252096
+d ENCODE_MS 23707
+d SAT_SOLVE_MS 0
+d TOTAL_MS 1111147
+d SAT_VARS 0
+d SAT_CLAUSES_BASE 0
+d SAT_CLAUSES_FINAL 0
+d SAT_CLAUSES_CEGAR_DELTA 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":16918950,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":55,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":2,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"}}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":9956462,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":2,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"},"3":{"count":1285,"max_domain_product_excluding_one_var":"176928","p95_domain_product_excluding_one_var":"149380"},"4":{"count":9,"max_domain_product_excluding_one_var":"8","p95_domain_product_excluding_one_var":"8"},"7":{"count":305628,"max_domain_product_excluding_one_var":"64","p95_domain_product_excluding_one_var":"64"},"10":{"count":307579,"max_domain_product_excluding_one_var":"512","p95_domain_product_excluding_one_var":"512"},"12":{"count":614280,"max_domain_product_excluding_one_var":"2048","p95_domain_product_excluding_one_var":"2048"},"14":{"count":309142,"max_domain_product_excluding_one_var":"8192","p95_domain_product_excluding_one_var":"8192"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"2":{"count":16914534,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"},"3":{"count":5,"max_domain_product_excluding_one_var":"4","p95_domain_product_excluding_one_var":"4"},"4":{"count":9,"max_domain_product_excluding_one_var":"8","p95_domain_product_excluding_one_var":"8"}}
+d ROOT_LP_ENTERED 0
+d ROOT_LP_STATUS skipped
+d ROOT_LP_MS 0
+d ROOT_LP_REASON --no-root-lp-bound
+d PROPAGATE_PRUNED_VALUES 0
+d PROPAGATE_CHANGED_DOMAINS 0
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 664
+d POST_LOWER_TIGHTENED_DOMAINS 1360
+d POST_LOWER_REMOVED_CLAUSES 20520756
+d POST_LOWER_REMOVED_LITS 10564445
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 21527134
+d MEMORY_RSS_BYTES 68991434752
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 9842688
+d MEMORY_RSS_AFTER_LOWER_BYTES 20918362112
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 26924068864
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 40070742016
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 51417636864
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 51417776128
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 2
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 1000000
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 68991434752
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 68991434752
+d MEMORY_GUARD_LIMIT_BYTES 68719476736
+d MEMORY_GUARD_RESERVE_BYTES 10737418240
+d MEMORY_GUARD_AVAILABLE_BYTES 57982058496
+d MEMORY_GUARD_DECISION none
+d MEMORY_GUARD_REASON encode_rss_threshold_exceeded
+d CSV /bench/competition/2022-2025/COP22to25/FlexibleJobshopScen-dh-5-16-080_c25.xml.lzma,unknown,6114,6114,6114,0,0,0,1111147,8,0,423873,252096,23707,0,0,skipped,,,,,,0,,,,,,,memory_guard_budget_exceeded,memory guard encode RSS threshold exceeded: stage=order-ge clauses=1000000 rss_bytes=68991434752 threshold_bytes=57982058496 limit_bytes=68719476736 reserve_bytes=10737418240 fallback=none
