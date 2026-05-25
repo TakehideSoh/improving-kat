@@ -42,6 +42,7 @@ DOC_RUN_SLUGS = [
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
+    "6b92cd56-log-scop-mdd-tl-directexpr-norootlp-cumext-boundprop",
     "243acd4c-log-scop-mdd-tl-directexpr-norootlp",
     "ace64g-rr-20260505",
     "pycsp3-extra-ortools-20260505",
@@ -60,6 +61,7 @@ CONSISTENCY_RUNS = [
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
+    "6b92cd56-log-scop-mdd-tl-directexpr-norootlp-cumext-boundprop",
     "243acd4c-log-scop-mdd-tl-directexpr-norootlp",
     "ace64g-rr-20260505",
     "pycsp3-extra-ortools-20260505",
@@ -76,6 +78,7 @@ REFERENCE_COMPARE_TARGET = (
 REFERENCE_COMPARE_RUNS = [
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
+    "6b92cd56-log-scop-mdd-tl-directexpr-norootlp-cumext-boundprop",
     "243acd4c-log-scop-mdd-tl-directexpr-norootlp",
     "ace64g-rr-20260505",
     "pycsp3-extra-ortools-20260505",
@@ -347,6 +350,14 @@ RUNS = [
         "kat-cop1000-log-scop-mdd-tl-directexpr-norootlp-20260521-b85de3f1-dirty-q10609",
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-log-scop-mdd-tl-directexpr-norootlp-20260521-b85de3f1-dirty-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "6b92cd56-log-scop-mdd-tl-directexpr-norootlp-cumext-boundprop",
+        "6b92cd56 log-scop mdd-tl directexpr no-root-lp cumext boundprop",
+        "kat-cop1000-log-scop-mdd-tl-directexpr-norootlp-cumext-boundprop-20260524-6b92cd56-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-log-scop-mdd-tl-directexpr-norootlp-cumext-boundprop-20260524-6b92cd56-q10609",
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
