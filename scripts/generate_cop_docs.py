@@ -14,6 +14,8 @@ DESTINATION = ROOT / "docs" / "index.html"
 RAW_LOG_BASE = "https://raw.githubusercontent.com/TakehideSoh/improving-kat/main/"
 
 VISIBLE_RESULT_TOKENS = (
+    "5362e21a-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
+    "kat-cop1000-direct-order-mdd-tl-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp-20260525-5362e21a-q10672",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "kat-cop1000-direct-order-mdd-tl-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
@@ -57,6 +59,7 @@ tr:nth-child(even) td { background: #fafafa; }
 
 SCRIPT = """(() => {
   const DEFAULT_COP1000_COLUMNS = new Set([
+    '5362e21a direct-order memguard64 extfallback directexpr link-cost maxarity2 no-root-lp',
     'b85de3f1-dirty direct-order memguard64 extfallback directexpr link-cost maxarity2 no-root-lp',
     'b85de3f1-dirty direct-order memguard64 extfallback directexpr no-root-lp',
     'b85de3f1-dirty log-scop mdd-tl directexpr no-root-lp',

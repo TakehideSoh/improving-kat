@@ -39,6 +39,7 @@ NOINC_SACCT_CSV = "cop1000_noinc203_sacct_19442938.csv"
 NOINC_BASELINE_RUN = "1173b3f4-direct-order-extprop8196-s40-20260512"
 NOINC_TARGET_RUN = "10c9c43b-dirty-noinc203-cegar-norootlp"
 DOC_RUN_SLUGS = [
+    "5362e21a-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
@@ -58,6 +59,7 @@ NOINC_SUBSET_RUNS = [
     }
 ]
 CONSISTENCY_RUNS = [
+    "5362e21a-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
@@ -76,6 +78,7 @@ REFERENCE_COMPARE_TARGET = (
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp"
 )
 REFERENCE_COMPARE_RUNS = [
+    "5362e21a-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
     "6b92cd56-log-scop-mdd-tl-directexpr-norootlp-cumext-boundprop",
@@ -319,6 +322,13 @@ RUNS = [
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-extprop8196-s40-directexpr-linkcost-maxarity2-norootlp-20260519-489538e3-q10609",
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "5362e21a-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
+        "5362e21a direct-order memguard64 extfallback directexpr link-cost maxarity2 no-root-lp",
+        "kat-cop1000-direct-order-mdd-tl-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp-20260525-5362e21a-q10672",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp-20260525-5362e21a-q10672",
     ),
     Run(
         "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr",
