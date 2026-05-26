@@ -1,0 +1,24 @@
+/var/spool/slurm/d/job19860247/slurm_script: 134 行: 1926630 強制終了            "$ENGINE_BIN" exec --bind "${BENCHMARK_DIR%/}:${CONTAINER_BENCH_DIR%/}" --bind "${LOG_DIR%/}:${CONTAINER_LOG_DIR%/}" --bind "${RESULT_DIR%/}:${CONTAINER_RESULT_DIR%/}" --env "INSTANCE_PATH=${instance_container_path}" --env "ROW_FILE=${row_file_container}" --env "RUNSOLVER_BIN=${RUNSOLVER_BIN}" --env "RUNSOLVER_C_SEC=${RUNSOLVER_C_SEC}" --env "RUNSOLVER_W_SEC=${RUNSOLVER_W_SEC}" --env "MEM_LIMIT_MB=${MEM_LIMIT_MB}" --env "RUNSOLVER_VALUES_LOG=${values_log_container}" --env "RUNSOLVER_SOLVER_LOG=${solver_log_container}" --env "PARSER_BIN=${PARSER_BIN}" --env "PARSER_ARGS=${PARSER_ARGS:-}" "$IMAGE_PATH" bash -lc '
+set -euo pipefail
+mkdir -p "$(dirname "$ROW_FILE")" "$(dirname "$RUNSOLVER_VALUES_LOG")"
+runsolver_args=(
+  -W "$RUNSOLVER_W_SEC"
+  -C "$RUNSOLVER_C_SEC"
+  -v "$RUNSOLVER_VALUES_LOG"
+  -o "$RUNSOLVER_SOLVER_LOG"
+)
+"$RUNSOLVER_BIN" "${runsolver_args[@]}" bash -lc "
+set -euo pipefail
+if [[ -n \"\${PARSER_ARGS:-}\" ]]; then
+  eval \"set -- \${PARSER_ARGS}\"
+  \"\$PARSER_BIN\" \"\$INSTANCE_PATH\" \"\$@\"
+else
+  \"\$PARSER_BIN\" \"\$INSTANCE_PATH\"
+fi
+"
+# Extract CSV row from solver log (d CSV line)
+if [[ -f "$RUNSOLVER_SOLVER_LOG" ]]; then
+  grep "^d CSV " "$RUNSOLVER_SOLVER_LOG" | sed "s/^d CSV //" > "$ROW_FILE" || true
+fi
+'
+slurmstepd: error: Detected 2 oom-kill event(s) in StepId=19860247.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.
