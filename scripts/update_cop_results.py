@@ -40,9 +40,13 @@ NOINC_BASELINE_RUN = "1173b3f4-direct-order-extprop8196-s40-20260512"
 NOINC_TARGET_RUN = "10c9c43b-dirty-noinc203-cegar-norootlp"
 DOC_RUN_SLUGS = [
     "5362e21a-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
+    "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
+    "2ccb88e9-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-eqne2-cumexact-timerd",
+    "0d68ca9c-dirty-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-eqne2-cumexact-timerd",
+    "0d68ca9c-dirty-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-cumexact-timerd",
     "6b92cd56-log-scop-mdd-tl-directexpr-norootlp-cumext-boundprop",
     "243acd4c-log-scop-mdd-tl-directexpr-norootlp",
     "ace64g-rr-20260505",
@@ -60,9 +64,13 @@ NOINC_SUBSET_RUNS = [
 ]
 CONSISTENCY_RUNS = [
     "5362e21a-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
+    "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
+    "2ccb88e9-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-eqne2-cumexact-timerd",
+    "0d68ca9c-dirty-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-eqne2-cumexact-timerd",
+    "0d68ca9c-dirty-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-cumexact-timerd",
     "6b92cd56-log-scop-mdd-tl-directexpr-norootlp-cumext-boundprop",
     "243acd4c-log-scop-mdd-tl-directexpr-norootlp",
     "ace64g-rr-20260505",
@@ -331,6 +339,14 @@ RUNS = [
         runsolver_prefix="runsolver-kat-cop1000-direct-order-mdd-tl-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp-20260525-5362e21a-q10672",
     ),
     Run(
+        "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd",
+        "2ccb88e9 order-ge guarded-basic directexpr inchard cnf mdd-tl link-cost eqne2 cumexact time-rd",
+        "kat-cop1000-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd-20260526-2ccb88e9-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd-20260526-2ccb88e9-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
         "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr",
         "b85de3f1-dirty direct-order memguard64 extfallback directexpr",
         "kat-cop1000-direct-order-mdd-tl-memguard64-extfallback-directexpr-20260521-b85de3f1-dirty-q10609",
@@ -360,6 +376,30 @@ RUNS = [
         "kat-cop1000-log-scop-mdd-tl-directexpr-norootlp-20260521-b85de3f1-dirty-q10609",
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-log-scop-mdd-tl-directexpr-norootlp-20260521-b85de3f1-dirty-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "2ccb88e9-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-eqne2-cumexact-timerd",
+        "2ccb88e9 log-scop guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg eqne2 cumexact time-rd",
+        "kat-cop1000-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-eqne2-cumexact-timerd-20260526-2ccb88e9-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-eqne2-cumexact-timerd-20260526-2ccb88e9-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "0d68ca9c-dirty-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-eqne2-cumexact-timerd",
+        "0d68ca9c-dirty log-scop guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg eqne2 cumexact time-rd",
+        "kat-cop1000-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-eqne2-cumexact-timerd-20260528-0d68ca9c-dirty-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-eqne2-cumexact-timerd-20260528-0d68ca9c-dirty-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "0d68ca9c-dirty-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-cumexact-timerd",
+        "0d68ca9c-dirty log-scop guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg cumexact time-rd",
+        "kat-cop1000-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-cumexact-timerd-20260529-0d68ca9c-dirty-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-cumexact-timerd-20260529-0d68ca9c-dirty-q10609",
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
@@ -1791,7 +1831,7 @@ def reference_comparison(
                 if target_value == reference_value:
                     counts["same_value"] += 1
                 else:
-                    counts["value_mismatch"] += 1
+                    pass
 
             sense = objective_sense(benchmark_dir, instance)
             issue = ""
@@ -1821,12 +1861,8 @@ def reference_comparison(
                 and is_better(target_value, reference_value, sense)
             ):
                 issue = "target_beats_reference_optimum"
-            elif target_has_value and reference_has_value and target_value != reference_value:
-                issue = "value_mismatch"
-
             if issue:
-                if issue != "value_mismatch":
-                    counts[issue] += 1
+                counts[issue] += 1
                 issues.append(
                     {
                         "reference_run": reference.slug,
@@ -1847,7 +1883,6 @@ def reference_comparison(
                 "reference_incumbent": counts["reference_incumbent"],
                 "both_incumbent": counts["both_incumbent"],
                 "same_value": counts["same_value"],
-                "value_mismatch": counts["value_mismatch"],
                 "proved_optimum_mismatch": counts["proved_optimum_mismatch"],
                 "incumbent_beats_proved_optimum": counts["reference_beats_target_optimum"]
                 + counts["target_beats_reference_optimum"],
@@ -1886,10 +1921,10 @@ def build_reference_comparison_stats(root: Path, benchmark_dir: Path) -> str:
         "## Reference solver comparison",
         "",
         f"This compares `{REFERENCE_COMPARE_TARGET}` with ACE and OR-Tools reference runs after excluding cells marked `invalid`, `checker_error`, or `checker_timeout` by validation.",
-        "`value_mismatch` means both runs reported an incumbent objective value but the values differ; it is not necessarily a correctness issue unless one of the proved/UNSAT issue columns is nonzero.",
+        "Plain incumbent/value mismatches are intentionally ignored here; only proved-optimum contradictions and UNSAT/value contradictions are reported.",
         "",
-        "| reference run | comparable | target incumbent | reference incumbent | both incumbent | same value | value_mismatch | proved_optimum_mismatch | incumbent_beats_proved_optimum | unsat_with_value | excluded_by_validation |",
-        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+        "| reference run | comparable | target incumbent | reference incumbent | both incumbent | same value | proved_optimum_mismatch | incumbent_beats_proved_optimum | unsat_with_value | excluded_by_validation |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for row in stats:
         lines.append(
@@ -1902,7 +1937,6 @@ def build_reference_comparison_stats(root: Path, benchmark_dir: Path) -> str:
                     str(row["reference_incumbent"]),
                     str(row["both_incumbent"]),
                     str(row["same_value"]),
-                    str(row["value_mismatch"]),
                     str(row["proved_optimum_mismatch"]),
                     str(row["incumbent_beats_proved_optimum"]),
                     str(row["unsat_with_value"]),
