@@ -41,6 +41,7 @@ NOINC_TARGET_RUN = "10c9c43b-dirty-noinc203-cegar-norootlp"
 DOC_RUN_SLUGS = [
     "5362e21a-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd",
+    "dbb61f6f-dirty-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
@@ -65,6 +66,7 @@ NOINC_SUBSET_RUNS = [
 CONSISTENCY_RUNS = [
     "5362e21a-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd",
+    "dbb61f6f-dirty-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
@@ -87,6 +89,7 @@ REFERENCE_COMPARE_TARGET = (
 )
 REFERENCE_COMPARE_RUNS = [
     "5362e21a-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
+    "dbb61f6f-dirty-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
     "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
     "6b92cd56-log-scop-mdd-tl-directexpr-norootlp-cumext-boundprop",
@@ -344,6 +347,14 @@ RUNS = [
         "kat-cop1000-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd-20260526-2ccb88e9-q10609",
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd-20260526-2ccb88e9-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "dbb61f6f-dirty-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
+        "dbb61f6f-dirty portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge cumexact time-rd",
+        "kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-20260529-dbb61f6f-dirty-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-20260529-dbb61f6f-dirty-q10609",
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
