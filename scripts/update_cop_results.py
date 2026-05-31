@@ -39,19 +39,9 @@ NOINC_SACCT_CSV = "cop1000_noinc203_sacct_19442938.csv"
 NOINC_BASELINE_RUN = "1173b3f4-direct-order-extprop8196-s40-20260512"
 NOINC_TARGET_RUN = "10c9c43b-dirty-noinc203-cegar-norootlp"
 DOC_RUN_SLUGS = [
-    "5362e21a-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
+    "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-nophase",
     "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd",
-    "dbb61f6f-dirty-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
-    "1dbef8ce-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
-    "1dbef8ce-portfolio-v3-bump-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
-    "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
-    "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
-    "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
-    "2ccb88e9-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-eqne2-cumexact-timerd",
-    "0d68ca9c-dirty-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-eqne2-cumexact-timerd",
     "0d68ca9c-dirty-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-cumexact-timerd",
-    "6b92cd56-log-scop-mdd-tl-directexpr-norootlp-cumext-boundprop",
-    "243acd4c-log-scop-mdd-tl-directexpr-norootlp",
     "ace64g-rr-20260505",
     "pycsp3-extra-ortools-20260505",
     "pycsp3-extra-ortools-1t-verbose1-20260509",
@@ -66,19 +56,9 @@ NOINC_SUBSET_RUNS = [
     }
 ]
 CONSISTENCY_RUNS = [
-    "5362e21a-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
+    "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-nophase",
     "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd",
-    "dbb61f6f-dirty-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
-    "1dbef8ce-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
-    "1dbef8ce-portfolio-v3-bump-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
-    "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
-    "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
-    "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
-    "2ccb88e9-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-eqne2-cumexact-timerd",
-    "0d68ca9c-dirty-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-eqne2-cumexact-timerd",
     "0d68ca9c-dirty-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-cumexact-timerd",
-    "6b92cd56-log-scop-mdd-tl-directexpr-norootlp-cumext-boundprop",
-    "243acd4c-log-scop-mdd-tl-directexpr-norootlp",
     "ace64g-rr-20260505",
     "pycsp3-extra-ortools-20260505",
     "pycsp3-extra-ortools-1t-verbose1-20260509",
@@ -92,14 +72,9 @@ REFERENCE_COMPARE_TARGET = (
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp"
 )
 REFERENCE_COMPARE_RUNS = [
-    "5362e21a-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp",
-    "dbb61f6f-dirty-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
-    "1dbef8ce-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
-    "1dbef8ce-portfolio-v3-bump-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
-    "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-norootlp",
-    "b85de3f1-dirty-log-scop-mdd-tl-directexpr-norootlp",
-    "6b92cd56-log-scop-mdd-tl-directexpr-norootlp-cumext-boundprop",
-    "243acd4c-log-scop-mdd-tl-directexpr-norootlp",
+    "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-nophase",
+    "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd",
+    "0d68ca9c-dirty-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-cumexact-timerd",
     "ace64g-rr-20260505",
     "pycsp3-extra-ortools-20260505",
     "pycsp3-extra-ortools-1t-verbose1-20260509",
@@ -377,6 +352,14 @@ RUNS = [
         "kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-bump-20260529-1dbef8ce-q10609",
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-bump-20260529-1dbef8ce-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-nophase",
+        "630ede96 portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge cumexact time-rd no-phase",
+        "kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-nophase-20260531-630ede96-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-nophase-20260531-630ede96-q10609",
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
