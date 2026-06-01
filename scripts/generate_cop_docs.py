@@ -54,13 +54,21 @@ tr:nth-child(even) td { background: #fafafa; }
 
 SCRIPT = """(() => {
   const DEFAULT_COP1000_COLUMNS = new Set([
-    '630ede96 portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge cumexact time-rd no-phase',
-    '2ccb88e9 order-ge guarded-basic directexpr inchard cnf mdd-tl link-cost eqne2 cumexact time-rd',
-    '0d68ca9c-dirty log-scop guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg cumexact time-rd',
-    'ACE 64G rr 20260505',
-    'pycsp3-extra OR-Tools 28t 20260505',
-    'pycsp3-extra OR-Tools 1t verbose1 20260509',
+    '630NP',
+    '2ccOrd',
+    '0d68Lg',
+    'ACE64G',
+    'ORT28',
+    'ORT1V',
   ]);
+  const COP1000_COLUMN_FULL_NAMES = {
+    '630NP': '630ede96 portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge cumexact time-rd no-phase',
+    '2ccOrd': '2ccb88e9 order-ge guarded-basic directexpr inchard cnf mdd-tl link-cost eqne2 cumexact time-rd',
+    '0d68Lg': '0d68ca9c-dirty log-scop guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg cumexact time-rd',
+    'ACE64G': 'ACE 64G rr 20260505',
+    'ORT28': 'pycsp3-extra OR-Tools 28t 20260505',
+    'ORT1V': 'pycsp3-extra OR-Tools 1t verbose1 20260509',
+  };
 
   function setupStickyLabels() {
     document.querySelectorAll('.table-wrap table').forEach((table) => {
@@ -142,11 +150,14 @@ SCRIPT = """(() => {
       const index = offset + 2;
       const label = document.createElement('label');
       const checkbox = document.createElement('input');
+      const shortName = cell.textContent.trim();
+      const fullName = COP1000_COLUMN_FULL_NAMES[shortName] || shortName;
       checkbox.type = 'checkbox';
       checkbox.value = String(index);
-      checkbox.dataset.columnName = cell.textContent.trim();
+      checkbox.dataset.columnName = shortName;
       checkbox.checked = DEFAULT_COP1000_COLUMNS.has(checkbox.dataset.columnName);
-      label.append(checkbox, document.createTextNode(cell.textContent.trim()));
+      cell.title = fullName;
+      label.append(checkbox, document.createTextNode(fullName));
       list.append(label);
       checkbox.addEventListener('change', () => applyColumnSelection(table, checkboxes));
       return checkbox;

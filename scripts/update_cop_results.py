@@ -92,6 +92,16 @@ class Run:
     remote_base: str = REMOTE_BASE
 
 
+COP1000_COLUMN_ALIASES = {
+    "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-nophase": "630NP",
+    "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd": "2ccOrd",
+    "0d68ca9c-dirty-log-scop-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-cumexact-timerd": "0d68Lg",
+    "ace64g-rr-20260505": "ACE64G",
+    "pycsp3-extra-ortools-20260505": "ORT28",
+    "pycsp3-extra-ortools-1t-verbose1-20260509": "ORT1V",
+}
+
+
 def logs_root(root: Path) -> Path:
     return root / "docs" / "logs"
 
@@ -1042,6 +1052,9 @@ def build_table(root: Path) -> str:
     instances = read_instances(root)
     all_rows = {run.slug: load_rows(root, run) for run in DOC_RUNS}
     validation = load_validation(root)
+    column_labels = [
+        COP1000_COLUMN_ALIASES.get(run.slug, run.column[:6]) for run in DOC_RUNS
+    ]
     lines = [
         BEGIN,
         "",
@@ -1052,7 +1065,7 @@ def build_table(root: Path) -> str:
         "Each cell links to the corresponding solver log when available.",
         "`INVALID` marks a solution rejected by validation; `CHECKER_ERROR` marks a checker failure such as an unsupported solution variable.",
         "",
-        "| # | instance | " + " | ".join(md_escape(run.column) for run in DOC_RUNS) + " |",
+        "| # | instance | " + " | ".join(md_escape(label) for label in column_labels) + " |",
         "|---:|---|" + "|".join("---:" for _ in DOC_RUNS) + "|",
     ]
     for instance_id, instance in instances:
