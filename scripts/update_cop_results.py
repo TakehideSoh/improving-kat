@@ -1051,8 +1051,10 @@ def classify_cell(
 
 
 def decorate_validation(label: str, validation: str | None) -> str:
-    if validation in {"invalid", "checker_timeout"}:
+    if validation == "invalid":
         return f"INVALID {label}"
+    if validation == "checker_timeout":
+        return f"CHECKER_TIMEOUT {label}"
     if validation == "checker_error":
         return f"CHECKER_ERROR {label}"
     return label
@@ -1107,7 +1109,7 @@ def build_table(root: Path) -> str:
         "Cell values are incumbent objective values. A trailing `*` means the run proved optimality.",
         "`TO(stage)` and `MO(stage)` mean no incumbent was found before timeout or memory-out at the indicated stage.",
         "Each cell links to the corresponding solver log when available.",
-        "`INVALID` marks a solution rejected by validation; `CHECKER_ERROR` marks a checker failure such as an unsupported solution variable.",
+        "`INVALID` marks a solution rejected by validation; `CHECKER_TIMEOUT` means validation did not finish in time; `CHECKER_ERROR` marks a checker failure such as an unsupported solution variable.",
         "",
         "| # | instance | " + " | ".join(md_escape(label) for label in column_labels) + " |",
         "|---:|---|" + "|".join("---:" for _ in DOC_RUNS) + "|",
