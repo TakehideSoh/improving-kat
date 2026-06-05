@@ -14,6 +14,8 @@ DESTINATION = ROOT / "docs" / "index.html"
 RAW_LOG_BASE = "https://raw.githubusercontent.com/TakehideSoh/improving-kat/main/"
 
 VISIBLE_RESULT_TOKENS = (
+    "95bf8a8a-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
+    "kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260605-95bf8a8a-q10609",
     "a3aa7f34-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260604-a3aa7f34-q10609",
     "bac40e3b-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
@@ -64,6 +66,7 @@ tr:nth-child(even) td { background: #fafafa; }
 
 SCRIPT = """(() => {
   const DEFAULT_COP1000_COLUMNS = new Set([
+    '95bfAU',
     'a3aaAU',
     'bacAU',
     '2c52AU',
@@ -77,6 +80,7 @@ SCRIPT = """(() => {
     'ORT1V',
   ]);
   const COP1000_COLUMN_FULL_NAMES = {
+    '95bfAU': '95bf8a8a portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objauto cumexact time-rd',
     'a3aaAU': 'a3aa7f34 portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objauto cumexact time-rd',
     'bacAU': 'bac40e3b portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objauto cumexact time-rd',
     '2c52AU': '2c5208ae portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objauto cumexact time-rd',
