@@ -39,11 +39,17 @@ NOINC_SACCT_CSV = "cop1000_noinc203_sacct_19442938.csv"
 NOINC_BASELINE_RUN = "1173b3f4-direct-order-extprop8196-s40-20260512"
 NOINC_TARGET_RUN = "10c9c43b-dirty-noinc203-cegar-norootlp"
 DOC_RUN_SLUGS = [
+    "7dac0170-c14m32-kat-cop-auto",
+    "7dac0170-c14m32-kat-cop-log",
     "95bf8a8a-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "a3aa7f34-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "bac40e3b-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "2c5208ae-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "ee83b5a8-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-phasesave-cumexact-timerd",
+    "9dea6fb2-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd",
+    "9dea6fb2-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd",
+    "d7450190-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
+    "d7450190-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
     "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-nophase",
     "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd",
@@ -62,11 +68,17 @@ NOINC_SUBSET_RUNS = [
     }
 ]
 CONSISTENCY_RUNS = [
+    "7dac0170-c14m32-kat-cop-auto",
+    "7dac0170-c14m32-kat-cop-log",
     "95bf8a8a-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "a3aa7f34-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "bac40e3b-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "2c5208ae-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "ee83b5a8-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-phasesave-cumexact-timerd",
+    "9dea6fb2-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd",
+    "9dea6fb2-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd",
+    "d7450190-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
+    "d7450190-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
     "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-nophase",
     "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd",
@@ -84,6 +96,8 @@ REFERENCE_COMPARE_TARGET = (
     "b85de3f1-dirty-direct-order-memguard64-extfallback-directexpr-linkcost-maxarity2-norootlp"
 )
 REFERENCE_COMPARE_RUNS = [
+    "7dac0170-c14m32-kat-cop-auto",
+    "7dac0170-c14m32-kat-cop-log",
     "95bf8a8a-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "a3aa7f34-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "bac40e3b-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
@@ -111,11 +125,17 @@ class Run:
 
 
 COP1000_COLUMN_ALIASES = {
+    "7dac0170-c14m32-kat-cop-auto": "kat-cop-auto",
+    "7dac0170-c14m32-kat-cop-log": "kat-cop-log",
     "95bf8a8a-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd": "95bfAU",
     "a3aa7f34-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd": "a3aaAU",
     "bac40e3b-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd": "bacAU",
     "2c5208ae-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd": "2c52AU",
     "ee83b5a8-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-phasesave-cumexact-timerd": "ee83PS",
+    "9dea6fb2-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd": "9deBin",
+    "9dea6fb2-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd": "9deTri",
+    "d7450190-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd": "d74Bin",
+    "d7450190-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd": "d74Tri",
     "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd": "630PS",
     "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-nophase": "630NP",
     "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd": "2ccOrd",
@@ -397,6 +417,22 @@ RUNS = [
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
+        "7dac0170-c14m32-kat-cop-auto",
+        "7dac0170 c14m32 kat-cop-auto",
+        "kat-cop1000-submission-copopt1-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mddtl-cumexact-timerd-objauto-20260605-7dac0170-c14m32-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-submission-copopt1-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mddtl-cumexact-timerd-objauto-20260605-7dac0170-c14m32-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "7dac0170-c14m32-kat-cop-log",
+        "7dac0170 c14m32 kat-cop-log",
+        "kat-cop1000-submission-copopt2-log-scop-guarded-basic-directexpr-inchard-cnf-mddtl-cumexact-timerd-objauto-20260605-7dac0170-c14m32-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-submission-copopt2-log-scop-guarded-basic-directexpr-inchard-cnf-mddtl-cumexact-timerd-objauto-20260605-7dac0170-c14m32-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
         "95bf8a8a-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
         "95bf8a8a portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objauto cumexact time-rd",
         "kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260605-95bf8a8a-q10609",
@@ -434,6 +470,38 @@ RUNS = [
         "kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-phasesave-cumexact-timerd-20260602-ee83b5a8-q10609",
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-phasesave-cumexact-timerd-20260602-ee83b5a8-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "9dea6fb2-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd",
+        "9dea6fb2 portfolio-v3 guarded-basic directexpr incsoft cnf binary mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objguided bump cumexact time-rd",
+        "kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd-20260615-9dea6fb2-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd-20260615-9dea6fb2-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "9dea6fb2-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd",
+        "9dea6fb2 portfolio-v3 guarded-basic directexpr incsoft cnf trisection mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objguided bump cumexact time-rd",
+        "kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd-20260615-9dea6fb2-q10497",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd-20260615-9dea6fb2-q10497",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "d7450190-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
+        "d7450190 portfolio-v3 guarded-basic directexpr incsoft cnf binary fb180 mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objauto cumexact time-rd",
+        "kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260616-d7450190-q10609-rerun1",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260616-d7450190-q10609-rerun1",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "d7450190-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
+        "d7450190 portfolio-v3 guarded-basic directexpr incsoft cnf trisection fb180 mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objauto cumexact time-rd",
+        "kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260616-d7450190-q10497-rerun1",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260616-d7450190-q10497-rerun1",
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(

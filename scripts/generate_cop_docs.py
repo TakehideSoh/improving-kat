@@ -14,6 +14,10 @@ DESTINATION = ROOT / "docs" / "index.html"
 RAW_LOG_BASE = "https://raw.githubusercontent.com/TakehideSoh/improving-kat/main/"
 
 VISIBLE_RESULT_TOKENS = (
+    "7dac0170-c14m32-kat-cop-auto",
+    "kat-cop1000-submission-copopt1-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mddtl-cumexact-timerd-objauto-20260605-7dac0170-c14m32-q10609",
+    "7dac0170-c14m32-kat-cop-log",
+    "kat-cop1000-submission-copopt2-log-scop-guarded-basic-directexpr-inchard-cnf-mddtl-cumexact-timerd-objauto-20260605-7dac0170-c14m32-q10609",
     "95bf8a8a-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260605-95bf8a8a-q10609",
     "a3aa7f34-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
@@ -24,6 +28,14 @@ VISIBLE_RESULT_TOKENS = (
     "kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260603-2c5208ae-q10609",
     "ee83b5a8-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-phasesave-cumexact-timerd",
     "kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-phasesave-cumexact-timerd-20260602-ee83b5a8-q10609",
+    "9dea6fb2-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd",
+    "kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd-20260615-9dea6fb2-q10609",
+    "9dea6fb2-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd",
+    "kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objguided-bump-cumexact-timerd-20260615-9dea6fb2-q10497",
+    "d7450190-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
+    "kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260616-d7450190-q10609",
+    "d7450190-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
+    "kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260616-d7450190-q10497",
     "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
     "kat-cop1000-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-20260531-630ede96-q10609",
     "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-nophase",
@@ -66,11 +78,17 @@ tr:nth-child(even) td { background: #fafafa; }
 
 SCRIPT = """(() => {
   const DEFAULT_COP1000_COLUMNS = new Set([
+    'kat-cop-auto',
+    'kat-cop-log',
     '95bfAU',
     'a3aaAU',
     'bacAU',
     '2c52AU',
     'ee83PS',
+    '9deBin',
+    '9deTri',
+    'd74Bin',
+    'd74Tri',
     '630PS',
     '630NP',
     '2ccOrd',
@@ -80,11 +98,17 @@ SCRIPT = """(() => {
     'ORT1V',
   ]);
   const COP1000_COLUMN_FULL_NAMES = {
+    'kat-cop-auto': '7dac0170 c14m32 kat-cop-auto',
+    'kat-cop-log': '7dac0170 c14m32 kat-cop-log',
     '95bfAU': '95bf8a8a portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objauto cumexact time-rd',
     'a3aaAU': 'a3aa7f34 portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objauto cumexact time-rd',
     'bacAU': 'bac40e3b portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objauto cumexact time-rd',
     '2c52AU': '2c5208ae portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objauto cumexact time-rd',
     'ee83PS': 'ee83b5a8 portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objguided phase-save cumexact time-rd',
+    '9deBin': '9dea6fb2 portfolio-v3 guarded-basic directexpr incsoft cnf binary mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objguided bump cumexact time-rd',
+    '9deTri': '9dea6fb2 portfolio-v3 guarded-basic directexpr incsoft cnf trisection mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objguided bump cumexact time-rd',
+    'd74Bin': 'd7450190 portfolio-v3 guarded-basic directexpr incsoft cnf binary fb180 mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objauto cumexact time-rd',
+    'd74Tri': 'd7450190 portfolio-v3 guarded-basic directexpr incsoft cnf trisection fb180 mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objauto cumexact time-rd',
     '630PS': '630ede96 portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge cumexact time-rd',
     '630NP': '630ede96 portfolio-v3 guarded-basic directexpr inchard cnf mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge cumexact time-rd no-phase',
     '2ccOrd': '2ccb88e9 order-ge guarded-basic directexpr inchard cnf mdd-tl link-cost eqne2 cumexact time-rd',
