@@ -53,6 +53,7 @@ DOC_RUN_SLUGS = [
     "4415b637-dirty-incsoftfix-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "4415b637-dirty-incsoftfix-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "9b2d0159-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
+    "9b2d0159-dirty-determinism-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
     "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-nophase",
     "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd",
@@ -85,6 +86,7 @@ CONSISTENCY_RUNS = [
     "4415b637-dirty-incsoftfix-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "4415b637-dirty-incsoftfix-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "9b2d0159-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
+    "9b2d0159-dirty-determinism-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
     "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd",
     "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-nophase",
     "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd",
@@ -145,6 +147,7 @@ COP1000_COLUMN_ALIASES = {
     "4415b637-dirty-incsoftfix-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-binary-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd": "441Bin",
     "4415b637-dirty-incsoftfix-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd": "441Tri",
     "9b2d0159-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd": "9b2Tri",
+    "9b2d0159-dirty-determinism-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd": "9b2Det",
     "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd": "630PS",
     "630ede96-portfolio-v3-guarded-basic-directexpr-inchard-cnf-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-cumexact-timerd-nophase": "630NP",
     "2ccb88e9-order-ge-guarded-basic-directexpr-inchard-cnf-mdd-tl-linkcost-eqne2-cumexact-timerd": "2ccOrd",
@@ -535,6 +538,14 @@ RUNS = [
         "kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260617-9b2d0159-q10609",
         "runsolver",
         runsolver_prefix="runsolver-kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260617-9b2d0159-q10609",
+        remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
+    ),
+    Run(
+        "9b2d0159-dirty-determinism-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd",
+        "9b2d0159 dirty determinism portfolio-v3 guarded-basic directexpr incsoft cnf trisection fb180 mdd-tl autoPB autoBDD agg link-cost eqne2 logEq->ge objauto cumexact time-rd",
+        "kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260618-9b2d0159-dirty-determinism-q10609",
+        "runsolver",
+        runsolver_prefix="runsolver-kat-cop1000-portfolio-v3-guarded-basic-directexpr-incsoft-cnf-trisection-fb180-mdd-tl-autopb-autobdd-agg-linkcost-eqne2-logeqge-objauto-cumexact-timerd-20260618-9b2d0159-dirty-determinism-q10609",
         remote_base="/LARGE0/gr10609/b39275/xcsp3instances",
     ),
     Run(
@@ -961,6 +972,7 @@ def objective_sense(benchmark_dir: Path, instance: str) -> str:
 
 def classify_checker_output(returncode: int, output: str) -> tuple[str, str]:
     detail = output.strip().splitlines()[-1] if output.strip() else f"exit={returncode}"
+    detail = " ".join(detail.split())
     lowered = output.lower()
     if "exception" in lowered or "fatal error" in lowered:
         return "checker_error", detail
@@ -1143,7 +1155,7 @@ def validate_solutions(
     rows.sort(key=lambda row: (row["run"], int(row["instance_id"])))
     path = validation_dir / "results.csv"
     with path.open("w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=VALIDATION_FIELDNAMES)
+        writer = csv.DictWriter(f, fieldnames=VALIDATION_FIELDNAMES, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
