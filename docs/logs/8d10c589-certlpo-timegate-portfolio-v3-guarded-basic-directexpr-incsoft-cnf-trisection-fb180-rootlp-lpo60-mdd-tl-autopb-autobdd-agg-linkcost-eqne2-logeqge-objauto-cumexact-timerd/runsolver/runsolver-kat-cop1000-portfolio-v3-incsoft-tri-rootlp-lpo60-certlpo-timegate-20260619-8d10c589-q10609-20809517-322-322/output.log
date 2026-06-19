@@ -1,0 +1,812 @@
+c cmd: /host-parser-bin/kat_xcsp_8d10c589 /bench/competition/2022-2025/COP22to25/EchelonStock2-A02_c22.xml.lzma --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-19 15:10:54 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | input: constraints=213
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=17 changed_domains=6 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=3227648 rss=3.08MiB
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=213
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:progress percent=10 processed=22 total=213 lowered=22 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=20 processed=43 total=213 lowered=43 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=30 processed=64 total=213 lowered=64 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=40 processed=86 total=213 lowered=86 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=50 processed=107 total=213 lowered=107 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=60 processed=128 total=213 lowered=128 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=70 processed=150 total=213 lowered=150 unsupported=0 ms=1
+c 00h00m00s | stage:lower:progress percent=80 processed=171 total=213 lowered=171 unsupported=0 ms=1
+c 00h00m00s | stage:lower:progress percent=90 processed=192 total=213 lowered=192 unsupported=0 ms=1
+c 00h00m00s | stage:lower:progress percent=100 processed=213 total=213 lowered=213 unsupported=0 ms=1
+c 00h00m00s | stage:lower:done ms=1 lowered=213 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=3227648 rss=3.08MiB
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=1 rounds=6 tightened=8 removed_cls=3 removed_lits=0 unsat=false precise_hits=227 precise_rounds=1 pivot_recomputes=108 pivot_exact_attempts=108 pivot_general_attempts=102 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=100 pivot_general_tightened=2 setup_ms=0 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=3497984 rss=3.34MiB
+c 00h00m00s | stage:lowered-shape int_vars=144 bool_vars=0 linear_atoms=306 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=210
+c 00h00m00s | stage:root-lp:start backend=lpo
+c 00h00m00s | stage:root-lp:bound backend=lpo status=optimal objective_value=-40254 naive_bounds=[0,185400] lp_bounds=[0,185400] improved=0 rows=250 vars=217 lp_rows_singleton_linear=112 lp_rows_disjunctive=132 lp_rows_table=0 lp_rows_cumulative_energy=0 lp_rows_cumulative_pair=0 lp_rows_cumulative_timetable=0 lp_rows_cumulative_completion=0 lp_rows_cumulative_precedence=0 lp_rows_no_overlap_pair=0 lp_rows_no_overlap_completion=0 lp_rows_no_overlap_precedence=0 lp_rows_no_overlap_2d_energy=0 lp_rows_no_overlap_2d_completion=0 lp_scheduling_payloads_cumulative=0 lp_scheduling_payloads_no_overlap=0 lp_scheduling_cut_rounds=0 lp_scheduling_cut_candidates=0 lp_scheduling_cut_violated=0 lp_scheduling_rows_skipped=0 ms=31
+c 00h00m00s | memory:rss checkpoint=before_preencode bytes=7643136 rss=7.29MiB
+c 00h00m00s | stage:preencode(log-scop):start
+c 00h00m00s | stage:preencode(log-scop):done ms=0 int_vars=144
+c 00h00m00s | memory:rss checkpoint=after_preencode bytes=7643136 rss=7.29MiB
+c 00h00m00s | memory:rss checkpoint=before_encode bytes=7643136 rss=7.29MiB
+c 00h00m00s | stage:encode(log-scop):start
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=3725 bytes=7909376 rss=7.54MiB progress_percent=10 processed=36 total=354
+c 00h00m00s | stage:encode(log-scop):progress percent=10 processed=36 total=354 sat_clauses=3725 ms=0
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=14675 bytes=8179712 rss=7.80MiB progress_percent=20 processed=71 total=354
+c 00h00m00s | stage:encode(log-scop):progress percent=20 processed=71 total=354 sat_clauses=14675 ms=2
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=15137 bytes=8179712 rss=7.80MiB progress_percent=30 processed=107 total=354
+c 00h00m00s | stage:encode(log-scop):progress percent=30 processed=107 total=354 sat_clauses=15137 ms=2
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=15700 bytes=8179712 rss=7.80MiB progress_percent=40 processed=142 total=354
+c 00h00m00s | stage:encode(log-scop):progress percent=40 processed=142 total=354 sat_clauses=15700 ms=2
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=25215 bytes=8179712 rss=7.80MiB progress_percent=50 processed=177 total=354
+c 00h00m00s | stage:encode(log-scop):progress percent=50 processed=177 total=354 sat_clauses=25215 ms=4
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=40349 bytes=8450048 rss=8.06MiB progress_percent=60 processed=213 total=354
+c 00h00m00s | stage:encode(log-scop):progress percent=60 processed=213 total=354 sat_clauses=40349 ms=6
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=40349 bytes=8450048 rss=8.06MiB progress_percent=70 processed=248 total=354
+c 00h00m00s | stage:encode(log-scop):progress percent=70 processed=248 total=354 sat_clauses=40349 ms=6
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=40349 bytes=8450048 rss=8.06MiB progress_percent=80 processed=284 total=354
+c 00h00m00s | stage:encode(log-scop):progress percent=80 processed=284 total=354 sat_clauses=40349 ms=6
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=40349 bytes=8450048 rss=8.06MiB progress_percent=90 processed=319 total=354
+c 00h00m00s | stage:encode(log-scop):progress percent=90 processed=319 total=354 sat_clauses=40349 ms=6
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=40349 bytes=8450048 rss=8.06MiB progress_percent=100 processed=354 total=354
+c 00h00m00s | stage:encode(log-scop):progress percent=100 processed=354 total=354 sat_clauses=40349 ms=6
+c 00h00m00s | stage:encode(log-scop):done ms=16 sat_vars=22349 sat_clauses=40349 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=569 log_scop_pb_mixed=0 log_scop_pb_bdd2=569 log_scop_pb_bdd3=0 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=569 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m00s | stage:post-encode(log-scop):start sat_vars=22349 sat_clauses=40349 has_relaxations=false external_tables=0
+c 00h00m00s | stage:post-encode(log-scop):after-finish-check ms=0
+c 00h00m00s | stage:post-encode(log-scop):decode-layout-ready int_symbols=144 ms=0
+c 00h00m00s | stage:post-encode(log-scop):cumulative-external-ready has_prop=false ms=0
+c 00h00m00s | stage:post-encode(log-scop):log-scop-external-ready has_prop=false ms=0
+c 00h00m00s | stage:post-encode(log-scop):external-prop-connected has_prop=false ms=0
+c 00h00m00s | stage:post-encode(log-scop):done sat_vars=22349 sat_clauses=40349 ms=0
+c 00h00m00s | stage:post-encode(log-scop):reusable-ready mode=SoftCnf sat_vars=22349
+c 00h00m00s | stage:objective-external-ge-template(log-scop):start cut=DirectExpr wants_ext_ge=false
+c 00h00m00s | stage:objective-external-ge-template(log-scop):done has_template=false ms=2
+c 00h00m00s | stage:objective-mode(log-scop):resolved mode=SoftCnf wants_ext_ge=false has_ext_ge_template=false
+c 00h00m00s | stage:objective-cut-surface(log-scop):skip mode=SoftCnf cut=DirectExpr has_ext_ge_template=false
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | stage:objective-encoder(log-scop):ready mode=SoftCnf soft=true sat_vars=22349
+c 00h00m00s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=false soft_active=true
+c 00h00m00s | stage:sat:round-entry encoder=log-scop assumptions=0 phase_lits=0 sat_vars=22349 base_clauses=40349
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=22349 clauses=40349
+c 00h00m00s | stage:sat:solve:start assumptions=0 phase_lits=0
+c 00h00m00s | stage:sat:solve:done ms=41 result=Sat assumptions=0 phase_lits=0
+c 00h00m00s | stage:decode:start
+c 00h00m00s | stage:decode:done int_assignments=144
+c 00h00m00s | result:Sat
+c 00h00m00s | objective:incumbent kind=initial value=68150 rounds=1 improvements=0
+o 68150
+c 00h00m00s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h00m00s | stage:objective-cut:soft-install bound=45433 guard=65602 clauses_added=86176
+c 00h00m00s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,68149] next 45433 source=install guard=65602
+c 00h00m00s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=65602 base_clauses=126525
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=65602 clauses=126525
+c 00h00m00s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m00s | stage:sat:solve:done ms=180001 result=Unknown assumptions=1 phase_lits=592
+c 00h03m00s | result:unknown reason=sat_solver_returned_unknown
+c 00h03m00s | result:Unknown
+c 00h03m00s | stage:objective-cut:soft-fallback search=trisection reason=budget-exhausted budget_s=180 mode=step incumbent=68150 [LB,UB]=[0,68149]
+c 00h03m00s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m00s | stage:objective-cut:soft-install bound=68149 guard=121312 clauses_added=110977
+c 00h03m00s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,68149] next 68149 source=install guard=121312
+c 00h03m00s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=121312 base_clauses=237502
+c 00h03m00s | stage:sat:init solver=CaDiCaL vars=121312 clauses=237502
+c 00h03m00s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m00s | stage:sat:solve:done ms=33 result=Sat assumptions=1 phase_lits=592
+c 00h03m00s | stage:decode:start
+c 00h03m00s | stage:decode:done int_assignments=144
+c 00h03m00s | result:Sat
+c 00h03m00s | objective:incumbent kind=improvement value=68100 rounds=2 improvements=1
+o 68100
+c 00h03m00s | stage:objective-cut:soft-result search=step bound=68149 result=sat guard=121312 hard=guard [LB,UB] = [0,68099]
+c 00h03m00s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m00s | stage:objective-cut:soft-install bound=68099 guard=177185 clauses_added=111302
+c 00h03m00s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,68099] next 68099 source=install guard=177185
+c 00h03m00s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=177185 base_clauses=348805
+c 00h03m00s | stage:sat:init solver=CaDiCaL vars=177185 clauses=348805
+c 00h03m00s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m00s | stage:sat:solve:done ms=149 result=Sat assumptions=1 phase_lits=592
+c 00h03m00s | stage:decode:start
+c 00h03m00s | stage:decode:done int_assignments=144
+c 00h03m00s | result:Sat
+c 00h03m00s | objective:incumbent kind=improvement value=61350 rounds=3 improvements=2
+o 61350
+c 00h03m00s | stage:objective-cut:soft-result search=step bound=68099 result=sat guard=177185 hard=guard [LB,UB] = [0,61349]
+c 00h03m00s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m00s | stage:objective-cut:soft-install bound=61349 guard=229470 clauses_added=104161
+c 00h03m00s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,61349] next 61349 source=install guard=229470
+c 00h03m00s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=229470 base_clauses=452967
+c 00h03m00s | stage:sat:init solver=CaDiCaL vars=229470 clauses=452967
+c 00h03m00s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m01s | stage:sat:solve:done ms=458 result=Sat assumptions=1 phase_lits=592
+c 00h03m01s | stage:decode:start
+c 00h03m01s | stage:decode:done int_assignments=144
+c 00h03m01s | result:Sat
+c 00h03m01s | objective:incumbent kind=improvement value=60150 rounds=4 improvements=3
+o 60150
+c 00h03m01s | stage:objective-cut:soft-result search=step bound=61349 result=sat guard=229470 hard=guard [LB,UB] = [0,60149]
+c 00h03m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m01s | stage:objective-cut:soft-install bound=60149 guard=281110 clauses_added=102877
+c 00h03m01s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,60149] next 60149 source=install guard=281110
+c 00h03m01s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=281110 base_clauses=555845
+c 00h03m01s | stage:sat:init solver=CaDiCaL vars=281110 clauses=555845
+c 00h03m01s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m01s | stage:sat:solve:done ms=276 result=Sat assumptions=1 phase_lits=592
+c 00h03m01s | stage:decode:start
+c 00h03m01s | stage:decode:done int_assignments=144
+c 00h03m01s | result:Sat
+c 00h03m01s | objective:incumbent kind=improvement value=59700 rounds=5 improvements=4
+o 59700
+c 00h03m01s | stage:objective-cut:soft-result search=step bound=60149 result=sat guard=281110 hard=guard [LB,UB] = [0,59699]
+c 00h03m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m01s | stage:objective-cut:soft-install bound=59699 guard=332693 clauses_added=102764
+c 00h03m01s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,59699] next 59699 source=install guard=332693
+c 00h03m01s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=332693 base_clauses=658610
+c 00h03m01s | stage:sat:init solver=CaDiCaL vars=332693 clauses=658610
+c 00h03m01s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m01s | stage:sat:solve:done ms=186 result=Sat assumptions=1 phase_lits=592
+c 00h03m01s | stage:decode:start
+c 00h03m01s | stage:decode:done int_assignments=144
+c 00h03m01s | result:Sat
+c 00h03m01s | objective:incumbent kind=improvement value=58800 rounds=6 improvements=5
+o 58800
+c 00h03m01s | stage:objective-cut:soft-result search=step bound=59699 result=sat guard=332693 hard=guard [LB,UB] = [0,58799]
+c 00h03m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m01s | stage:objective-cut:soft-install bound=58799 guard=383577 clauses_added=101371
+c 00h03m01s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,58799] next 58799 source=install guard=383577
+c 00h03m01s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=383577 base_clauses=759982
+c 00h03m01s | stage:sat:init solver=CaDiCaL vars=383577 clauses=759982
+c 00h03m01s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m02s | stage:sat:solve:done ms=246 result=Sat assumptions=1 phase_lits=592
+c 00h03m02s | stage:decode:start
+c 00h03m02s | stage:decode:done int_assignments=144
+c 00h03m02s | result:Sat
+c 00h03m02s | objective:incumbent kind=improvement value=56900 rounds=7 improvements=6
+o 56900
+c 00h03m02s | stage:objective-cut:soft-result search=step bound=58799 result=sat guard=383577 hard=guard [LB,UB] = [0,56899]
+c 00h03m02s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m02s | stage:objective-cut:soft-install bound=56899 guard=433619 clauses_added=99696
+c 00h03m02s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,56899] next 56899 source=install guard=433619
+c 00h03m02s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=433619 base_clauses=859679
+c 00h03m02s | stage:sat:init solver=CaDiCaL vars=433619 clauses=859679
+c 00h03m02s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m15s | stage:sat:solve:done ms=13448 result=Sat assumptions=1 phase_lits=592
+c 00h03m15s | stage:decode:start
+c 00h03m15s | stage:decode:done int_assignments=144
+c 00h03m15s | result:Sat
+c 00h03m15s | objective:incumbent kind=improvement value=56650 rounds=8 improvements=7
+o 56650
+c 00h03m15s | stage:objective-cut:soft-result search=step bound=56899 result=sat guard=433619 hard=guard [LB,UB] = [0,56649]
+c 00h03m15s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m15s | stage:objective-cut:soft-install bound=56649 guard=483550 clauses_added=99476
+c 00h03m15s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,56649] next 56649 source=install guard=483550
+c 00h03m15s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=483550 base_clauses=959156
+c 00h03m15s | stage:sat:init solver=CaDiCaL vars=483550 clauses=959156
+c 00h03m15s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m16s | stage:sat:solve:done ms=1152 result=Sat assumptions=1 phase_lits=592
+c 00h03m16s | stage:decode:start
+c 00h03m16s | stage:decode:done int_assignments=144
+c 00h03m16s | result:Sat
+c 00h03m16s | objective:incumbent kind=improvement value=56350 rounds=9 improvements=8
+o 56350
+c 00h03m16s | stage:objective-cut:soft-result search=step bound=56649 result=sat guard=483550 hard=guard [LB,UB] = [0,56349]
+c 00h03m16s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m16s | stage:objective-cut:soft-install bound=56349 guard=533116 clauses_added=98748
+c 00h03m16s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,56349] next 56349 source=install guard=533116
+c 00h03m16s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=533116 base_clauses=1057905
+c 00h03m16s | stage:sat:init solver=CaDiCaL vars=533116 clauses=1057905
+c 00h03m16s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m19s | stage:sat:solve:done ms=2667 result=Sat assumptions=1 phase_lits=592
+c 00h03m19s | stage:decode:start
+c 00h03m19s | stage:decode:done int_assignments=144
+c 00h03m19s | result:Sat
+c 00h03m19s | objective:incumbent kind=improvement value=55900 rounds=10 improvements=9
+o 55900
+c 00h03m19s | stage:objective-cut:soft-result search=step bound=56349 result=sat guard=533116 hard=guard [LB,UB] = [0,55899]
+c 00h03m19s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m19s | stage:objective-cut:soft-install bound=55899 guard=582589 clauses_added=98563
+c 00h03m19s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,55899] next 55899 source=install guard=582589
+c 00h03m19s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=582589 base_clauses=1156469
+c 00h03m19s | stage:sat:init solver=CaDiCaL vars=582589 clauses=1156469
+c 00h03m19s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m22s | stage:sat:solve:done ms=2525 result=Sat assumptions=1 phase_lits=592
+c 00h03m22s | stage:decode:start
+c 00h03m22s | stage:decode:done int_assignments=144
+c 00h03m22s | result:Sat
+c 00h03m22s | objective:incumbent kind=improvement value=54050 rounds=11 improvements=10
+o 54050
+c 00h03m22s | stage:objective-cut:soft-result search=step bound=55899 result=sat guard=582589 hard=guard [LB,UB] = [0,54049]
+c 00h03m22s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m22s | stage:objective-cut:soft-install bound=54049 guard=631036 clauses_added=96521
+c 00h03m22s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,54049] next 54049 source=install guard=631036
+c 00h03m22s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=631036 base_clauses=1252991
+c 00h03m22s | stage:sat:init solver=CaDiCaL vars=631036 clauses=1252991
+c 00h03m22s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m26s | stage:sat:solve:done ms=3769 result=Sat assumptions=1 phase_lits=592
+c 00h03m26s | stage:decode:start
+c 00h03m26s | stage:decode:done int_assignments=144
+c 00h03m26s | result:Sat
+c 00h03m26s | objective:incumbent kind=improvement value=53950 rounds=12 improvements=11
+o 53950
+c 00h03m26s | stage:objective-cut:soft-result search=step bound=54049 result=sat guard=631036 hard=guard [LB,UB] = [0,53949]
+c 00h03m26s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m26s | stage:objective-cut:soft-install bound=53949 guard=679229 clauses_added=96014
+c 00h03m26s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,53949] next 53949 source=install guard=679229
+c 00h03m26s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=679229 base_clauses=1349006
+c 00h03m26s | stage:sat:init solver=CaDiCaL vars=679229 clauses=1349006
+c 00h03m26s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m29s | stage:sat:solve:done ms=2905 result=Sat assumptions=1 phase_lits=592
+c 00h03m29s | stage:decode:start
+c 00h03m29s | stage:decode:done int_assignments=144
+c 00h03m29s | result:Sat
+c 00h03m29s | objective:incumbent kind=improvement value=53450 rounds=13 improvements=12
+o 53450
+c 00h03m29s | stage:objective-cut:soft-result search=step bound=53949 result=sat guard=679229 hard=guard [LB,UB] = [0,53449]
+c 00h03m29s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m29s | stage:objective-cut:soft-install bound=53449 guard=727337 clauses_added=95846
+c 00h03m29s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,53449] next 53449 source=install guard=727337
+c 00h03m29s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=727337 base_clauses=1444853
+c 00h03m29s | stage:sat:init solver=CaDiCaL vars=727337 clauses=1444853
+c 00h03m29s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m31s | stage:sat:solve:done ms=1708 result=Sat assumptions=1 phase_lits=592
+c 00h03m31s | stage:decode:start
+c 00h03m31s | stage:decode:done int_assignments=144
+c 00h03m31s | result:Sat
+c 00h03m31s | objective:incumbent kind=improvement value=52750 rounds=14 improvements=13
+o 52750
+c 00h03m31s | stage:objective-cut:soft-result search=step bound=53449 result=sat guard=727337 hard=guard [LB,UB] = [0,52749]
+c 00h03m31s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m31s | stage:objective-cut:soft-install bound=52749 guard=774829 clauses_added=94618
+c 00h03m31s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,52749] next 52749 source=install guard=774829
+c 00h03m31s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=774829 base_clauses=1539472
+c 00h03m31s | stage:sat:init solver=CaDiCaL vars=774829 clauses=1539472
+c 00h03m31s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m32s | stage:sat:solve:done ms=1409 result=Sat assumptions=1 phase_lits=592
+c 00h03m32s | stage:decode:start
+c 00h03m32s | stage:decode:done int_assignments=144
+c 00h03m32s | result:Sat
+c 00h03m32s | objective:incumbent kind=improvement value=51700 rounds=15 improvements=14
+o 51700
+c 00h03m32s | stage:objective-cut:soft-result search=step bound=52749 result=sat guard=774829 hard=guard [LB,UB] = [0,51699]
+c 00h03m32s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m32s | stage:objective-cut:soft-install bound=51699 guard=821887 clauses_added=93754
+c 00h03m32s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,51699] next 51699 source=install guard=821887
+c 00h03m32s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=821887 base_clauses=1633227
+c 00h03m32s | stage:sat:init solver=CaDiCaL vars=821887 clauses=1633227
+c 00h03m32s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m39s | stage:sat:solve:done ms=7174 result=Sat assumptions=1 phase_lits=592
+c 00h03m39s | stage:decode:start
+c 00h03m39s | stage:decode:done int_assignments=144
+c 00h03m39s | result:Sat
+c 00h03m39s | objective:incumbent kind=improvement value=51650 rounds=16 improvements=15
+o 51650
+c 00h03m39s | stage:objective-cut:soft-result search=step bound=51699 result=sat guard=821887 hard=guard [LB,UB] = [0,51649]
+c 00h03m39s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m40s | stage:objective-cut:soft-install bound=51649 guard=868945 clauses_added=93755
+c 00h03m40s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,51649] next 51649 source=install guard=868945
+c 00h03m40s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=868945 base_clauses=1726983
+c 00h03m40s | stage:sat:init solver=CaDiCaL vars=868945 clauses=1726983
+c 00h03m40s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m40s | stage:sat:solve:done ms=480 result=Sat assumptions=1 phase_lits=592
+c 00h03m40s | stage:decode:start
+c 00h03m40s | stage:decode:done int_assignments=144
+c 00h03m40s | result:Sat
+c 00h03m40s | objective:incumbent kind=improvement value=51600 rounds=17 improvements=16
+o 51600
+c 00h03m40s | stage:objective-cut:soft-result search=step bound=51649 result=sat guard=868945 hard=guard [LB,UB] = [0,51599]
+c 00h03m40s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m40s | stage:objective-cut:soft-install bound=51599 guard=915745 clauses_added=93239
+c 00h03m40s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,51599] next 51599 source=install guard=915745
+c 00h03m40s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=915745 base_clauses=1820223
+c 00h03m40s | stage:sat:init solver=CaDiCaL vars=915745 clauses=1820223
+c 00h03m40s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m48s | stage:sat:solve:done ms=7697 result=Sat assumptions=1 phase_lits=592
+c 00h03m48s | stage:decode:start
+c 00h03m48s | stage:decode:done int_assignments=144
+c 00h03m48s | result:Sat
+c 00h03m48s | objective:incumbent kind=improvement value=51500 rounds=18 improvements=17
+o 51500
+c 00h03m48s | stage:objective-cut:soft-result search=step bound=51599 result=sat guard=915745 hard=guard [LB,UB] = [0,51499]
+c 00h03m48s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m48s | stage:objective-cut:soft-install bound=51499 guard=962686 clauses_added=93521
+c 00h03m48s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,51499] next 51499 source=install guard=962686
+c 00h03m48s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=962686 base_clauses=1913745
+c 00h03m48s | stage:sat:init solver=CaDiCaL vars=962686 clauses=1913745
+c 00h03m48s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m51s | stage:sat:solve:done ms=3407 result=Sat assumptions=1 phase_lits=592
+c 00h03m51s | stage:decode:start
+c 00h03m51s | stage:decode:done int_assignments=144
+c 00h03m51s | result:Sat
+c 00h03m51s | objective:incumbent kind=improvement value=51300 rounds=19 improvements=18
+o 51300
+c 00h03m51s | stage:objective-cut:soft-result search=step bound=51499 result=sat guard=962686 hard=guard [LB,UB] = [0,51299]
+c 00h03m51s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m51s | stage:objective-cut:soft-install bound=51299 guard=1009514 clauses_added=93296
+c 00h03m51s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,51299] next 51299 source=install guard=1009514
+c 00h03m51s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1009514 base_clauses=2007042
+c 00h03m51s | stage:sat:init solver=CaDiCaL vars=1009514 clauses=2007042
+c 00h03m51s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h03m57s | stage:sat:solve:done ms=5678 result=Sat assumptions=1 phase_lits=592
+c 00h03m57s | stage:decode:start
+c 00h03m57s | stage:decode:done int_assignments=144
+c 00h03m57s | result:Sat
+c 00h03m57s | objective:incumbent kind=improvement value=51200 rounds=20 improvements=19
+o 51200
+c 00h03m57s | stage:objective-cut:soft-result search=step bound=51299 result=sat guard=1009514 hard=guard [LB,UB] = [0,51199]
+c 00h03m57s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h03m57s | stage:objective-cut:soft-install bound=51199 guard=1056062 clauses_added=92737
+c 00h03m57s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,51199] next 51199 source=install guard=1056062
+c 00h03m57s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1056062 base_clauses=2099780
+c 00h03m57s | stage:sat:init solver=CaDiCaL vars=1056062 clauses=2099780
+c 00h03m57s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h04m01s | stage:sat:solve:done ms=3265 result=Sat assumptions=1 phase_lits=592
+c 00h04m01s | stage:decode:start
+c 00h04m01s | stage:decode:done int_assignments=144
+c 00h04m01s | result:Sat
+c 00h04m01s | objective:incumbent kind=improvement value=50500 rounds=21 improvements=20
+o 50500
+c 00h04m01s | stage:objective-cut:soft-result search=step bound=51199 result=sat guard=1056062 hard=guard [LB,UB] = [0,50499]
+c 00h04m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h04m01s | stage:objective-cut:soft-install bound=50499 guard=1102398 clauses_added=92316
+c 00h04m01s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,50499] next 50499 source=install guard=1102398
+c 00h04m01s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1102398 base_clauses=2192097
+c 00h04m01s | stage:sat:init solver=CaDiCaL vars=1102398 clauses=2192097
+c 00h04m01s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h04m09s | stage:sat:solve:done ms=8365 result=Sat assumptions=1 phase_lits=592
+c 00h04m09s | stage:decode:start
+c 00h04m09s | stage:decode:done int_assignments=144
+c 00h04m09s | result:Sat
+c 00h04m09s | objective:incumbent kind=improvement value=50250 rounds=22 improvements=21
+o 50250
+c 00h04m09s | stage:objective-cut:soft-result search=step bound=50499 result=sat guard=1102398 hard=guard [LB,UB] = [0,50249]
+c 00h04m09s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h04m09s | stage:objective-cut:soft-install bound=50249 guard=1148615 clauses_added=92080
+c 00h04m09s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,50249] next 50249 source=install guard=1148615
+c 00h04m09s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1148615 base_clauses=2284178
+c 00h04m09s | stage:sat:init solver=CaDiCaL vars=1148615 clauses=2284178
+c 00h04m09s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h04m16s | stage:sat:solve:done ms=6377 result=Sat assumptions=1 phase_lits=592
+c 00h04m16s | stage:decode:start
+c 00h04m16s | stage:decode:done int_assignments=144
+c 00h04m16s | result:Sat
+c 00h04m16s | objective:incumbent kind=improvement value=49950 rounds=23 improvements=22
+o 49950
+c 00h04m16s | stage:objective-cut:soft-result search=step bound=50249 result=sat guard=1148615 hard=guard [LB,UB] = [0,49949]
+c 00h04m16s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h04m16s | stage:objective-cut:soft-install bound=49949 guard=1194459 clauses_added=91336
+c 00h04m16s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,49949] next 49949 source=install guard=1194459
+c 00h04m16s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1194459 base_clauses=2375515
+c 00h04m16s | stage:sat:init solver=CaDiCaL vars=1194459 clauses=2375515
+c 00h04m16s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h04m23s | stage:sat:solve:done ms=7395 result=Sat assumptions=1 phase_lits=592
+c 00h04m23s | stage:decode:start
+c 00h04m23s | stage:decode:done int_assignments=144
+c 00h04m23s | result:Sat
+c 00h04m23s | objective:incumbent kind=improvement value=49150 rounds=24 improvements=23
+o 49150
+c 00h04m23s | stage:objective-cut:soft-result search=step bound=49949 result=sat guard=1194459 hard=guard [LB,UB] = [0,49149]
+c 00h04m23s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h04m23s | stage:objective-cut:soft-install bound=49149 guard=1239808 clauses_added=90350
+c 00h04m23s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,49149] next 49149 source=install guard=1239808
+c 00h04m23s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1239808 base_clauses=2465866
+c 00h04m23s | stage:sat:init solver=CaDiCaL vars=1239808 clauses=2465866
+c 00h04m23s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h04m29s | stage:sat:solve:done ms=5754 result=Sat assumptions=1 phase_lits=592
+c 00h04m29s | stage:decode:start
+c 00h04m29s | stage:decode:done int_assignments=144
+c 00h04m29s | result:Sat
+c 00h04m29s | objective:incumbent kind=improvement value=48450 rounds=25 improvements=24
+o 48450
+c 00h04m29s | stage:objective-cut:soft-result search=step bound=49149 result=sat guard=1239808 hard=guard [LB,UB] = [0,48449]
+c 00h04m29s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h04m29s | stage:objective-cut:soft-install bound=48449 guard=1284937 clauses_added=89913
+c 00h04m29s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,48449] next 48449 source=install guard=1284937
+c 00h04m29s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1284937 base_clauses=2555780
+c 00h04m29s | stage:sat:init solver=CaDiCaL vars=1284937 clauses=2555780
+c 00h04m29s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h04m32s | stage:sat:solve:done ms=2904 result=Sat assumptions=1 phase_lits=592
+c 00h04m32s | stage:decode:start
+c 00h04m32s | stage:decode:done int_assignments=144
+c 00h04m32s | result:Sat
+c 00h04m32s | objective:incumbent kind=improvement value=48100 rounds=26 improvements=25
+o 48100
+c 00h04m32s | stage:objective-cut:soft-result search=step bound=48449 result=sat guard=1284937 hard=guard [LB,UB] = [0,48099]
+c 00h04m32s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h04m32s | stage:objective-cut:soft-install bound=48099 guard=1329828 clauses_added=89438
+c 00h04m32s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,48099] next 48099 source=install guard=1329828
+c 00h04m32s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1329828 base_clauses=2645219
+c 00h04m32s | stage:sat:init solver=CaDiCaL vars=1329828 clauses=2645219
+c 00h04m32s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h04m51s | stage:sat:solve:done ms=18991 result=Sat assumptions=1 phase_lits=592
+c 00h04m51s | stage:decode:start
+c 00h04m51s | stage:decode:done int_assignments=144
+c 00h04m51s | result:Sat
+c 00h04m51s | objective:incumbent kind=improvement value=47550 rounds=27 improvements=26
+o 47550
+c 00h04m51s | stage:objective-cut:soft-result search=step bound=48099 result=sat guard=1329828 hard=guard [LB,UB] = [0,47549]
+c 00h04m51s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h04m51s | stage:objective-cut:soft-install bound=47549 guard=1374195 clauses_added=88394
+c 00h04m51s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,47549] next 47549 source=install guard=1374195
+c 00h04m51s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1374195 base_clauses=2733614
+c 00h04m51s | stage:sat:init solver=CaDiCaL vars=1374195 clauses=2733614
+c 00h04m51s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h05m19s | stage:sat:solve:done ms=27622 result=Sat assumptions=1 phase_lits=592
+c 00h05m19s | stage:decode:start
+c 00h05m19s | stage:decode:done int_assignments=144
+c 00h05m19s | result:Sat
+c 00h05m19s | objective:incumbent kind=improvement value=46850 rounds=28 improvements=27
+o 46850
+c 00h05m19s | stage:objective-cut:soft-result search=step bound=47549 result=sat guard=1374195 hard=guard [LB,UB] = [0,46849]
+c 00h05m19s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h05m19s | stage:objective-cut:soft-install bound=46849 guard=1418334 clauses_added=87941
+c 00h05m19s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,46849] next 46849 source=install guard=1418334
+c 00h05m19s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1418334 base_clauses=2821556
+c 00h05m19s | stage:sat:init solver=CaDiCaL vars=1418334 clauses=2821556
+c 00h05m19s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h05m25s | stage:sat:solve:done ms=5405 result=Sat assumptions=1 phase_lits=592
+c 00h05m25s | stage:decode:start
+c 00h05m25s | stage:decode:done int_assignments=144
+c 00h05m25s | result:Sat
+c 00h05m25s | objective:incumbent kind=improvement value=46250 rounds=29 improvements=28
+o 46250
+c 00h05m25s | stage:objective-cut:soft-result search=step bound=46849 result=sat guard=1418334 hard=guard [LB,UB] = [0,46249]
+c 00h05m25s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h05m25s | stage:objective-cut:soft-install bound=46249 guard=1462080 clauses_added=87158
+c 00h05m25s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,46249] next 46249 source=install guard=1462080
+c 00h05m25s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1462080 base_clauses=2908715
+c 00h05m25s | stage:sat:init solver=CaDiCaL vars=1462080 clauses=2908715
+c 00h05m25s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h05m34s | stage:sat:solve:done ms=9477 result=Sat assumptions=1 phase_lits=592
+c 00h05m34s | stage:decode:start
+c 00h05m34s | stage:decode:done int_assignments=144
+c 00h05m34s | result:Sat
+c 00h05m34s | objective:incumbent kind=improvement value=45650 rounds=30 improvements=29
+o 45650
+c 00h05m34s | stage:objective-cut:soft-result search=step bound=46249 result=sat guard=1462080 hard=guard [LB,UB] = [0,45649]
+c 00h05m34s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h05m34s | stage:objective-cut:soft-install bound=45649 guard=1505458 clauses_added=86425
+c 00h05m34s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,45649] next 45649 source=install guard=1505458
+c 00h05m34s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1505458 base_clauses=2995141
+c 00h05m34s | stage:sat:init solver=CaDiCaL vars=1505458 clauses=2995141
+c 00h05m34s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h05m40s | stage:sat:solve:done ms=5552 result=Sat assumptions=1 phase_lits=592
+c 00h05m40s | stage:decode:start
+c 00h05m40s | stage:decode:done int_assignments=144
+c 00h05m40s | result:Sat
+c 00h05m40s | objective:incumbent kind=improvement value=45550 rounds=31 improvements=30
+o 45550
+c 00h05m40s | stage:objective-cut:soft-result search=step bound=45649 result=sat guard=1505458 hard=guard [LB,UB] = [0,45549]
+c 00h05m40s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h05m40s | stage:objective-cut:soft-install bound=45549 guard=1548580 clauses_added=85914
+c 00h05m40s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,45549] next 45549 source=install guard=1548580
+c 00h05m40s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1548580 base_clauses=3081056
+c 00h05m40s | stage:sat:init solver=CaDiCaL vars=1548580 clauses=3081056
+c 00h05m40s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h05m51s | stage:sat:solve:done ms=11130 result=Sat assumptions=1 phase_lits=592
+c 00h05m51s | stage:decode:start
+c 00h05m51s | stage:decode:done int_assignments=144
+c 00h05m51s | result:Sat
+c 00h05m51s | objective:incumbent kind=improvement value=45300 rounds=32 improvements=31
+o 45300
+c 00h05m51s | stage:objective-cut:soft-result search=step bound=45549 result=sat guard=1548580 hard=guard [LB,UB] = [0,45299]
+c 00h05m51s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h05m51s | stage:objective-cut:soft-install bound=45299 guard=1591712 clauses_added=85934
+c 00h05m51s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,45299] next 45299 source=install guard=1591712
+c 00h05m51s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1591712 base_clauses=3166991
+c 00h05m51s | stage:sat:init solver=CaDiCaL vars=1591712 clauses=3166991
+c 00h05m51s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h06m43s | stage:sat:solve:done ms=51321 result=Sat assumptions=1 phase_lits=592
+c 00h06m43s | stage:decode:start
+c 00h06m43s | stage:decode:done int_assignments=144
+c 00h06m43s | result:Sat
+c 00h06m43s | objective:incumbent kind=improvement value=44900 rounds=33 improvements=32
+o 44900
+c 00h06m43s | stage:objective-cut:soft-result search=step bound=45299 result=sat guard=1591712 hard=guard [LB,UB] = [0,44899]
+c 00h06m43s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h06m43s | stage:objective-cut:soft-install bound=44899 guard=1634598 clauses_added=85444
+c 00h06m43s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,44899] next 44899 source=install guard=1634598
+c 00h06m43s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1634598 base_clauses=3252436
+c 00h06m43s | stage:sat:init solver=CaDiCaL vars=1634598 clauses=3252436
+c 00h06m43s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h09m31s | stage:sat:solve:done ms=168598 result=Sat assumptions=1 phase_lits=592
+c 00h09m31s | stage:decode:start
+c 00h09m32s | stage:decode:done int_assignments=144
+c 00h09m32s | result:Sat
+c 00h09m32s | objective:incumbent kind=improvement value=44550 rounds=34 improvements=33
+o 44550
+c 00h09m32s | stage:objective-cut:soft-result search=step bound=44899 result=sat guard=1634598 hard=guard [LB,UB] = [0,44549]
+c 00h09m32s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h09m32s | stage:objective-cut:soft-install bound=44549 guard=1677073 clauses_added=84625
+c 00h09m32s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,44549] next 44549 source=install guard=1677073
+c 00h09m32s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1677073 base_clauses=3337062
+c 00h09m32s | stage:sat:init solver=CaDiCaL vars=1677073 clauses=3337062
+c 00h09m32s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h10m25s | stage:sat:solve:done ms=53264 result=Sat assumptions=1 phase_lits=592
+c 00h10m25s | stage:decode:start
+c 00h10m25s | stage:decode:done int_assignments=144
+c 00h10m25s | result:Sat
+c 00h10m25s | objective:incumbent kind=improvement value=44500 rounds=35 improvements=34
+o 44500
+c 00h10m25s | stage:objective-cut:soft-result search=step bound=44549 result=sat guard=1677073 hard=guard [LB,UB] = [0,44499]
+c 00h10m25s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h10m25s | stage:objective-cut:soft-install bound=44499 guard=1719679 clauses_added=84886
+c 00h10m25s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,44499] next 44499 source=install guard=1719679
+c 00h10m25s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1719679 base_clauses=3421949
+c 00h10m25s | stage:sat:init solver=CaDiCaL vars=1719679 clauses=3421949
+c 00h10m25s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h10m36s | stage:sat:solve:done ms=11422 result=Sat assumptions=1 phase_lits=592
+c 00h10m36s | stage:decode:start
+c 00h10m37s | stage:decode:done int_assignments=144
+c 00h10m37s | result:Sat
+c 00h10m37s | objective:incumbent kind=improvement value=44350 rounds=36 improvements=35
+o 44350
+c 00h10m37s | stage:objective-cut:soft-result search=step bound=44499 result=sat guard=1719679 hard=guard [LB,UB] = [0,44349]
+c 00h10m37s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h10m37s | stage:objective-cut:soft-install bound=44349 guard=1762031 clauses_added=84380
+c 00h10m37s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,44349] next 44349 source=install guard=1762031
+c 00h10m37s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1762031 base_clauses=3506330
+c 00h10m37s | stage:sat:init solver=CaDiCaL vars=1762031 clauses=3506330
+c 00h10m37s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h10m52s | stage:sat:solve:done ms=15515 result=Sat assumptions=1 phase_lits=592
+c 00h10m52s | stage:decode:start
+c 00h10m52s | stage:decode:done int_assignments=144
+c 00h10m52s | result:Sat
+c 00h10m52s | objective:incumbent kind=improvement value=43950 rounds=37 improvements=36
+o 43950
+c 00h10m52s | stage:objective-cut:soft-result search=step bound=44349 result=sat guard=1762031 hard=guard [LB,UB] = [0,43949]
+c 00h10m52s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h10m52s | stage:objective-cut:soft-install bound=43949 guard=1804133 clauses_added=83881
+c 00h10m52s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,43949] next 43949 source=install guard=1804133
+c 00h10m52s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1804133 base_clauses=3590212
+c 00h10m52s | stage:sat:init solver=CaDiCaL vars=1804133 clauses=3590212
+c 00h10m52s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h11m10s | stage:sat:solve:done ms=17303 result=Sat assumptions=1 phase_lits=592
+c 00h11m10s | stage:decode:start
+c 00h11m10s | stage:decode:done int_assignments=144
+c 00h11m10s | result:Sat
+c 00h11m10s | objective:incumbent kind=improvement value=43650 rounds=38 improvements=37
+o 43650
+c 00h11m10s | stage:objective-cut:soft-result search=step bound=43949 result=sat guard=1804133 hard=guard [LB,UB] = [0,43649]
+c 00h11m10s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h11m10s | stage:objective-cut:soft-install bound=43649 guard=1846242 clauses_added=83896
+c 00h11m10s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,43649] next 43649 source=install guard=1846242
+c 00h11m10s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1846242 base_clauses=3674109
+c 00h11m10s | stage:sat:init solver=CaDiCaL vars=1846242 clauses=3674109
+c 00h11m10s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h11m13s | stage:sat:solve:done ms=3456 result=Sat assumptions=1 phase_lits=592
+c 00h11m13s | stage:decode:start
+c 00h11m13s | stage:decode:done int_assignments=144
+c 00h11m13s | result:Sat
+c 00h11m13s | objective:incumbent kind=improvement value=43450 rounds=39 improvements=38
+o 43450
+c 00h11m13s | stage:objective-cut:soft-result search=step bound=43649 result=sat guard=1846242 hard=guard [LB,UB] = [0,43449]
+c 00h11m13s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h11m13s | stage:objective-cut:soft-install bound=43449 guard=1888224 clauses_added=83642
+c 00h11m13s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,43449] next 43449 source=install guard=1888224
+c 00h11m13s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1888224 base_clauses=3757752
+c 00h11m13s | stage:sat:init solver=CaDiCaL vars=1888224 clauses=3757752
+c 00h11m13s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h12m48s | stage:sat:solve:done ms=94105 result=Sat assumptions=1 phase_lits=592
+c 00h12m48s | stage:decode:start
+c 00h12m48s | stage:decode:done int_assignments=144
+c 00h12m48s | result:Sat
+c 00h12m48s | objective:incumbent kind=improvement value=43100 rounds=40 improvements=39
+o 43100
+c 00h12m48s | stage:objective-cut:soft-result search=step bound=43449 result=sat guard=1888224 hard=guard [LB,UB] = [0,43099]
+c 00h12m48s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h12m48s | stage:objective-cut:soft-install bound=43099 guard=1929928 clauses_added=83086
+c 00h12m48s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,43099] next 43099 source=install guard=1929928
+c 00h12m48s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1929928 base_clauses=3840839
+c 00h12m48s | stage:sat:init solver=CaDiCaL vars=1929928 clauses=3840839
+c 00h12m48s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h15m44s | stage:sat:solve:done ms=176607 result=Sat assumptions=1 phase_lits=592
+c 00h15m44s | stage:decode:start
+c 00h15m44s | stage:decode:done int_assignments=144
+c 00h15m44s | result:Sat
+c 00h15m44s | objective:incumbent kind=improvement value=42600 rounds=41 improvements=40
+o 42600
+c 00h15m44s | stage:objective-cut:soft-result search=step bound=43099 result=sat guard=1929928 hard=guard [LB,UB] = [0,42599]
+c 00h15m44s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h15m45s | stage:objective-cut:soft-install bound=42599 guard=1971121 clauses_added=82067
+c 00h15m45s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,42599] next 42599 source=install guard=1971121
+c 00h15m45s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=1971121 base_clauses=3922907
+c 00h15m45s | stage:sat:init solver=CaDiCaL vars=1971121 clauses=3922907
+c 00h15m45s | stage:sat:solve:start assumptions=1 phase_lits=592
+c 00h18m08s | stage:sat:solve:done ms=143099 result=Sat assumptions=1 phase_lits=592
+c 00h18m08s | stage:decode:start
+c 00h18m08s | stage:decode:done int_assignments=144
+c 00h18m08s | result:Sat
+c 00h18m08s | objective:incumbent kind=improvement value=41900 rounds=42 improvements=41
+o 41900
+c 00h18m08s | stage:objective-cut:soft-result search=step bound=42599 result=sat guard=1971121 hard=guard [LB,UB] = [0,41899]
+c 00h18m08s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=185400 has_incumbent=true soft_active=true
+c objective-cut:rss-guard enabled=false
+c 00h18m08s | stage:objective-cut:soft-install bound=41899 guard=2012063 clauses_added=81567
+c 00h18m08s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,41899] next 41899 source=install guard=2012063
+c 00h18m08s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=592 sat_vars=2012063 base_clauses=4004475
+c 00h18m08s | stage:sat:init solver=CaDiCaL vars=2012063 clauses=4004475
+c 00h18m08s | stage:sat:solve:start assumptions=1 phase_lits=592
+s SATISFIABLE
+o 41900
+v <instantiation>
+v   <list> x[0][0] x[0][1] x[0][2] x[0][3] x[0][4] x[0][5] x[0][6] x[0][7] x[0][8] x[0][9] x[0][10] x[0][11] x[1][0] x[1][1] x[1][2] x[1][3] x[1][4] x[1][5] x[1][6] x[1][7] x[1][8] x[1][9] x[1][10] x[1][11] x[2][0] x[2][1] x[2][2] x[2][3] x[2][4] x[2][5] x[2][6] x[2][7] x[2][8] x[2][9] x[2][10] x[2][11] x[3][0] x[3][1] x[3][2] x[3][3] x[3][4] x[3][5] x[3][6] x[3][7] x[3][8] x[3][9] x[3][10] x[3][11] x[4][0] x[4][1] x[4][2] x[4][3] x[4][4] x[4][5] x[4][6] x[4][7] x[4][8] x[4][9] x[4][10] x[4][11] x[5][0] x[5][1] x[5][2] x[5][3] x[5][4] x[5][5] x[5][6] x[5][7] x[5][8] x[5][9] x[5][10] x[5][11] y[0][0] y[0][1] y[0][2] y[0][3] y[0][4] y[0][5] y[0][6] y[0][7] y[0][8] y[0][9] y[0][10] y[0][11] y[1][0] y[1][1] y[1][2] y[1][3] y[1][4] y[1][5] y[1][6] y[1][7] y[1][8] y[1][9] y[1][10] y[1][11] y[2][0] y[2][1] y[2][2] y[2][3] y[2][4] y[2][5] y[2][6] y[2][7] y[2][8] y[2][9] y[2][10] y[2][11] y[3][0] y[3][1] y[3][2] y[3][3] y[3][4] y[3][5] y[3][6] y[3][7] y[3][8] y[3][9] y[3][10] y[3][11] y[4][0] y[4][1] y[4][2] y[4][3] y[4][4] y[4][5] y[4][6] y[4][7] y[4][8] y[4][9] y[4][10] y[4][11] y[5][0] y[5][1] y[5][2] y[5][3] y[5][4] y[5][5] y[5][6] y[5][7] y[5][8] y[5][9] y[5][10] y[5][11] </list>
+v   <values> 4 0 6 0 0 6 0 0 4 0 4 0 6 0 0 5 0 12 0 0 6 0 5 0 6 0 8 0 6 0 6 0 11 0 0 0 10 0 11 0 0 18 0 0 10 0 9 0 6 0 14 0 0 0 6 0 11 0 0 0 16 0 25 0 0 24 0 0 30 0 0 0 2 0 4 2 0 4 2 0 2 0 2 0 5 1 0 4 0 7 2 0 3 0 4 0 1 0 1 0 1 0 1 0 4 2 1 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 6 6 0 0 0 0 0 0 0 0 0 0 0 0 0 6 0 0 9 9 0 0 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 41900
+d OPTIMAL 0
+d OBJECTIVE_ROUNDS 42
+d OBJECTIVE_IMPROVEMENTS 41
+d COP_INCUMBENT_ELAPSED_MS 1088229
+d SOLVE_ELAPSED_MS 1800077
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 711762
+d LAST_COMPLETED_STAGE decode
+d STAGE_PARSE_STATUS pending
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS done
+d STAGE_RELAXATION_STATUS pending
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 213
+d NORMALIZED_CONSTRAINTS 213
+d LOWERED_CONSTRAINTS 213
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 22349
+d SAT_CLAUSES_BASE 40349
+d SAT_CLAUSES_FINAL 40349
+d SAT_CLAUSES_CEGAR_DELTA 0
+d MEMORY_RSS_BYTES 8450048
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 3227648
+d MEMORY_RSS_AFTER_LOWER_BYTES 3227648
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 3497984
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 7643136
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 7643136
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 7643136
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 10
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 40349
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 8450048
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 8450048
+d CSP_INT_VARS 144
+d CSP_CONSTRAINTS 213
+d CSP_INTENTIONAL 120
+d CSP_GLOBAL 93
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 0
+d CSP_CUMULATIVE 0
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 10
+d CSP_DOMAIN_SPAN_MAX 95
+d N_CUMULATIVE 0
+d N_TABLE 0
+d SAT_CONFLICTS 627374
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":135,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":6,"max_domain_product_excluding_one_var":"9","p95_domain_product_excluding_one_var":"9"},"3":{"count":37,"max_domain_product_excluding_one_var":"147","p95_domain_product_excluding_one_var":"121"},"4":{"count":16,"max_domain_product_excluding_one_var":"85536","p95_domain_product_excluding_one_var":"85536"},"5":{"count":25,"max_domain_product_excluding_one_var":"8895744","p95_domain_product_excluding_one_var":"6809184"},"6":{"count":3,"max_domain_product_excluding_one_var":"32670","p95_domain_product_excluding_one_var":"32670"},"7":{"count":3,"max_domain_product_excluding_one_var":"359370","p95_domain_product_excluding_one_var":"359370"},"8":{"count":3,"max_domain_product_excluding_one_var":"4671810","p95_domain_product_excluding_one_var":"4671810"},"9":{"count":3,"max_domain_product_excluding_one_var":"70077150","p95_domain_product_excluding_one_var":"70077150"},"10":{"count":3,"max_domain_product_excluding_one_var":"770848650","p95_domain_product_excluding_one_var":"770848650"},"11":{"count":3,"max_domain_product_excluding_one_var":"6166789200","p95_domain_product_excluding_one_var":"6166789200"},"12":{"count":9,"max_domain_product_excluding_one_var":"185532132095557632","p95_domain_product_excluding_one_var":"185532132095557632"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":60,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 185400
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 185400
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 31
+d ROOT_LP_ROWS 250
+d ROOT_LP_VARS 217
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 60
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 246
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 1
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 1
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 0
+d ROOT_LP_OBJECTIVE_VALUE -40254
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d PROPAGATE_PRUNED_VALUES 17
+d PROPAGATE_CHANGED_DOMAINS 6
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 6
+d POST_LOWER_TIGHTENED_DOMAINS 8
+d POST_LOWER_REMOVED_CLAUSES 3
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 144
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 569
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 569
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 0
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 569
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d MEMORY_RSS_BYTES 8450048
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 3227648
+d MEMORY_RSS_AFTER_LOWER_BYTES 3227648
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 3497984
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 7643136
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 7643136
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 7643136
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 10
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 40349
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 8450048
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 8450048
+d DECODE_INT_ASSIGNMENTS 144
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/competition/2022-2025/COP22to25/EchelonStock2-A02_c22.xml.lzma,sat,213,213,213,0,22349,40349,1800076,,,,,,,1,optimal,0,185400,0,185400,0,31,250,217,0,0,0,-40254,timeout_signal,incumbent_interrupted_by_signal
+signal=15; emitted incumbent csv row
+c run_end_local: 2026-06-19 15:40:54 +0900
