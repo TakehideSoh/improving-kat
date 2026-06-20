@@ -1,0 +1,36 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2024/aircraft-disassembly/aircraft.mzn --data /bench/2024/aircraft-disassembly/B737NG-600-04-Anon.json.dzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 22:40:57 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | input: constraints=38640
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=17 pruned=918 changed_domains=54 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=187359232 rss=178.68MiB
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=38640
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:progress percent=10 processed=3864 total=38640 lowered=3864 unsupported=0 ms=173
+c 00h00m00s | stage:lower:progress percent=20 processed=7728 total=38640 lowered=7728 unsupported=0 ms=196
+c 00h00m00s | stage:lower:progress percent=30 processed=11592 total=38640 lowered=11592 unsupported=0 ms=219
+c 00h00m00s | stage:lower:progress percent=40 processed=15456 total=38640 lowered=15456 unsupported=0 ms=241
+c 00h00m00s | stage:lower:progress percent=50 processed=19320 total=38640 lowered=19320 unsupported=0 ms=264
+c 00h00m00s | stage:lower:progress percent=60 processed=23184 total=38640 lowered=23184 unsupported=0 ms=286
+c 00h00m00s | stage:lower:progress percent=70 processed=27048 total=38640 lowered=27048 unsupported=0 ms=309
+c 00h00m00s | stage:lower:progress percent=80 processed=30912 total=38640 lowered=30912 unsupported=0 ms=334
+c 00h00m00s | stage:lower:progress percent=90 processed=34776 total=38640 lowered=34776 unsupported=0 ms=346
+c 00h00m07s | stage:lower:progress percent=100 processed=38640 total=38640 lowered=38640 unsupported=0 ms=7245
+c 00h00m07s | stage:lower:done ms=7324 lowered=38640 unsupported=0
+c 00h00m07s | memory:rss checkpoint=after_lower bytes=199864320 rss=190.61MiB
+c 00h00m07s | stage:post_lower:start
+c 00h00m07s | stage:post_lower:done ms=178 rounds=1675 tightened=1675 removed_cls=5417 removed_lits=430 unsat=false precise_hits=252 precise_rounds=1 pivot_recomputes=4411 pivot_exact_attempts=3120 pivot_general_attempts=4411 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=4411 pivot_general_tightened=0 setup_ms=113 loop_ms=45 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=15 sat_ms=0 precise_ms=1
+c 00h00m07s | memory:rss checkpoint=after_post_lower bytes=230240256 rss=219.57MiB
+c 00h00m07s | stage:lowered-shape int_vars=8785 bool_vars=106704 linear_atoms=238238 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=378334
+c 00h00m07s | stage:root-lp:start backend=lpo
+c 00h00m07s | stage:root-lp:skip backend=lpo reason=root LP skipped: estimated rows 616572 and vars 115489 exceed LPO dense-size limit 50000x17000 ms=123
+c 00h00m07s | memory:rss checkpoint=before_preencode bytes=232341504 rss=221.58MiB
+c 00h00m07s | stage:preencode(log-scop):start
+c 00h00m07s | stage:preencode(log-scop):done ms=12 int_vars=8785
+c 00h00m07s | memory:rss checkpoint=after_preencode bytes=232341504 rss=221.58MiB
+c 00h00m07s | memory:rss checkpoint=before_encode bytes=232452096 rss=221.68MiB
+c 00h00m07s | stage:encode(log-scop):start

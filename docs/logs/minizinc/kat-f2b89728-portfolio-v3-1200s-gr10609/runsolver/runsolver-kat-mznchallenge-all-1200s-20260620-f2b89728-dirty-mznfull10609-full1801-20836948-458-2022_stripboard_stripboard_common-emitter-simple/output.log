@@ -1,0 +1,48 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2022/stripboard/stripboard.mzn --data /bench/2022/stripboard/common-emitter-simple.dzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 22:24:40 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=892
+c 00h00m00s | stage:propagate:start
+c 00h00m42s | stage:propagate:done ms=42450 pruned=256000722 changed_domains=267 entailed_tables=0
+c 00h00m42s | memory:rss checkpoint=after_propagate bytes=27906048 rss=26.61MiB
+c 00h00m42s | stage:normalize:start
+c 00h00m42s | stage:normalize:done ms=0 high_constraints=892
+c 00h00m42s | stage:lower:start
+c 00h00m42s | stage:lower:progress percent=10 processed=90 total=892 lowered=90 unsupported=0 ms=2
+c 00h00m42s | stage:lower:progress percent=20 processed=179 total=892 lowered=179 unsupported=0 ms=2
+c 00h00m42s | stage:lower:progress percent=30 processed=268 total=892 lowered=268 unsupported=0 ms=3
+c 00h00m42s | stage:lower:progress percent=40 processed=357 total=892 lowered=357 unsupported=0 ms=3
+c 00h00m42s | stage:lower:progress percent=50 processed=446 total=892 lowered=446 unsupported=0 ms=4
+c 00h00m42s | stage:lower:progress percent=60 processed=536 total=892 lowered=536 unsupported=0 ms=5
+c 00h00m42s | stage:lower:progress percent=70 processed=625 total=892 lowered=625 unsupported=0 ms=7
+c 00h00m42s | stage:lower:progress percent=80 processed=714 total=892 lowered=714 unsupported=0 ms=13
+c 00h00m42s | stage:lower:progress percent=90 processed=803 total=892 lowered=803 unsupported=0 ms=20
+c 00h00m42s | stage:lower:progress percent=100 processed=892 total=892 lowered=892 unsupported=0 ms=49
+c 00h00m42s | stage:lower:done ms=51 lowered=892 unsupported=0
+c 00h00m42s | memory:rss checkpoint=after_lower bytes=27910144 rss=26.62MiB
+c 00h00m42s | stage:post_lower:start
+c 00h00m42s | stage:post_lower:affine_elim eliminated_vars=144 removed_clauses=193 removed_lits=12 ms=7
+c 00h00m42s | stage:post_lower:done ms=23 rounds=1598 tightened=2038 removed_cls=2910 removed_lits=231 unsat=false precise_hits=1224 precise_rounds=2 pivot_recomputes=14516 pivot_exact_attempts=218 pivot_general_attempts=14328 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=13532 pivot_general_tightened=796 setup_ms=2 loop_ms=9 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=2
+c 00h00m42s | memory:rss checkpoint=after_post_lower bytes=27910144 rss=26.62MiB
+c 00h00m42s | stage:lowered-shape int_vars=2392 bool_vars=5320 linear_atoms=15696 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=14437
+c 00h00m42s | stage:root-lp:start backend=lpo
+c 00h01m42s | stage:root-lp:skip backend=lpo reason=failed to solve root LP with kat-lpo: LP wall-clock time limit reached during native-simplex pivot row update ms=60141
+c 00h01m42s | memory:rss checkpoint=before_preencode bytes=8152088576 rss=7.59GiB
+c 00h01m42s | stage:preencode(order-ge):start
+c 00h01m42s | stage:preencode(order-ge):done ms=18 int_vars=2392
+c 00h01m42s | memory:rss checkpoint=after_preencode bytes=8152088576 rss=7.59GiB
+c 00h01m42s | memory:rss checkpoint=before_encode bytes=8152088576 rss=7.59GiB
+c 00h01m42s | stage:encode(order-ge):start
+c 00h01m42s | result:unknown reason=encode_failed detail=sat variable count overflow
+c 00h01m42s | fallback:encoding order-ge->log-scop reason=sat_variable_count_overflow detail=sat variable count overflow
+c 00h01m42s | memory:rss checkpoint=before_preencode bytes=8152334336 rss=7.59GiB
+c 00h01m42s | stage:preencode(log-scop):start
+c 00h01m42s | stage:preencode(log-scop):done ms=0 int_vars=2392
+c 00h01m42s | memory:rss checkpoint=after_preencode bytes=8152334336 rss=7.59GiB
+c 00h01m42s | memory:rss checkpoint=before_encode bytes=8152334336 rss=7.59GiB
+c 00h01m42s | stage:encode(log-scop):start
+c 00h01m42s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=154315 bytes=8152875008 rss=7.59GiB progress_percent=10 processed=1444 total=14438
+c 00h01m42s | stage:encode(log-scop):progress percent=10 processed=1444 total=14438 sat_clauses=154315 ms=54
+c 00h01m42s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=212354 bytes=8152875008 rss=7.59GiB progress_percent=20 processed=2888 total=14438
+c 00h01m42s | stage:encode(log-scop):progress percent=20 processed=2888 total=14438 sat_clauses=212354 ms=77

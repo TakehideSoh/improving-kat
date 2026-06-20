@@ -1,0 +1,227 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2024/train-scheduling/trains.mzn --data /bench/2024/train-scheduling/trains18.dzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 22:48:04 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | input: constraints=882
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=1 pruned=96 changed_domains=64 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=11988992 rss=11.43MiB
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=882
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:progress percent=10 processed=89 total=882 lowered=89 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=20 processed=177 total=882 lowered=177 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=30 processed=265 total=882 lowered=265 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=40 processed=353 total=882 lowered=353 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=50 processed=441 total=882 lowered=441 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=60 processed=530 total=882 lowered=530 unsupported=0 ms=1
+c 00h00m00s | stage:lower:progress percent=70 processed=618 total=882 lowered=618 unsupported=0 ms=102
+c 00h00m00s | stage:lower:progress percent=80 processed=706 total=882 lowered=706 unsupported=0 ms=104
+c 00h00m00s | stage:lower:progress percent=90 processed=794 total=882 lowered=794 unsupported=0 ms=112
+c 00h00m00s | stage:lower:progress percent=100 processed=882 total=882 lowered=882 unsupported=0 ms=122
+c 00h00m00s | stage:lower:done ms=124 lowered=882 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=14147584 rss=13.49MiB
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=87 rounds=618 tightened=1187 removed_cls=5704 removed_lits=4184 unsat=false precise_hits=2128 precise_rounds=1 pivot_recomputes=2492 pivot_exact_attempts=1720 pivot_general_attempts=796 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=547 pivot_general_tightened=249 setup_ms=1 loop_ms=77 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=7
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=14147584 rss=13.49MiB
+c 00h00m00s | stage:lowered-shape int_vars=563 bool_vars=5856 linear_atoms=16757 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=1 circuit_atoms=0 product_atoms=0 logical_clauses=16852
+c 00h00m00s | stage:root-lp:start backend=lpo
+c 00h01m00s | stage:root-lp:skip backend=lpo reason=failed to solve root LP with kat-lpo: LP wall-clock time limit reached during native-simplex pivot row update ms=60127
+c 00h01m00s | memory:rss checkpoint=before_preencode bytes=1409966080 rss=1.31GiB
+c 00h01m00s | stage:preencode(log-scop):start
+c 00h01m00s | stage:preencode(log-scop):done ms=0 int_vars=563
+c 00h01m00s | memory:rss checkpoint=after_preencode bytes=1410007040 rss=1.31GiB
+c 00h01m00s | memory:rss checkpoint=before_encode bytes=1410007040 rss=1.31GiB
+c 00h01m00s | stage:encode(log-scop):start
+c 00h01m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=55109 bytes=1410412544 rss=1.31GiB progress_percent=10 processed=1695 total=16949
+c 00h01m00s | stage:encode(log-scop):progress percent=10 processed=1695 total=16949 sat_clauses=55109 ms=12
+c 00h01m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=98281 bytes=1410560000 rss=1.31GiB progress_percent=20 processed=3390 total=16949
+c 00h01m00s | stage:encode(log-scop):progress percent=20 processed=3390 total=16949 sat_clauses=98281 ms=36
+c 00h01m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=145634 bytes=1410560000 rss=1.31GiB progress_percent=30 processed=5085 total=16949
+c 00h01m00s | stage:encode(log-scop):progress percent=30 processed=5085 total=16949 sat_clauses=145634 ms=62
+c 00h01m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=198855 bytes=1410998272 rss=1.31GiB progress_percent=40 processed=6780 total=16949
+c 00h01m00s | stage:encode(log-scop):progress percent=40 processed=6780 total=16949 sat_clauses=198855 ms=95
+c 00h01m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=238276 bytes=1410998272 rss=1.31GiB progress_percent=50 processed=8475 total=16949
+c 00h01m00s | stage:encode(log-scop):progress percent=50 processed=8475 total=16949 sat_clauses=238276 ms=103
+c 00h01m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=281548 bytes=1410998272 rss=1.31GiB progress_percent=60 processed=10170 total=16949
+c 00h01m00s | stage:encode(log-scop):progress percent=60 processed=10170 total=16949 sat_clauses=281548 ms=124
+c 00h01m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=328728 bytes=1410998272 rss=1.31GiB progress_percent=70 processed=11865 total=16949
+c 00h01m00s | stage:encode(log-scop):progress percent=70 processed=11865 total=16949 sat_clauses=328728 ms=165
+c 00h01m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=381705 bytes=1410998272 rss=1.31GiB progress_percent=80 processed=13560 total=16949
+c 00h01m00s | stage:encode(log-scop):progress percent=80 processed=13560 total=16949 sat_clauses=381705 ms=175
+c 00h01m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=413550 bytes=1411043328 rss=1.31GiB progress_percent=90 processed=15255 total=16949
+c 00h01m00s | stage:encode(log-scop):progress percent=90 processed=15255 total=16949 sat_clauses=413550 ms=193
+c 00h01m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=491411 bytes=1411043328 rss=1.31GiB progress_percent=100 processed=16949 total=16949
+c 00h01m00s | stage:encode(log-scop):progress percent=100 processed=16949 total=16949 sat_clauses=491411 ms=220
+c 00h01m00s | stage:encode(log-scop):done ms=227 sat_vars=306072 sat_clauses=491411 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=25841 log_scop_pb_mixed=0 log_scop_pb_bdd2=25841 log_scop_pb_bdd3=0 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=25841 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h01m00s | stage:post-encode(log-scop):start sat_vars=306072 sat_clauses=491411 has_relaxations=false external_tables=0
+c 00h01m00s | stage:post-encode(log-scop):after-finish-check ms=0
+c 00h01m00s | stage:post-encode(log-scop):decode-layout-ready int_symbols=563 ms=1
+c 00h01m00s | stage:post-encode(log-scop):cumulative-external-ready has_prop=true ms=1
+c 00h01m00s | stage:post-encode(log-scop):log-scop-external-ready has_prop=false ms=1
+c 00h01m00s | stage:post-encode(log-scop):external-prop-connected has_prop=true ms=2
+c 00h01m00s | stage:post-encode(log-scop):done sat_vars=306072 sat_clauses=491411 ms=2
+c 00h01m00s | stage:post-encode(log-scop):reusable-ready mode=SoftCnf sat_vars=306072
+c 00h01m00s | stage:objective-external-ge-template(log-scop):start cut=DirectExpr wants_ext_ge=false
+c 00h01m00s | stage:objective-external-ge-template(log-scop):done has_template=true ms=0
+c 00h01m00s | stage:objective-mode(log-scop):resolved mode=SoftCnf wants_ext_ge=false has_ext_ge_template=true
+c 00h01m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h01m00s | stage:objective-encoder(log-scop):ready mode=SoftCnf soft=true sat_vars=306072
+c 00h01m00s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=967 has_incumbent=false soft_active=true
+c 00h01m00s | stage:sat:round-entry encoder=log-scop assumptions=0 phase_lits=0 sat_vars=306072 base_clauses=491411
+c 00h01m00s | stage:sat:init solver=CaDiCaL vars=306072 clauses=491411
+c 00h01m00s | stage:sat:solve:start assumptions=0 phase_lits=0
+c 00h01m04s | stage:sat:solve:done ms=3997 result=Unsat assumptions=0 phase_lits=0
+c 00h01m04s | result:Unsat
+s UNSATISFIABLE
+d OPTIMAL 0
+d SOURCE_CONSTRAINTS 882
+d NORMALIZED_CONSTRAINTS 882
+d LOWERED_CONSTRAINTS 882
+d UNSUPPORTED_CONSTRAINTS 0
+d CSP_INT_VARS 531
+d CSP_CONSTRAINTS 882
+d CSP_INTENTIONAL 729
+d CSP_GLOBAL 153
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 1
+d CSP_CUMULATIVE 8
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 17
+d CSP_DOMAIN_SPAN_MAX 1000000
+d N_CUMULATIVE 8
+d N_TABLE 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d OBJECTIVE_CUT_EAGER_CLAUSES_ADDED 0
+d OBJECTIVE_RELAXATION_CLAUSES_ADDED 0
+d OBJECTIVE_ROUNDS 1
+d OBJECTIVE_IMPROVEMENTS 0
+d PROPAGATE_MS 1
+d NORMALIZE_MS 0
+d LOWER_MS 124
+d POST_LOWER_MS 87
+d PREENCODE_MS 0
+d ENCODE_MS 227
+d SAT_SOLVE_MS 3997
+d TOTAL_MS 64577
+d SAT_VARS 306072
+d SAT_CLAUSES_BASE 491411
+d SAT_CLAUSES_FINAL 491411
+d SAT_CLAUSES_CEGAR_DELTA 0
+d CSP_INT_VARS 531
+d CSP_CONSTRAINTS 882
+d CSP_INTENTIONAL 729
+d CSP_GLOBAL 153
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 1
+d CSP_CUMULATIVE 8
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 17
+d CSP_DOMAIN_SPAN_MAX 1000000
+d N_CUMULATIVE 8
+d N_TABLE 0
+d SAT_CONFLICTS 4189
+d CUMULATIVE_EXTPROP_CONSTRAINTS 8
+d CUMULATIVE_EXTPROP_OBSERVED_VARS 576
+d CUMULATIVE_EXTPROP_OBSERVED_LITS 576
+d CUMULATIVE_EXTPROP_OBSERVED_LIT_OCCURRENCES 576
+d CUMULATIVE_EXTPROP_NOTIFY_ASSIGNMENT_CALLS 7849
+d CUMULATIVE_EXTPROP_NOTIFY_ASSIGNMENT_LITS 94340
+d CUMULATIVE_EXTPROP_NOTIFY_NEW_DECISION_LEVEL_CALLS 534969
+d CUMULATIVE_EXTPROP_NOTIFY_BACKTRACK_CALLS 5065
+d CUMULATIVE_EXTPROP_CB_CHECK_FOUND_MODEL_CALLS 0
+d CUMULATIVE_EXTPROP_CB_CHECK_FOUND_MODEL_REJECTS 0
+d CUMULATIVE_EXTPROP_CB_PROPAGATE_CALLS 7015
+d CUMULATIVE_EXTPROP_CB_PROPAGATE_CONFLICTS 0
+d CUMULATIVE_EXTPROP_PROPAGATED_LITS 0
+d CUMULATIVE_EXTPROP_REASON_CLAUSES 0
+d CUMULATIVE_EXTPROP_REASON_CLAUSE_LITS 0
+d CUMULATIVE_EXTPROP_REASON_CLAUSE_MAX_LEN 0
+d CUMULATIVE_EXTPROP_CB_HAS_EXTERNAL_CLAUSE_CALLS 535356
+d CUMULATIVE_EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_CALLS 0
+d CUMULATIVE_EXTPROP_EXTERNAL_CLAUSES 0
+d CUMULATIVE_EXTPROP_EXTERNAL_CLAUSE_LITS 0
+d CUMULATIVE_EXTPROP_EXTERNAL_CLAUSE_MAX_LEN 0
+d CUMULATIVE_EXTPROP_PARTIAL_VIOLATION_CALLS 20523
+d CUMULATIVE_EXTPROP_COMPULSORY_VIOLATION_CALLS 20523
+d CUMULATIVE_EXTPROP_BOUND_PROPAGATION_CALLS 0
+d CUMULATIVE_EXTPROP_BOUND_REASON_CALLS 0
+d CUMULATIVE_EXTPROP_PARTIAL_SUMMARY_TASK_EVALS 139148
+d CUMULATIVE_EXTPROP_BOUND_SUMMARY_TASK_EVALS 139148
+d CUMULATIVE_EXTPROP_BOUND_EVENT_PAIRS 0
+d CUMULATIVE_EXTPROP_LOWER_BOUND_LIT_CALLS 0
+d CUMULATIVE_EXTPROP_UPPER_BOUND_LIT_CALLS 0
+d CUMULATIVE_EXTPROP_LOG_WITNESS_CHECKS 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":978,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":1680,"max_domain_product_excluding_one_var":"56","p95_domain_product_excluding_one_var":"56"},"3":{"count":81,"max_domain_product_excluding_one_var":"43245","p95_domain_product_excluding_one_var":"3136"},"17":{"count":1,"max_domain_product_excluding_one_var":"36751693856637464631913392961","p95_domain_product_excluding_one_var":"36751693856637464631913392961"},"25":{"count":1,"max_domain_product_excluding_one_var":"16777216","p95_domain_product_excluding_one_var":"16777216"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":1344,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":5792,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":5920,"max_domain_product_excluding_one_var":"56","p95_domain_product_excluding_one_var":"56"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"4":{"count":480,"max_domain_product_excluding_one_var":"8","p95_domain_product_excluding_one_var":"8"},"8":{"count":480,"max_domain_product_excluding_one_var":"128","p95_domain_product_excluding_one_var":"128"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS skipped
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 967
+d ROOT_LP_MS 60127
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 11712
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 2741
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 2
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 56
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 8
+d ROOT_LP_REASON lpo: failed to solve root LP with kat-lpo: LP wall-clock time limit reached during native-simplex pivot row update
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d PROPAGATE_PRUNED_VALUES 96
+d PROPAGATE_CHANGED_DOMAINS 64
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 618
+d POST_LOWER_TIGHTENED_DOMAINS 1187
+d POST_LOWER_REMOVED_CLAUSES 5704
+d POST_LOWER_REMOVED_LITS 4184
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 563
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 25841
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 25841
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 0
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 25841
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d MEMORY_RSS_BYTES 1411043328
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 11988992
+d MEMORY_RSS_AFTER_LOWER_BYTES 14147584
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 14147584
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 1409966080
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 1410007040
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 1410007040
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 10
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 491411
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 1411043328
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 1411043328
+d CSV /bench/2024/train-scheduling/trains.mzn,unsat,882,882,882,0,306072,491411,64577,1,0,124,0,227,3997,1,skipped,0,967,,,,60127,,,,,,,,
+c run_end_local: 2026-06-20 22:49:09 +0900

@@ -1,0 +1,496 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2015/zephyrus/zephyrus_5_20.mzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 21:08:04 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | input: constraints=18
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=100003 changed_domains=4 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=4444160 rss=4.24MiB
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=18
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:progress percent=10 processed=2 total=18 lowered=2 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=20 processed=4 total=18 lowered=4 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=30 processed=6 total=18 lowered=6 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=40 processed=8 total=18 lowered=8 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=50 processed=9 total=18 lowered=9 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=60 processed=11 total=18 lowered=11 unsupported=0 ms=1
+c 00h00m00s | stage:lower:progress percent=70 processed=13 total=18 lowered=13 unsupported=0 ms=2
+c 00h00m00s | stage:lower:progress percent=80 processed=15 total=18 lowered=15 unsupported=0 ms=3
+c 00h00m00s | stage:lower:progress percent=90 processed=17 total=18 lowered=17 unsupported=0 ms=4
+c 00h00m00s | stage:lower:progress percent=100 processed=18 total=18 lowered=18 unsupported=0 ms=8
+c 00h00m00s | stage:lower:done ms=8 lowered=18 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=4444160 rss=4.24MiB
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=1 rounds=34 tightened=368 removed_cls=212 removed_lits=182 unsat=false precise_hits=182 precise_rounds=1 pivot_recomputes=5341 pivot_exact_attempts=5341 pivot_general_attempts=5341 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=5315 pivot_general_tightened=26 setup_ms=0 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=5251072 rss=5.01MiB
+c 00h00m00s | stage:lowered-shape int_vars=345 bool_vars=156 linear_atoms=694 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=482
+c 00h00m00s | stage:root-lp:start backend=lpo
+c 00h00m00s | stage:root-lp:bound backend=lpo status=optimal objective_value=46 naive_bounds=[0,100000] lp_bounds=[46,100000] improved=1 rows=378 vars=501 lp_rows_singleton_linear=14 lp_rows_disjunctive=364 lp_rows_table=0 lp_rows_cumulative_energy=0 lp_rows_cumulative_pair=0 lp_rows_cumulative_timetable=0 lp_rows_cumulative_completion=0 lp_rows_cumulative_precedence=0 lp_rows_no_overlap_pair=0 lp_rows_no_overlap_completion=0 lp_rows_no_overlap_precedence=0 lp_rows_no_overlap_2d_energy=0 lp_rows_no_overlap_2d_completion=0 lp_scheduling_payloads_cumulative=0 lp_scheduling_payloads_no_overlap=0 lp_scheduling_cut_rounds=0 lp_scheduling_cut_candidates=0 lp_scheduling_cut_violated=0 lp_scheduling_rows_skipped=0 ms=72
+c 00h00m00s | memory:rss checkpoint=before_preencode bytes=9097216 rss=8.68MiB
+c 00h00m00s | stage:preencode(log-scop):start
+c 00h00m00s | stage:preencode(log-scop):done ms=0 int_vars=345
+c 00h00m00s | memory:rss checkpoint=after_preencode bytes=9097216 rss=8.68MiB
+c 00h00m00s | memory:rss checkpoint=before_encode bytes=9097216 rss=8.68MiB
+c 00h00m00s | stage:encode(log-scop):start
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=264174 bytes=59682816 rss=56.92MiB progress_percent=10 processed=49 total=483
+c 00h00m00s | stage:encode(log-scop):progress percent=10 processed=49 total=483 sat_clauses=264174 ms=112
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=264889 bytes=59682816 rss=56.92MiB progress_percent=20 processed=97 total=483
+c 00h00m00s | stage:encode(log-scop):progress percent=20 processed=97 total=483 sat_clauses=264889 ms=112
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=266025 bytes=59682816 rss=56.92MiB progress_percent=30 processed=145 total=483
+c 00h00m00s | stage:encode(log-scop):progress percent=30 processed=145 total=483 sat_clauses=266025 ms=113
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=267864 bytes=59682816 rss=56.92MiB progress_percent=40 processed=194 total=483
+c 00h00m00s | stage:encode(log-scop):progress percent=40 processed=194 total=483 sat_clauses=267864 ms=113
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=270072 bytes=59682816 rss=56.92MiB progress_percent=50 processed=242 total=483
+c 00h00m00s | stage:encode(log-scop):progress percent=50 processed=242 total=483 sat_clauses=270072 ms=113
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=272699 bytes=59682816 rss=56.92MiB progress_percent=60 processed=290 total=483
+c 00h00m00s | stage:encode(log-scop):progress percent=60 processed=290 total=483 sat_clauses=272699 ms=114
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=275499 bytes=59682816 rss=56.92MiB progress_percent=70 processed=339 total=483
+c 00h00m00s | stage:encode(log-scop):progress percent=70 processed=339 total=483 sat_clauses=275499 ms=115
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=278299 bytes=59682816 rss=56.92MiB progress_percent=80 processed=387 total=483
+c 00h00m00s | stage:encode(log-scop):progress percent=80 processed=387 total=483 sat_clauses=278299 ms=115
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=280724 bytes=59682816 rss=56.92MiB progress_percent=90 processed=435 total=483
+c 00h00m00s | stage:encode(log-scop):progress percent=90 processed=435 total=483 sat_clauses=280724 ms=116
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1374634 bytes=372969472 rss=355.69MiB progress_percent=100 processed=483 total=483
+c 00h00m00s | stage:encode(log-scop):progress percent=100 processed=483 total=483 sat_clauses=1374634 ms=655
+c 00h00m00s | stage:encode(log-scop):done ms=666 sat_vars=693435 sat_clauses=1374634 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=535 log_scop_pb_mixed=0 log_scop_pb_bdd2=535 log_scop_pb_bdd3=0 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=535 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m00s | stage:post-encode(log-scop):start sat_vars=693435 sat_clauses=1374634 has_relaxations=false external_tables=0
+c 00h00m00s | stage:post-encode(log-scop):after-finish-check ms=0
+c 00h00m00s | stage:post-encode(log-scop):decode-layout-ready int_symbols=345 ms=0
+c 00h00m00s | stage:post-encode(log-scop):cumulative-external-ready has_prop=false ms=0
+c 00h00m00s | stage:post-encode(log-scop):log-scop-external-ready has_prop=false ms=0
+c 00h00m00s | stage:post-encode(log-scop):external-prop-connected has_prop=false ms=0
+c 00h00m00s | stage:post-encode(log-scop):done sat_vars=693435 sat_clauses=1374634 ms=0
+c 00h00m00s | stage:post-encode(log-scop):reusable-ready mode=SoftCnf sat_vars=693435
+c 00h00m00s | stage:objective-external-ge-template(log-scop):start cut=DirectExpr wants_ext_ge=false
+c 00h00m00s | stage:objective-external-ge-template(log-scop):done has_template=true ms=0
+c 00h00m00s | stage:objective-mode(log-scop):resolved mode=SoftCnf wants_ext_ge=false has_ext_ge_template=true
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | stage:objective-encoder(log-scop):ready mode=SoftCnf soft=true sat_vars=693435
+c 00h00m00s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=false soft_active=true
+c 00h00m00s | stage:sat:round-entry encoder=log-scop assumptions=0 phase_lits=0 sat_vars=693435 base_clauses=1374634
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=693435 clauses=1374634
+c 00h00m00s | stage:sat:solve:start assumptions=0 phase_lits=0
+c 00h01m08s | stage:sat:solve:done ms=67878 result=Sat assumptions=0 phase_lits=0
+c 00h01m08s | stage:decode:start
+c 00h01m08s | stage:decode:done int_assignments=163
+c 00h01m08s | result:Sat
+c 00h01m08s | stage:objective-cut-surface(log-scop):start timing=after-incumbent
+c 00h01m08s | stage:objective-cut-surface(log-scop):done has_surface=true ms=0
+c 00h01m08s | objective:incumbent kind=initial value=99990 rounds=1 improvements=0
+o 99990
+c 00h01m08s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h01m08s | stage:objective-cut:soft-install bound=66675 guard=693453 clauses_added=28
+c 00h01m08s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,99989] next 66675 source=install guard=693453
+c 00h01m08s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693453 base_clauses=1374662
+c 00h01m08s | stage:sat:init solver=CaDiCaL vars=693453 clauses=1374662
+c 00h01m08s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h01m11s | stage:sat:solve:done ms=3204 result=Sat assumptions=1 phase_lits=2339
+c 00h01m11s | stage:decode:start
+c 00h01m11s | stage:decode:done int_assignments=163
+c 00h01m11s | result:Sat
+c 00h01m11s | objective:incumbent kind=improvement value=60182 rounds=2 improvements=1
+o 60182
+c 00h01m11s | stage:objective-cut:soft-result search=trisection bound=66675 result=sat guard=693453 hard=guard [LB,UB] = [46,60181]
+c 00h01m11s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h01m11s | stage:objective-cut:soft-install bound=40136 guard=693470 clauses_added=25
+c 00h01m11s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,60181] next 40136 source=install guard=693470
+c 00h01m11s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693470 base_clauses=1374688
+c 00h01m11s | stage:sat:init solver=CaDiCaL vars=693470 clauses=1374688
+c 00h01m11s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h01m22s | stage:sat:solve:done ms=10941 result=Sat assumptions=1 phase_lits=2339
+c 00h01m22s | stage:decode:start
+c 00h01m22s | stage:decode:done int_assignments=163
+c 00h01m22s | result:Sat
+c 00h01m22s | objective:incumbent kind=improvement value=32642 rounds=3 improvements=2
+o 32642
+c 00h01m22s | stage:objective-cut:soft-result search=trisection bound=40136 result=sat guard=693470 hard=guard [LB,UB] = [46,32641]
+c 00h01m22s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h01m22s | stage:objective-cut:soft-install bound=21776 guard=693487 clauses_added=24
+c 00h01m22s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,32641] next 21776 source=install guard=693487
+c 00h01m22s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693487 base_clauses=1374713
+c 00h01m22s | stage:sat:init solver=CaDiCaL vars=693487 clauses=1374713
+c 00h01m22s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h02m13s | stage:sat:solve:done ms=50265 result=Sat assumptions=1 phase_lits=2339
+c 00h02m13s | stage:decode:start
+c 00h02m13s | stage:decode:done int_assignments=163
+c 00h02m13s | result:Sat
+c 00h02m13s | objective:incumbent kind=improvement value=20354 rounds=4 improvements=3
+o 20354
+c 00h02m13s | stage:objective-cut:soft-result search=trisection bound=21776 result=sat guard=693487 hard=guard [LB,UB] = [46,20353]
+c 00h02m13s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h02m13s | stage:objective-cut:soft-install bound=13584 guard=693504 clauses_added=24
+c 00h02m13s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,20353] next 13584 source=install guard=693504
+c 00h02m13s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693504 base_clauses=1374738
+c 00h02m13s | stage:sat:init solver=CaDiCaL vars=693504 clauses=1374738
+c 00h02m13s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h02m27s | stage:sat:solve:done ms=14114 result=Sat assumptions=1 phase_lits=2339
+c 00h02m27s | stage:decode:start
+c 00h02m27s | stage:decode:done int_assignments=163
+c 00h02m27s | result:Sat
+c 00h02m27s | objective:incumbent kind=improvement value=9751 rounds=5 improvements=4
+o 9751
+c 00h02m27s | stage:objective-cut:soft-result search=trisection bound=13584 result=sat guard=693504 hard=guard [LB,UB] = [46,9750]
+c 00h02m27s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h02m27s | stage:objective-cut:soft-install bound=6516 guard=693521 clauses_added=25
+c 00h02m27s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,9750] next 6516 source=install guard=693521
+c 00h02m27s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693521 base_clauses=1374764
+c 00h02m27s | stage:sat:init solver=CaDiCaL vars=693521 clauses=1374764
+c 00h02m27s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h02m36s | stage:sat:solve:done ms=9004 result=Sat assumptions=1 phase_lits=2339
+c 00h02m36s | stage:decode:start
+c 00h02m36s | stage:decode:done int_assignments=163
+c 00h02m36s | result:Sat
+c 00h02m36s | objective:incumbent kind=improvement value=6230 rounds=6 improvements=5
+o 6230
+c 00h02m36s | stage:objective-cut:soft-result search=trisection bound=6516 result=sat guard=693521 hard=guard [LB,UB] = [46,6229]
+c 00h02m36s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h02m36s | stage:objective-cut:soft-install bound=4168 guard=693538 clauses_added=29
+c 00h02m36s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,6229] next 4168 source=install guard=693538
+c 00h02m36s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693538 base_clauses=1374794
+c 00h02m36s | stage:sat:init solver=CaDiCaL vars=693538 clauses=1374794
+c 00h02m36s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h02m38s | stage:sat:solve:done ms=2481 result=Sat assumptions=1 phase_lits=2339
+c 00h02m38s | stage:decode:start
+c 00h02m38s | stage:decode:done int_assignments=163
+c 00h02m38s | result:Sat
+c 00h02m38s | objective:incumbent kind=improvement value=4118 rounds=7 improvements=6
+o 4118
+c 00h02m38s | stage:objective-cut:soft-result search=trisection bound=4168 result=sat guard=693538 hard=guard [LB,UB] = [46,4117]
+c 00h02m38s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h02m38s | stage:objective-cut:soft-install bound=2760 guard=693555 clauses_added=27
+c 00h02m38s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,4117] next 2760 source=install guard=693555
+c 00h02m38s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693555 base_clauses=1374822
+c 00h02m38s | stage:sat:init solver=CaDiCaL vars=693555 clauses=1374822
+c 00h02m38s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h02m40s | stage:sat:solve:done ms=1386 result=Sat assumptions=1 phase_lits=2339
+c 00h02m40s | stage:decode:start
+c 00h02m40s | stage:decode:done int_assignments=163
+c 00h02m40s | result:Sat
+c 00h02m40s | objective:incumbent kind=improvement value=2069 rounds=8 improvements=7
+o 2069
+c 00h02m40s | stage:objective-cut:soft-result search=trisection bound=2760 result=sat guard=693555 hard=guard [LB,UB] = [46,2068]
+c 00h02m40s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h02m40s | stage:objective-cut:soft-install bound=1394 guard=693571 clauses_added=25
+c 00h02m40s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,2068] next 1394 source=install guard=693571
+c 00h02m40s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693571 base_clauses=1374848
+c 00h02m40s | stage:sat:init solver=CaDiCaL vars=693571 clauses=1374848
+c 00h02m40s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h02m42s | stage:sat:solve:done ms=2078 result=Sat assumptions=1 phase_lits=2339
+c 00h02m42s | stage:decode:start
+c 00h02m42s | stage:decode:done int_assignments=163
+c 00h02m42s | result:Sat
+c 00h02m42s | objective:incumbent kind=improvement value=1010 rounds=9 improvements=8
+o 1010
+c 00h02m42s | stage:objective-cut:soft-result search=trisection bound=1394 result=sat guard=693571 hard=guard [LB,UB] = [46,1009]
+c 00h02m42s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h02m42s | stage:objective-cut:soft-install bound=688 guard=693588 clauses_added=28
+c 00h02m42s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,1009] next 688 source=install guard=693588
+c 00h02m42s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693588 base_clauses=1374877
+c 00h02m42s | stage:sat:init solver=CaDiCaL vars=693588 clauses=1374877
+c 00h02m42s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h03m02s | stage:sat:solve:done ms=20120 result=Sat assumptions=1 phase_lits=2339
+c 00h03m02s | stage:decode:start
+c 00h03m02s | stage:decode:done int_assignments=163
+c 00h03m02s | result:Sat
+c 00h03m02s | objective:incumbent kind=improvement value=662 rounds=10 improvements=9
+o 662
+c 00h03m02s | stage:objective-cut:soft-result search=trisection bound=688 result=sat guard=693588 hard=guard [LB,UB] = [46,661]
+c 00h03m02s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h03m02s | stage:objective-cut:soft-install bound=456 guard=693605 clauses_added=28
+c 00h03m02s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,661] next 456 source=install guard=693605
+c 00h03m02s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693605 base_clauses=1374906
+c 00h03m02s | stage:sat:init solver=CaDiCaL vars=693605 clauses=1374906
+c 00h03m02s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h03m07s | stage:sat:solve:done ms=4753 result=Sat assumptions=1 phase_lits=2339
+c 00h03m07s | stage:decode:start
+c 00h03m07s | stage:decode:done int_assignments=163
+c 00h03m07s | result:Sat
+c 00h03m07s | objective:incumbent kind=improvement value=438 rounds=11 improvements=10
+o 438
+c 00h03m07s | stage:objective-cut:soft-result search=trisection bound=456 result=sat guard=693605 hard=guard [LB,UB] = [46,437]
+c 00h03m07s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h03m07s | stage:objective-cut:soft-install bound=307 guard=693623 clauses_added=30
+c 00h03m07s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,437] next 307 source=install guard=693623
+c 00h03m07s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693623 base_clauses=1374937
+c 00h03m07s | stage:sat:init solver=CaDiCaL vars=693623 clauses=1374937
+c 00h03m07s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h03m08s | stage:sat:solve:done ms=1457 result=Sat assumptions=1 phase_lits=2339
+c 00h03m08s | stage:decode:start
+c 00h03m08s | stage:decode:done int_assignments=163
+c 00h03m08s | result:Sat
+c 00h03m08s | objective:incumbent kind=improvement value=306 rounds=12 improvements=11
+o 306
+c 00h03m08s | stage:objective-cut:soft-result search=trisection bound=307 result=sat guard=693623 hard=guard [LB,UB] = [46,305]
+c 00h03m08s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h03m08s | stage:objective-cut:soft-install bound=219 guard=693641 clauses_added=31
+c 00h03m08s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,305] next 219 source=install guard=693641
+c 00h03m08s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693641 base_clauses=1374969
+c 00h03m08s | stage:sat:init solver=CaDiCaL vars=693641 clauses=1374969
+c 00h03m08s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h03m26s | stage:sat:solve:done ms=18020 result=Sat assumptions=1 phase_lits=2339
+c 00h03m26s | stage:decode:start
+c 00h03m26s | stage:decode:done int_assignments=163
+c 00h03m26s | result:Sat
+c 00h03m26s | objective:incumbent kind=improvement value=210 rounds=13 improvements=12
+o 210
+c 00h03m26s | stage:objective-cut:soft-result search=trisection bound=219 result=sat guard=693641 hard=guard [LB,UB] = [46,209]
+c 00h03m26s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h03m26s | stage:objective-cut:soft-install bound=155 guard=693659 clauses_added=32
+c 00h03m26s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,209] next 155 source=install guard=693659
+c 00h03m26s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693659 base_clauses=1375002
+c 00h03m26s | stage:sat:init solver=CaDiCaL vars=693659 clauses=1375002
+c 00h03m26s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h03m28s | stage:sat:solve:done ms=2043 result=Sat assumptions=1 phase_lits=2339
+c 00h03m28s | stage:decode:start
+c 00h03m28s | stage:decode:done int_assignments=163
+c 00h03m28s | result:Sat
+c 00h03m28s | objective:incumbent kind=improvement value=150 rounds=14 improvements=13
+o 150
+c 00h03m28s | stage:objective-cut:soft-result search=trisection bound=155 result=sat guard=693659 hard=guard [LB,UB] = [46,149]
+c 00h03m28s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h03m28s | stage:objective-cut:soft-install bound=115 guard=693677 clauses_added=30
+c 00h03m28s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,149] next 115 source=install guard=693677
+c 00h03m28s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693677 base_clauses=1375033
+c 00h03m28s | stage:sat:init solver=CaDiCaL vars=693677 clauses=1375033
+c 00h03m28s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h03m29s | stage:sat:solve:done ms=1003 result=Sat assumptions=1 phase_lits=2339
+c 00h03m29s | stage:decode:start
+c 00h03m29s | stage:decode:done int_assignments=163
+c 00h03m29s | result:Sat
+c 00h03m29s | objective:incumbent kind=improvement value=114 rounds=15 improvements=14
+o 114
+c 00h03m29s | stage:objective-cut:soft-result search=trisection bound=115 result=sat guard=693677 hard=guard [LB,UB] = [46,113]
+c 00h03m29s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h03m29s | stage:objective-cut:soft-install bound=91 guard=693695 clauses_added=32
+c 00h03m29s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,113] next 91 source=install guard=693695
+c 00h03m29s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693695 base_clauses=1375066
+c 00h03m29s | stage:sat:init solver=CaDiCaL vars=693695 clauses=1375066
+c 00h03m29s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h03m47s | stage:sat:solve:done ms=17381 result=Sat assumptions=1 phase_lits=2339
+c 00h03m47s | stage:decode:start
+c 00h03m47s | stage:decode:done int_assignments=163
+c 00h03m47s | result:Sat
+c 00h03m47s | objective:incumbent kind=improvement value=90 rounds=16 improvements=15
+o 90
+c 00h03m47s | stage:objective-cut:soft-result search=trisection bound=91 result=sat guard=693695 hard=guard [LB,UB] = [46,89]
+c 00h03m47s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h03m47s | stage:objective-cut:soft-install bound=75 guard=693713 clauses_added=31
+c 00h03m47s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,89] next 75 source=install guard=693713
+c 00h03m47s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693713 base_clauses=1375098
+c 00h03m47s | stage:sat:init solver=CaDiCaL vars=693713 clauses=1375098
+c 00h03m47s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h03m47s | stage:sat:solve:done ms=97 result=Sat assumptions=1 phase_lits=2339
+c 00h03m47s | stage:decode:start
+c 00h03m47s | stage:decode:done int_assignments=163
+c 00h03m47s | result:Sat
+c 00h03m47s | objective:incumbent kind=improvement value=74 rounds=17 improvements=16
+o 74
+c 00h03m47s | stage:objective-cut:soft-result search=trisection bound=75 result=sat guard=693713 hard=guard [LB,UB] = [46,73]
+c 00h03m47s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=46 upper=100000 has_incumbent=true soft_active=true
+c 00h03m47s | stage:objective-cut:soft-install bound=64 guard=693730 clauses_added=30
+c 00h03m47s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [46,73] next 64 source=install guard=693730
+c 00h03m47s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693730 base_clauses=1375129
+c 00h03m47s | stage:sat:init solver=CaDiCaL vars=693730 clauses=1375129
+c 00h03m47s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h05m15s | stage:sat:solve:done ms=87852 result=Unsat assumptions=1 phase_lits=2339
+c 00h05m15s | result:Unsat
+c 00h05m15s | stage:objective-cut:soft-result search=trisection bound=64 result=unsat guard=693730 hard=-guard [LB,UB] = [65,73]
+c 00h05m15s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=65 upper=100000 has_incumbent=true soft_active=true
+c 00h05m15s | stage:objective-cut:soft-install bound=71 guard=693748 clauses_added=32
+c 00h05m15s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [65,73] next 71 source=install guard=693748
+c 00h05m15s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693748 base_clauses=1375162
+c 00h05m15s | stage:sat:init solver=CaDiCaL vars=693748 clauses=1375162
+c 00h05m15s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h05m20s | stage:sat:solve:done ms=5059 result=Sat assumptions=1 phase_lits=2339
+c 00h05m20s | stage:decode:start
+c 00h05m20s | stage:decode:done int_assignments=163
+c 00h05m20s | result:Sat
+c 00h05m20s | objective:incumbent kind=improvement value=71 rounds=19 improvements=17
+o 71
+c 00h05m20s | stage:objective-cut:soft-result search=trisection bound=71 result=sat guard=693748 hard=guard [LB,UB] = [65,70]
+c 00h05m20s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=65 upper=100000 has_incumbent=true soft_active=true
+c 00h05m20s | stage:objective-cut:soft-install bound=69 guard=693766 clauses_added=30
+c 00h05m20s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [65,70] next 69 source=install guard=693766
+c 00h05m20s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693766 base_clauses=1375193
+c 00h05m20s | stage:sat:init solver=CaDiCaL vars=693766 clauses=1375193
+c 00h05m20s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h05m21s | stage:sat:solve:done ms=1061 result=Sat assumptions=1 phase_lits=2339
+c 00h05m21s | stage:decode:start
+c 00h05m21s | stage:decode:done int_assignments=163
+c 00h05m21s | result:Sat
+c 00h05m21s | objective:incumbent kind=improvement value=69 rounds=20 improvements=18
+o 69
+c 00h05m21s | stage:objective-cut:soft-result search=trisection bound=69 result=sat guard=693766 hard=guard [LB,UB] = [65,68]
+c 00h05m21s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=65 upper=100000 has_incumbent=true soft_active=true
+c 00h05m21s | stage:objective-cut:soft-install bound=67 guard=693784 clauses_added=31
+c 00h05m21s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [65,68] next 67 source=install guard=693784
+c 00h05m21s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693784 base_clauses=1375225
+c 00h05m21s | stage:sat:init solver=CaDiCaL vars=693784 clauses=1375225
+c 00h05m21s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h05m23s | stage:sat:solve:done ms=2291 result=Sat assumptions=1 phase_lits=2339
+c 00h05m23s | stage:decode:start
+c 00h05m23s | stage:decode:done int_assignments=163
+c 00h05m23s | result:Sat
+c 00h05m23s | objective:incumbent kind=improvement value=67 rounds=21 improvements=19
+o 67
+c 00h05m23s | stage:objective-cut:soft-result search=trisection bound=67 result=sat guard=693784 hard=guard [LB,UB] = [65,66]
+c 00h05m23s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=65 upper=100000 has_incumbent=true soft_active=true
+c 00h05m23s | stage:objective-cut:soft-install bound=66 guard=693800 clauses_added=28
+c 00h05m23s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [65,66] next 66 source=install guard=693800
+c 00h05m23s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693800 base_clauses=1375254
+c 00h05m23s | stage:sat:init solver=CaDiCaL vars=693800 clauses=1375254
+c 00h05m23s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h05m23s | stage:sat:solve:done ms=18 result=Sat assumptions=1 phase_lits=2339
+c 00h05m23s | stage:decode:start
+c 00h05m23s | stage:decode:done int_assignments=163
+c 00h05m23s | result:Sat
+c 00h05m23s | objective:incumbent kind=improvement value=66 rounds=22 improvements=20
+o 66
+c 00h05m23s | stage:objective-cut:soft-result search=trisection bound=66 result=sat guard=693800 hard=guard [LB,UB] = [65,65]
+c 00h05m23s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=65 upper=100000 has_incumbent=true soft_active=true
+c 00h05m23s | stage:objective-cut:soft-install bound=65 guard=693818 clauses_added=31
+c 00h05m23s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [65,65] next 65 source=install guard=693818
+c 00h05m23s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=2339 sat_vars=693818 base_clauses=1375286
+c 00h05m23s | stage:sat:init solver=CaDiCaL vars=693818 clauses=1375286
+c 00h05m23s | stage:sat:solve:start assumptions=1 phase_lits=2339
+c 00h06m44s | stage:sat:solve:done ms=80678 result=Unsat assumptions=1 phase_lits=2339
+c 00h06m44s | result:Unsat
+c 00h06m44s | stage:objective-cut:soft-result search=trisection bound=65 result=unsat guard=693818 hard=-guard [LB,UB] = closed
+s OPTIMUM FOUND
+o 66
+v <instantiation>
+v   <list> objective global_component_def___fredhoppercloudservices_platformserviceimpl_on global_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on global_component_def___fredhoppercloudservices_deploymentserviceimpl_on global_component_def___fredhoppercloudservices_serviceproviderimpl_on global_component_def___fredhoppercloudservices_queryserviceimpl_on global_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_c3_xlarge___0_component_def___fredhoppercloudservices_platformserviceimpl_on local_c3_xlarge___0_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_c3_xlarge___0_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_c3_xlarge___0_component_def___fredhoppercloudservices_serviceproviderimpl_on local_c3_xlarge___0_component_def___fredhoppercloudservices_queryserviceimpl_on local_c3_xlarge___0_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_c3_xlarge___1_component_def___fredhoppercloudservices_platformserviceimpl_on local_c3_xlarge___1_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_c3_xlarge___1_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_c3_xlarge___1_component_def___fredhoppercloudservices_serviceproviderimpl_on local_c3_xlarge___1_component_def___fredhoppercloudservices_queryserviceimpl_on local_c3_xlarge___1_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_c3_xlarge___2_component_def___fredhoppercloudservices_platformserviceimpl_on local_c3_xlarge___2_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_c3_xlarge___2_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_c3_xlarge___2_component_def___fredhoppercloudservices_serviceproviderimpl_on local_c3_xlarge___2_component_def___fredhoppercloudservices_queryserviceimpl_on local_c3_xlarge___2_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_c3_xlarge___3_component_def___fredhoppercloudservices_platformserviceimpl_on local_c3_xlarge___3_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_c3_xlarge___3_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_c3_xlarge___3_component_def___fredhoppercloudservices_serviceproviderimpl_on local_c3_xlarge___3_component_def___fredhoppercloudservices_queryserviceimpl_on local_c3_xlarge___3_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_c3_xlarge___4_component_def___fredhoppercloudservices_platformserviceimpl_on local_c3_xlarge___4_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_c3_xlarge___4_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_c3_xlarge___4_component_def___fredhoppercloudservices_serviceproviderimpl_on local_c3_xlarge___4_component_def___fredhoppercloudservices_queryserviceimpl_on local_c3_xlarge___4_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m3_medium___5_component_def___fredhoppercloudservices_platformserviceimpl_on local_m3_medium___5_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m3_medium___5_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m3_medium___5_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m3_medium___5_component_def___fredhoppercloudservices_queryserviceimpl_on local_m3_medium___5_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m3_medium___6_component_def___fredhoppercloudservices_platformserviceimpl_on local_m3_medium___6_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m3_medium___6_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m3_medium___6_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m3_medium___6_component_def___fredhoppercloudservices_queryserviceimpl_on local_m3_medium___6_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m3_medium___7_component_def___fredhoppercloudservices_platformserviceimpl_on local_m3_medium___7_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m3_medium___7_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m3_medium___7_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m3_medium___7_component_def___fredhoppercloudservices_queryserviceimpl_on local_m3_medium___7_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m3_medium___8_component_def___fredhoppercloudservices_platformserviceimpl_on local_m3_medium___8_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m3_medium___8_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m3_medium___8_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m3_medium___8_component_def___fredhoppercloudservices_queryserviceimpl_on local_m3_medium___8_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m3_medium___9_component_def___fredhoppercloudservices_platformserviceimpl_on local_m3_medium___9_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m3_medium___9_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m3_medium___9_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m3_medium___9_component_def___fredhoppercloudservices_queryserviceimpl_on local_m3_medium___9_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m1_large___10_component_def___fredhoppercloudservices_platformserviceimpl_on local_m1_large___10_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m1_large___10_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m1_large___10_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m1_large___10_component_def___fredhoppercloudservices_queryserviceimpl_on local_m1_large___10_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m1_large___11_component_def___fredhoppercloudservices_platformserviceimpl_on local_m1_large___11_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m1_large___11_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m1_large___11_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m1_large___11_component_def___fredhoppercloudservices_queryserviceimpl_on local_m1_large___11_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m1_large___12_component_def___fredhoppercloudservices_platformserviceimpl_on local_m1_large___12_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m1_large___12_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m1_large___12_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m1_large___12_component_def___fredhoppercloudservices_queryserviceimpl_on local_m1_large___12_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m1_large___13_component_def___fredhoppercloudservices_platformserviceimpl_on local_m1_large___13_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m1_large___13_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m1_large___13_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m1_large___13_component_def___fredhoppercloudservices_queryserviceimpl_on local_m1_large___13_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m1_large___14_component_def___fredhoppercloudservices_platformserviceimpl_on local_m1_large___14_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m1_large___14_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m1_large___14_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m1_large___14_component_def___fredhoppercloudservices_queryserviceimpl_on local_m1_large___14_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m1_xlarge___15_component_def___fredhoppercloudservices_platformserviceimpl_on local_m1_xlarge___15_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m1_xlarge___15_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m1_xlarge___15_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m1_xlarge___15_component_def___fredhoppercloudservices_queryserviceimpl_on local_m1_xlarge___15_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m1_xlarge___16_component_def___fredhoppercloudservices_platformserviceimpl_on local_m1_xlarge___16_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m1_xlarge___16_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m1_xlarge___16_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m1_xlarge___16_component_def___fredhoppercloudservices_queryserviceimpl_on local_m1_xlarge___16_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m1_xlarge___17_component_def___fredhoppercloudservices_platformserviceimpl_on local_m1_xlarge___17_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m1_xlarge___17_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m1_xlarge___17_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m1_xlarge___17_component_def___fredhoppercloudservices_queryserviceimpl_on local_m1_xlarge___17_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m1_xlarge___18_component_def___fredhoppercloudservices_platformserviceimpl_on local_m1_xlarge___18_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m1_xlarge___18_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m1_xlarge___18_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m1_xlarge___18_component_def___fredhoppercloudservices_queryserviceimpl_on local_m1_xlarge___18_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_m1_xlarge___19_component_def___fredhoppercloudservices_platformserviceimpl_on local_m1_xlarge___19_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_m1_xlarge___19_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_m1_xlarge___19_component_def___fredhoppercloudservices_serviceproviderimpl_on local_m1_xlarge___19_component_def___fredhoppercloudservices_queryserviceimpl_on local_m1_xlarge___19_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_c3_large___20_component_def___fredhoppercloudservices_platformserviceimpl_on local_c3_large___20_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_c3_large___20_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_c3_large___20_component_def___fredhoppercloudservices_serviceproviderimpl_on local_c3_large___20_component_def___fredhoppercloudservices_queryserviceimpl_on local_c3_large___20_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_c3_large___21_component_def___fredhoppercloudservices_platformserviceimpl_on local_c3_large___21_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_c3_large___21_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_c3_large___21_component_def___fredhoppercloudservices_serviceproviderimpl_on local_c3_large___21_component_def___fredhoppercloudservices_queryserviceimpl_on local_c3_large___21_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_c3_large___22_component_def___fredhoppercloudservices_platformserviceimpl_on local_c3_large___22_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_c3_large___22_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_c3_large___22_component_def___fredhoppercloudservices_serviceproviderimpl_on local_c3_large___22_component_def___fredhoppercloudservices_queryserviceimpl_on local_c3_large___22_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_c3_large___23_component_def___fredhoppercloudservices_platformserviceimpl_on local_c3_large___23_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_c3_large___23_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_c3_large___23_component_def___fredhoppercloudservices_serviceproviderimpl_on local_c3_large___23_component_def___fredhoppercloudservices_queryserviceimpl_on local_c3_large___23_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_c3_large___24_component_def___fredhoppercloudservices_platformserviceimpl_on local_c3_large___24_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_c3_large___24_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_c3_large___24_component_def___fredhoppercloudservices_serviceproviderimpl_on local_c3_large___24_component_def___fredhoppercloudservices_queryserviceimpl_on local_c3_large___24_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on local_amazon_internals___25_component_def___fredhoppercloudservices_platformserviceimpl_on local_amazon_internals___25_component_def___fredhoppercloudservices_loadbalancerserviceimpl_on local_amazon_internals___25_component_def___fredhoppercloudservices_deploymentserviceimpl_on local_amazon_internals___25_component_def___fredhoppercloudservices_serviceproviderimpl_on local_amazon_internals___25_component_def___fredhoppercloudservices_queryserviceimpl_on local_amazon_internals___25_component_amazon_internals___fredhoppercloudservices_infrastructureserviceimpl_on </list>
+v   <values> 66 1 1 20 1 20 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 1 0 0 1 0 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 66
+d OPTIMAL 1
+d SOURCE_CONSTRAINTS 18
+d NORMALIZED_CONSTRAINTS 18
+d LOWERED_CONSTRAINTS 18
+d UNSUPPORTED_CONSTRAINTS 0
+d CSP_INT_VARS 163
+d CSP_CONSTRAINTS 18
+d CSP_INTENTIONAL 18
+d CSP_GLOBAL 0
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 0
+d CSP_CUMULATIVE 0
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 100000
+d CSP_DOMAIN_SPAN_MAX 100000
+d N_CUMULATIVE 0
+d N_TABLE 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d OBJECTIVE_CUT_EAGER_CLAUSES_ADDED 0
+d OBJECTIVE_RELAXATION_CLAUSES_ADDED 0
+d OBJECTIVE_ROUNDS 23
+d OBJECTIVE_IMPROVEMENTS 20
+d OBJECTIVE_OPTIMALITY_PROOF strict_cut_unsat
+d PROPAGATE_MS 0
+d NORMALIZE_MS 0
+d LOWER_MS 8
+d POST_LOWER_MS 1
+d PREENCODE_MS 0
+d ENCODE_MS 666
+d SAT_SOLVE_MS 403184
+d TOTAL_MS 404591
+d SAT_VARS 693818
+d SAT_CLAUSES_BASE 1375286
+d SAT_CLAUSES_FINAL 1375286
+d SAT_CLAUSES_CEGAR_DELTA 0
+d CSP_INT_VARS 163
+d CSP_CONSTRAINTS 18
+d CSP_INTENTIONAL 18
+d CSP_GLOBAL 0
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 0
+d CSP_CUMULATIVE 0
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 100000
+d CSP_DOMAIN_SPAN_MAX 100000
+d N_CUMULATIVE 0
+d N_TABLE 0
+d SAT_CONFLICTS 1116081
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":417,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"26":{"count":7,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"27":{"count":6,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"161":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":159,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"4":{"count":52,"max_domain_product_excluding_one_var":"999340145189352","p95_domain_product_excluding_one_var":"999340145189352"},"5":{"count":52,"max_domain_product_excluding_one_var":"1998680290378704","p95_domain_product_excluding_one_var":"1998680290378704"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 100000
+d OBJECTIVE_LP_LOWER 46
+d OBJECTIVE_LP_UPPER 100000
+d ROOT_LP_IMPROVED 1
+d ROOT_LP_MS 72
+d ROOT_LP_ROWS 378
+d ROOT_LP_VARS 501
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 263
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 431
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 5
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 1998680290378704
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 0
+d ROOT_LP_OBJECTIVE_VALUE 46
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d PROPAGATE_PRUNED_VALUES 100003
+d PROPAGATE_CHANGED_DOMAINS 4
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 34
+d POST_LOWER_TIGHTENED_DOMAINS 368
+d POST_LOWER_REMOVED_CLAUSES 212
+d POST_LOWER_REMOVED_LITS 182
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 345
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 535
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 535
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 0
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 535
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d MEMORY_RSS_BYTES 372969472
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 4444160
+d MEMORY_RSS_AFTER_LOWER_BYTES 4444160
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 5251072
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 9097216
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 9097216
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 9097216
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 11
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 1374634
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 372969472
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 372969472
+d DECODE_INT_ASSIGNMENTS 163
+d CSV /bench/2015/zephyrus/zephyrus_5_20.mzn,optimum,18,18,18,0,693818,1375286,404591,0,0,8,0,666,403184,1,optimal,0,100000,46,100000,1,72,378,501,0,0,0,46,,
+c run_end_local: 2026-06-20 21:14:48 +0900

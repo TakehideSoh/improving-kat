@@ -1,0 +1,329 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2023/speck-optimisation/SPECK-Optimisation.mzn --data /bench/2023/speck-optimisation/hard_0.dzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 22:34:26 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | input: constraints=1042
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=1 pruned=8 changed_domains=8 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=14196736 rss=13.54MiB
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=1042
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:progress percent=10 processed=105 total=1042 lowered=105 unsupported=0 ms=5
+c 00h00m00s | stage:lower:progress percent=20 processed=209 total=1042 lowered=209 unsupported=0 ms=11
+c 00h00m00s | stage:lower:progress percent=30 processed=313 total=1042 lowered=313 unsupported=0 ms=17
+c 00h00m00s | stage:lower:progress percent=40 processed=417 total=1042 lowered=417 unsupported=0 ms=23
+c 00h00m00s | stage:lower:progress percent=50 processed=521 total=1042 lowered=521 unsupported=0 ms=28
+c 00h00m00s | stage:lower:progress percent=60 processed=626 total=1042 lowered=626 unsupported=0 ms=32
+c 00h00m00s | stage:lower:progress percent=70 processed=730 total=1042 lowered=730 unsupported=0 ms=39
+c 00h00m00s | stage:lower:progress percent=80 processed=834 total=1042 lowered=834 unsupported=0 ms=45
+c 00h00m00s | stage:lower:progress percent=90 processed=938 total=1042 lowered=938 unsupported=0 ms=52
+c 00h00m00s | stage:lower:progress percent=100 processed=1042 total=1042 lowered=1042 unsupported=0 ms=58
+c 00h00m00s | stage:lower:done ms=63 lowered=1042 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=14737408 rss=14.05MiB
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=8 rounds=16 tightened=16 removed_cls=1048 removed_lits=8 unsat=false precise_hits=2560 precise_rounds=1 pivot_recomputes=568 pivot_exact_attempts=568 pivot_general_attempts=568 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=568 pivot_general_tightened=0 setup_ms=4 loop_ms=2 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=16056320 rss=15.31MiB
+c 00h00m00s | stage:lowered-shape int_vars=6785 bool_vars=4032 linear_atoms=16410 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=16762
+c 00h00m00s | stage:root-lp:start backend=lpo
+c 00h00m13s | stage:root-lp:bound backend=lpo status=optimal objective_value=0 naive_bounds=[0,256] lp_bounds=[0,256] improved=0 rows=2050 vars=10817 lp_rows_singleton_linear=1546 lp_rows_disjunctive=504 lp_rows_table=0 lp_rows_cumulative_energy=0 lp_rows_cumulative_pair=0 lp_rows_cumulative_timetable=0 lp_rows_cumulative_completion=0 lp_rows_cumulative_precedence=0 lp_rows_no_overlap_pair=0 lp_rows_no_overlap_completion=0 lp_rows_no_overlap_precedence=0 lp_rows_no_overlap_2d_energy=0 lp_rows_no_overlap_2d_completion=0 lp_scheduling_payloads_cumulative=0 lp_scheduling_payloads_no_overlap=0 lp_scheduling_cut_rounds=0 lp_scheduling_cut_candidates=0 lp_scheduling_cut_violated=0 lp_scheduling_rows_skipped=0 ms=13033
+c 00h00m13s | stage:preencode(log-scop):linear-extprop constraints=1
+c 00h00m13s | memory:rss checkpoint=before_preencode bytes=2514317312 rss=2.34GiB
+c 00h00m13s | stage:preencode(log-scop):start
+c 00h00m13s | stage:preencode(log-scop):done ms=2 int_vars=6785
+c 00h00m13s | memory:rss checkpoint=after_preencode bytes=2514423808 rss=2.34GiB
+c 00h00m13s | memory:rss checkpoint=before_encode bytes=2514423808 rss=2.34GiB
+c 00h00m13s | stage:encode(log-scop):start
+c 00h00m13s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=15227 bytes=2514874368 rss=2.34GiB progress_percent=10 processed=1689 total=16890
+c 00h00m13s | stage:encode(log-scop):progress percent=10 processed=1689 total=16890 sat_clauses=15227 ms=8
+c 00h00m13s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=28933 bytes=2514874368 rss=2.34GiB progress_percent=20 processed=3378 total=16890
+c 00h00m13s | stage:encode(log-scop):progress percent=20 processed=3378 total=16890 sat_clauses=28933 ms=10
+c 00h00m13s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=34021 bytes=2514874368 rss=2.34GiB progress_percent=30 processed=5067 total=16890
+c 00h00m13s | stage:encode(log-scop):progress percent=30 processed=5067 total=16890 sat_clauses=34021 ms=12
+c 00h00m13s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=47457 bytes=2514874368 rss=2.34GiB progress_percent=40 processed=6756 total=16890
+c 00h00m13s | stage:encode(log-scop):progress percent=40 processed=6756 total=16890 sat_clauses=47457 ms=15
+c 00h00m13s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=60937 bytes=2514874368 rss=2.34GiB progress_percent=50 processed=8445 total=16890
+c 00h00m13s | stage:encode(log-scop):progress percent=50 processed=8445 total=16890 sat_clauses=60937 ms=18
+c 00h00m13s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=73769 bytes=2515140608 rss=2.34GiB progress_percent=60 processed=10134 total=16890
+c 00h00m13s | stage:encode(log-scop):progress percent=60 processed=10134 total=16890 sat_clauses=73769 ms=34
+c 00h00m13s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=87472 bytes=2515140608 rss=2.34GiB progress_percent=70 processed=11823 total=16890
+c 00h00m13s | stage:encode(log-scop):progress percent=70 processed=11823 total=16890 sat_clauses=87472 ms=37
+c 00h00m13s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=92650 bytes=2515140608 rss=2.34GiB progress_percent=80 processed=13512 total=16890
+c 00h00m13s | stage:encode(log-scop):progress percent=80 processed=13512 total=16890 sat_clauses=92650 ms=38
+c 00h00m13s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=106037 bytes=2515140608 rss=2.34GiB progress_percent=90 processed=15201 total=16890
+c 00h00m13s | stage:encode(log-scop):progress percent=90 processed=15201 total=16890 sat_clauses=106037 ms=41
+c 00h00m13s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=119158 bytes=2515140608 rss=2.34GiB progress_percent=100 processed=16890 total=16890
+c 00h00m13s | stage:encode(log-scop):progress percent=100 processed=16890 total=16890 sat_clauses=119158 ms=44
+c 00h00m13s | stage:encode(log-scop):done ms=56 sat_vars=61113 sat_clauses=119158 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=12163 log_scop_pb_mixed=0 log_scop_pb_bdd2=12163 log_scop_pb_bdd3=0 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=12163 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m13s | stage:post-encode(log-scop):start sat_vars=61113 sat_clauses=119158 has_relaxations=false external_tables=0
+c 00h00m13s | stage:post-encode(log-scop):after-finish-check ms=0
+c 00h00m13s | stage:post-encode(log-scop):decode-layout-ready int_symbols=6785 ms=3
+c 00h00m13s | stage:post-encode(log-scop):cumulative-external-ready has_prop=false ms=4
+c 00h00m13s | stage:post-encode(log-scop):log-scop-external-ready has_prop=true ms=4
+c 00h00m13s | stage:post-encode(log-scop):external-prop-connected has_prop=true ms=4
+c 00h00m13s | stage:post-encode(log-scop):done sat_vars=61113 sat_clauses=119158 ms=4
+c 00h00m13s | stage:post-encode(log-scop):reusable-ready mode=SoftCnf sat_vars=61113
+c 00h00m13s | stage:objective-external-ge-template(log-scop):start cut=DirectExpr wants_ext_ge=false
+c 00h00m13s | stage:objective-external-ge-template(log-scop):done has_template=true ms=4
+c 00h00m13s | stage:objective-mode(log-scop):resolved mode=SoftCnf wants_ext_ge=false has_ext_ge_template=true
+c 00h00m13s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m13s | stage:objective-encoder(log-scop):ready mode=SoftCnf soft=true sat_vars=61113
+c 00h00m13s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=256 has_incumbent=false soft_active=true
+c 00h00m13s | stage:sat:round-entry encoder=log-scop assumptions=0 phase_lits=0 sat_vars=61113 base_clauses=119158
+c 00h00m13s | stage:sat:init solver=CaDiCaL vars=61113 clauses=119158
+c 00h00m13s | stage:sat:solve:start assumptions=0 phase_lits=0
+c 00h00m13s | stage:sat:solve:done ms=15 result=Sat assumptions=0 phase_lits=0
+c 00h00m13s | stage:decode:start
+c 00h00m13s | stage:decode:done int_assignments=1673
+c 00h00m13s | result:Sat
+c 00h00m13s | stage:objective-cut-surface(log-scop):start timing=after-incumbent
+c 00h00m13s | stage:objective-cut-surface(log-scop):done has_surface=true ms=1
+c 00h00m13s | objective:incumbent kind=initial value=83 rounds=1 improvements=0
+o 83
+c 00h00m13s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=256 has_incumbent=true soft_active=true
+c 00h00m13s | stage:objective-cut:soft-install bound=55 guard=61120 clauses_added=10
+c 00h00m13s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,82] next 55 source=install guard=61120
+c 00h00m13s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=61120 base_clauses=119168
+c 00h00m13s | stage:sat:init solver=CaDiCaL vars=61120 clauses=119168
+c 00h00m13s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h00m31s | stage:sat:solve:done ms=18414 result=Sat assumptions=1 phase_lits=0
+c 00h00m31s | stage:decode:start
+c 00h00m31s | stage:decode:done int_assignments=1673
+c 00h00m31s | result:Sat
+c 00h00m31s | objective:incumbent kind=improvement value=55 rounds=2 improvements=1
+o 55
+c 00h00m31s | stage:objective-cut:soft-result search=trisection bound=55 result=sat guard=61120 hard=guard [LB,UB] = [0,54]
+c 00h00m31s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=256 has_incumbent=true soft_active=true
+c 00h00m31s | stage:objective-cut:soft-install bound=36 guard=61130 clauses_added=16
+c 00h00m31s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,54] next 36 source=install guard=61130
+c 00h00m31s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=61130 base_clauses=119185
+c 00h00m31s | stage:sat:init solver=CaDiCaL vars=61130 clauses=119185
+c 00h00m31s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h00m38s | stage:sat:solve:done ms=6806 result=Sat assumptions=1 phase_lits=0
+c 00h00m38s | stage:decode:start
+c 00h00m38s | stage:decode:done int_assignments=1673
+c 00h00m38s | result:Sat
+c 00h00m38s | objective:incumbent kind=improvement value=36 rounds=3 improvements=2
+o 36
+c 00h00m38s | stage:objective-cut:soft-result search=trisection bound=36 result=sat guard=61130 hard=guard [LB,UB] = [0,35]
+c 00h00m38s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=256 has_incumbent=true soft_active=true
+c 00h00m38s | stage:objective-cut:soft-install bound=24 guard=61140 clauses_added=16
+c 00h00m38s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,35] next 24 source=install guard=61140
+c 00h00m38s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=61140 base_clauses=119202
+c 00h00m38s | stage:sat:init solver=CaDiCaL vars=61140 clauses=119202
+c 00h00m38s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h03m38s | stage:sat:solve:done ms=180003 result=Unknown assumptions=1 phase_lits=0
+c 00h03m38s | result:unknown reason=sat_solver_returned_unknown
+c 00h03m38s | result:Unknown
+c 00h03m38s | stage:objective-cut:soft-fallback search=trisection reason=budget-exhausted budget_s=180 mode=step incumbent=36 [LB,UB]=[0,35]
+c 00h03m38s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=256 has_incumbent=true soft_active=true
+c 00h03m38s | stage:objective-cut:soft-install bound=35 guard=61148 clauses_added=13
+c 00h03m38s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,35] next 35 source=install guard=61148
+c 00h03m38s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=61148 base_clauses=119215
+c 00h03m38s | stage:sat:init solver=CaDiCaL vars=61148 clauses=119215
+c 00h03m38s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h04m57s | stage:sat:solve:done ms=78960 result=Sat assumptions=1 phase_lits=0
+c 00h04m57s | stage:decode:start
+c 00h04m57s | stage:decode:done int_assignments=1673
+c 00h04m57s | result:Sat
+c 00h04m57s | objective:incumbent kind=improvement value=35 rounds=4 improvements=3
+o 35
+c 00h04m57s | stage:objective-cut:soft-result search=step bound=35 result=sat guard=61148 hard=guard [LB,UB] = [0,34]
+c 00h04m57s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=256 has_incumbent=true soft_active=true
+c 00h04m57s | stage:objective-cut:soft-install bound=34 guard=61158 clauses_added=16
+c 00h04m57s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,34] next 34 source=install guard=61158
+c 00h04m57s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=61158 base_clauses=119232
+c 00h04m57s | stage:sat:init solver=CaDiCaL vars=61158 clauses=119232
+c 00h04m57s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h05m01s | stage:sat:solve:done ms=4445 result=Sat assumptions=1 phase_lits=0
+c 00h05m01s | stage:decode:start
+c 00h05m01s | stage:decode:done int_assignments=1673
+c 00h05m01s | result:Sat
+c 00h05m01s | objective:incumbent kind=improvement value=34 rounds=5 improvements=4
+o 34
+c 00h05m01s | stage:objective-cut:soft-result search=step bound=34 result=sat guard=61158 hard=guard [LB,UB] = [0,33]
+c 00h05m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=256 has_incumbent=true soft_active=true
+c 00h05m01s | stage:objective-cut:soft-install bound=33 guard=61167 clauses_added=15
+c 00h05m01s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,33] next 33 source=install guard=61167
+c 00h05m01s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=61167 base_clauses=119248
+c 00h05m01s | stage:sat:init solver=CaDiCaL vars=61167 clauses=119248
+c 00h05m01s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h05m09s | stage:sat:solve:done ms=8027 result=Sat assumptions=1 phase_lits=0
+c 00h05m09s | stage:decode:start
+c 00h05m09s | stage:decode:done int_assignments=1673
+c 00h05m09s | result:Sat
+c 00h05m09s | objective:incumbent kind=improvement value=32 rounds=6 improvements=5
+o 32
+c 00h05m09s | stage:objective-cut:soft-result search=step bound=33 result=sat guard=61167 hard=guard [LB,UB] = [0,31]
+c 00h05m09s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=256 has_incumbent=true soft_active=true
+c 00h05m09s | stage:objective-cut:soft-install bound=31 guard=61172 clauses_added=8
+c 00h05m09s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,31] next 31 source=install guard=61172
+c 00h05m09s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=61172 base_clauses=119257
+c 00h05m09s | stage:sat:init solver=CaDiCaL vars=61172 clauses=119257
+c 00h05m09s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h05m09s | stage:sat:solve:done ms=21 result=Sat assumptions=1 phase_lits=0
+c 00h05m09s | stage:decode:start
+c 00h05m09s | stage:decode:done int_assignments=1673
+c 00h05m09s | result:Sat
+c 00h05m09s | objective:incumbent kind=improvement value=31 rounds=7 improvements=6
+o 31
+c 00h05m09s | stage:objective-cut:soft-result search=step bound=31 result=sat guard=61172 hard=guard [LB,UB] = [0,30]
+c 00h05m09s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=256 has_incumbent=true soft_active=true
+c 00h05m09s | stage:objective-cut:soft-install bound=30 guard=61182 clauses_added=14
+c 00h05m09s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,30] next 30 source=install guard=61182
+c 00h05m09s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=61182 base_clauses=119272
+c 00h05m09s | stage:sat:init solver=CaDiCaL vars=61182 clauses=119272
+c 00h05m09s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h05m17s | stage:sat:solve:done ms=7684 result=Sat assumptions=1 phase_lits=0
+c 00h05m17s | stage:decode:start
+c 00h05m17s | stage:decode:done int_assignments=1673
+c 00h05m17s | result:Sat
+c 00h05m17s | objective:incumbent kind=improvement value=30 rounds=8 improvements=7
+o 30
+c 00h05m17s | stage:objective-cut:soft-result search=step bound=30 result=sat guard=61182 hard=guard [LB,UB] = [0,29]
+c 00h05m17s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=256 has_incumbent=true soft_active=true
+c 00h05m17s | stage:objective-cut:soft-install bound=29 guard=61191 clauses_added=13
+c 00h05m17s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,29] next 29 source=install guard=61191
+c 00h05m17s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=61191 base_clauses=119286
+c 00h05m17s | stage:sat:init solver=CaDiCaL vars=61191 clauses=119286
+c 00h05m17s | stage:sat:solve:start assumptions=1 phase_lits=0
+s SATISFIABLE
+o 30
+v <instantiation>
+v   <list> L[0,0] L[0,1] L[0,2] L[0,3] L[0,4] L[0,5] L[0,6] L[0,7] L[0,8] L[0,9] L[0,10] L[0,11] L[0,12] L[0,13] L[0,14] L[0,15] L[0,16] L[0,17] L[0,18] L[0,19] L[0,20] L[0,21] L[0,22] L[0,23] L[0,24] L[0,25] L[0,26] L[0,27] L[0,28] L[0,29] L[0,30] L[0,31] L[0,32] L[0,33] L[0,34] L[0,35] L[0,36] L[0,37] L[0,38] L[0,39] L[0,40] L[0,41] L[0,42] L[0,43] L[0,44] L[0,45] L[0,46] L[0,47] L[0,48] L[0,49] L[0,50] L[0,51] L[0,52] L[0,53] L[0,54] L[0,55] L[0,56] L[0,57] L[0,58] L[0,59] L[0,60] L[0,61] L[0,62] L[0,63] L[1,0] L[1,1] L[1,2] L[1,3] L[1,4] L[1,5] L[1,6] L[1,7] L[1,8] L[1,9] L[1,10] L[1,11] L[1,12] L[1,13] L[1,14] L[1,15] L[1,16] L[1,17] L[1,18] L[1,19] L[1,20] L[1,21] L[1,22] L[1,23] L[1,24] L[1,25] L[1,26] L[1,27] L[1,28] L[1,29] L[1,30] L[1,31] L[1,32] L[1,33] L[1,34] L[1,35] L[1,36] L[1,37] L[1,38] L[1,39] L[1,40] L[1,41] L[1,42] L[1,43] L[1,44] L[1,45] L[1,46] L[1,47] L[1,48] L[1,49] L[1,50] L[1,51] L[1,52] L[1,53] L[1,54] L[1,55] L[1,56] L[1,57] L[1,58] L[1,59] L[1,60] L[1,61] L[1,62] L[1,63] L[2,0] L[2,1] L[2,2] L[2,3] L[2,4] L[2,5] L[2,6] L[2,7] L[2,8] L[2,9] L[2,10] L[2,11] L[2,12] L[2,13] L[2,14] L[2,15] L[2,16] L[2,17] L[2,18] L[2,19] L[2,20] L[2,21] L[2,22] L[2,23] L[2,24] L[2,25] L[2,26] L[2,27] L[2,28] L[2,29] L[2,30] L[2,31] L[2,32] L[2,33] L[2,34] L[2,35] L[2,36] L[2,37] L[2,38] L[2,39] L[2,40] L[2,41] L[2,42] L[2,43] L[2,44] L[2,45] L[2,46] L[2,47] L[2,48] L[2,49] L[2,50] L[2,51] L[2,52] L[2,53] L[2,54] L[2,55] L[2,56] L[2,57] L[2,58] L[2,59] L[2,60] L[2,61] L[2,62] L[2,63] L[3,0] L[3,1] L[3,2] L[3,3] L[3,4] L[3,5] L[3,6] L[3,7] L[3,8] L[3,9] L[3,10] L[3,11] L[3,12] L[3,13] L[3,14] L[3,15] L[3,16] L[3,17] L[3,18] L[3,19] L[3,20] L[3,21] L[3,22] L[3,23] L[3,24] L[3,25] L[3,26] L[3,27] L[3,28] L[3,29] L[3,30] L[3,31] L[3,32] L[3,33] L[3,34] L[3,35] L[3,36] L[3,37] L[3,38] L[3,39] L[3,40] L[3,41] L[3,42] L[3,43] L[3,44] L[3,45] L[3,46] L[3,47] L[3,48] L[3,49] L[3,50] L[3,51] L[3,52] L[3,53] L[3,54] L[3,55] L[3,56] L[3,57] L[3,58] L[3,59] L[3,60] L[3,61] L[3,62] L[3,63] L[4,0] L[4,1] L[4,2] L[4,3] L[4,4] L[4,5] L[4,6] L[4,7] L[4,8] L[4,9] L[4,10] L[4,11] L[4,12] L[4,13] L[4,14] L[4,15] L[4,16] L[4,17] L[4,18] L[4,19] L[4,20] L[4,21] L[4,22] L[4,23] L[4,24] L[4,25] L[4,26] L[4,27] L[4,28] L[4,29] L[4,30] L[4,31] L[4,32] L[4,33] L[4,34] L[4,35] L[4,36] L[4,37] L[4,38] L[4,39] L[4,40] L[4,41] L[4,42] L[4,43] L[4,44] L[4,45] L[4,46] L[4,47] L[4,48] L[4,49] L[4,50] L[4,51] L[4,52] L[4,53] L[4,54] L[4,55] L[4,56] L[4,57] L[4,58] L[4,59] L[4,60] L[4,61] L[4,62] L[4,63] L[5,0] L[5,1] L[5,2] L[5,3] L[5,4] L[5,5] L[5,6] L[5,7] L[5,8] L[5,9] L[5,10] L[5,11] L[5,12] L[5,13] L[5,14] L[5,15] L[5,16] L[5,17] L[5,18] L[5,19] L[5,20] L[5,21] L[5,22] L[5,23] L[5,24] L[5,25] L[5,26] L[5,27] L[5,28] L[5,29] L[5,30] L[5,31] L[5,32] L[5,33] L[5,34] L[5,35] L[5,36] L[5,37] L[5,38] L[5,39] L[5,40] L[5,41] L[5,42] L[5,43] L[5,44] L[5,45] L[5,46] L[5,47] L[5,48] L[5,49] L[5,50] L[5,51] L[5,52] L[5,53] L[5,54] L[5,55] L[5,56] L[5,57] L[5,58] L[5,59] L[5,60] L[5,61] L[5,62] L[5,63] L[6,0] L[6,1] L[6,2] L[6,3] L[6,4] L[6,5] L[6,6] L[6,7] L[6,8] L[6,9] L[6,10] L[6,11] L[6,12] L[6,13] L[6,14] L[6,15] L[6,16] L[6,17] L[6,18] L[6,19] L[6,20] L[6,21] L[6,22] L[6,23] L[6,24] L[6,25] L[6,26] L[6,27] L[6,28] L[6,29] L[6,30] L[6,31] L[6,32] L[6,33] L[6,34] L[6,35] L[6,36] L[6,37] L[6,38] L[6,39] L[6,40] L[6,41] L[6,42] L[6,43] L[6,44] L[6,45] L[6,46] L[6,47] L[6,48] L[6,49] L[6,50] L[6,51] L[6,52] L[6,53] L[6,54] L[6,55] L[6,56] L[6,57] L[6,58] L[6,59] L[6,60] L[6,61] L[6,62] L[6,63] L[7,0] L[7,1] L[7,2] L[7,3] L[7,4] L[7,5] L[7,6] L[7,7] L[7,8] L[7,9] L[7,10] L[7,11] L[7,12] L[7,13] L[7,14] L[7,15] L[7,16] L[7,17] L[7,18] L[7,19] L[7,20] L[7,21] L[7,22] L[7,23] L[7,24] L[7,25] L[7,26] L[7,27] L[7,28] L[7,29] L[7,30] L[7,31] L[7,32] L[7,33] L[7,34] L[7,35] L[7,36] L[7,37] L[7,38] L[7,39] L[7,40] L[7,41] L[7,42] L[7,43] L[7,44] L[7,45] L[7,46] L[7,47] L[7,48] L[7,49] L[7,50] L[7,51] L[7,52] L[7,53] L[7,54] L[7,55] L[7,56] L[7,57] L[7,58] L[7,59] L[7,60] L[7,61] L[7,62] L[7,63] L[8,0] L[8,1] L[8,2] L[8,3] L[8,4] L[8,5] L[8,6] L[8,7] L[8,8] L[8,9] L[8,10] L[8,11] L[8,12] L[8,13] L[8,14] L[8,15] L[8,16] L[8,17] L[8,18] L[8,19] L[8,20] L[8,21] L[8,22] L[8,23] L[8,24] L[8,25] L[8,26] L[8,27] L[8,28] L[8,29] L[8,30] L[8,31] L[8,32] L[8,33] L[8,34] L[8,35] L[8,36] L[8,37] L[8,38] L[8,39] L[8,40] L[8,41] L[8,42] L[8,43] L[8,44] L[8,45] L[8,46] L[8,47] L[8,48] L[8,49] L[8,50] L[8,51] L[8,52] L[8,53] L[8,54] L[8,55] L[8,56] L[8,57] L[8,58] L[8,59] L[8,60] L[8,61] L[8,62] L[8,63] R[0,0] R[0,1] R[0,2] R[0,3] R[0,4] R[0,5] R[0,6] R[0,7] R[0,8] R[0,9] R[0,10] R[0,11] R[0,12] R[0,13] R[0,14] R[0,15] R[0,16] R[0,17] R[0,18] R[0,19] R[0,20] R[0,21] R[0,22] R[0,23] R[0,24] R[0,25] R[0,26] R[0,27] R[0,28] R[0,29] R[0,30] R[0,31] R[0,32] R[0,33] R[0,34] R[0,35] R[0,36] R[0,37] R[0,38] R[0,39] R[0,40] R[0,41] R[0,42] R[0,43] R[0,44] R[0,45] R[0,46] R[0,47] R[0,48] R[0,49] R[0,50] R[0,51] R[0,52] R[0,53] R[0,54] R[0,55] R[0,56] R[0,57] R[0,58] R[0,59] R[0,60] R[0,61] R[0,62] R[0,63] R[1,0] R[1,1] R[1,2] R[1,3] R[1,4] R[1,5] R[1,6] R[1,7] R[1,8] R[1,9] R[1,10] R[1,11] R[1,12] R[1,13] R[1,14] R[1,15] R[1,16] R[1,17] R[1,18] R[1,19] R[1,20] R[1,21] R[1,22] R[1,23] R[1,24] R[1,25] R[1,26] R[1,27] R[1,28] R[1,29] R[1,30] R[1,31] R[1,32] R[1,33] R[1,34] R[1,35] R[1,36] R[1,37] R[1,38] R[1,39] R[1,40] R[1,41] R[1,42] R[1,43] R[1,44] R[1,45] R[1,46] R[1,47] R[1,48] R[1,49] R[1,50] R[1,51] R[1,52] R[1,53] R[1,54] R[1,55] R[1,56] R[1,57] R[1,58] R[1,59] R[1,60] R[1,61] R[1,62] R[1,63] R[2,0] R[2,1] R[2,2] R[2,3] R[2,4] R[2,5] R[2,6] R[2,7] R[2,8] R[2,9] R[2,10] R[2,11] R[2,12] R[2,13] R[2,14] R[2,15] R[2,16] R[2,17] R[2,18] R[2,19] R[2,20] R[2,21] R[2,22] R[2,23] R[2,24] R[2,25] R[2,26] R[2,27] R[2,28] R[2,29] R[2,30] R[2,31] R[2,32] R[2,33] R[2,34] R[2,35] R[2,36] R[2,37] R[2,38] R[2,39] R[2,40] R[2,41] R[2,42] R[2,43] R[2,44] R[2,45] R[2,46] R[2,47] R[2,48] R[2,49] R[2,50] R[2,51] R[2,52] R[2,53] R[2,54] R[2,55] R[2,56] R[2,57] R[2,58] R[2,59] R[2,60] R[2,61] R[2,62] R[2,63] R[3,0] R[3,1] R[3,2] R[3,3] R[3,4] R[3,5] R[3,6] R[3,7] R[3,8] R[3,9] R[3,10] R[3,11] R[3,12] R[3,13] R[3,14] R[3,15] R[3,16] R[3,17] R[3,18] R[3,19] R[3,20] R[3,21] R[3,22] R[3,23] R[3,24] R[3,25] R[3,26] R[3,27] R[3,28] R[3,29] R[3,30] R[3,31] R[3,32] R[3,33] R[3,34] R[3,35] R[3,36] R[3,37] R[3,38] R[3,39] R[3,40] R[3,41] R[3,42] R[3,43] R[3,44] R[3,45] R[3,46] R[3,47] R[3,48] R[3,49] R[3,50] R[3,51] R[3,52] R[3,53] R[3,54] R[3,55] R[3,56] R[3,57] R[3,58] R[3,59] R[3,60] R[3,61] R[3,62] R[3,63] R[4,0] R[4,1] R[4,2] R[4,3] R[4,4] R[4,5] R[4,6] R[4,7] R[4,8] R[4,9] R[4,10] R[4,11] R[4,12] R[4,13] R[4,14] R[4,15] R[4,16] R[4,17] R[4,18] R[4,19] R[4,20] R[4,21] R[4,22] R[4,23] R[4,24] R[4,25] R[4,26] R[4,27] R[4,28] R[4,29] R[4,30] R[4,31] R[4,32] R[4,33] R[4,34] R[4,35] R[4,36] R[4,37] R[4,38] R[4,39] R[4,40] R[4,41] R[4,42] R[4,43] R[4,44] R[4,45] R[4,46] R[4,47] R[4,48] R[4,49] R[4,50] R[4,51] R[4,52] R[4,53] R[4,54] R[4,55] R[4,56] R[4,57] R[4,58] R[4,59] R[4,60] R[4,61] R[4,62] R[4,63] R[5,0] R[5,1] R[5,2] R[5,3] R[5,4] R[5,5] R[5,6] R[5,7] R[5,8] R[5,9] R[5,10] R[5,11] R[5,12] R[5,13] R[5,14] R[5,15] R[5,16] R[5,17] R[5,18] R[5,19] R[5,20] R[5,21] R[5,22] R[5,23] R[5,24] R[5,25] R[5,26] R[5,27] R[5,28] R[5,29] R[5,30] R[5,31] R[5,32] R[5,33] R[5,34] R[5,35] R[5,36] R[5,37] R[5,38] R[5,39] R[5,40] R[5,41] R[5,42] R[5,43] R[5,44] R[5,45] R[5,46] R[5,47] R[5,48] R[5,49] R[5,50] R[5,51] R[5,52] R[5,53] R[5,54] R[5,55] R[5,56] R[5,57] R[5,58] R[5,59] R[5,60] R[5,61] R[5,62] R[5,63] R[6,0] R[6,1] R[6,2] R[6,3] R[6,4] R[6,5] R[6,6] R[6,7] R[6,8] R[6,9] R[6,10] R[6,11] R[6,12] R[6,13] R[6,14] R[6,15] R[6,16] R[6,17] R[6,18] R[6,19] R[6,20] R[6,21] R[6,22] R[6,23] R[6,24] R[6,25] R[6,26] R[6,27] R[6,28] R[6,29] R[6,30] R[6,31] R[6,32] R[6,33] R[6,34] R[6,35] R[6,36] R[6,37] R[6,38] R[6,39] R[6,40] R[6,41] R[6,42] R[6,43] R[6,44] R[6,45] R[6,46] R[6,47] R[6,48] R[6,49] R[6,50] R[6,51] R[6,52] R[6,53] R[6,54] R[6,55] R[6,56] R[6,57] R[6,58] R[6,59] R[6,60] R[6,61] R[6,62] R[6,63] R[7,0] R[7,1] R[7,2] R[7,3] R[7,4] R[7,5] R[7,6] R[7,7] R[7,8] R[7,9] R[7,10] R[7,11] R[7,12] R[7,13] R[7,14] R[7,15] R[7,16] R[7,17] R[7,18] R[7,19] R[7,20] R[7,21] R[7,22] R[7,23] R[7,24] R[7,25] R[7,26] R[7,27] R[7,28] R[7,29] R[7,30] R[7,31] R[7,32] R[7,33] R[7,34] R[7,35] R[7,36] R[7,37] R[7,38] R[7,39] R[7,40] R[7,41] R[7,42] R[7,43] R[7,44] R[7,45] R[7,46] R[7,47] R[7,48] R[7,49] R[7,50] R[7,51] R[7,52] R[7,53] R[7,54] R[7,55] R[7,56] R[7,57] R[7,58] R[7,59] R[7,60] R[7,61] R[7,62] R[7,63] R[8,0] R[8,1] R[8,2] R[8,3] R[8,4] R[8,5] R[8,6] R[8,7] R[8,8] R[8,9] R[8,10] R[8,11] R[8,12] R[8,13] R[8,14] R[8,15] R[8,16] R[8,17] R[8,18] R[8,19] R[8,20] R[8,21] R[8,22] R[8,23] R[8,24] R[8,25] R[8,26] R[8,27] R[8,28] R[8,29] R[8,30] R[8,31] R[8,32] R[8,33] R[8,34] R[8,35] R[8,36] R[8,37] R[8,38] R[8,39] R[8,40] R[8,41] R[8,42] R[8,43] R[8,44] R[8,45] R[8,46] R[8,47] R[8,48] R[8,49] R[8,50] R[8,51] R[8,52] R[8,53] R[8,54] R[8,55] R[8,56] R[8,57] R[8,58] R[8,59] R[8,60] R[8,61] R[8,62] R[8,63] p[0] p[1] p[2] p[3] p[4] p[5] p[6] p[7] objective __let0___mzn_let_0_carry_difference[0] __let0___mzn_let_0_carry_difference[1] __let0___mzn_let_0_carry_difference[2] __let0___mzn_let_0_carry_difference[3] __let0___mzn_let_0_carry_difference[4] __let0___mzn_let_0_carry_difference[5] __let0___mzn_let_0_carry_difference[6] __let0___mzn_let_0_carry_difference[7] __let0___mzn_let_0_carry_difference[8] __let0___mzn_let_0_carry_difference[9] __let0___mzn_let_0_carry_difference[10] __let0___mzn_let_0_carry_difference[11] __let0___mzn_let_0_carry_difference[12] __let0___mzn_let_0_carry_difference[13] __let0___mzn_let_0_carry_difference[14] __let0___mzn_let_0_carry_difference[15] __let0___mzn_let_0_carry_difference[16] __let0___mzn_let_0_carry_difference[17] __let0___mzn_let_0_carry_difference[18] __let0___mzn_let_0_carry_difference[19] __let0___mzn_let_0_carry_difference[20] __let0___mzn_let_0_carry_difference[21] __let0___mzn_let_0_carry_difference[22] __let0___mzn_let_0_carry_difference[23] __let0___mzn_let_0_carry_difference[24] __let0___mzn_let_0_carry_difference[25] __let0___mzn_let_0_carry_difference[26] __let0___mzn_let_0_carry_difference[27] __let0___mzn_let_0_carry_difference[28] __let0___mzn_let_0_carry_difference[29] __let0___mzn_let_0_carry_difference[30] __let0___mzn_let_0_carry_difference[31] __let0___mzn_let_0_carry_difference[32] __let0___mzn_let_0_carry_difference[33] __let0___mzn_let_0_carry_difference[34] __let0___mzn_let_0_carry_difference[35] __let0___mzn_let_0_carry_difference[36] __let0___mzn_let_0_carry_difference[37] __let0___mzn_let_0_carry_difference[38] __let0___mzn_let_0_carry_difference[39] __let0___mzn_let_0_carry_difference[40] __let0___mzn_let_0_carry_difference[41] __let0___mzn_let_0_carry_difference[42] __let0___mzn_let_0_carry_difference[43] __let0___mzn_let_0_carry_difference[44] __let0___mzn_let_0_carry_difference[45] __let0___mzn_let_0_carry_difference[46] __let0___mzn_let_0_carry_difference[47] __let0___mzn_let_0_carry_difference[48] __let0___mzn_let_0_carry_difference[49] __let0___mzn_let_0_carry_difference[50] __let0___mzn_let_0_carry_difference[51] __let0___mzn_let_0_carry_difference[52] __let0___mzn_let_0_carry_difference[53] __let0___mzn_let_0_carry_difference[54] __let0___mzn_let_0_carry_difference[55] __let0___mzn_let_0_carry_difference[56] __let0___mzn_let_0_carry_difference[57] __let0___mzn_let_0_carry_difference[58] __let0___mzn_let_0_carry_difference[59] __let0___mzn_let_0_carry_difference[60] __let0___mzn_let_0_carry_difference[61] __let0___mzn_let_0_carry_difference[62] __let0___mzn_let_0_carry_difference[63] __let1___mzn_let_0_carry_difference[0] __let1___mzn_let_0_carry_difference[1] __let1___mzn_let_0_carry_difference[2] __let1___mzn_let_0_carry_difference[3] __let1___mzn_let_0_carry_difference[4] __let1___mzn_let_0_carry_difference[5] __let1___mzn_let_0_carry_difference[6] __let1___mzn_let_0_carry_difference[7] __let1___mzn_let_0_carry_difference[8] __let1___mzn_let_0_carry_difference[9] __let1___mzn_let_0_carry_difference[10] __let1___mzn_let_0_carry_difference[11] __let1___mzn_let_0_carry_difference[12] __let1___mzn_let_0_carry_difference[13] __let1___mzn_let_0_carry_difference[14] __let1___mzn_let_0_carry_difference[15] __let1___mzn_let_0_carry_difference[16] __let1___mzn_let_0_carry_difference[17] __let1___mzn_let_0_carry_difference[18] __let1___mzn_let_0_carry_difference[19] __let1___mzn_let_0_carry_difference[20] __let1___mzn_let_0_carry_difference[21] __let1___mzn_let_0_carry_difference[22] __let1___mzn_let_0_carry_difference[23] __let1___mzn_let_0_carry_difference[24] __let1___mzn_let_0_carry_difference[25] __let1___mzn_let_0_carry_difference[26] __let1___mzn_let_0_carry_difference[27] __let1___mzn_let_0_carry_difference[28] __let1___mzn_let_0_carry_difference[29] __let1___mzn_let_0_carry_difference[30] __let1___mzn_let_0_carry_difference[31] __let1___mzn_let_0_carry_difference[32] __let1___mzn_let_0_carry_difference[33] __let1___mzn_let_0_carry_difference[34] __let1___mzn_let_0_carry_difference[35] __let1___mzn_let_0_carry_difference[36] __let1___mzn_let_0_carry_difference[37] __let1___mzn_let_0_carry_difference[38] __let1___mzn_let_0_carry_difference[39] __let1___mzn_let_0_carry_difference[40] __let1___mzn_let_0_carry_difference[41] __let1___mzn_let_0_carry_difference[42] __let1___mzn_let_0_carry_difference[43] __let1___mzn_let_0_carry_difference[44] __let1___mzn_let_0_carry_difference[45] __let1___mzn_let_0_carry_difference[46] __let1___mzn_let_0_carry_difference[47] __let1___mzn_let_0_carry_difference[48] __let1___mzn_let_0_carry_difference[49] __let1___mzn_let_0_carry_difference[50] __let1___mzn_let_0_carry_difference[51] __let1___mzn_let_0_carry_difference[52] __let1___mzn_let_0_carry_difference[53] __let1___mzn_let_0_carry_difference[54] __let1___mzn_let_0_carry_difference[55] __let1___mzn_let_0_carry_difference[56] __let1___mzn_let_0_carry_difference[57] __let1___mzn_let_0_carry_difference[58] __let1___mzn_let_0_carry_difference[59] __let1___mzn_let_0_carry_difference[60] __let1___mzn_let_0_carry_difference[61] __let1___mzn_let_0_carry_difference[62] __let1___mzn_let_0_carry_difference[63] __let2___mzn_let_0_carry_difference[0] __let2___mzn_let_0_carry_difference[1] __let2___mzn_let_0_carry_difference[2] __let2___mzn_let_0_carry_difference[3] __let2___mzn_let_0_carry_difference[4] __let2___mzn_let_0_carry_difference[5] __let2___mzn_let_0_carry_difference[6] __let2___mzn_let_0_carry_difference[7] __let2___mzn_let_0_carry_difference[8] __let2___mzn_let_0_carry_difference[9] __let2___mzn_let_0_carry_difference[10] __let2___mzn_let_0_carry_difference[11] __let2___mzn_let_0_carry_difference[12] __let2___mzn_let_0_carry_difference[13] __let2___mzn_let_0_carry_difference[14] __let2___mzn_let_0_carry_difference[15] __let2___mzn_let_0_carry_difference[16] __let2___mzn_let_0_carry_difference[17] __let2___mzn_let_0_carry_difference[18] __let2___mzn_let_0_carry_difference[19] __let2___mzn_let_0_carry_difference[20] __let2___mzn_let_0_carry_difference[21] __let2___mzn_let_0_carry_difference[22] __let2___mzn_let_0_carry_difference[23] __let2___mzn_let_0_carry_difference[24] __let2___mzn_let_0_carry_difference[25] __let2___mzn_let_0_carry_difference[26] __let2___mzn_let_0_carry_difference[27] __let2___mzn_let_0_carry_difference[28] __let2___mzn_let_0_carry_difference[29] __let2___mzn_let_0_carry_difference[30] __let2___mzn_let_0_carry_difference[31] __let2___mzn_let_0_carry_difference[32] __let2___mzn_let_0_carry_difference[33] __let2___mzn_let_0_carry_difference[34] __let2___mzn_let_0_carry_difference[35] __let2___mzn_let_0_carry_difference[36] __let2___mzn_let_0_carry_difference[37] __let2___mzn_let_0_carry_difference[38] __let2___mzn_let_0_carry_difference[39] __let2___mzn_let_0_carry_difference[40] __let2___mzn_let_0_carry_difference[41] __let2___mzn_let_0_carry_difference[42] __let2___mzn_let_0_carry_difference[43] __let2___mzn_let_0_carry_difference[44] __let2___mzn_let_0_carry_difference[45] __let2___mzn_let_0_carry_difference[46] __let2___mzn_let_0_carry_difference[47] __let2___mzn_let_0_carry_difference[48] __let2___mzn_let_0_carry_difference[49] __let2___mzn_let_0_carry_difference[50] __let2___mzn_let_0_carry_difference[51] __let2___mzn_let_0_carry_difference[52] __let2___mzn_let_0_carry_difference[53] __let2___mzn_let_0_carry_difference[54] __let2___mzn_let_0_carry_difference[55] __let2___mzn_let_0_carry_difference[56] __let2___mzn_let_0_carry_difference[57] __let2___mzn_let_0_carry_difference[58] __let2___mzn_let_0_carry_difference[59] __let2___mzn_let_0_carry_difference[60] __let2___mzn_let_0_carry_difference[61] __let2___mzn_let_0_carry_difference[62] __let2___mzn_let_0_carry_difference[63] __let3___mzn_let_0_carry_difference[0] __let3___mzn_let_0_carry_difference[1] __let3___mzn_let_0_carry_difference[2] __let3___mzn_let_0_carry_difference[3] __let3___mzn_let_0_carry_difference[4] __let3___mzn_let_0_carry_difference[5] __let3___mzn_let_0_carry_difference[6] __let3___mzn_let_0_carry_difference[7] __let3___mzn_let_0_carry_difference[8] __let3___mzn_let_0_carry_difference[9] __let3___mzn_let_0_carry_difference[10] __let3___mzn_let_0_carry_difference[11] __let3___mzn_let_0_carry_difference[12] __let3___mzn_let_0_carry_difference[13] __let3___mzn_let_0_carry_difference[14] __let3___mzn_let_0_carry_difference[15] __let3___mzn_let_0_carry_difference[16] __let3___mzn_let_0_carry_difference[17] __let3___mzn_let_0_carry_difference[18] __let3___mzn_let_0_carry_difference[19] __let3___mzn_let_0_carry_difference[20] __let3___mzn_let_0_carry_difference[21] __let3___mzn_let_0_carry_difference[22] __let3___mzn_let_0_carry_difference[23] __let3___mzn_let_0_carry_difference[24] __let3___mzn_let_0_carry_difference[25] __let3___mzn_let_0_carry_difference[26] __let3___mzn_let_0_carry_difference[27] __let3___mzn_let_0_carry_difference[28] __let3___mzn_let_0_carry_difference[29] __let3___mzn_let_0_carry_difference[30] __let3___mzn_let_0_carry_difference[31] __let3___mzn_let_0_carry_difference[32] __let3___mzn_let_0_carry_difference[33] __let3___mzn_let_0_carry_difference[34] __let3___mzn_let_0_carry_difference[35] __let3___mzn_let_0_carry_difference[36] __let3___mzn_let_0_carry_difference[37] __let3___mzn_let_0_carry_difference[38] __let3___mzn_let_0_carry_difference[39] __let3___mzn_let_0_carry_difference[40] __let3___mzn_let_0_carry_difference[41] __let3___mzn_let_0_carry_difference[42] __let3___mzn_let_0_carry_difference[43] __let3___mzn_let_0_carry_difference[44] __let3___mzn_let_0_carry_difference[45] __let3___mzn_let_0_carry_difference[46] __let3___mzn_let_0_carry_difference[47] __let3___mzn_let_0_carry_difference[48] __let3___mzn_let_0_carry_difference[49] __let3___mzn_let_0_carry_difference[50] __let3___mzn_let_0_carry_difference[51] __let3___mzn_let_0_carry_difference[52] __let3___mzn_let_0_carry_difference[53] __let3___mzn_let_0_carry_difference[54] __let3___mzn_let_0_carry_difference[55] __let3___mzn_let_0_carry_difference[56] __let3___mzn_let_0_carry_difference[57] __let3___mzn_let_0_carry_difference[58] __let3___mzn_let_0_carry_difference[59] __let3___mzn_let_0_carry_difference[60] __let3___mzn_let_0_carry_difference[61] __let3___mzn_let_0_carry_difference[62] __let3___mzn_let_0_carry_difference[63] __let4___mzn_let_0_carry_difference[0] __let4___mzn_let_0_carry_difference[1] __let4___mzn_let_0_carry_difference[2] __let4___mzn_let_0_carry_difference[3] __let4___mzn_let_0_carry_difference[4] __let4___mzn_let_0_carry_difference[5] __let4___mzn_let_0_carry_difference[6] __let4___mzn_let_0_carry_difference[7] __let4___mzn_let_0_carry_difference[8] __let4___mzn_let_0_carry_difference[9] __let4___mzn_let_0_carry_difference[10] __let4___mzn_let_0_carry_difference[11] __let4___mzn_let_0_carry_difference[12] __let4___mzn_let_0_carry_difference[13] __let4___mzn_let_0_carry_difference[14] __let4___mzn_let_0_carry_difference[15] __let4___mzn_let_0_carry_difference[16] __let4___mzn_let_0_carry_difference[17] __let4___mzn_let_0_carry_difference[18] __let4___mzn_let_0_carry_difference[19] __let4___mzn_let_0_carry_difference[20] __let4___mzn_let_0_carry_difference[21] __let4___mzn_let_0_carry_difference[22] __let4___mzn_let_0_carry_difference[23] __let4___mzn_let_0_carry_difference[24] __let4___mzn_let_0_carry_difference[25] __let4___mzn_let_0_carry_difference[26] __let4___mzn_let_0_carry_difference[27] __let4___mzn_let_0_carry_difference[28] __let4___mzn_let_0_carry_difference[29] __let4___mzn_let_0_carry_difference[30] __let4___mzn_let_0_carry_difference[31] __let4___mzn_let_0_carry_difference[32] __let4___mzn_let_0_carry_difference[33] __let4___mzn_let_0_carry_difference[34] __let4___mzn_let_0_carry_difference[35] __let4___mzn_let_0_carry_difference[36] __let4___mzn_let_0_carry_difference[37] __let4___mzn_let_0_carry_difference[38] __let4___mzn_let_0_carry_difference[39] __let4___mzn_let_0_carry_difference[40] __let4___mzn_let_0_carry_difference[41] __let4___mzn_let_0_carry_difference[42] __let4___mzn_let_0_carry_difference[43] __let4___mzn_let_0_carry_difference[44] __let4___mzn_let_0_carry_difference[45] __let4___mzn_let_0_carry_difference[46] __let4___mzn_let_0_carry_difference[47] __let4___mzn_let_0_carry_difference[48] __let4___mzn_let_0_carry_difference[49] __let4___mzn_let_0_carry_difference[50] __let4___mzn_let_0_carry_difference[51] __let4___mzn_let_0_carry_difference[52] __let4___mzn_let_0_carry_difference[53] __let4___mzn_let_0_carry_difference[54] __let4___mzn_let_0_carry_difference[55] __let4___mzn_let_0_carry_difference[56] __let4___mzn_let_0_carry_difference[57] __let4___mzn_let_0_carry_difference[58] __let4___mzn_let_0_carry_difference[59] __let4___mzn_let_0_carry_difference[60] __let4___mzn_let_0_carry_difference[61] __let4___mzn_let_0_carry_difference[62] __let4___mzn_let_0_carry_difference[63] __let5___mzn_let_0_carry_difference[0] __let5___mzn_let_0_carry_difference[1] __let5___mzn_let_0_carry_difference[2] __let5___mzn_let_0_carry_difference[3] __let5___mzn_let_0_carry_difference[4] __let5___mzn_let_0_carry_difference[5] __let5___mzn_let_0_carry_difference[6] __let5___mzn_let_0_carry_difference[7] __let5___mzn_let_0_carry_difference[8] __let5___mzn_let_0_carry_difference[9] __let5___mzn_let_0_carry_difference[10] __let5___mzn_let_0_carry_difference[11] __let5___mzn_let_0_carry_difference[12] __let5___mzn_let_0_carry_difference[13] __let5___mzn_let_0_carry_difference[14] __let5___mzn_let_0_carry_difference[15] __let5___mzn_let_0_carry_difference[16] __let5___mzn_let_0_carry_difference[17] __let5___mzn_let_0_carry_difference[18] __let5___mzn_let_0_carry_difference[19] __let5___mzn_let_0_carry_difference[20] __let5___mzn_let_0_carry_difference[21] __let5___mzn_let_0_carry_difference[22] __let5___mzn_let_0_carry_difference[23] __let5___mzn_let_0_carry_difference[24] __let5___mzn_let_0_carry_difference[25] __let5___mzn_let_0_carry_difference[26] __let5___mzn_let_0_carry_difference[27] __let5___mzn_let_0_carry_difference[28] __let5___mzn_let_0_carry_difference[29] __let5___mzn_let_0_carry_difference[30] __let5___mzn_let_0_carry_difference[31] __let5___mzn_let_0_carry_difference[32] __let5___mzn_let_0_carry_difference[33] __let5___mzn_let_0_carry_difference[34] __let5___mzn_let_0_carry_difference[35] __let5___mzn_let_0_carry_difference[36] __let5___mzn_let_0_carry_difference[37] __let5___mzn_let_0_carry_difference[38] __let5___mzn_let_0_carry_difference[39] __let5___mzn_let_0_carry_difference[40] __let5___mzn_let_0_carry_difference[41] __let5___mzn_let_0_carry_difference[42] __let5___mzn_let_0_carry_difference[43] __let5___mzn_let_0_carry_difference[44] __let5___mzn_let_0_carry_difference[45] __let5___mzn_let_0_carry_difference[46] __let5___mzn_let_0_carry_difference[47] __let5___mzn_let_0_carry_difference[48] __let5___mzn_let_0_carry_difference[49] __let5___mzn_let_0_carry_difference[50] __let5___mzn_let_0_carry_difference[51] __let5___mzn_let_0_carry_difference[52] __let5___mzn_let_0_carry_difference[53] __let5___mzn_let_0_carry_difference[54] __let5___mzn_let_0_carry_difference[55] __let5___mzn_let_0_carry_difference[56] __let5___mzn_let_0_carry_difference[57] __let5___mzn_let_0_carry_difference[58] __let5___mzn_let_0_carry_difference[59] __let5___mzn_let_0_carry_difference[60] __let5___mzn_let_0_carry_difference[61] __let5___mzn_let_0_carry_difference[62] __let5___mzn_let_0_carry_difference[63] __let6___mzn_let_0_carry_difference[0] __let6___mzn_let_0_carry_difference[1] __let6___mzn_let_0_carry_difference[2] __let6___mzn_let_0_carry_difference[3] __let6___mzn_let_0_carry_difference[4] __let6___mzn_let_0_carry_difference[5] __let6___mzn_let_0_carry_difference[6] __let6___mzn_let_0_carry_difference[7] __let6___mzn_let_0_carry_difference[8] __let6___mzn_let_0_carry_difference[9] __let6___mzn_let_0_carry_difference[10] __let6___mzn_let_0_carry_difference[11] __let6___mzn_let_0_carry_difference[12] __let6___mzn_let_0_carry_difference[13] __let6___mzn_let_0_carry_difference[14] __let6___mzn_let_0_carry_difference[15] __let6___mzn_let_0_carry_difference[16] __let6___mzn_let_0_carry_difference[17] __let6___mzn_let_0_carry_difference[18] __let6___mzn_let_0_carry_difference[19] __let6___mzn_let_0_carry_difference[20] __let6___mzn_let_0_carry_difference[21] __let6___mzn_let_0_carry_difference[22] __let6___mzn_let_0_carry_difference[23] __let6___mzn_let_0_carry_difference[24] __let6___mzn_let_0_carry_difference[25] __let6___mzn_let_0_carry_difference[26] __let6___mzn_let_0_carry_difference[27] __let6___mzn_let_0_carry_difference[28] __let6___mzn_let_0_carry_difference[29] __let6___mzn_let_0_carry_difference[30] __let6___mzn_let_0_carry_difference[31] __let6___mzn_let_0_carry_difference[32] __let6___mzn_let_0_carry_difference[33] __let6___mzn_let_0_carry_difference[34] __let6___mzn_let_0_carry_difference[35] __let6___mzn_let_0_carry_difference[36] __let6___mzn_let_0_carry_difference[37] __let6___mzn_let_0_carry_difference[38] __let6___mzn_let_0_carry_difference[39] __let6___mzn_let_0_carry_difference[40] __let6___mzn_let_0_carry_difference[41] __let6___mzn_let_0_carry_difference[42] __let6___mzn_let_0_carry_difference[43] __let6___mzn_let_0_carry_difference[44] __let6___mzn_let_0_carry_difference[45] __let6___mzn_let_0_carry_difference[46] __let6___mzn_let_0_carry_difference[47] __let6___mzn_let_0_carry_difference[48] __let6___mzn_let_0_carry_difference[49] __let6___mzn_let_0_carry_difference[50] __let6___mzn_let_0_carry_difference[51] __let6___mzn_let_0_carry_difference[52] __let6___mzn_let_0_carry_difference[53] __let6___mzn_let_0_carry_difference[54] __let6___mzn_let_0_carry_difference[55] __let6___mzn_let_0_carry_difference[56] __let6___mzn_let_0_carry_difference[57] __let6___mzn_let_0_carry_difference[58] __let6___mzn_let_0_carry_difference[59] __let6___mzn_let_0_carry_difference[60] __let6___mzn_let_0_carry_difference[61] __let6___mzn_let_0_carry_difference[62] __let6___mzn_let_0_carry_difference[63] __let7___mzn_let_0_carry_difference[0] __let7___mzn_let_0_carry_difference[1] __let7___mzn_let_0_carry_difference[2] __let7___mzn_let_0_carry_difference[3] __let7___mzn_let_0_carry_difference[4] __let7___mzn_let_0_carry_difference[5] __let7___mzn_let_0_carry_difference[6] __let7___mzn_let_0_carry_difference[7] __let7___mzn_let_0_carry_difference[8] __let7___mzn_let_0_carry_difference[9] __let7___mzn_let_0_carry_difference[10] __let7___mzn_let_0_carry_difference[11] __let7___mzn_let_0_carry_difference[12] __let7___mzn_let_0_carry_difference[13] __let7___mzn_let_0_carry_difference[14] __let7___mzn_let_0_carry_difference[15] __let7___mzn_let_0_carry_difference[16] __let7___mzn_let_0_carry_difference[17] __let7___mzn_let_0_carry_difference[18] __let7___mzn_let_0_carry_difference[19] __let7___mzn_let_0_carry_difference[20] __let7___mzn_let_0_carry_difference[21] __let7___mzn_let_0_carry_difference[22] __let7___mzn_let_0_carry_difference[23] __let7___mzn_let_0_carry_difference[24] __let7___mzn_let_0_carry_difference[25] __let7___mzn_let_0_carry_difference[26] __let7___mzn_let_0_carry_difference[27] __let7___mzn_let_0_carry_difference[28] __let7___mzn_let_0_carry_difference[29] __let7___mzn_let_0_carry_difference[30] __let7___mzn_let_0_carry_difference[31] __let7___mzn_let_0_carry_difference[32] __let7___mzn_let_0_carry_difference[33] __let7___mzn_let_0_carry_difference[34] __let7___mzn_let_0_carry_difference[35] __let7___mzn_let_0_carry_difference[36] __let7___mzn_let_0_carry_difference[37] __let7___mzn_let_0_carry_difference[38] __let7___mzn_let_0_carry_difference[39] __let7___mzn_let_0_carry_difference[40] __let7___mzn_let_0_carry_difference[41] __let7___mzn_let_0_carry_difference[42] __let7___mzn_let_0_carry_difference[43] __let7___mzn_let_0_carry_difference[44] __let7___mzn_let_0_carry_difference[45] __let7___mzn_let_0_carry_difference[46] __let7___mzn_let_0_carry_difference[47] __let7___mzn_let_0_carry_difference[48] __let7___mzn_let_0_carry_difference[49] __let7___mzn_let_0_carry_difference[50] __let7___mzn_let_0_carry_difference[51] __let7___mzn_let_0_carry_difference[52] __let7___mzn_let_0_carry_difference[53] __let7___mzn_let_0_carry_difference[54] __let7___mzn_let_0_carry_difference[55] __let7___mzn_let_0_carry_difference[56] __let7___mzn_let_0_carry_difference[57] __let7___mzn_let_0_carry_difference[58] __let7___mzn_let_0_carry_difference[59] __let7___mzn_let_0_carry_difference[60] __let7___mzn_let_0_carry_difference[61] __let7___mzn_let_0_carry_difference[62] __let7___mzn_let_0_carry_difference[63] </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 1 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 6 4 2 0 1 3 5 9 30 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 30
+d OPTIMAL 0
+d OBJECTIVE_ROUNDS 8
+d OBJECTIVE_IMPROVEMENTS 7
+d COP_INCUMBENT_ELAPSED_MS 317614
+d SOLVE_ELAPSED_MS 1199867
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 882252
+d LAST_COMPLETED_STAGE decode
+d STAGE_PARSE_STATUS pending
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS done
+d STAGE_RELAXATION_STATUS pending
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 1042
+d NORMALIZED_CONSTRAINTS 1042
+d LOWERED_CONSTRAINTS 1042
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 61113
+d SAT_CLAUSES_BASE 119158
+d SAT_CLAUSES_FINAL 119158
+d SAT_CLAUSES_CEGAR_DELTA 0
+d MEMORY_RSS_BYTES 2515140608
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 14196736
+d MEMORY_RSS_AFTER_LOWER_BYTES 14737408
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 16056320
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 2514317312
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 2514423808
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 2514423808
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 10
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 119158
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 2515140608
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 2515140608
+d CSP_INT_VARS 1673
+d CSP_CONSTRAINTS 1042
+d CSP_INTENTIONAL 1042
+d CSP_GLOBAL 0
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 0
+d CSP_CUMULATIVE 0
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 1
+d CSP_DOMAIN_SPAN_MAX 256
+d N_CUMULATIVE 0
+d N_TABLE 0
+d SAT_CONFLICTS 1364691
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":10296,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":3032,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"},"4":{"count":512,"max_domain_product_excluding_one_var":"8","p95_domain_product_excluding_one_var":"8"},"9":{"count":1,"max_domain_product_excluding_one_var":"281474976710656","p95_domain_product_excluding_one_var":"281474976710656"},"64":{"count":8,"max_domain_product_excluding_one_var":"9223372036854775808","p95_domain_product_excluding_one_var":"9223372036854775808"}}
+d LINEAR_INT_NE_ARITY_STATS {"2":{"count":1536,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"}}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":1024,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"128":{"count":1,"max_domain_product_excluding_one_var":"170141183460469231731687303715884105728","p95_domain_product_excluding_one_var":"170141183460469231731687303715884105728"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 256
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 256
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 13033
+d ROOT_LP_ROWS 2050
+d ROOT_LP_VARS 10817
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 1025
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 13849
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 128
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 170141183460469231731687303715884105728
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 0
+d ROOT_LP_OBJECTIVE_VALUE 0
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d PROPAGATE_PRUNED_VALUES 8
+d PROPAGATE_CHANGED_DOMAINS 8
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 16
+d POST_LOWER_TIGHTENED_DOMAINS 16
+d POST_LOWER_REMOVED_CLAUSES 1048
+d POST_LOWER_REMOVED_LITS 8
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 6785
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 12163
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 12163
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 0
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 12163
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d MEMORY_RSS_BYTES 2515140608
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 14196736
+d MEMORY_RSS_AFTER_LOWER_BYTES 14737408
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 16056320
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 2514317312
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 2514423808
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 2514423808
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 10
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 119158
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 2515140608
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 2515140608
+d DECODE_INT_ASSIGNMENTS 1673
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/2023/speck-optimisation/SPECK-Optimisation.mzn,sat,1042,1042,1042,0,61113,119158,1199861,,,,,,,1,optimal,0,256,0,256,0,13033,2050,10817,0,0,0,0,timeout_signal,incumbent_interrupted_by_signal
+signal=15; emitted incumbent csv row
+c run_end_local: 2026-06-20 22:54:26 +0900

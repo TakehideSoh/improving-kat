@@ -1,0 +1,583 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2018/train/train.mzn --data /bench/2018/train/instance.17.dzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 21:38:57 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | input: constraints=220
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=0 changed_domains=0 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=5447680 rss=5.20MiB
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=220
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:progress percent=10 processed=22 total=220 lowered=22 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=20 processed=44 total=220 lowered=44 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=30 processed=66 total=220 lowered=66 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=40 processed=88 total=220 lowered=88 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=50 processed=110 total=220 lowered=110 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=60 processed=132 total=220 lowered=132 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=70 processed=154 total=220 lowered=154 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=80 processed=176 total=220 lowered=176 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=90 processed=198 total=220 lowered=198 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=100 processed=220 total=220 lowered=220 unsupported=0 ms=7
+c 00h00m00s | stage:lower:done ms=8 lowered=220 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=7335936 rss=7.00MiB
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=4 rounds=135 tightened=217 removed_cls=246 removed_lits=23 unsat=false precise_hits=258 precise_rounds=2 pivot_recomputes=698 pivot_exact_attempts=301 pivot_general_attempts=624 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=512 pivot_general_tightened=112 setup_ms=0 loop_ms=2 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=1
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=7335936 rss=7.00MiB
+c 00h00m00s | stage:lowered-shape int_vars=133 bool_vars=68 linear_atoms=4312 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=2060
+c 00h00m00s | stage:root-lp:start backend=lpo
+c 00h00m00s | stage:root-lp:bound backend=lpo status=optimal objective_value=0 naive_bounds=[0,2280000] lp_bounds=[0,2280000] improved=0 rows=188 vars=201 lp_rows_singleton_linear=124 lp_rows_disjunctive=58 lp_rows_table=0 lp_rows_cumulative_energy=0 lp_rows_cumulative_pair=0 lp_rows_cumulative_timetable=0 lp_rows_cumulative_completion=0 lp_rows_cumulative_precedence=0 lp_rows_no_overlap_pair=0 lp_rows_no_overlap_completion=0 lp_rows_no_overlap_precedence=0 lp_rows_no_overlap_2d_energy=0 lp_rows_no_overlap_2d_completion=0 lp_scheduling_payloads_cumulative=0 lp_scheduling_payloads_no_overlap=0 lp_scheduling_cut_rounds=0 lp_scheduling_cut_candidates=0 lp_scheduling_cut_violated=0 lp_scheduling_rows_skipped=0 ms=16
+c 00h00m00s | memory:rss checkpoint=before_preencode bytes=8085504 rss=7.71MiB
+c 00h00m00s | stage:preencode(log-scop):start
+c 00h00m00s | stage:preencode(log-scop):done ms=0 int_vars=133
+c 00h00m00s | memory:rss checkpoint=after_preencode bytes=8085504 rss=7.71MiB
+c 00h00m00s | memory:rss checkpoint=before_encode bytes=8085504 rss=7.71MiB
+c 00h00m00s | stage:encode(log-scop):start
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=48325 bytes=10469376 rss=9.98MiB progress_percent=10 processed=207 total=2061
+c 00h00m00s | stage:encode(log-scop):progress percent=10 processed=207 total=2061 sat_clauses=48325 ms=7
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=960904 bytes=280322048 rss=267.34MiB progress_percent=20 processed=413 total=2061
+c 00h00m00s | stage:encode(log-scop):progress percent=20 processed=413 total=2061 sat_clauses=960904 ms=470
+c 00h00m01s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=2603370 bytes=982339584 rss=936.83MiB progress_percent=30 processed=619 total=2061
+c 00h00m01s | stage:encode(log-scop):progress percent=30 processed=619 total=2061 sat_clauses=2603370 ms=1443
+c 00h00m02s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=4137036 bytes=1892724736 rss=1.76GiB progress_percent=40 processed=825 total=2061
+c 00h00m02s | stage:encode(log-scop):progress percent=40 processed=825 total=2061 sat_clauses=4137036 ms=2523
+c 00h00m03s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=6839622 bytes=2110730240 rss=1.97GiB progress_percent=50 processed=1031 total=2061
+c 00h00m03s | stage:encode(log-scop):progress percent=50 processed=1031 total=2061 sat_clauses=6839622 ms=3503
+c 00h00m04s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=8069748 bytes=3620818944 rss=3.37GiB progress_percent=60 processed=1237 total=2061
+c 00h00m04s | stage:encode(log-scop):progress percent=60 processed=1237 total=2061 sat_clauses=8069748 ms=4782
+c 00h00m05s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=10348742 bytes=3800801280 rss=3.54GiB progress_percent=70 processed=1443 total=2061
+c 00h00m05s | stage:encode(log-scop):progress percent=70 processed=1443 total=2061 sat_clauses=10348742 ms=5601
+c 00h00m06s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=12231250 bytes=3999551488 rss=3.72GiB progress_percent=80 processed=1649 total=2061
+c 00h00m06s | stage:encode(log-scop):progress percent=80 processed=1649 total=2061 sat_clauses=12231250 ms=6305
+c 00h00m06s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=13976370 bytes=4184846336 rss=3.90GiB progress_percent=90 processed=1855 total=2061
+c 00h00m06s | stage:encode(log-scop):progress percent=90 processed=1855 total=2061 sat_clauses=13976370 ms=6963
+c 00h00m09s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=16732062 bytes=7197274112 rss=6.70GiB progress_percent=100 processed=2061 total=2061
+c 00h00m09s | stage:encode(log-scop):progress percent=100 processed=2061 total=2061 sat_clauses=16732062 ms=9526
+c 00h00m09s | stage:encode(log-scop):done ms=9530 sat_vars=10175159 sat_clauses=16732062 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=7566 log_scop_pb_mixed=0 log_scop_pb_bdd2=7566 log_scop_pb_bdd3=0 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=7566 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m09s | stage:post-encode(log-scop):start sat_vars=10175159 sat_clauses=16732062 has_relaxations=false external_tables=0
+c 00h00m09s | stage:post-encode(log-scop):after-finish-check ms=0
+c 00h00m09s | stage:post-encode(log-scop):decode-layout-ready int_symbols=133 ms=0
+c 00h00m09s | stage:post-encode(log-scop):cumulative-external-ready has_prop=false ms=0
+c 00h00m09s | stage:post-encode(log-scop):log-scop-external-ready has_prop=false ms=0
+c 00h00m09s | stage:post-encode(log-scop):external-prop-connected has_prop=false ms=0
+c 00h00m09s | stage:post-encode(log-scop):done sat_vars=10175159 sat_clauses=16732062 ms=0
+c 00h00m09s | stage:post-encode(log-scop):reusable-ready mode=SoftCnf sat_vars=10175159
+c 00h00m09s | stage:objective-external-ge-template(log-scop):start cut=DirectExpr wants_ext_ge=false
+c 00h00m09s | stage:objective-external-ge-template(log-scop):done has_template=true ms=0
+c 00h00m09s | stage:objective-mode(log-scop):resolved mode=SoftCnf wants_ext_ge=false has_ext_ge_template=true
+c 00h00m09s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m09s | stage:objective-encoder(log-scop):ready mode=SoftCnf soft=true sat_vars=10175159
+c 00h00m09s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=2280000 has_incumbent=false soft_active=true
+c 00h00m09s | stage:sat:round-entry encoder=log-scop assumptions=0 phase_lits=0 sat_vars=10175159 base_clauses=16732062
+c 00h00m09s | stage:sat:init solver=CaDiCaL vars=10175159 clauses=16732062
+c 00h00m09s | stage:sat:solve:start assumptions=0 phase_lits=0
+c 00h00m36s | stage:sat:solve:done ms=26580 result=Sat assumptions=0 phase_lits=0
+c 00h00m36s | stage:decode:start
+c 00h00m36s | stage:decode:done int_assignments=117
+c 00h00m36s | result:Sat
+c 00h00m36s | stage:objective-cut-surface(log-scop):start timing=after-incumbent
+c 00h00m36s | stage:objective-cut-surface(log-scop):done has_surface=true ms=0
+c 00h00m36s | stage:objective-cut:incumbent-solution encoder=log-scop reason=surface threshold=1000000 surface=2280000 bound_mass=2280000 terms=1 action=emit-solution
+c 00h00m36s | objective:incumbent kind=initial value=399820 rounds=1 improvements=0
+o 399820
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 23 1115 10 22 48 108 20 53 74 565 30 58 82 187 0 8 21 1115 0 22 43 108 0 41 73 565 0 55 76 187 1115 108 565 187 0 6 16 0 0 6 23 0 0 6 23 0 0 38 25 0 0 6 23 0 0 6 23 0 0 38 25 0 0 38 46 1140 0 0 70 0 0 0 0 0 0 480 20 0 0 0 210 0 0 0 70 70 0 0 0 0 0 480 500 500 0 0 210 210 0 0 2 0 10 0 5 0 20 12 1 0 30 3 6 0 399820 </values>
+v </instantiation>
+c 00h00m36s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=2280000 has_incumbent=true soft_active=true
+c 00h00m36s | stage:objective-cut:soft-install bound=266546 guard=10175182 clauses_added=38
+c 00h00m36s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,399819] next 266546 source=install guard=10175182
+c 00h00m36s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175182 base_clauses=16732100
+c 00h00m36s | stage:sat:init solver=CaDiCaL vars=10175182 clauses=16732100
+c 00h00m36s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h00m43s | stage:sat:solve:done ms=7154 result=Sat assumptions=1 phase_lits=858
+c 00h00m43s | stage:decode:start
+c 00h00m43s | stage:decode:done int_assignments=117
+c 00h00m43s | result:Sat
+c 00h00m44s | objective:incumbent kind=improvement value=265400 rounds=2 improvements=1
+o 265400
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 23 91 10 22 39 1088 20 38 90 100 30 58 114 699 0 8 21 91 0 18 35 1088 0 25 56 100 0 51 108 699 91 1088 100 699 0 6 16 0 0 6 23 0 0 6 39 0 0 38 41 0 0 6 23 0 0 6 39 0 0 38 41 0 0 38 46 1140 0 0 70 0 0 0 160 0 0 480 20 0 0 0 50 0 0 0 70 70 0 0 160 160 0 480 500 500 0 0 50 50 0 0 2 0 10 4 4 0 20 13 34 0 30 7 6 0 265400 </values>
+v </instantiation>
+c 00h00m44s | stage:objective-cut:soft-result search=trisection bound=266546 result=sat guard=10175182 hard=guard [LB,UB] = [0,265399]
+c 00h00m44s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=2280000 has_incumbent=true soft_active=true
+c 00h00m44s | stage:objective-cut:soft-install bound=176933 guard=10175204 clauses_added=34
+c 00h00m44s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,265399] next 176933 source=install guard=10175204
+c 00h00m44s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175204 base_clauses=16732135
+c 00h00m44s | stage:sat:init solver=CaDiCaL vars=10175204 clauses=16732135
+c 00h00m44s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h01m18s | stage:sat:solve:done ms=34254 result=Sat assumptions=1 phase_lits=858
+c 00h01m18s | stage:decode:start
+c 00h01m18s | stage:decode:done int_assignments=117
+c 00h01m18s | result:Sat
+c 00h01m18s | objective:incumbent kind=improvement value=155470 rounds=3 improvements=2
+o 155470
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 31 217 10 20 35 846 20 34 48 169 30 39 55 98 0 7 21 217 0 15 33 846 0 26 48 169 0 37 52 98 217 846 169 98 0 6 16 0 0 8 31 0 0 8 35 0 0 34 35 0 0 8 31 0 0 8 35 0 0 34 35 0 0 38 46 1140 0 30 150 0 0 0 40 0 0 390 0 0 0 60 110 0 0 30 180 180 0 0 40 40 0 390 390 390 0 60 170 170 0 1 10 0 10 5 2 0 20 8 0 0 30 2 3 0 155470 </values>
+v </instantiation>
+c 00h01m18s | stage:objective-cut:soft-result search=trisection bound=176933 result=sat guard=10175204 hard=guard [LB,UB] = [0,155469]
+c 00h01m18s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=2280000 has_incumbent=true soft_active=true
+c 00h01m18s | stage:objective-cut:soft-install bound=103646 guard=10175227 clauses_added=34
+c 00h01m18s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,155469] next 103646 source=install guard=10175227
+c 00h01m18s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175227 base_clauses=16732170
+c 00h01m18s | stage:sat:init solver=CaDiCaL vars=10175227 clauses=16732170
+c 00h01m18s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h01m22s | stage:sat:solve:done ms=3399 result=Sat assumptions=1 phase_lits=858
+c 00h01m22s | stage:decode:start
+c 00h01m22s | stage:decode:done int_assignments=117
+c 00h01m22s | result:Sat
+c 00h01m22s | objective:incumbent kind=improvement value=98110 rounds=4 improvements=3
+o 98110
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 31 217 10 20 35 231 20 34 48 85 30 39 55 98 0 7 21 217 0 15 33 231 0 26 48 85 0 37 52 98 217 231 85 98 0 6 16 0 0 8 31 0 0 8 35 0 0 34 35 0 0 8 31 0 0 8 35 0 0 34 35 0 0 38 46 1140 0 30 150 0 0 0 40 0 0 390 0 0 0 60 110 0 0 30 180 180 0 0 40 40 0 390 390 390 0 60 170 170 0 1 10 0 10 5 2 0 20 8 0 0 30 2 3 0 98110 </values>
+v </instantiation>
+c 00h01m22s | stage:objective-cut:soft-result search=trisection bound=103646 result=sat guard=10175227 hard=guard [LB,UB] = [0,98109]
+c 00h01m22s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=2280000 has_incumbent=true soft_active=true
+c 00h01m22s | stage:objective-cut:soft-install bound=65406 guard=10175250 clauses_added=30
+c 00h01m22s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,98109] next 65406 source=install guard=10175250
+c 00h01m22s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175250 base_clauses=16732201
+c 00h01m22s | stage:sat:init solver=CaDiCaL vars=10175250 clauses=16732201
+c 00h01m22s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h04m05s | stage:sat:solve:done ms=163171 result=Sat assumptions=1 phase_lits=858
+c 00h04m05s | stage:decode:start
+c 00h04m06s | stage:decode:done int_assignments=117
+c 00h04m06s | result:Sat
+c 00h04m06s | objective:incumbent kind=improvement value=57940 rounds=5 improvements=4
+o 57940
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 31 59 10 20 35 44 20 34 48 85 30 38 56 73 0 7 21 59 0 15 33 44 0 26 48 85 0 36 51 73 59 44 85 73 0 6 16 0 0 8 31 0 0 8 35 0 0 34 35 0 0 8 31 0 0 8 35 0 0 34 35 0 0 38 46 1140 0 30 150 0 0 0 40 0 0 390 0 0 0 60 110 0 0 30 180 180 0 0 40 40 0 390 390 390 0 60 170 170 0 1 10 0 10 5 2 0 20 8 0 0 30 2 5 0 57940 </values>
+v </instantiation>
+c 00h04m06s | stage:objective-cut:soft-result search=trisection bound=65406 result=sat guard=10175250 hard=guard [LB,UB] = [0,57939]
+c 00h04m06s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=2280000 has_incumbent=true soft_active=true
+c 00h04m06s | stage:objective-cut:soft-install bound=38626 guard=10175273 clauses_added=36
+c 00h04m06s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,57939] next 38626 source=install guard=10175273
+c 00h04m06s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175273 base_clauses=16732238
+c 00h04m06s | stage:sat:init solver=CaDiCaL vars=10175273 clauses=16732238
+c 00h04m06s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h04m39s | stage:sat:solve:done ms=33169 result=Sat assumptions=1 phase_lits=858
+c 00h04m39s | stage:decode:start
+c 00h04m40s | stage:decode:done int_assignments=117
+c 00h04m40s | result:Sat
+c 00h04m40s | objective:incumbent kind=improvement value=38470 rounds=6 improvements=5
+o 38470
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 25 34 10 20 35 44 20 30 45 55 30 38 52 64 0 7 21 34 0 15 33 44 0 26 43 55 0 35 51 64 34 44 55 64 0 6 16 0 0 8 25 0 0 20 35 0 0 30 45 0 0 8 25 0 0 20 35 0 0 30 45 0 0 38 46 1140 0 30 90 0 0 180 100 0 0 150 100 0 0 120 10 0 0 30 120 120 0 180 280 280 0 150 250 250 0 120 130 130 0 1 4 0 10 5 2 0 20 4 2 0 30 3 1 0 38470 </values>
+v </instantiation>
+c 00h04m40s | stage:objective-cut:soft-result search=trisection bound=38626 result=sat guard=10175273 hard=guard [LB,UB] = [0,38469]
+c 00h04m40s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=2280000 has_incumbent=true soft_active=true
+c 00h04m40s | stage:objective-cut:soft-install bound=25646 guard=10175296 clauses_added=37
+c 00h04m40s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,38469] next 25646 source=install guard=10175296
+c 00h04m40s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175296 base_clauses=16732276
+c 00h04m40s | stage:sat:init solver=CaDiCaL vars=10175296 clauses=16732276
+c 00h04m40s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h05m14s | stage:sat:solve:done ms=34227 result=Unsat assumptions=1 phase_lits=858
+c 00h05m14s | result:Unsat
+c 00h05m14s | stage:objective-cut:soft-result search=trisection bound=25646 result=unsat guard=10175296 hard=-guard [LB,UB] = [25647,38469]
+c 00h05m14s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=25647 upper=2280000 has_incumbent=true soft_active=true
+c 00h05m14s | stage:objective-cut:soft-install bound=34195 guard=10175317 clauses_added=35
+c 00h05m14s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [25647,38469] next 34195 source=install guard=10175317
+c 00h05m14s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175317 base_clauses=16732312
+c 00h05m14s | stage:sat:init solver=CaDiCaL vars=10175317 clauses=16732312
+c 00h05m14s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h06m06s | stage:sat:solve:done ms=51592 result=Unsat assumptions=1 phase_lits=858
+c 00h06m06s | result:Unsat
+c 00h06m06s | stage:objective-cut:soft-result search=trisection bound=34195 result=unsat guard=10175317 hard=-guard [LB,UB] = [34196,38469]
+c 00h06m06s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h06m06s | stage:objective-cut:soft-install bound=37045 guard=10175339 clauses_added=36
+c 00h06m06s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [34196,38469] next 37045 source=install guard=10175339
+c 00h06m06s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175339 base_clauses=16732349
+c 00h06m06s | stage:sat:init solver=CaDiCaL vars=10175339 clauses=16732349
+c 00h06m06s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m06s | stage:sat:solve:done ms=180174 result=Unknown assumptions=1 phase_lits=858
+c 00h09m06s | result:unknown reason=sat_solver_returned_unknown
+c 00h09m06s | result:Unknown
+c 00h09m06s | stage:objective-cut:soft-fallback search=trisection reason=budget-exhausted budget_s=180 mode=step incumbent=38470 [LB,UB]=[34196,38469]
+c 00h09m06s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m06s | stage:objective-cut:soft-install bound=38469 guard=10175361 clauses_added=36
+c 00h09m06s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,38469] next 38469 source=install guard=10175361
+c 00h09m06s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175361 base_clauses=16732385
+c 00h09m06s | stage:sat:init solver=CaDiCaL vars=10175361 clauses=16732385
+c 00h09m06s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m10s | stage:sat:solve:done ms=4326 result=Sat assumptions=1 phase_lits=858
+c 00h09m10s | stage:decode:start
+c 00h09m11s | stage:decode:done int_assignments=117
+c 00h09m11s | result:Sat
+c 00h09m11s | objective:incumbent kind=improvement value=38440 rounds=9 improvements=6
+o 38440
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 27 37 10 20 35 44 20 30 45 54 30 38 52 64 0 7 23 37 0 15 33 44 0 26 43 54 0 35 51 64 37 44 54 64 0 6 16 0 0 8 27 0 0 20 35 0 0 30 45 0 0 8 27 0 0 20 35 0 0 30 45 0 0 38 46 1140 0 30 110 0 0 180 80 0 0 150 100 0 0 120 10 0 0 30 140 140 0 180 260 260 0 150 250 250 0 120 130 130 0 1 4 0 10 5 2 0 20 4 2 0 30 3 1 0 38440 </values>
+v </instantiation>
+c 00h09m11s | stage:objective-cut:soft-result search=step bound=38469 result=sat guard=10175361 hard=guard [LB,UB] = [34196,38439]
+c 00h09m11s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m11s | stage:objective-cut:soft-install bound=38439 guard=10175381 clauses_added=33
+c 00h09m11s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,38439] next 38439 source=install guard=10175381
+c 00h09m11s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175381 base_clauses=16732419
+c 00h09m11s | stage:sat:init solver=CaDiCaL vars=10175381 clauses=16732419
+c 00h09m11s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m14s | stage:sat:solve:done ms=3028 result=Sat assumptions=1 phase_lits=858
+c 00h09m14s | stage:decode:start
+c 00h09m14s | stage:decode:done int_assignments=117
+c 00h09m14s | result:Sat
+c 00h09m14s | objective:incumbent kind=improvement value=38360 rounds=10 improvements=7
+o 38360
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 26 35 10 20 35 44 20 30 45 56 30 38 52 61 0 7 22 35 0 15 33 44 0 26 43 56 0 35 51 61 35 44 56 61 0 6 16 0 0 8 26 0 0 20 35 0 0 30 45 0 0 8 26 0 0 20 35 0 0 30 45 0 0 38 46 1140 0 30 100 0 0 180 90 0 0 150 100 0 0 120 10 0 0 30 130 130 0 180 270 270 0 150 250 250 0 120 130 130 0 1 4 0 10 5 2 0 20 4 2 0 30 3 1 0 38360 </values>
+v </instantiation>
+c 00h09m14s | stage:objective-cut:soft-result search=step bound=38439 result=sat guard=10175381 hard=guard [LB,UB] = [34196,38359]
+c 00h09m14s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m14s | stage:objective-cut:soft-install bound=38359 guard=10175401 clauses_added=31
+c 00h09m14s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,38359] next 38359 source=install guard=10175401
+c 00h09m14s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175401 base_clauses=16732451
+c 00h09m14s | stage:sat:init solver=CaDiCaL vars=10175401 clauses=16732451
+c 00h09m14s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m17s | stage:sat:solve:done ms=2907 result=Sat assumptions=1 phase_lits=858
+c 00h09m17s | stage:decode:start
+c 00h09m18s | stage:decode:done int_assignments=117
+c 00h09m18s | result:Sat
+c 00h09m18s | objective:incumbent kind=improvement value=38350 rounds=11 improvements=8
+o 38350
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 30 40 10 20 35 44 20 30 45 54 30 38 52 61 0 7 22 40 0 15 33 44 0 26 43 54 0 35 51 61 40 44 54 61 0 6 16 0 0 8 30 0 0 20 35 0 0 30 45 0 0 8 30 0 0 20 35 0 0 30 45 0 0 38 46 1140 0 30 140 0 0 180 50 0 0 150 100 0 0 120 10 0 0 30 170 170 0 180 230 230 0 150 250 250 0 120 130 130 0 1 8 0 10 5 2 0 20 4 2 0 30 3 1 0 38350 </values>
+v </instantiation>
+c 00h09m18s | stage:objective-cut:soft-result search=step bound=38359 result=sat guard=10175401 hard=guard [LB,UB] = [34196,38349]
+c 00h09m18s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m18s | stage:objective-cut:soft-install bound=38349 guard=10175423 clauses_added=34
+c 00h09m18s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,38349] next 38349 source=install guard=10175423
+c 00h09m18s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175423 base_clauses=16732486
+c 00h09m18s | stage:sat:init solver=CaDiCaL vars=10175423 clauses=16732486
+c 00h09m18s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m20s | stage:sat:solve:done ms=2115 result=Sat assumptions=1 phase_lits=858
+c 00h09m20s | stage:decode:start
+c 00h09m20s | stage:decode:done int_assignments=117
+c 00h09m20s | result:Sat
+c 00h09m20s | objective:incumbent kind=improvement value=38330 rounds=12 improvements=9
+o 38330
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 29 38 10 20 35 44 20 30 45 54 30 38 52 63 0 7 21 38 0 15 33 44 0 26 43 54 0 35 51 63 38 44 54 63 0 6 16 0 0 8 29 0 0 20 35 0 0 30 45 0 0 8 29 0 0 20 35 0 0 30 45 0 0 38 46 1140 0 30 130 0 0 180 60 0 0 150 100 0 0 120 10 0 0 30 160 160 0 180 240 240 0 150 250 250 0 120 130 130 0 1 8 0 10 5 2 0 20 4 2 0 30 3 1 0 38330 </values>
+v </instantiation>
+c 00h09m20s | stage:objective-cut:soft-result search=step bound=38349 result=sat guard=10175423 hard=guard [LB,UB] = [34196,38329]
+c 00h09m20s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m20s | stage:objective-cut:soft-install bound=38329 guard=10175445 clauses_added=34
+c 00h09m20s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,38329] next 38329 source=install guard=10175445
+c 00h09m20s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175445 base_clauses=16732521
+c 00h09m20s | stage:sat:init solver=CaDiCaL vars=10175445 clauses=16732521
+c 00h09m20s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m22s | stage:sat:solve:done ms=1639 result=Sat assumptions=1 phase_lits=858
+c 00h09m22s | stage:decode:start
+c 00h09m23s | stage:decode:done int_assignments=117
+c 00h09m23s | result:Sat
+c 00h09m23s | objective:incumbent kind=improvement value=38200 rounds=13 improvements=10
+o 38200
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 29 38 10 20 35 44 20 30 45 54 30 38 52 62 0 7 21 38 0 15 33 44 0 26 43 54 0 35 51 62 38 44 54 62 0 6 16 0 0 8 29 0 0 20 35 0 0 30 45 0 0 8 29 0 0 20 35 0 0 30 45 0 0 38 46 1140 0 30 130 0 0 180 60 0 0 150 100 0 0 120 10 0 0 30 160 160 0 180 240 240 0 150 250 250 0 120 130 130 0 1 8 0 10 5 2 0 20 4 2 0 30 3 1 0 38200 </values>
+v </instantiation>
+c 00h09m23s | stage:objective-cut:soft-result search=step bound=38329 result=sat guard=10175445 hard=guard [LB,UB] = [34196,38199]
+c 00h09m23s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m23s | stage:objective-cut:soft-install bound=38199 guard=10175465 clauses_added=32
+c 00h09m23s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,38199] next 38199 source=install guard=10175465
+c 00h09m23s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175465 base_clauses=16732554
+c 00h09m23s | stage:sat:init solver=CaDiCaL vars=10175465 clauses=16732554
+c 00h09m23s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m23s | stage:sat:solve:done ms=432 result=Sat assumptions=1 phase_lits=858
+c 00h09m23s | stage:decode:start
+c 00h09m24s | stage:decode:done int_assignments=117
+c 00h09m24s | result:Sat
+c 00h09m24s | objective:incumbent kind=improvement value=38190 rounds=14 improvements=11
+o 38190
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 28 37 10 20 35 44 20 30 45 54 30 38 52 61 0 7 23 37 0 15 33 44 0 26 43 54 0 35 51 61 37 44 54 61 0 6 16 0 0 6 28 0 0 20 35 0 0 30 45 0 0 6 28 0 0 20 35 0 0 30 45 0 0 38 46 1140 0 0 120 0 0 210 70 0 0 150 100 0 0 120 10 0 0 0 120 120 0 210 280 280 0 150 250 250 0 120 130 130 0 1 5 0 10 5 2 0 20 4 2 0 30 3 1 0 38190 </values>
+v </instantiation>
+c 00h09m24s | stage:objective-cut:soft-result search=step bound=38199 result=sat guard=10175465 hard=guard [LB,UB] = [34196,38189]
+c 00h09m24s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m24s | stage:objective-cut:soft-install bound=38189 guard=10175487 clauses_added=35
+c 00h09m24s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,38189] next 38189 source=install guard=10175487
+c 00h09m24s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175487 base_clauses=16732590
+c 00h09m24s | stage:sat:init solver=CaDiCaL vars=10175487 clauses=16732590
+c 00h09m24s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m29s | stage:sat:solve:done ms=5250 result=Sat assumptions=1 phase_lits=858
+c 00h09m29s | stage:decode:start
+c 00h09m30s | stage:decode:done int_assignments=117
+c 00h09m30s | result:Sat
+c 00h09m30s | objective:incumbent kind=improvement value=38125 rounds=15 improvements=12
+o 38125
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 28 37 10 20 35 44 20 29 46 55 30 38 51 60 0 7 23 37 0 15 33 44 0 26 43 55 0 35 51 60 37 44 55 60 0 6 16 0 0 8 28 0 0 20 35 0 0 29 46 0 0 8 28 0 0 20 35 0 0 29 46 0 0 38 46 1140 0 30 120 0 0 180 70 0 0 135 110 0 0 135 0 0 0 30 150 150 0 180 250 250 0 135 245 245 0 135 135 135 0 1 5 0 10 5 2 0 20 3 3 0 30 3 0 0 38125 </values>
+v </instantiation>
+c 00h09m30s | stage:objective-cut:soft-result search=step bound=38189 result=sat guard=10175487 hard=guard [LB,UB] = [34196,38124]
+c 00h09m30s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m30s | stage:objective-cut:soft-install bound=38124 guard=10175510 clauses_added=36
+c 00h09m30s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,38124] next 38124 source=install guard=10175510
+c 00h09m30s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175510 base_clauses=16732627
+c 00h09m30s | stage:sat:init solver=CaDiCaL vars=10175510 clauses=16732627
+c 00h09m30s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m31s | stage:sat:solve:done ms=1920 result=Sat assumptions=1 phase_lits=858
+c 00h09m31s | stage:decode:start
+c 00h09m32s | stage:decode:done int_assignments=117
+c 00h09m32s | result:Sat
+c 00h09m32s | objective:incumbent kind=improvement value=38055 rounds=16 improvements=13
+o 38055
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 27 36 10 20 35 44 20 29 46 55 30 38 51 60 0 7 23 36 0 15 33 44 0 26 43 55 0 35 51 60 36 44 55 60 0 6 16 0 0 8 27 0 0 20 35 0 0 29 46 0 0 8 27 0 0 20 35 0 0 29 46 0 0 38 46 1140 0 30 110 0 0 180 80 0 0 135 110 0 0 135 0 0 0 30 140 140 0 180 260 260 0 135 245 245 0 135 135 135 0 1 4 0 10 5 2 0 20 3 3 0 30 3 0 0 38055 </values>
+v </instantiation>
+c 00h09m32s | stage:objective-cut:soft-result search=step bound=38124 result=sat guard=10175510 hard=guard [LB,UB] = [34196,38054]
+c 00h09m32s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m32s | stage:objective-cut:soft-install bound=38054 guard=10175533 clauses_added=37
+c 00h09m32s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,38054] next 38054 source=install guard=10175533
+c 00h09m32s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175533 base_clauses=16732665
+c 00h09m32s | stage:sat:init solver=CaDiCaL vars=10175533 clauses=16732665
+c 00h09m32s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m33s | stage:sat:solve:done ms=606 result=Sat assumptions=1 phase_lits=858
+c 00h09m33s | stage:decode:start
+c 00h09m33s | stage:decode:done int_assignments=117
+c 00h09m33s | result:Sat
+c 00h09m33s | objective:incumbent kind=improvement value=38005 rounds=17 improvements=14
+o 38005
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 26 35 10 20 35 44 20 29 46 55 30 38 51 60 0 7 22 35 0 15 33 44 0 26 43 55 0 35 51 60 35 44 55 60 0 6 16 0 0 8 26 0 0 20 35 0 0 29 46 0 0 8 26 0 0 20 35 0 0 29 46 0 0 38 46 1140 0 30 100 0 0 180 90 0 0 135 110 0 0 135 0 0 0 30 130 130 0 180 270 270 0 135 245 245 0 135 135 135 0 1 4 0 10 5 2 0 20 3 3 0 30 3 0 0 38005 </values>
+v </instantiation>
+c 00h09m33s | stage:objective-cut:soft-result search=step bound=38054 result=sat guard=10175533 hard=guard [LB,UB] = [34196,38004]
+c 00h09m33s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m33s | stage:objective-cut:soft-install bound=38004 guard=10175556 clauses_added=37
+c 00h09m33s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,38004] next 38004 source=install guard=10175556
+c 00h09m33s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175556 base_clauses=16732703
+c 00h09m33s | stage:sat:init solver=CaDiCaL vars=10175556 clauses=16732703
+c 00h09m33s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m34s | stage:sat:solve:done ms=345 result=Sat assumptions=1 phase_lits=858
+c 00h09m34s | stage:decode:start
+c 00h09m34s | stage:decode:done int_assignments=117
+c 00h09m34s | result:Sat
+c 00h09m34s | objective:incumbent kind=improvement value=37990 rounds=18 improvements=15
+o 37990
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 26 36 10 20 35 44 20 30 45 54 30 38 52 61 0 7 22 36 0 15 33 44 0 26 43 54 0 35 51 61 36 44 54 61 0 6 16 0 0 8 26 0 0 20 35 0 0 30 45 0 0 8 26 0 0 20 35 0 0 30 45 0 0 38 46 1140 0 30 100 0 0 180 90 0 0 150 100 0 0 120 10 0 0 30 130 130 0 180 270 270 0 150 250 250 0 120 130 130 0 1 4 0 10 5 2 0 20 4 2 0 30 3 1 0 37990 </values>
+v </instantiation>
+c 00h09m34s | stage:objective-cut:soft-result search=step bound=38004 result=sat guard=10175556 hard=guard [LB,UB] = [34196,37989]
+c 00h09m34s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m34s | stage:objective-cut:soft-install bound=37989 guard=10175578 clauses_added=36
+c 00h09m34s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,37989] next 37989 source=install guard=10175578
+c 00h09m34s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175578 base_clauses=16732740
+c 00h09m34s | stage:sat:init solver=CaDiCaL vars=10175578 clauses=16732740
+c 00h09m34s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m35s | stage:sat:solve:done ms=708 result=Sat assumptions=1 phase_lits=858
+c 00h09m35s | stage:decode:start
+c 00h09m35s | stage:decode:done int_assignments=117
+c 00h09m35s | result:Sat
+c 00h09m35s | objective:incumbent kind=improvement value=37980 rounds=19 improvements=16
+o 37980
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 28 37 10 20 35 44 20 30 45 54 30 38 52 61 0 7 24 37 0 15 33 44 0 26 43 54 0 35 51 61 37 44 54 61 0 6 16 0 0 8 28 0 0 20 35 0 0 30 45 0 0 8 28 0 0 20 35 0 0 30 45 0 0 38 46 1140 0 30 120 0 0 180 70 0 0 150 100 0 0 120 10 0 0 30 150 150 0 180 250 250 0 150 250 250 0 120 130 130 0 1 4 0 10 5 2 0 20 4 2 0 30 3 1 0 37980 </values>
+v </instantiation>
+c 00h09m35s | stage:objective-cut:soft-result search=step bound=37989 result=sat guard=10175578 hard=guard [LB,UB] = [34196,37979]
+c 00h09m35s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m35s | stage:objective-cut:soft-install bound=37979 guard=10175599 clauses_added=34
+c 00h09m35s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,37979] next 37979 source=install guard=10175599
+c 00h09m35s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175599 base_clauses=16732775
+c 00h09m35s | stage:sat:init solver=CaDiCaL vars=10175599 clauses=16732775
+c 00h09m35s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m36s | stage:sat:solve:done ms=159 result=Sat assumptions=1 phase_lits=858
+c 00h09m36s | stage:decode:start
+c 00h09m36s | stage:decode:done int_assignments=117
+c 00h09m36s | result:Sat
+c 00h09m36s | objective:incumbent kind=improvement value=37910 rounds=20 improvements=17
+o 37910
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 27 36 10 20 35 44 20 30 45 54 30 38 52 61 0 7 23 36 0 15 33 44 0 26 43 54 0 35 51 61 36 44 54 61 0 6 16 0 0 8 27 0 0 20 35 0 0 30 45 0 0 8 27 0 0 20 35 0 0 30 45 0 0 38 46 1140 0 30 110 0 0 180 80 0 0 150 100 0 0 120 10 0 0 30 140 140 0 180 260 260 0 150 250 250 0 120 130 130 0 1 4 0 10 5 2 0 20 4 2 0 30 3 1 0 37910 </values>
+v </instantiation>
+c 00h09m36s | stage:objective-cut:soft-result search=step bound=37979 result=sat guard=10175599 hard=guard [LB,UB] = [34196,37909]
+c 00h09m36s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m36s | stage:objective-cut:soft-install bound=37909 guard=10175621 clauses_added=37
+c 00h09m36s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,37909] next 37909 source=install guard=10175621
+c 00h09m36s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175621 base_clauses=16732813
+c 00h09m36s | stage:sat:init solver=CaDiCaL vars=10175621 clauses=16732813
+c 00h09m36s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m42s | stage:sat:solve:done ms=6159 result=Sat assumptions=1 phase_lits=858
+c 00h09m42s | stage:decode:start
+c 00h09m43s | stage:decode:done int_assignments=117
+c 00h09m43s | result:Sat
+c 00h09m43s | objective:incumbent kind=improvement value=37830 rounds=21 improvements=18
+o 37830
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 25 34 10 20 35 44 20 30 45 54 30 38 52 61 0 7 21 34 0 15 33 44 0 26 43 54 0 35 51 61 34 44 54 61 0 6 16 0 0 8 25 0 0 20 35 0 0 30 45 0 0 8 25 0 0 20 35 0 0 30 45 0 0 38 46 1140 0 30 90 0 0 180 100 0 0 150 100 0 0 120 10 0 0 30 120 120 0 180 280 280 0 150 250 250 0 120 130 130 0 1 4 0 10 5 2 0 20 4 2 0 30 3 1 0 37830 </values>
+v </instantiation>
+c 00h09m43s | stage:objective-cut:soft-result search=step bound=37909 result=sat guard=10175621 hard=guard [LB,UB] = [34196,37829]
+c 00h09m43s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m43s | stage:objective-cut:soft-install bound=37829 guard=10175643 clauses_added=35
+c 00h09m43s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,37829] next 37829 source=install guard=10175643
+c 00h09m43s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175643 base_clauses=16732849
+c 00h09m43s | stage:sat:init solver=CaDiCaL vars=10175643 clauses=16732849
+c 00h09m43s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h09m43s | stage:sat:solve:done ms=415 result=Sat assumptions=1 phase_lits=858
+c 00h09m43s | stage:decode:start
+c 00h09m44s | stage:decode:done int_assignments=117
+c 00h09m44s | result:Sat
+c 00h09m44s | objective:incumbent kind=improvement value=37780 rounds=22 improvements=19
+o 37780
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 25 34 10 20 35 44 20 29 44 53 30 38 52 61 0 7 21 34 0 15 33 44 0 26 42 53 0 35 51 61 34 44 53 61 0 6 16 0 0 8 25 0 0 20 35 0 0 29 44 0 0 8 25 0 0 20 35 0 0 29 44 0 0 38 46 1140 0 30 90 0 0 180 100 0 0 135 90 0 0 135 20 0 0 30 120 120 0 180 280 280 0 135 225 225 0 135 155 155 0 1 4 0 10 5 2 0 20 3 2 0 30 3 1 0 37780 </values>
+v </instantiation>
+c 00h09m44s | stage:objective-cut:soft-result search=step bound=37829 result=sat guard=10175643 hard=guard [LB,UB] = [34196,37779]
+c 00h09m44s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=34196 upper=2280000 has_incumbent=true soft_active=true
+c 00h09m44s | stage:objective-cut:soft-install bound=37779 guard=10175664 clauses_added=34
+c 00h09m44s | stage:objective-cut:soft-probe search=step [LB,UB] = [34196,37779] next 37779 source=install guard=10175664
+c 00h09m44s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=858 sat_vars=10175664 base_clauses=16732884
+c 00h09m44s | stage:sat:init solver=CaDiCaL vars=10175664 clauses=16732884
+c 00h09m44s | stage:sat:solve:start assumptions=1 phase_lits=858
+c 00h12m21s | stage:sat:solve:done ms=157051 result=Unsat assumptions=1 phase_lits=858
+c 00h12m21s | result:Unsat
+c 00h12m21s | stage:objective-cut:soft-result search=step bound=37779 result=unsat guard=10175664 hard=-guard [LB,UB] = closed
+s OPTIMUM FOUND
+o 37780
+v <instantiation>
+v   <list> departure[1,1] departure[1,2] departure[1,3] departure[1,4] departure[2,1] departure[2,2] departure[2,3] departure[2,4] departure[3,1] departure[3,2] departure[3,3] departure[3,4] departure[4,1] departure[4,2] departure[4,3] departure[4,4] arrival[1,1] arrival[1,2] arrival[1,3] arrival[1,4] arrival[2,1] arrival[2,2] arrival[2,3] arrival[2,4] arrival[3,1] arrival[3,2] arrival[3,3] arrival[3,4] arrival[4,1] arrival[4,2] arrival[4,3] arrival[4,4] finalArrival[1] finalArrival[2] finalArrival[3] finalArrival[4] sigmaLower[1,1] sigmaLower[1,2] sigmaLower[1,3] sigmaLower[1,4] sigmaLower[2,1] sigmaLower[2,2] sigmaLower[2,3] sigmaLower[2,4] sigmaLower[3,1] sigmaLower[3,2] sigmaLower[3,3] sigmaLower[3,4] sigmaLower[4,1] sigmaLower[4,2] sigmaLower[4,3] sigmaLower[4,4] sigmaUpper[1,1] sigmaUpper[1,2] sigmaUpper[1,3] sigmaUpper[1,4] sigmaUpper[2,1] sigmaUpper[2,2] sigmaUpper[2,3] sigmaUpper[2,4] sigmaUpper[3,1] sigmaUpper[3,2] sigmaUpper[3,3] sigmaUpper[3,4] sigmaUpper[4,1] sigmaUpper[4,2] sigmaUpper[4,3] sigmaUpper[4,4] collect[1,1] collect[1,2] collect[1,3] collect[1,4] collect[2,1] collect[2,2] collect[2,3] collect[2,4] collect[3,1] collect[3,2] collect[3,3] collect[3,4] collect[4,1] collect[4,2] collect[4,3] collect[4,4] load[1,1] load[1,2] load[1,3] load[1,4] load[2,1] load[2,2] load[2,3] load[2,4] load[3,1] load[3,2] load[3,3] load[3,4] load[4,1] load[4,2] load[4,3] load[4,4] dwell[1,1] dwell[1,2] dwell[1,3] dwell[1,4] dwell[2,1] dwell[2,2] dwell[2,3] dwell[2,4] dwell[3,1] dwell[3,2] dwell[3,3] dwell[3,4] dwell[4,1] dwell[4,2] dwell[4,3] dwell[4,4] objective </list>
+v   <values> 0 8 25 34 10 20 35 44 20 29 44 53 30 38 52 61 0 7 21 34 0 15 33 44 0 26 42 53 0 35 51 61 34 44 53 61 0 6 16 0 0 8 25 0 0 20 35 0 0 29 44 0 0 8 25 0 0 20 35 0 0 29 44 0 0 38 46 1140 0 30 90 0 0 180 100 0 0 135 90 0 0 135 20 0 0 30 120 120 0 180 280 280 0 135 225 225 0 135 155 155 0 1 4 0 10 5 2 0 20 3 2 0 30 3 1 0 37780 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 37780
+d OPTIMAL 1
+d SOURCE_CONSTRAINTS 220
+d NORMALIZED_CONSTRAINTS 220
+d LOWERED_CONSTRAINTS 220
+d UNSUPPORTED_CONSTRAINTS 0
+d CSP_INT_VARS 117
+d CSP_CONSTRAINTS 220
+d CSP_INTENTIONAL 220
+d CSP_GLOBAL 0
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 0
+d CSP_CUMULATIVE 0
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 1140
+d CSP_DOMAIN_SPAN_MAX 2280000
+d N_CUMULATIVE 0
+d N_TABLE 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d OBJECTIVE_CUT_EAGER_CLAUSES_ADDED 0
+d OBJECTIVE_RELAXATION_CLAUSES_ADDED 0
+d OBJECTIVE_ROUNDS 23
+d OBJECTIVE_IMPROVEMENTS 19
+d OBJECTIVE_OPTIMALITY_PROOF strict_cut_unsat
+d PROPAGATE_MS 0
+d NORMALIZE_MS 0
+d LOWER_MS 8
+d POST_LOWER_MS 4
+d PREENCODE_MS 0
+d ENCODE_MS 9530
+d SAT_SOLVE_MS 540606
+d TOTAL_MS 741475
+d SAT_VARS 10175664
+d SAT_CLAUSES_BASE 16732884
+d SAT_CLAUSES_FINAL 16732884
+d SAT_CLAUSES_CEGAR_DELTA 0
+d CSP_INT_VARS 117
+d CSP_CONSTRAINTS 220
+d CSP_INTENTIONAL 220
+d CSP_GLOBAL 0
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 0
+d CSP_CUMULATIVE 0
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 1140
+d CSP_DOMAIN_SPAN_MAX 2280000
+d N_CUMULATIVE 0
+d N_TABLE 0
+d SAT_CONFLICTS 133130
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":2061,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":2036,"max_domain_product_excluding_one_var":"1141","p95_domain_product_excluding_one_var":"1111"},"3":{"count":36,"max_domain_product_excluding_one_var":"1234321","p95_domain_product_excluding_one_var":"1221025"},"5":{"count":1,"max_domain_product_excluding_one_var":"105560750773949402280001","p95_domain_product_excluding_one_var":"105560750773949402280001"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":53,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":109,"max_domain_product_excluding_one_var":"1141","p95_domain_product_excluding_one_var":"1112"},"3":{"count":16,"max_domain_product_excluding_one_var":"36135","p95_domain_product_excluding_one_var":"36135"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 2280000
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 2280000
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 16
+d ROOT_LP_ROWS 188
+d ROOT_LP_VARS 201
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 178
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 4134
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 3
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 36135
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 0
+d ROOT_LP_OBJECTIVE_VALUE 0
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d PROPAGATE_PRUNED_VALUES 0
+d PROPAGATE_CHANGED_DOMAINS 0
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 135
+d POST_LOWER_TIGHTENED_DOMAINS 217
+d POST_LOWER_REMOVED_CLAUSES 246
+d POST_LOWER_REMOVED_LITS 23
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 133
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 7566
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 7566
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 0
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 7566
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d MEMORY_RSS_BYTES 7197274112
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 5447680
+d MEMORY_RSS_AFTER_LOWER_BYTES 7335936
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 7335936
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 8085504
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 8085504
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 8085504
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 26
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 16732062
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 7197274112
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 7197274112
+d DECODE_INT_ASSIGNMENTS 117
+d CSV /bench/2018/train/train.mzn,optimum,220,220,220,0,10175664,16732884,741475,0,0,8,0,9530,540606,1,optimal,0,2280000,0,2280000,0,16,188,201,0,0,0,0,,
+c run_end_local: 2026-06-20 21:51:18 +0900

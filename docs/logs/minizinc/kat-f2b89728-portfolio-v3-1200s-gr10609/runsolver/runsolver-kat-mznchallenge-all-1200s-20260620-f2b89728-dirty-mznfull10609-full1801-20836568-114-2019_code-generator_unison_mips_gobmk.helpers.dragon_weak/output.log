@@ -1,0 +1,225 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2019/code-generator/unison.mzn --data /bench/2019/code-generator/mips_gobmk.helpers.dragon_weak.dzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 21:40:53 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | input: constraints=33175
+c 00h00m00s | stage:propagate:start
+c 00h03m37s | stage:propagate:done ms=217012 pruned=25897280010 changed_domains=18449 entailed_tables=17
+c 00h03m37s | memory:rss checkpoint=after_propagate bytes=1301188608 rss=1.21GiB
+c 00h03m37s | stage:normalize:start
+c 00h03m37s | stage:normalize:done ms=0 high_constraints=33175
+c 00h03m37s | stage:lower:start
+c 00h03m37s | stage:lower:progress percent=10 processed=3318 total=33175 lowered=3318 unsupported=0 ms=66
+c 00h03m37s | stage:lower:progress percent=20 processed=6635 total=33175 lowered=6635 unsupported=0 ms=80
+c 00h03m37s | stage:lower:progress percent=30 processed=9953 total=33175 lowered=9953 unsupported=0 ms=94
+c 00h03m37s | stage:lower:progress percent=40 processed=13270 total=33175 lowered=13270 unsupported=0 ms=108
+c 00h03m37s | stage:lower:progress percent=50 processed=16588 total=33175 lowered=16588 unsupported=0 ms=169
+c 00h03m38s | stage:lower:progress percent=60 processed=19905 total=33175 lowered=19905 unsupported=0 ms=1138
+c 00h03m38s | stage:lower:progress percent=70 processed=23223 total=33175 lowered=23223 unsupported=0 ms=1155
+c 00h04m14s | stage:lower:progress percent=80 processed=26540 total=33175 lowered=26540 unsupported=0 ms=37674
+c 00h04m25s | stage:lower:progress percent=90 processed=29858 total=33175 lowered=29858 unsupported=0 ms=48037
+c 00h04m25s | stage:lower:progress percent=100 processed=33175 total=33175 lowered=33175 unsupported=0 ms=48446
+c 00h04m26s | stage:lower:done ms=49135 lowered=33175 unsupported=0
+c 00h04m26s | memory:rss checkpoint=after_lower bytes=1487855616 rss=1.39GiB
+c 00h04m26s | stage:post_lower:start
+c 00h04m29s | stage:post_lower:done ms=3270 rounds=44980 tightened=38988 removed_cls=1795174 removed_lits=1888074 unsat=false precise_hits=52533 precise_rounds=1 pivot_recomputes=58133 pivot_exact_attempts=43963 pivot_general_attempts=26465 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=24927 pivot_general_tightened=1538 setup_ms=1007 loop_ms=1645 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=318 sat_ms=0 precise_ms=144
+c 00h04m29s | memory:rss checkpoint=after_post_lower bytes=1620844544 rss=1.51GiB
+c 00h04m29s | stage:lowered-shape int_vars=374565 bool_vars=649081 linear_atoms=1909395 table_atoms=494 table_tuples=115589 table_scope=1176 alldiff_atoms=1 circuit_atoms=0 product_atoms=0 logical_clauses=2665390
+c 00h04m29s | stage:root-lp:start backend=lpo
+c 00h04m30s | stage:root-lp:skip backend=lpo reason=root LP skipped: estimated rows 4576455 and vars 1139235 exceed LPO dense-size limit 50000x17000 ms=1042
+c 00h04m31s | stage:preencode(log-scop):linear-extprop constraints=3447
+c 00h04m31s | memory:rss checkpoint=before_preencode bytes=1698504704 rss=1.58GiB
+c 00h04m31s | stage:preencode(log-scop):start
+c 00h04m32s | stage:preencode(log-scop):done ms=238 int_vars=374565
+c 00h04m32s | memory:rss checkpoint=after_preencode bytes=1698504704 rss=1.58GiB
+c 00h04m32s | memory:rss checkpoint=before_encode bytes=1754439680 rss=1.63GiB
+c 00h04m32s | stage:encode(log-scop):start
+c 00h04m36s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=5840421 bytes=2937675776 rss=2.74GiB progress_percent=10 processed=285098 total=2850980
+c 00h04m36s | stage:encode(log-scop):progress percent=10 processed=285098 total=2850980 sat_clauses=5840421 ms=4239
+c 00h04m38s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=8749874 bytes=3947913216 rss=3.68GiB progress_percent=20 processed=570196 total=2850980
+c 00h04m38s | stage:encode(log-scop):progress percent=20 processed=570196 total=2850980 sat_clauses=8749874 ms=6030
+c 00h04m40s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=12804394 bytes=4377882624 rss=4.08GiB progress_percent=30 processed=855294 total=2850980
+c 00h04m40s | stage:encode(log-scop):progress percent=30 processed=855294 total=2850980 sat_clauses=12804394 ms=7936
+c 00h04m43s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=16949454 bytes=6263955456 rss=5.83GiB progress_percent=40 processed=1140392 total=2850980
+c 00h04m43s | stage:encode(log-scop):progress percent=40 processed=1140392 total=2850980 sat_clauses=16949454 ms=10825
+c 00h04m45s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=21384397 bytes=6733373440 rss=6.27GiB progress_percent=50 processed=1425490 total=2850980
+c 00h04m45s | stage:encode(log-scop):progress percent=50 processed=1425490 total=2850980 sat_clauses=21384397 ms=13011
+c 00h04m47s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=25605699 bytes=7177572352 rss=6.68GiB progress_percent=60 processed=1710588 total=2850980
+c 00h04m47s | stage:encode(log-scop):progress percent=60 processed=1710588 total=2850980 sat_clauses=25605699 ms=15037
+c 00h04m51s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=29735506 bytes=10512781312 rss=9.79GiB progress_percent=70 processed=1995686 total=2850980
+c 00h04m51s | stage:encode(log-scop):progress percent=70 processed=1995686 total=2850980 sat_clauses=29735506 ms=18747
+c 00h04m53s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=34349079 bytes=11004456960 rss=10.25GiB progress_percent=80 processed=2280784 total=2850980
+c 00h04m53s | stage:encode(log-scop):progress percent=80 processed=2280784 total=2850980 sat_clauses=34349079 ms=21044
+c 00h04m55s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=38408323 bytes=11434635264 rss=10.65GiB progress_percent=90 processed=2565882 total=2850980
+c 00h04m55s | stage:encode(log-scop):progress percent=90 processed=2565882 total=2850980 sat_clauses=38408323 ms=22985
+c 00h04m56s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=40015506 bytes=11598401536 rss=10.80GiB progress_percent=100 processed=2850980 total=2850980
+c 00h04m56s | stage:encode(log-scop):progress percent=100 processed=2850980 total=2850980 sat_clauses=40015506 ms=23856
+c 00h04m56s | stage:encode(log-scop):done ms=23866 sat_vars=25664734 sat_clauses=40015506 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=3656169 log_scop_pb_mixed=0 log_scop_pb_bdd2=3656169 log_scop_pb_bdd3=0 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=3656169 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h04m56s | stage:post-encode(log-scop):start sat_vars=25664734 sat_clauses=40015506 has_relaxations=false external_tables=0
+c 00h04m56s | stage:post-encode(log-scop):after-finish-check ms=0
+c 00h04m56s | stage:post-encode(log-scop):decode-layout-ready int_symbols=374565 ms=490
+c 00h04m56s | stage:post-encode(log-scop):cumulative-external-ready has_prop=true ms=523
+c 00h04m56s | stage:post-encode(log-scop):log-scop-external-ready has_prop=true ms=640
+c 00h04m56s | stage:post-encode(log-scop):external-prop-connected has_prop=true ms=722
+c 00h04m56s | stage:post-encode(log-scop):done sat_vars=25664734 sat_clauses=40015506 ms=722
+c 00h04m57s | stage:post-encode(log-scop):reusable-ready mode=SoftCnf sat_vars=25664734
+c 00h04m57s | stage:objective-external-ge-template(log-scop):start cut=DirectExpr wants_ext_ge=false
+c 00h04m58s | stage:objective-external-ge-template(log-scop):done has_template=true ms=661
+c 00h04m58s | stage:objective-mode(log-scop):resolved mode=SoftCnf wants_ext_ge=false has_ext_ge_template=true
+c 00h04m58s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h04m58s | stage:objective-encoder(log-scop):ready mode=SoftCnf soft=true sat_vars=25664734
+c 00h04m58s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=2147483646 has_incumbent=false soft_active=true
+c 00h04m58s | stage:sat:round-entry encoder=log-scop assumptions=0 phase_lits=0 sat_vars=25664734 base_clauses=40015506
+c 00h04m58s | stage:sat:init solver=CaDiCaL vars=25664734 clauses=40015506
+c 00h04m58s | stage:sat:solve:start assumptions=0 phase_lits=0
+s UNKNOWN
+d SOLVE_ELAPSED_MS 494305
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 195876
+d LAST_COMPLETED_STAGE encode(log-scop)
+d STAGE_PARSE_STATUS pending
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS pending
+d STAGE_RELAXATION_STATUS pending
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 33175
+d NORMALIZED_CONSTRAINTS 33175
+d LOWERED_CONSTRAINTS 33175
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 25664734
+d SAT_CLAUSES_BASE 40015506
+d SAT_CLAUSES_FINAL 40015506
+d SAT_CLAUSES_CEGAR_DELTA 0
+d MEMORY_RSS_BYTES 11598401536
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 1301188608
+d MEMORY_RSS_AFTER_LOWER_BYTES 1487855616
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 1620844544
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 1698504704
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 1698504704
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 1754439680
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 50
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 40015506
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 11598401536
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 11598401536
+d CSP_INT_VARS 23646
+d CSP_CONSTRAINTS 33175
+d CSP_INTENTIONAL 28678
+d CSP_GLOBAL 3986
+d CSP_EXTENSIONAL 511
+d CSP_ALLDIFF 1
+d CSP_CUMULATIVE 22
+d CSP_TABLE 511
+d CSP_DOMAIN_SPAN_MEDIAN 2000000
+d CSP_DOMAIN_SPAN_MAX 2147483646
+d N_CUMULATIVE 22
+d N_TABLE 511
+d CUMULATIVE_EXTPROP_CONSTRAINTS 22
+d CUMULATIVE_EXTPROP_OBSERVED_VARS 3202
+d CUMULATIVE_EXTPROP_OBSERVED_LITS 3202
+d CUMULATIVE_EXTPROP_OBSERVED_LIT_OCCURRENCES 5106
+d CUMULATIVE_EXTPROP_NOTIFY_ASSIGNMENT_CALLS 85342
+d CUMULATIVE_EXTPROP_NOTIFY_ASSIGNMENT_LITS 1352063
+d CUMULATIVE_EXTPROP_NOTIFY_NEW_DECISION_LEVEL_CALLS 110385304
+d CUMULATIVE_EXTPROP_NOTIFY_BACKTRACK_CALLS 2386
+d CUMULATIVE_EXTPROP_CB_CHECK_FOUND_MODEL_CALLS 0
+d CUMULATIVE_EXTPROP_CB_CHECK_FOUND_MODEL_REJECTS 0
+d CUMULATIVE_EXTPROP_CB_PROPAGATE_CALLS 4419
+d CUMULATIVE_EXTPROP_CB_PROPAGATE_CONFLICTS 3
+d CUMULATIVE_EXTPROP_PROPAGATED_LITS 0
+d CUMULATIVE_EXTPROP_REASON_CLAUSES 0
+d CUMULATIVE_EXTPROP_REASON_CLAUSE_LITS 0
+d CUMULATIVE_EXTPROP_REASON_CLAUSE_MAX_LEN 0
+d CUMULATIVE_EXTPROP_CB_HAS_EXTERNAL_CLAUSE_CALLS 110385419
+d CUMULATIVE_EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_CALLS 41
+d CUMULATIVE_EXTPROP_EXTERNAL_CLAUSES 3
+d CUMULATIVE_EXTPROP_EXTERNAL_CLAUSE_LITS 38
+d CUMULATIVE_EXTPROP_EXTERNAL_CLAUSE_MAX_LEN 14
+d CUMULATIVE_EXTPROP_PARTIAL_VIOLATION_CALLS 8095
+d CUMULATIVE_EXTPROP_COMPULSORY_VIOLATION_CALLS 8095
+d CUMULATIVE_EXTPROP_BOUND_PROPAGATION_CALLS 0
+d CUMULATIVE_EXTPROP_BOUND_REASON_CALLS 0
+d CUMULATIVE_EXTPROP_PARTIAL_SUMMARY_TASK_EVALS 315809
+d CUMULATIVE_EXTPROP_BOUND_SUMMARY_TASK_EVALS 315809
+d CUMULATIVE_EXTPROP_BOUND_EVENT_PAIRS 0
+d CUMULATIVE_EXTPROP_LOWER_BOUND_LIT_CALLS 164
+d CUMULATIVE_EXTPROP_UPPER_BOUND_LIT_CALLS 164
+d CUMULATIVE_EXTPROP_LOG_WITNESS_CHECKS 2182
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":1224834,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":218064,"max_domain_product_excluding_one_var":"2000001","p95_domain_product_excluding_one_var":"17"},"3":{"count":523,"max_domain_product_excluding_one_var":"22952","p95_domain_product_excluding_one_var":"22952"},"5":{"count":79,"max_domain_product_excluding_one_var":"5250","p95_domain_product_excluding_one_var":"5250"},"6":{"count":815,"max_domain_product_excluding_one_var":"15960","p95_domain_product_excluding_one_var":"2800"},"8":{"count":1,"max_domain_product_excluding_one_var":"1204117125120","p95_domain_product_excluding_one_var":"1204117125120"},"19":{"count":2,"max_domain_product_excluding_one_var":"65536","p95_domain_product_excluding_one_var":"65536"},"20":{"count":1,"max_domain_product_excluding_one_var":"262144","p95_domain_product_excluding_one_var":"262144"},"31":{"count":2,"max_domain_product_excluding_one_var":"134217728","p95_domain_product_excluding_one_var":"134217728"},"40":{"count":1,"max_domain_product_excluding_one_var":"17179869184","p95_domain_product_excluding_one_var":"17179869184"},"48":{"count":1,"max_domain_product_excluding_one_var":"8796093022208","p95_domain_product_excluding_one_var":"8796093022208"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":3800,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":217,"max_domain_product_excluding_one_var":"33","p95_domain_product_excluding_one_var":"33"}}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":226979,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":197977,"max_domain_product_excluding_one_var":"2000001","p95_domain_product_excluding_one_var":"151"},"3":{"count":29785,"max_domain_product_excluding_one_var":"22952","p95_domain_product_excluding_one_var":"22952"},"4":{"count":9,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"},"5":{"count":819,"max_domain_product_excluding_one_var":"1225","p95_domain_product_excluding_one_var":"324"},"7":{"count":1,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"},"8":{"count":6,"max_domain_product_excluding_one_var":"128","p95_domain_product_excluding_one_var":"128"},"9":{"count":5,"max_domain_product_excluding_one_var":"256","p95_domain_product_excluding_one_var":"256"},"10":{"count":16,"max_domain_product_excluding_one_var":"512","p95_domain_product_excluding_one_var":"512"},"11":{"count":147,"max_domain_product_excluding_one_var":"1024","p95_domain_product_excluding_one_var":"1024"},"12":{"count":2,"max_domain_product_excluding_one_var":"2048","p95_domain_product_excluding_one_var":"2048"},"13":{"count":4,"max_domain_product_excluding_one_var":"4096","p95_domain_product_excluding_one_var":"4096"},"14":{"count":290,"max_domain_product_excluding_one_var":"8192","p95_domain_product_excluding_one_var":"8192"},"16":{"count":5,"max_domain_product_excluding_one_var":"32768","p95_domain_product_excluding_one_var":"32768"},"17":{"count":9,"max_domain_product_excluding_one_var":"65536","p95_domain_product_excluding_one_var":"65536"},"18":{"count":164,"max_domain_product_excluding_one_var":"131072","p95_domain_product_excluding_one_var":"131072"},"19":{"count":15,"max_domain_product_excluding_one_var":"262144","p95_domain_product_excluding_one_var":"262144"},"20":{"count":160,"max_domain_product_excluding_one_var":"524288","p95_domain_product_excluding_one_var":"524288"},"21":{"count":293,"max_domain_product_excluding_one_var":"1572864","p95_domain_product_excluding_one_var":"1572864"},"22":{"count":151,"max_domain_product_excluding_one_var":"2097152","p95_domain_product_excluding_one_var":"2097152"},"23":{"count":288,"max_domain_product_excluding_one_var":"4194304","p95_domain_product_excluding_one_var":"4194304"},"24":{"count":146,"max_domain_product_excluding_one_var":"8388608","p95_domain_product_excluding_one_var":"8388608"},"25":{"count":3,"max_domain_product_excluding_one_var":"16777216","p95_domain_product_excluding_one_var":"16777216"},"26":{"count":3,"max_domain_product_excluding_one_var":"33554432","p95_domain_product_excluding_one_var":"33554432"},"27":{"count":1,"max_domain_product_excluding_one_var":"67108864","p95_domain_product_excluding_one_var":"67108864"},"28":{"count":17,"max_domain_product_excluding_one_var":"134217728","p95_domain_product_excluding_one_var":"134217728"},"29":{"count":16,"max_domain_product_excluding_one_var":"268435456","p95_domain_product_excluding_one_var":"268435456"},"30":{"count":17,"max_domain_product_excluding_one_var":"536870912","p95_domain_product_excluding_one_var":"536870912"},"31":{"count":131,"max_domain_product_excluding_one_var":"1073741824","p95_domain_product_excluding_one_var":"1073741824"},"32":{"count":3,"max_domain_product_excluding_one_var":"2147483648","p95_domain_product_excluding_one_var":"2147483648"},"33":{"count":11,"max_domain_product_excluding_one_var":"6442450944","p95_domain_product_excluding_one_var":"6442450944"},"34":{"count":151,"max_domain_product_excluding_one_var":"12884901888","p95_domain_product_excluding_one_var":"8589934592"},"35":{"count":275,"max_domain_product_excluding_one_var":"38654705664","p95_domain_product_excluding_one_var":"38654705664"},"36":{"count":5,"max_domain_product_excluding_one_var":"34359738368","p95_domain_product_excluding_one_var":"34359738368"},"37":{"count":10,"max_domain_product_excluding_one_var":"68719476736","p95_domain_product_excluding_one_var":"68719476736"},"38":{"count":304,"max_domain_product_excluding_one_var":"11888133931008","p95_domain_product_excluding_one_var":"11888133931008"},"39":{"count":5,"max_domain_product_excluding_one_var":"274877906944","p95_domain_product_excluding_one_var":"274877906944"},"40":{"count":136,"max_domain_product_excluding_one_var":"549755813888","p95_domain_product_excluding_one_var":"549755813888"},"41":{"count":133,"max_domain_product_excluding_one_var":"1099511627776","p95_domain_product_excluding_one_var":"1099511627776"},"42":{"count":1,"max_domain_product_excluding_one_var":"2199023255552","p95_domain_product_excluding_one_var":"2199023255552"},"43":{"count":1,"max_domain_product_excluding_one_var":"19591041024","p95_domain_product_excluding_one_var":"19591041024"},"44":{"count":603,"max_domain_product_excluding_one_var":"66795331387392","p95_domain_product_excluding_one_var":"66795331387392"},"45":{"count":1,"max_domain_product_excluding_one_var":"17592186044416","p95_domain_product_excluding_one_var":"17592186044416"},"46":{"count":1,"max_domain_product_excluding_one_var":"35184372088832","p95_domain_product_excluding_one_var":"35184372088832"},"47":{"count":4,"max_domain_product_excluding_one_var":"70368744177664","p95_domain_product_excluding_one_var":"70368744177664"},"48":{"count":8,"max_domain_product_excluding_one_var":"140737488355328","p95_domain_product_excluding_one_var":"140737488355328"},"49":{"count":4,"max_domain_product_excluding_one_var":"422212465065984","p95_domain_product_excluding_one_var":"422212465065984"},"50":{"count":9,"max_domain_product_excluding_one_var":"562949953421312","p95_domain_product_excluding_one_var":"562949953421312"},"51":{"count":5,"max_domain_product_excluding_one_var":"1125899906842624","p95_domain_product_excluding_one_var":"1125899906842624"},"52":{"count":8,"max_domain_product_excluding_one_var":"3377699720527872","p95_domain_product_excluding_one_var":"3377699720527872"},"53":{"count":14,"max_domain_product_excluding_one_var":"6755399441055744","p95_domain_product_excluding_one_var":"6755399441055744"},"54":{"count":312,"max_domain_product_excluding_one_var":"779100745302540288","p95_domain_product_excluding_one_var":"779100745302540288"},"55":{"count":116,"max_domain_product_excluding_one_var":"18014398509481984","p95_domain_product_excluding_one_var":"18014398509481984"},"56":{"count":7,"max_domain_product_excluding_one_var":"54043195528445952","p95_domain_product_excluding_one_var":"54043195528445952"},"57":{"count":6,"max_domain_product_excluding_one_var":"108086391056891904","p95_domain_product_excluding_one_var":"108086391056891904"},"58":{"count":5,"max_domain_product_excluding_one_var":"216172782113783808","p95_domain_product_excluding_one_var":"216172782113783808"},"59":{"count":3,"max_domain_product_excluding_one_var":"432345564227567616","p95_domain_product_excluding_one_var":"432345564227567616"},"60":{"count":7,"max_domain_product_excluding_one_var":"576460752303423488","p95_domain_product_excluding_one_var":"576460752303423488"},"61":{"count":309,"max_domain_product_excluding_one_var":"8754997675608244224","p95_domain_product_excluding_one_var":"8754997675608244224"},"62":{"count":5,"max_domain_product_excluding_one_var":"3458764513820540928","p95_domain_product_excluding_one_var":"3458764513820540928"},"63":{"count":11,"max_domain_product_excluding_one_var":"4611686018427387904","p95_domain_product_excluding_one_var":"4611686018427387904"},"64":{"count":11,"max_domain_product_excluding_one_var":"13835058055282163712","p95_domain_product_excluding_one_var":"13835058055282163712"},"65":{"count":121,"max_domain_product_excluding_one_var":"27670116110564327424","p95_domain_product_excluding_one_var":"18446744073709551616"},"66":{"count":5,"max_domain_product_excluding_one_var":"55340232221128654848","p95_domain_product_excluding_one_var":"55340232221128654848"},"67":{"count":10,"max_domain_product_excluding_one_var":"110680464442257309696","p95_domain_product_excluding_one_var":"110680464442257309696"},"68":{"count":224,"max_domain_product_excluding_one_var":"221360928884514619392","p95_domain_product_excluding_one_var":"221360928884514619392"},"72":{"count":1,"max_domain_product_excluding_one_var":"333167437850738688","p95_domain_product_excluding_one_var":"333167437850738688"},"75":{"count":301,"max_domain_product_excluding_one_var":"1633892686212712970059776","p95_domain_product_excluding_one_var":"1633892686212712970059776"},"93":{"count":301,"max_domain_product_excluding_one_var":"1015265574718922497951644254208","p95_domain_product_excluding_one_var":"1015265574718922497951644254208"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"1":{"count":3,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":12,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"},"3":{"count":16,"max_domain_product_excluding_one_var":"4","p95_domain_product_excluding_one_var":"4"},"4":{"count":118,"max_domain_product_excluding_one_var":"8","p95_domain_product_excluding_one_var":"8"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS skipped
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 2147483646
+d ROOT_LP_MS 1042
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 460906
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 1444323
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 93
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 1015265574718922497951644254208
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 4
+d ROOT_LP_REASON lpo: root LP skipped: estimated rows 4576455 and vars 1139235 exceed LPO dense-size limit 50000x17000
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d PROPAGATE_PRUNED_VALUES 25897280010
+d PROPAGATE_CHANGED_DOMAINS 18449
+d PROPAGATE_ENTAILED_TABLES 17
+d POST_LOWER_ROUNDS 44980
+d POST_LOWER_TIGHTENED_DOMAINS 38988
+d POST_LOWER_REMOVED_CLAUSES 1795174
+d POST_LOWER_REMOVED_LITS 1888074
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 374565
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 3656169
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 3656169
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 0
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 3656169
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d MEMORY_RSS_BYTES 11598401536
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 1301188608
+d MEMORY_RSS_AFTER_LOWER_BYTES 1487855616
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 1620844544
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 1698504704
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 1698504704
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 1754439680
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 50
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 40015506
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 11598401536
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 11598401536
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/2019/code-generator/unison.mzn,unknown,33175,33175,33175,0,25664734,40015506,494305,,,,,,,1,skipped,0,2147483646,,,,1042,,,,,,,timeout_signal,terminated_by_signal
+signal=15; emitted fallback csv row
+c run_end_local: 2026-06-20 22:00:53 +0900

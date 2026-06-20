@@ -1,0 +1,169 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2020/p1f-pjs/p1f-pjs.mzn --data /bench/2020/p1f-pjs/21.dzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 21:59:05 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | input: constraints=27679
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=33 pruned=0 changed_domains=0 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=65179648 rss=62.16MiB
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=27679
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:progress percent=10 processed=2768 total=27679 lowered=2768 unsupported=0 ms=92
+c 00h00m00s | stage:lower:progress percent=20 processed=5536 total=27679 lowered=5536 unsupported=0 ms=110
+c 00h00m00s | stage:lower:progress percent=30 processed=8304 total=27679 lowered=8304 unsupported=0 ms=129
+c 00h00m00s | stage:lower:progress percent=40 processed=11072 total=27679 lowered=11072 unsupported=0 ms=147
+c 00h00m00s | stage:lower:progress percent=50 processed=13840 total=27679 lowered=13840 unsupported=0 ms=167
+c 00h00m00s | stage:lower:progress percent=60 processed=16608 total=27679 lowered=16608 unsupported=0 ms=192
+c 00h00m00s | stage:lower:progress percent=70 processed=19376 total=27679 lowered=19376 unsupported=0 ms=211
+c 00h00m00s | stage:lower:progress percent=80 processed=22144 total=27679 lowered=22144 unsupported=0 ms=229
+c 00h00m00s | stage:lower:progress percent=90 processed=24912 total=27679 lowered=24912 unsupported=0 ms=247
+c 00h00m00s | stage:lower:progress percent=100 processed=27679 total=27679 lowered=27679 unsupported=0 ms=264
+c 00h00m00s | stage:lower:done ms=287 lowered=27679 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=88080384 rss=84.00MiB
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:affine_elim eliminated_vars=14028 removed_clauses=14028 removed_lits=0 ms=51
+c 00h00m00s | stage:post_lower:done ms=104 rounds=10039 tightened=10039 removed_cls=0 removed_lits=0 unsat=false precise_hits=28436 precise_rounds=1 pivot_recomputes=10059 pivot_exact_attempts=10039 pivot_general_attempts=10059 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=10059 pivot_general_tightened=0 setup_ms=21 loop_ms=12 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=4 sat_ms=0 precise_ms=10
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=88293376 rss=84.20MiB
+c 00h00m00s | stage:lowered-shape int_vars=30409 bool_vars=361 linear_atoms=82198 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=21 circuit_atoms=190 product_atoms=0 logical_clauses=43162
+c 00h00m00s | stage:root-lp:start backend=lpo
+c 00h00m15s | stage:root-lp:bound backend=lpo status=optimal objective_value=231 naive_bounds=[-1000000,1000000] lp_bounds=[231,1000000] improved=1 rows=761 vars=16742 lp_rows_singleton_linear=400 lp_rows_disjunctive=361 lp_rows_table=0 lp_rows_cumulative_energy=0 lp_rows_cumulative_pair=0 lp_rows_cumulative_timetable=0 lp_rows_cumulative_completion=0 lp_rows_cumulative_precedence=0 lp_rows_no_overlap_pair=0 lp_rows_no_overlap_completion=0 lp_rows_no_overlap_precedence=0 lp_rows_no_overlap_2d_energy=0 lp_rows_no_overlap_2d_completion=0 lp_scheduling_payloads_cumulative=0 lp_scheduling_payloads_no_overlap=0 lp_scheduling_cut_rounds=0 lp_scheduling_cut_candidates=0 lp_scheduling_cut_violated=0 lp_scheduling_rows_skipped=0 ms=14573
+c 00h00m15s | memory:rss checkpoint=before_preencode bytes=2955943936 rss=2.75GiB
+c 00h00m15s | stage:preencode(order-ge):start
+c 00h00m15s | stage:preencode(order-ge):done ms=79 int_vars=30443
+c 00h00m15s | memory:rss checkpoint=after_preencode bytes=2956050432 rss=2.75GiB
+c 00h00m15s | memory:rss checkpoint=before_encode bytes=2956050432 rss=2.75GiB
+c 00h00m15s | stage:encode(order-ge):start
+c 00h00m15s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=302338 bytes=2956288000 rss=2.75GiB progress_percent=10 processed=4324 total=43233
+c 00h00m15s | stage:encode(order-ge):progress percent=10 processed=4324 total=43233 sat_clauses=302338 ms=103
+c 00h00m15s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=316483 bytes=2956288000 rss=2.75GiB progress_percent=20 processed=8647 total=43233
+c 00h00m15s | stage:encode(order-ge):progress percent=20 processed=8647 total=43233 sat_clauses=316483 ms=104
+c 00h00m15s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=330532 bytes=2956288000 rss=2.75GiB progress_percent=30 processed=12970 total=43233
+c 00h00m15s | stage:encode(order-ge):progress percent=30 processed=12970 total=43233 sat_clauses=330532 ms=139
+c 00h00m15s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=344494 bytes=2956288000 rss=2.75GiB progress_percent=40 processed=17294 total=43233
+c 00h00m15s | stage:encode(order-ge):progress percent=40 processed=17294 total=43233 sat_clauses=344494 ms=141
+c 00h00m15s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=676746 bytes=2956529664 rss=2.75GiB progress_percent=50 processed=21617 total=43233
+c 00h00m15s | stage:encode(order-ge):progress percent=50 processed=21617 total=43233 sat_clauses=676746 ms=245
+c 00h00m15s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=1033799 bytes=2956529664 rss=2.75GiB progress_percent=60 processed=25940 total=43233
+c 00h00m15s | stage:encode(order-ge):progress percent=60 processed=25940 total=43233 sat_clauses=1033799 ms=347
+c 00h00m15s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=1390895 bytes=2956529664 rss=2.75GiB progress_percent=70 processed=30264 total=43233
+c 00h00m15s | stage:encode(order-ge):progress percent=70 processed=30264 total=43233 sat_clauses=1390895 ms=459
+c 00h00m15s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=1746525 bytes=2956529664 rss=2.75GiB progress_percent=80 processed=34587 total=43233
+c 00h00m15s | stage:encode(order-ge):progress percent=80 processed=34587 total=43233 sat_clauses=1746525 ms=621
+c 00h00m15s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=2103578 bytes=2956529664 rss=2.75GiB progress_percent=90 processed=38910 total=43233
+c 00h00m15s | stage:encode(order-ge):progress percent=90 processed=38910 total=43233 sat_clauses=2103578 ms=741
+c 00h00m21s | memory:rss checkpoint=encode_clause_sample stage=order-ge clauses=22856533 bytes=3275657216 rss=3.05GiB progress_percent=100 processed=43233 total=43233
+c 00h00m21s | stage:encode(order-ge):progress percent=100 processed=43233 total=43233 sat_clauses=22856533 ms=6400
+c 00h00m21s | stage:encode(order-ge):done ms=6420 sat_vars=680271 sat_clauses=22856533 ext_ge_specs=0 relaxed_circuits=190
+c 00h00m21s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m21s | stage:sat:init solver=CaDiCaL vars=680271 clauses=22856533
+c 00h00m21s | stage:sat:solve:start round=1 circuit_cegar_rounds=1 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=0 phase_lits=0
+s UNKNOWN
+d SOLVE_ELAPSED_MS 1199322
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 1177681
+d LAST_COMPLETED_STAGE encode(order-ge)
+d STAGE_PARSE_STATUS pending
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS pending
+d STAGE_RELAXATION_STATUS pending
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 27679
+d NORMALIZED_CONSTRAINTS 27679
+d LOWERED_CONSTRAINTS 27679
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 680271
+d SAT_CLAUSES_BASE 22856533
+d SAT_CLAUSES_FINAL 22856533
+d SAT_CLAUSES_CEGAR_DELTA 0
+d MEMORY_RSS_BYTES 3275657216
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 65179648
+d MEMORY_RSS_AFTER_LOWER_BYTES 88080384
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 88293376
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 2955943936
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 2956050432
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 2956050432
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 32
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 22856533
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 3275657216
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 3275657216
+d CSP_INT_VARS 30409
+d CSP_CONSTRAINTS 27679
+d CSP_INTENTIONAL 14639
+d CSP_GLOBAL 13040
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 21
+d CSP_CUMULATIVE 0
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 20
+d CSP_DOMAIN_SPAN_MAX 2000000
+d N_CUMULATIVE 0
+d N_TABLE 0
+d LINEAR_INT_EQ_ARITY_STATS {"0":{"count":14028,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"1":{"count":17640,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":24130,"max_domain_product_excluding_one_var":"21","p95_domain_product_excluding_one_var":"21"},"22":{"count":1,"max_domain_product_excluding_one_var":"5842587018385982521381124421","p95_domain_product_excluding_one_var":"5842587018385982521381124421"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":25620,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":380,"max_domain_product_excluding_one_var":"21","p95_domain_product_excluding_one_var":"21"}}
+d LINEAR_INT_GE_ARITY_STATS {"2":{"count":399,"max_domain_product_excluding_one_var":"21","p95_domain_product_excluding_one_var":"21"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER -1000000
+d OBJECTIVE_NAIVE_UPPER 1000000
+d OBJECTIVE_LP_LOWER 231
+d OBJECTIVE_LP_UPPER 1000000
+d ROOT_LP_IMPROVED 1
+d ROOT_LP_MS 14573
+d ROOT_LP_ROWS 761
+d ROOT_LP_VARS 16742
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 399
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 55799
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 2
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 21
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 0
+d ROOT_LP_OBJECTIVE_VALUE 231
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d PROPAGATE_PRUNED_VALUES 0
+d PROPAGATE_CHANGED_DOMAINS 0
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 10039
+d POST_LOWER_TIGHTENED_DOMAINS 10039
+d POST_LOWER_REMOVED_CLAUSES 0
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 30443
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 190
+d MEMORY_RSS_BYTES 3275657216
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 65179648
+d MEMORY_RSS_AFTER_LOWER_BYTES 88080384
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 88293376
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 2955943936
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 2956050432
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 2956050432
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 32
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 22856533
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 3275657216
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 3275657216
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 1
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/2020/p1f-pjs/p1f-pjs.mzn,unknown,27679,27679,27679,0,680271,22856533,1199322,,,,,,,1,optimal,-1000000,1000000,231,1000000,1,14573,761,16742,0,0,0,231,timeout_signal,terminated_by_signal
+signal=15; emitted fallback csv row
+c run_end_local: 2026-06-20 22:19:05 +0900

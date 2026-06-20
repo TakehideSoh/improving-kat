@@ -1,0 +1,36 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2017/tdtsp/tdtsp.mzn --data /bench/2017/tdtsp/inst_10_35_20.dzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 21:27:09 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | input: constraints=326
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=226 pruned=25263 changed_domains=155 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=412291072 rss=393.19MiB
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=326
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:progress percent=10 processed=33 total=326 lowered=33 unsupported=0 ms=1
+c 00h00m00s | stage:lower:progress percent=20 processed=66 total=326 lowered=66 unsupported=0 ms=2
+c 00h00m00s | stage:lower:progress percent=30 processed=98 total=326 lowered=98 unsupported=0 ms=3
+c 00h00m00s | stage:lower:progress percent=40 processed=131 total=326 lowered=131 unsupported=0 ms=441
+c 00h00m01s | stage:lower:progress percent=50 processed=163 total=326 lowered=163 unsupported=0 ms=1220
+c 00h00m03s | stage:lower:progress percent=60 processed=196 total=326 lowered=196 unsupported=0 ms=2927
+c 00h00m04s | stage:lower:progress percent=70 processed=229 total=326 lowered=229 unsupported=0 ms=4696
+c 00h00m04s | stage:lower:progress percent=80 processed=261 total=326 lowered=261 unsupported=0 ms=4697
+c 00h00m04s | stage:lower:progress percent=90 processed=294 total=326 lowered=294 unsupported=0 ms=4698
+c 00h00m04s | stage:lower:progress percent=100 processed=326 total=326 lowered=326 unsupported=0 ms=4699
+c 00h00m05s | stage:lower:done ms=5099 lowered=326 unsupported=0
+c 00h00m05s | memory:rss checkpoint=after_lower bytes=524857344 rss=500.54MiB
+c 00h00m05s | stage:post_lower:start
+c 00h00m06s | stage:post_lower:done ms=1188 rounds=15750 tightened=15761 removed_cls=804495 removed_lits=8 unsat=false precise_hits=47274 precise_rounds=1 pivot_recomputes=597865 pivot_exact_attempts=298871 pivot_general_attempts=582135 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=582115 pivot_general_tightened=20 setup_ms=667 loop_ms=234 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=120 sat_ms=0 precise_ms=34
+c 00h00m06s | memory:rss checkpoint=after_post_lower bytes=622743552 rss=593.89MiB
+c 00h00m06s | stage:lowered-shape int_vars=629446 bool_vars=0 linear_atoms=1334032 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=456121
+c 00h00m06s | stage:root-lp:start backend=lpo
+c 00h00m07s | stage:root-lp:skip backend=lpo reason=root LP skipped: estimated rows 1790153 and vars 629446 exceed LPO dense-size limit 50000x17000 ms=1066
+c 00h00m08s | memory:rss checkpoint=before_preencode bytes=693465088 rss=661.34MiB
+c 00h00m08s | stage:preencode(log-scop):start
+c 00h00m08s | stage:preencode(log-scop):done ms=85 int_vars=629446
+c 00h00m08s | memory:rss checkpoint=after_preencode bytes=693526528 rss=661.40MiB
+c 00h00m08s | memory:rss checkpoint=before_encode bytes=693526528 rss=661.40MiB
+c 00h00m08s | stage:encode(log-scop):start

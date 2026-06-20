@@ -1,0 +1,393 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2016/mapping/mapping.mzn --data /bench/2016/mapping/mesh4x4_1.dzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 21:12:17 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | input: constraints=1559
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=1 pruned=12000 changed_domains=48 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=7462912 rss=7.12MiB
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=1559
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:progress percent=10 processed=156 total=1559 lowered=156 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=20 processed=312 total=1559 lowered=312 unsupported=0 ms=1
+c 00h00m00s | stage:lower:progress percent=30 processed=468 total=1559 lowered=468 unsupported=0 ms=1
+c 00h00m00s | stage:lower:progress percent=40 processed=624 total=1559 lowered=624 unsupported=0 ms=2
+c 00h00m00s | stage:lower:progress percent=50 processed=780 total=1559 lowered=780 unsupported=0 ms=2
+c 00h00m00s | stage:lower:progress percent=60 processed=936 total=1559 lowered=936 unsupported=0 ms=2
+c 00h00m00s | stage:lower:progress percent=70 processed=1092 total=1559 lowered=1092 unsupported=0 ms=5
+c 00h00m00s | stage:lower:progress percent=80 processed=1248 total=1559 lowered=1248 unsupported=0 ms=10
+c 00h00m00s | stage:lower:progress percent=90 processed=1404 total=1559 lowered=1404 unsupported=0 ms=12
+c 00h00m00s | stage:lower:progress percent=100 processed=1559 total=1559 lowered=1559 unsupported=0 ms=16
+c 00h00m00s | stage:lower:done ms=17 lowered=1559 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=7462912 rss=7.12MiB
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=9 rounds=492 tightened=552 removed_cls=0 removed_lits=0 unsat=false precise_hits=2294 precise_rounds=1 pivot_recomputes=2912 pivot_exact_attempts=2880 pivot_general_attempts=2320 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=2320 pivot_general_tightened=0 setup_ms=2 loop_ms=2 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=3
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=8540160 rss=8.14MiB
+c 00h00m00s | stage:lowered-shape int_vars=1820 bool_vars=240 linear_atoms=2647 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=2886
+c 00h00m00s | stage:root-lp:start backend=lpo
+c 00h00m08s | stage:root-lp:bound backend=lpo status=optimal objective_value=0 naive_bounds=[0,10000] lp_bounds=[0,10000] improved=0 rows=1142 vars=2060 lp_rows_singleton_linear=1141 lp_rows_disjunctive=1 lp_rows_table=0 lp_rows_cumulative_energy=0 lp_rows_cumulative_pair=0 lp_rows_cumulative_timetable=0 lp_rows_cumulative_completion=0 lp_rows_cumulative_precedence=0 lp_rows_no_overlap_pair=0 lp_rows_no_overlap_completion=0 lp_rows_no_overlap_precedence=0 lp_rows_no_overlap_2d_energy=0 lp_rows_no_overlap_2d_completion=0 lp_scheduling_payloads_cumulative=0 lp_scheduling_payloads_no_overlap=0 lp_scheduling_cut_rounds=0 lp_scheduling_cut_candidates=0 lp_scheduling_cut_violated=0 lp_scheduling_rows_skipped=0 ms=8926
+c 00h00m08s | memory:rss checkpoint=before_preencode bytes=145838080 rss=139.08MiB
+c 00h00m08s | stage:preencode(log-scop):start
+c 00h00m08s | stage:preencode(log-scop):done ms=0 int_vars=1820
+c 00h00m08s | memory:rss checkpoint=after_preencode bytes=145899520 rss=139.14MiB
+c 00h00m08s | memory:rss checkpoint=before_encode bytes=145899520 rss=139.14MiB
+c 00h00m08s | stage:encode(log-scop):start
+c 00h00m08s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=52035 bytes=146083840 rss=139.32MiB progress_percent=10 processed=289 total=2887
+c 00h00m08s | stage:encode(log-scop):progress percent=10 processed=289 total=2887 sat_clauses=52035 ms=8
+c 00h00m08s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=74729 bytes=146366464 rss=139.59MiB progress_percent=20 processed=578 total=2887
+c 00h00m08s | stage:encode(log-scop):progress percent=20 processed=578 total=2887 sat_clauses=74729 ms=26
+c 00h00m08s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=96173 bytes=146366464 rss=139.59MiB progress_percent=30 processed=867 total=2887
+c 00h00m08s | stage:encode(log-scop):progress percent=30 processed=867 total=2887 sat_clauses=96173 ms=30
+c 00h00m08s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=102617 bytes=146366464 rss=139.59MiB progress_percent=40 processed=1155 total=2887
+c 00h00m08s | stage:encode(log-scop):progress percent=40 processed=1155 total=2887 sat_clauses=102617 ms=31
+c 00h00m08s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=105657 bytes=146366464 rss=139.59MiB progress_percent=50 processed=1444 total=2887
+c 00h00m08s | stage:encode(log-scop):progress percent=50 processed=1444 total=2887 sat_clauses=105657 ms=32
+c 00h00m09s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1598175 bytes=446820352 rss=426.12MiB progress_percent=60 processed=1733 total=2887
+c 00h00m09s | stage:encode(log-scop):progress percent=60 processed=1733 total=2887 sat_clauses=1598175 ms=701
+c 00h00m09s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1607248 bytes=446820352 rss=426.12MiB progress_percent=70 processed=2021 total=2887
+c 00h00m09s | stage:encode(log-scop):progress percent=70 processed=2021 total=2887 sat_clauses=1607248 ms=703
+c 00h00m09s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1619790 bytes=446820352 rss=426.12MiB progress_percent=80 processed=2310 total=2887
+c 00h00m09s | stage:encode(log-scop):progress percent=80 processed=2310 total=2887 sat_clauses=1619790 ms=705
+c 00h00m09s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1665520 bytes=446820352 rss=426.12MiB progress_percent=90 processed=2599 total=2887
+c 00h00m09s | stage:encode(log-scop):progress percent=90 processed=2599 total=2887 sat_clauses=1665520 ms=725
+c 00h00m09s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1954358 bytes=475844608 rss=453.80MiB progress_percent=100 processed=2887 total=2887
+c 00h00m09s | stage:encode(log-scop):progress percent=100 processed=2887 total=2887 sat_clauses=1954358 ms=831
+c 00h00m09s | stage:encode(log-scop):done ms=844 sat_vars=1022804 sat_clauses=1954358 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=5755 log_scop_pb_mixed=0 log_scop_pb_bdd2=5755 log_scop_pb_bdd3=0 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=5755 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m09s | stage:post-encode(log-scop):start sat_vars=1022804 sat_clauses=1954358 has_relaxations=false external_tables=0
+c 00h00m09s | stage:post-encode(log-scop):after-finish-check ms=0
+c 00h00m09s | stage:post-encode(log-scop):decode-layout-ready int_symbols=1820 ms=0
+c 00h00m09s | stage:post-encode(log-scop):cumulative-external-ready has_prop=false ms=0
+c 00h00m09s | stage:post-encode(log-scop):log-scop-external-ready has_prop=false ms=0
+c 00h00m09s | stage:post-encode(log-scop):external-prop-connected has_prop=false ms=0
+c 00h00m09s | stage:post-encode(log-scop):done sat_vars=1022804 sat_clauses=1954358 ms=0
+c 00h00m09s | stage:post-encode(log-scop):reusable-ready mode=SoftCnf sat_vars=1022804
+c 00h00m09s | stage:objective-external-ge-template(log-scop):start cut=DirectExpr wants_ext_ge=false
+c 00h00m09s | stage:objective-external-ge-template(log-scop):done has_template=true ms=1
+c 00h00m09s | stage:objective-mode(log-scop):resolved mode=SoftCnf wants_ext_ge=false has_ext_ge_template=true
+c 00h00m09s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m09s | stage:objective-encoder(log-scop):ready mode=SoftCnf soft=true sat_vars=1022804
+c 00h00m09s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=false soft_active=true
+c 00h00m09s | stage:sat:round-entry encoder=log-scop assumptions=0 phase_lits=0 sat_vars=1022804 base_clauses=1954358
+c 00h00m09s | stage:sat:init solver=CaDiCaL vars=1022804 clauses=1954358
+c 00h00m09s | stage:sat:solve:start assumptions=0 phase_lits=0
+c 00h01m21s | stage:sat:solve:done ms=71565 result=Sat assumptions=0 phase_lits=0
+c 00h01m21s | stage:decode:start
+c 00h01m21s | stage:decode:done int_assignments=1516
+c 00h01m21s | result:Sat
+c 00h01m21s | stage:objective-cut-surface(log-scop):start timing=after-incumbent
+c 00h01m21s | stage:objective-cut-surface(log-scop):done has_surface=true ms=1
+c 00h01m21s | objective:incumbent kind=initial value=5761 rounds=1 improvements=0
+o 5761
+c 00h01m21s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=true soft_active=true
+c 00h01m21s | stage:objective-cut:soft-install bound=3840 guard=1022819 clauses_added=24
+c 00h01m21s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,5760] next 3840 source=install guard=1022819
+c 00h01m21s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1022819 base_clauses=1954382
+c 00h01m21s | stage:sat:init solver=CaDiCaL vars=1022819 clauses=1954382
+c 00h01m21s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h02m21s | stage:sat:solve:done ms=59617 result=Sat assumptions=1 phase_lits=0
+c 00h02m21s | stage:decode:start
+c 00h02m21s | stage:decode:done int_assignments=1516
+c 00h02m21s | result:Sat
+c 00h02m21s | objective:incumbent kind=improvement value=3464 rounds=2 improvements=1
+o 3464
+c 00h02m21s | stage:objective-cut:soft-result search=trisection bound=3840 result=sat guard=1022819 hard=guard [LB,UB] = [0,3463]
+c 00h02m21s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=true soft_active=true
+c 00h02m21s | stage:objective-cut:soft-install bound=2309 guard=1022833 clauses_added=23
+c 00h02m21s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,3463] next 2309 source=install guard=1022833
+c 00h02m21s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1022833 base_clauses=1954406
+c 00h02m21s | stage:sat:init solver=CaDiCaL vars=1022833 clauses=1954406
+c 00h02m21s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h05m21s | stage:sat:solve:done ms=180000 result=Unknown assumptions=1 phase_lits=0
+c 00h05m21s | result:unknown reason=sat_solver_returned_unknown
+c 00h05m21s | result:Unknown
+c 00h05m21s | stage:objective-cut:soft-fallback search=trisection reason=budget-exhausted budget_s=180 mode=step incumbent=3464 [LB,UB]=[0,3463]
+c 00h05m21s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=true soft_active=true
+c 00h05m21s | stage:objective-cut:soft-install bound=3463 guard=1022845 clauses_added=18
+c 00h05m21s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,3463] next 3463 source=install guard=1022845
+c 00h05m21s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1022845 base_clauses=1954424
+c 00h05m21s | stage:sat:init solver=CaDiCaL vars=1022845 clauses=1954424
+c 00h05m21s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h05m37s | stage:sat:solve:done ms=16151 result=Sat assumptions=1 phase_lits=0
+c 00h05m37s | stage:decode:start
+c 00h05m37s | stage:decode:done int_assignments=1516
+c 00h05m37s | result:Sat
+c 00h05m37s | objective:incumbent kind=improvement value=3325 rounds=3 improvements=2
+o 3325
+c 00h05m37s | stage:objective-cut:soft-result search=step bound=3463 result=sat guard=1022845 hard=guard [LB,UB] = [0,3324]
+c 00h05m37s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=true soft_active=true
+c 00h05m37s | stage:objective-cut:soft-install bound=3324 guard=1022860 clauses_added=20
+c 00h05m37s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,3324] next 3324 source=install guard=1022860
+c 00h05m37s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1022860 base_clauses=1954445
+c 00h05m37s | stage:sat:init solver=CaDiCaL vars=1022860 clauses=1954445
+c 00h05m37s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h06m07s | stage:sat:solve:done ms=30210 result=Sat assumptions=1 phase_lits=0
+c 00h06m07s | stage:decode:start
+c 00h06m07s | stage:decode:done int_assignments=1516
+c 00h06m07s | result:Sat
+c 00h06m07s | objective:incumbent kind=improvement value=3323 rounds=4 improvements=3
+o 3323
+c 00h06m07s | stage:objective-cut:soft-result search=step bound=3324 result=sat guard=1022860 hard=guard [LB,UB] = [0,3322]
+c 00h06m07s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=true soft_active=true
+c 00h06m07s | stage:objective-cut:soft-install bound=3322 guard=1022875 clauses_added=20
+c 00h06m07s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,3322] next 3322 source=install guard=1022875
+c 00h06m07s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1022875 base_clauses=1954466
+c 00h06m07s | stage:sat:init solver=CaDiCaL vars=1022875 clauses=1954466
+c 00h06m07s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h06m56s | stage:sat:solve:done ms=48892 result=Sat assumptions=1 phase_lits=0
+c 00h06m56s | stage:decode:start
+c 00h06m56s | stage:decode:done int_assignments=1516
+c 00h06m56s | result:Sat
+c 00h06m56s | objective:incumbent kind=improvement value=3319 rounds=5 improvements=4
+o 3319
+c 00h06m56s | stage:objective-cut:soft-result search=step bound=3322 result=sat guard=1022875 hard=guard [LB,UB] = [0,3318]
+c 00h06m56s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=true soft_active=true
+c 00h06m56s | stage:objective-cut:soft-install bound=3318 guard=1022890 clauses_added=20
+c 00h06m56s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,3318] next 3318 source=install guard=1022890
+c 00h06m56s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1022890 base_clauses=1954487
+c 00h06m56s | stage:sat:init solver=CaDiCaL vars=1022890 clauses=1954487
+c 00h06m56s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h07m30s | stage:sat:solve:done ms=34198 result=Sat assumptions=1 phase_lits=0
+c 00h07m30s | stage:decode:start
+c 00h07m30s | stage:decode:done int_assignments=1516
+c 00h07m30s | result:Sat
+c 00h07m30s | objective:incumbent kind=improvement value=3317 rounds=6 improvements=5
+o 3317
+c 00h07m30s | stage:objective-cut:soft-result search=step bound=3318 result=sat guard=1022890 hard=guard [LB,UB] = [0,3316]
+c 00h07m30s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=true soft_active=true
+c 00h07m30s | stage:objective-cut:soft-install bound=3316 guard=1022905 clauses_added=21
+c 00h07m30s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,3316] next 3316 source=install guard=1022905
+c 00h07m30s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1022905 base_clauses=1954509
+c 00h07m30s | stage:sat:init solver=CaDiCaL vars=1022905 clauses=1954509
+c 00h07m30s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h08m32s | stage:sat:solve:done ms=61614 result=Sat assumptions=1 phase_lits=0
+c 00h08m32s | stage:decode:start
+c 00h08m32s | stage:decode:done int_assignments=1516
+c 00h08m32s | result:Sat
+c 00h08m32s | objective:incumbent kind=improvement value=3316 rounds=7 improvements=6
+o 3316
+c 00h08m32s | stage:objective-cut:soft-result search=step bound=3316 result=sat guard=1022905 hard=guard [LB,UB] = [0,3315]
+c 00h08m32s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=true soft_active=true
+c 00h08m32s | stage:objective-cut:soft-install bound=3315 guard=1022918 clauses_added=18
+c 00h08m32s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,3315] next 3315 source=install guard=1022918
+c 00h08m32s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1022918 base_clauses=1954528
+c 00h08m32s | stage:sat:init solver=CaDiCaL vars=1022918 clauses=1954528
+c 00h08m32s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h09m29s | stage:sat:solve:done ms=57115 result=Sat assumptions=1 phase_lits=0
+c 00h09m29s | stage:decode:start
+c 00h09m29s | stage:decode:done int_assignments=1516
+c 00h09m29s | result:Sat
+c 00h09m29s | objective:incumbent kind=improvement value=3315 rounds=8 improvements=7
+o 3315
+c 00h09m29s | stage:objective-cut:soft-result search=step bound=3315 result=sat guard=1022918 hard=guard [LB,UB] = [0,3314]
+c 00h09m29s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=true soft_active=true
+c 00h09m29s | stage:objective-cut:soft-install bound=3314 guard=1022933 clauses_added=21
+c 00h09m29s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,3314] next 3314 source=install guard=1022933
+c 00h09m29s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1022933 base_clauses=1954550
+c 00h09m29s | stage:sat:init solver=CaDiCaL vars=1022933 clauses=1954550
+c 00h09m29s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h10m33s | stage:sat:solve:done ms=63749 result=Sat assumptions=1 phase_lits=0
+c 00h10m33s | stage:decode:start
+c 00h10m33s | stage:decode:done int_assignments=1516
+c 00h10m33s | result:Sat
+c 00h10m33s | objective:incumbent kind=improvement value=3314 rounds=9 improvements=8
+o 3314
+c 00h10m33s | stage:objective-cut:soft-result search=step bound=3314 result=sat guard=1022933 hard=guard [LB,UB] = [0,3313]
+c 00h10m33s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=true soft_active=true
+c 00h10m33s | stage:objective-cut:soft-install bound=3313 guard=1022947 clauses_added=20
+c 00h10m33s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,3313] next 3313 source=install guard=1022947
+c 00h10m33s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1022947 base_clauses=1954571
+c 00h10m33s | stage:sat:init solver=CaDiCaL vars=1022947 clauses=1954571
+c 00h10m33s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h10m44s | stage:sat:solve:done ms=10781 result=Sat assumptions=1 phase_lits=0
+c 00h10m44s | stage:decode:start
+c 00h10m44s | stage:decode:done int_assignments=1516
+c 00h10m44s | result:Sat
+c 00h10m44s | objective:incumbent kind=improvement value=2754 rounds=10 improvements=9
+o 2754
+c 00h10m44s | stage:objective-cut:soft-result search=step bound=3313 result=sat guard=1022947 hard=guard [LB,UB] = [0,2753]
+c 00h10m44s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=true soft_active=true
+c 00h10m44s | stage:objective-cut:soft-install bound=2753 guard=1022961 clauses_added=22
+c 00h10m44s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,2753] next 2753 source=install guard=1022961
+c 00h10m44s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1022961 base_clauses=1954594
+c 00h10m44s | stage:sat:init solver=CaDiCaL vars=1022961 clauses=1954594
+c 00h10m44s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h11m54s | stage:sat:solve:done ms=70135 result=Sat assumptions=1 phase_lits=0
+c 00h11m54s | stage:decode:start
+c 00h11m54s | stage:decode:done int_assignments=1516
+c 00h11m54s | result:Sat
+c 00h11m54s | objective:incumbent kind=improvement value=2726 rounds=11 improvements=10
+o 2726
+c 00h11m54s | stage:objective-cut:soft-result search=step bound=2753 result=sat guard=1022961 hard=guard [LB,UB] = [0,2725]
+c 00h11m54s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=true soft_active=true
+c 00h11m54s | stage:objective-cut:soft-install bound=2725 guard=1022975 clauses_added=21
+c 00h11m54s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,2725] next 2725 source=install guard=1022975
+c 00h11m54s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1022975 base_clauses=1954616
+c 00h11m54s | stage:sat:init solver=CaDiCaL vars=1022975 clauses=1954616
+c 00h11m54s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h11m54s | stage:sat:solve:done ms=67 result=Sat assumptions=1 phase_lits=0
+c 00h11m54s | stage:decode:start
+c 00h11m54s | stage:decode:done int_assignments=1516
+c 00h11m54s | result:Sat
+c 00h11m54s | objective:incumbent kind=improvement value=2725 rounds=12 improvements=11
+o 2725
+c 00h11m54s | stage:objective-cut:soft-result search=step bound=2725 result=sat guard=1022975 hard=guard [LB,UB] = [0,2724]
+c 00h11m54s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=true soft_active=true
+c 00h11m54s | stage:objective-cut:soft-install bound=2724 guard=1022990 clauses_added=23
+c 00h11m54s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,2724] next 2724 source=install guard=1022990
+c 00h11m54s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1022990 base_clauses=1954640
+c 00h11m54s | stage:sat:init solver=CaDiCaL vars=1022990 clauses=1954640
+c 00h11m54s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h17m32s | stage:sat:solve:done ms=337684 result=Sat assumptions=1 phase_lits=0
+c 00h17m32s | stage:decode:start
+c 00h17m32s | stage:decode:done int_assignments=1516
+c 00h17m32s | result:Sat
+c 00h17m32s | objective:incumbent kind=improvement value=2720 rounds=13 improvements=12
+o 2720
+c 00h17m32s | stage:objective-cut:soft-result search=step bound=2724 result=sat guard=1022990 hard=guard [LB,UB] = [0,2719]
+c 00h17m32s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=10000 has_incumbent=true soft_active=true
+c 00h17m32s | stage:objective-cut:soft-install bound=2719 guard=1023000 clauses_added=15
+c 00h17m32s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,2719] next 2719 source=install guard=1023000
+c 00h17m32s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1023000 base_clauses=1954656
+c 00h17m32s | stage:sat:init solver=CaDiCaL vars=1023000 clauses=1954656
+c 00h17m32s | stage:sat:solve:start assumptions=1 phase_lits=0
+s SATISFIABLE
+o 2720
+v <instantiation>
+v   <list> cpu_loads[1] cpu_loads[2] cpu_loads[3] cpu_loads[4] cpu_loads[5] cpu_loads[6] cpu_loads[7] cpu_loads[8] cpu_loads[9] cpu_loads[10] cpu_loads[11] cpu_loads[12] cpu_loads[13] cpu_loads[14] cpu_loads[15] cpu_loads[16] cost[1] cost[2] cost[3] cost[4] cost[5] cost[6] cost[7] communication_cost objective flow_processor[1] flow_processor[2] flow_processor[3] flow_processor[4] flow_processor[5] flow_processor[6] flow_processor[7] flow_processor[8] flow_processor[9] flow_processor[10] flow_processor[11] flow_processor[12] flow_processor[13] flow_processor[14] comm_full[1] comm_full[2] comm_full[3] comm_full[4] comm_full[5] comm_full[6] comm_full[7] comm_full[8] comm_full[9] comm_full[10] comm_full[11] comm_full[12] comm_full[13] comm_full[14] comm_full[15] comm_full[16] comm_full[17] comm_full[18] comm_full[19] comm_full[20] comm_full[21] comm_full[22] comm_full[23] comm_full[24] comm_full[25] comm_full[26] comm_full[27] comm_full[28] comm_full[29] comm_full[30] comm_full[31] comm_full[32] comm_full[33] comm_full[34] comm_full[35] comm_full[36] comm_full[37] comm_full[38] comm_full[39] comm_full[40] comm_full[41] comm_full[42] comm_full[43] comm_full[44] comm_full[45] comm_full[46] comm_full[47] comm_full[48] flow_from_processor[1] flow_from_processor[2] flow_from_processor[3] flow_from_processor[4] flow_from_processor[5] flow_from_processor[6] flow_from_processor[7] flow_from_processor[8] flow_from_processor[9] flow_from_processor[10] flow_from_processor[11] flow_from_processor[12] flow_from_processor[13] flow_from_processor[14] flow_from_processor[15] flow_from_processor[16] cc[1] cc[2] cc[3] cc[4] cc[5] cc[6] cc[7] cc[8] cc[9] cc[10] cc[11] cc[12] cc[13] cc[14] cc[15] cc[16] inFlow[1,1] inFlow[1,2] inFlow[1,3] inFlow[1,4] inFlow[1,5] inFlow[1,6] inFlow[1,7] inFlow[1,8] inFlow[1,9] inFlow[1,10] inFlow[1,11] inFlow[1,12] inFlow[1,13] inFlow[1,14] inFlow[1,15] inFlow[1,16] inFlow[2,1] inFlow[2,2] inFlow[2,3] inFlow[2,4] inFlow[2,5] inFlow[2,6] inFlow[2,7] inFlow[2,8] inFlow[2,9] inFlow[2,10] inFlow[2,11] inFlow[2,12] inFlow[2,13] inFlow[2,14] inFlow[2,15] inFlow[2,16] inFlow[3,1] inFlow[3,2] inFlow[3,3] inFlow[3,4] inFlow[3,5] inFlow[3,6] inFlow[3,7] inFlow[3,8] inFlow[3,9] inFlow[3,10] inFlow[3,11] inFlow[3,12] inFlow[3,13] inFlow[3,14] inFlow[3,15] inFlow[3,16] inFlow[4,1] inFlow[4,2] inFlow[4,3] inFlow[4,4] inFlow[4,5] inFlow[4,6] inFlow[4,7] inFlow[4,8] inFlow[4,9] inFlow[4,10] inFlow[4,11] inFlow[4,12] inFlow[4,13] inFlow[4,14] inFlow[4,15] inFlow[4,16] inFlow[5,1] inFlow[5,2] inFlow[5,3] inFlow[5,4] inFlow[5,5] inFlow[5,6] inFlow[5,7] inFlow[5,8] inFlow[5,9] inFlow[5,10] inFlow[5,11] inFlow[5,12] inFlow[5,13] inFlow[5,14] inFlow[5,15] inFlow[5,16] inFlow[6,1] inFlow[6,2] inFlow[6,3] inFlow[6,4] inFlow[6,5] inFlow[6,6] inFlow[6,7] inFlow[6,8] inFlow[6,9] inFlow[6,10] inFlow[6,11] inFlow[6,12] inFlow[6,13] inFlow[6,14] inFlow[6,15] inFlow[6,16] inFlow[7,1] inFlow[7,2] inFlow[7,3] inFlow[7,4] inFlow[7,5] inFlow[7,6] inFlow[7,7] inFlow[7,8] inFlow[7,9] inFlow[7,10] inFlow[7,11] inFlow[7,12] inFlow[7,13] inFlow[7,14] inFlow[7,15] inFlow[7,16] outFlow[1,1] outFlow[1,2] outFlow[1,3] outFlow[1,4] outFlow[1,5] outFlow[1,6] outFlow[1,7] outFlow[1,8] outFlow[1,9] outFlow[1,10] outFlow[1,11] outFlow[1,12] outFlow[1,13] outFlow[1,14] outFlow[1,15] outFlow[1,16] outFlow[2,1] outFlow[2,2] outFlow[2,3] outFlow[2,4] outFlow[2,5] outFlow[2,6] outFlow[2,7] outFlow[2,8] outFlow[2,9] outFlow[2,10] outFlow[2,11] outFlow[2,12] outFlow[2,13] outFlow[2,14] outFlow[2,15] outFlow[2,16] outFlow[3,1] outFlow[3,2] outFlow[3,3] outFlow[3,4] outFlow[3,5] outFlow[3,6] outFlow[3,7] outFlow[3,8] outFlow[3,9] outFlow[3,10] outFlow[3,11] outFlow[3,12] outFlow[3,13] outFlow[3,14] outFlow[3,15] outFlow[3,16] outFlow[4,1] outFlow[4,2] outFlow[4,3] outFlow[4,4] outFlow[4,5] outFlow[4,6] outFlow[4,7] outFlow[4,8] outFlow[4,9] outFlow[4,10] outFlow[4,11] outFlow[4,12] outFlow[4,13] outFlow[4,14] outFlow[4,15] outFlow[4,16] outFlow[5,1] outFlow[5,2] outFlow[5,3] outFlow[5,4] outFlow[5,5] outFlow[5,6] outFlow[5,7] outFlow[5,8] outFlow[5,9] outFlow[5,10] outFlow[5,11] outFlow[5,12] outFlow[5,13] outFlow[5,14] outFlow[5,15] outFlow[5,16] outFlow[6,1] outFlow[6,2] outFlow[6,3] outFlow[6,4] outFlow[6,5] outFlow[6,6] outFlow[6,7] outFlow[6,8] outFlow[6,9] outFlow[6,10] outFlow[6,11] outFlow[6,12] outFlow[6,13] outFlow[6,14] outFlow[6,15] outFlow[6,16] outFlow[7,1] outFlow[7,2] outFlow[7,3] outFlow[7,4] outFlow[7,5] outFlow[7,6] outFlow[7,7] outFlow[7,8] outFlow[7,9] outFlow[7,10] outFlow[7,11] outFlow[7,12] outFlow[7,13] outFlow[7,14] outFlow[7,15] outFlow[7,16] commFlow[1,1] commFlow[1,2] commFlow[1,3] commFlow[1,4] commFlow[1,5] commFlow[1,6] commFlow[1,7] commFlow[1,8] commFlow[1,9] commFlow[1,10] commFlow[1,11] commFlow[1,12] commFlow[1,13] commFlow[1,14] commFlow[1,15] commFlow[1,16] commFlow[1,17] commFlow[1,18] commFlow[1,19] commFlow[1,20] commFlow[1,21] commFlow[1,22] commFlow[1,23] commFlow[1,24] commFlow[1,25] commFlow[1,26] commFlow[1,27] commFlow[1,28] commFlow[1,29] commFlow[1,30] commFlow[1,31] commFlow[1,32] commFlow[1,33] commFlow[1,34] commFlow[1,35] commFlow[1,36] commFlow[1,37] commFlow[1,38] commFlow[1,39] commFlow[1,40] commFlow[1,41] commFlow[1,42] commFlow[1,43] commFlow[1,44] commFlow[1,45] commFlow[1,46] commFlow[1,47] commFlow[1,48] commFlow[2,1] commFlow[2,2] commFlow[2,3] commFlow[2,4] commFlow[2,5] commFlow[2,6] commFlow[2,7] commFlow[2,8] commFlow[2,9] commFlow[2,10] commFlow[2,11] commFlow[2,12] commFlow[2,13] commFlow[2,14] commFlow[2,15] commFlow[2,16] commFlow[2,17] commFlow[2,18] commFlow[2,19] commFlow[2,20] commFlow[2,21] commFlow[2,22] commFlow[2,23] commFlow[2,24] commFlow[2,25] commFlow[2,26] commFlow[2,27] commFlow[2,28] commFlow[2,29] commFlow[2,30] commFlow[2,31] commFlow[2,32] commFlow[2,33] commFlow[2,34] commFlow[2,35] commFlow[2,36] commFlow[2,37] commFlow[2,38] commFlow[2,39] commFlow[2,40] commFlow[2,41] commFlow[2,42] commFlow[2,43] commFlow[2,44] commFlow[2,45] commFlow[2,46] commFlow[2,47] commFlow[2,48] commFlow[3,1] commFlow[3,2] commFlow[3,3] commFlow[3,4] commFlow[3,5] commFlow[3,6] commFlow[3,7] commFlow[3,8] commFlow[3,9] commFlow[3,10] commFlow[3,11] commFlow[3,12] commFlow[3,13] commFlow[3,14] commFlow[3,15] commFlow[3,16] commFlow[3,17] commFlow[3,18] commFlow[3,19] commFlow[3,20] commFlow[3,21] commFlow[3,22] commFlow[3,23] commFlow[3,24] commFlow[3,25] commFlow[3,26] commFlow[3,27] commFlow[3,28] commFlow[3,29] commFlow[3,30] commFlow[3,31] commFlow[3,32] commFlow[3,33] commFlow[3,34] commFlow[3,35] commFlow[3,36] commFlow[3,37] commFlow[3,38] commFlow[3,39] commFlow[3,40] commFlow[3,41] commFlow[3,42] commFlow[3,43] commFlow[3,44] commFlow[3,45] commFlow[3,46] commFlow[3,47] commFlow[3,48] commFlow[4,1] commFlow[4,2] commFlow[4,3] commFlow[4,4] commFlow[4,5] commFlow[4,6] commFlow[4,7] commFlow[4,8] commFlow[4,9] commFlow[4,10] commFlow[4,11] commFlow[4,12] commFlow[4,13] commFlow[4,14] commFlow[4,15] commFlow[4,16] commFlow[4,17] commFlow[4,18] commFlow[4,19] commFlow[4,20] commFlow[4,21] commFlow[4,22] commFlow[4,23] commFlow[4,24] commFlow[4,25] commFlow[4,26] commFlow[4,27] commFlow[4,28] commFlow[4,29] commFlow[4,30] commFlow[4,31] commFlow[4,32] commFlow[4,33] commFlow[4,34] commFlow[4,35] commFlow[4,36] commFlow[4,37] commFlow[4,38] commFlow[4,39] commFlow[4,40] commFlow[4,41] commFlow[4,42] commFlow[4,43] commFlow[4,44] commFlow[4,45] commFlow[4,46] commFlow[4,47] commFlow[4,48] commFlow[5,1] commFlow[5,2] commFlow[5,3] commFlow[5,4] commFlow[5,5] commFlow[5,6] commFlow[5,7] commFlow[5,8] commFlow[5,9] commFlow[5,10] commFlow[5,11] commFlow[5,12] commFlow[5,13] commFlow[5,14] commFlow[5,15] commFlow[5,16] commFlow[5,17] commFlow[5,18] commFlow[5,19] commFlow[5,20] commFlow[5,21] commFlow[5,22] commFlow[5,23] commFlow[5,24] commFlow[5,25] commFlow[5,26] commFlow[5,27] commFlow[5,28] commFlow[5,29] commFlow[5,30] commFlow[5,31] commFlow[5,32] commFlow[5,33] commFlow[5,34] commFlow[5,35] commFlow[5,36] commFlow[5,37] commFlow[5,38] commFlow[5,39] commFlow[5,40] commFlow[5,41] commFlow[5,42] commFlow[5,43] commFlow[5,44] commFlow[5,45] commFlow[5,46] commFlow[5,47] commFlow[5,48] commFlow[6,1] commFlow[6,2] commFlow[6,3] commFlow[6,4] commFlow[6,5] commFlow[6,6] commFlow[6,7] commFlow[6,8] commFlow[6,9] commFlow[6,10] commFlow[6,11] commFlow[6,12] commFlow[6,13] commFlow[6,14] commFlow[6,15] commFlow[6,16] commFlow[6,17] commFlow[6,18] commFlow[6,19] commFlow[6,20] commFlow[6,21] commFlow[6,22] commFlow[6,23] commFlow[6,24] commFlow[6,25] commFlow[6,26] commFlow[6,27] commFlow[6,28] commFlow[6,29] commFlow[6,30] commFlow[6,31] commFlow[6,32] commFlow[6,33] commFlow[6,34] commFlow[6,35] commFlow[6,36] commFlow[6,37] commFlow[6,38] commFlow[6,39] commFlow[6,40] commFlow[6,41] commFlow[6,42] commFlow[6,43] commFlow[6,44] commFlow[6,45] commFlow[6,46] commFlow[6,47] commFlow[6,48] commFlow[7,1] commFlow[7,2] commFlow[7,3] commFlow[7,4] commFlow[7,5] commFlow[7,6] commFlow[7,7] commFlow[7,8] commFlow[7,9] commFlow[7,10] commFlow[7,11] commFlow[7,12] commFlow[7,13] commFlow[7,14] commFlow[7,15] commFlow[7,16] commFlow[7,17] commFlow[7,18] commFlow[7,19] commFlow[7,20] commFlow[7,21] commFlow[7,22] commFlow[7,23] commFlow[7,24] commFlow[7,25] commFlow[7,26] commFlow[7,27] commFlow[7,28] commFlow[7,29] commFlow[7,30] commFlow[7,31] commFlow[7,32] commFlow[7,33] commFlow[7,34] commFlow[7,35] commFlow[7,36] commFlow[7,37] commFlow[7,38] commFlow[7,39] commFlow[7,40] commFlow[7,41] commFlow[7,42] commFlow[7,43] commFlow[7,44] commFlow[7,45] commFlow[7,46] commFlow[7,47] commFlow[7,48] flows[1,1] flows[1,2] flows[1,3] flows[1,4] flows[1,5] flows[1,6] flows[1,7] flows[1,8] flows[1,9] flows[1,10] flows[1,11] flows[1,12] flows[1,13] flows[1,14] flows[1,15] flows[1,16] flows[1,17] flows[1,18] flows[1,19] flows[1,20] flows[1,21] flows[1,22] flows[1,23] flows[1,24] flows[1,25] flows[1,26] flows[1,27] flows[1,28] flows[1,29] flows[1,30] flows[1,31] flows[1,32] flows[1,33] flows[1,34] flows[1,35] flows[1,36] flows[1,37] flows[1,38] flows[1,39] flows[1,40] flows[1,41] flows[1,42] flows[1,43] flows[1,44] flows[1,45] flows[1,46] flows[1,47] flows[1,48] flows[1,49] flows[1,50] flows[1,51] flows[1,52] flows[1,53] flows[1,54] flows[1,55] flows[1,56] flows[1,57] flows[1,58] flows[1,59] flows[1,60] flows[1,61] flows[1,62] flows[1,63] flows[1,64] flows[1,65] flows[1,66] flows[1,67] flows[1,68] flows[1,69] flows[1,70] flows[1,71] flows[1,72] flows[1,73] flows[1,74] flows[1,75] flows[1,76] flows[1,77] flows[1,78] flows[1,79] flows[1,80] flows[2,1] flows[2,2] flows[2,3] flows[2,4] flows[2,5] flows[2,6] flows[2,7] flows[2,8] flows[2,9] flows[2,10] flows[2,11] flows[2,12] flows[2,13] flows[2,14] flows[2,15] flows[2,16] flows[2,17] flows[2,18] flows[2,19] flows[2,20] flows[2,21] flows[2,22] flows[2,23] flows[2,24] flows[2,25] flows[2,26] flows[2,27] flows[2,28] flows[2,29] flows[2,30] flows[2,31] flows[2,32] flows[2,33] flows[2,34] flows[2,35] flows[2,36] flows[2,37] flows[2,38] flows[2,39] flows[2,40] flows[2,41] flows[2,42] flows[2,43] flows[2,44] flows[2,45] flows[2,46] flows[2,47] flows[2,48] flows[2,49] flows[2,50] flows[2,51] flows[2,52] flows[2,53] flows[2,54] flows[2,55] flows[2,56] flows[2,57] flows[2,58] flows[2,59] flows[2,60] flows[2,61] flows[2,62] flows[2,63] flows[2,64] flows[2,65] flows[2,66] flows[2,67] flows[2,68] flows[2,69] flows[2,70] flows[2,71] flows[2,72] flows[2,73] flows[2,74] flows[2,75] flows[2,76] flows[2,77] flows[2,78] flows[2,79] flows[2,80] flows[3,1] flows[3,2] flows[3,3] flows[3,4] flows[3,5] flows[3,6] flows[3,7] flows[3,8] flows[3,9] flows[3,10] flows[3,11] flows[3,12] flows[3,13] flows[3,14] flows[3,15] flows[3,16] flows[3,17] flows[3,18] flows[3,19] flows[3,20] flows[3,21] flows[3,22] flows[3,23] flows[3,24] flows[3,25] flows[3,26] flows[3,27] flows[3,28] flows[3,29] flows[3,30] flows[3,31] flows[3,32] flows[3,33] flows[3,34] flows[3,35] flows[3,36] flows[3,37] flows[3,38] flows[3,39] flows[3,40] flows[3,41] flows[3,42] flows[3,43] flows[3,44] flows[3,45] flows[3,46] flows[3,47] flows[3,48] flows[3,49] flows[3,50] flows[3,51] flows[3,52] flows[3,53] flows[3,54] flows[3,55] flows[3,56] flows[3,57] flows[3,58] flows[3,59] flows[3,60] flows[3,61] flows[3,62] flows[3,63] flows[3,64] flows[3,65] flows[3,66] flows[3,67] flows[3,68] flows[3,69] flows[3,70] flows[3,71] flows[3,72] flows[3,73] flows[3,74] flows[3,75] flows[3,76] flows[3,77] flows[3,78] flows[3,79] flows[3,80] flows[4,1] flows[4,2] flows[4,3] flows[4,4] flows[4,5] flows[4,6] flows[4,7] flows[4,8] flows[4,9] flows[4,10] flows[4,11] flows[4,12] flows[4,13] flows[4,14] flows[4,15] flows[4,16] flows[4,17] flows[4,18] flows[4,19] flows[4,20] flows[4,21] flows[4,22] flows[4,23] flows[4,24] flows[4,25] flows[4,26] flows[4,27] flows[4,28] flows[4,29] flows[4,30] flows[4,31] flows[4,32] flows[4,33] flows[4,34] flows[4,35] flows[4,36] flows[4,37] flows[4,38] flows[4,39] flows[4,40] flows[4,41] flows[4,42] flows[4,43] flows[4,44] flows[4,45] flows[4,46] flows[4,47] flows[4,48] flows[4,49] flows[4,50] flows[4,51] flows[4,52] flows[4,53] flows[4,54] flows[4,55] flows[4,56] flows[4,57] flows[4,58] flows[4,59] flows[4,60] flows[4,61] flows[4,62] flows[4,63] flows[4,64] flows[4,65] flows[4,66] flows[4,67] flows[4,68] flows[4,69] flows[4,70] flows[4,71] flows[4,72] flows[4,73] flows[4,74] flows[4,75] flows[4,76] flows[4,77] flows[4,78] flows[4,79] flows[4,80] flows[5,1] flows[5,2] flows[5,3] flows[5,4] flows[5,5] flows[5,6] flows[5,7] flows[5,8] flows[5,9] flows[5,10] flows[5,11] flows[5,12] flows[5,13] flows[5,14] flows[5,15] flows[5,16] flows[5,17] flows[5,18] flows[5,19] flows[5,20] flows[5,21] flows[5,22] flows[5,23] flows[5,24] flows[5,25] flows[5,26] flows[5,27] flows[5,28] flows[5,29] flows[5,30] flows[5,31] flows[5,32] flows[5,33] flows[5,34] flows[5,35] flows[5,36] flows[5,37] flows[5,38] flows[5,39] flows[5,40] flows[5,41] flows[5,42] flows[5,43] flows[5,44] flows[5,45] flows[5,46] flows[5,47] flows[5,48] flows[5,49] flows[5,50] flows[5,51] flows[5,52] flows[5,53] flows[5,54] flows[5,55] flows[5,56] flows[5,57] flows[5,58] flows[5,59] flows[5,60] flows[5,61] flows[5,62] flows[5,63] flows[5,64] flows[5,65] flows[5,66] flows[5,67] flows[5,68] flows[5,69] flows[5,70] flows[5,71] flows[5,72] flows[5,73] flows[5,74] flows[5,75] flows[5,76] flows[5,77] flows[5,78] flows[5,79] flows[5,80] flows[6,1] flows[6,2] flows[6,3] flows[6,4] flows[6,5] flows[6,6] flows[6,7] flows[6,8] flows[6,9] flows[6,10] flows[6,11] flows[6,12] flows[6,13] flows[6,14] flows[6,15] flows[6,16] flows[6,17] flows[6,18] flows[6,19] flows[6,20] flows[6,21] flows[6,22] flows[6,23] flows[6,24] flows[6,25] flows[6,26] flows[6,27] flows[6,28] flows[6,29] flows[6,30] flows[6,31] flows[6,32] flows[6,33] flows[6,34] flows[6,35] flows[6,36] flows[6,37] flows[6,38] flows[6,39] flows[6,40] flows[6,41] flows[6,42] flows[6,43] flows[6,44] flows[6,45] flows[6,46] flows[6,47] flows[6,48] flows[6,49] flows[6,50] flows[6,51] flows[6,52] flows[6,53] flows[6,54] flows[6,55] flows[6,56] flows[6,57] flows[6,58] flows[6,59] flows[6,60] flows[6,61] flows[6,62] flows[6,63] flows[6,64] flows[6,65] flows[6,66] flows[6,67] flows[6,68] flows[6,69] flows[6,70] flows[6,71] flows[6,72] flows[6,73] flows[6,74] flows[6,75] flows[6,76] flows[6,77] flows[6,78] flows[6,79] flows[6,80] flows[7,1] flows[7,2] flows[7,3] flows[7,4] flows[7,5] flows[7,6] flows[7,7] flows[7,8] flows[7,9] flows[7,10] flows[7,11] flows[7,12] flows[7,13] flows[7,14] flows[7,15] flows[7,16] flows[7,17] flows[7,18] flows[7,19] flows[7,20] flows[7,21] flows[7,22] flows[7,23] flows[7,24] flows[7,25] flows[7,26] flows[7,27] flows[7,28] flows[7,29] flows[7,30] flows[7,31] flows[7,32] flows[7,33] flows[7,34] flows[7,35] flows[7,36] flows[7,37] flows[7,38] flows[7,39] flows[7,40] flows[7,41] flows[7,42] flows[7,43] flows[7,44] flows[7,45] flows[7,46] flows[7,47] flows[7,48] flows[7,49] flows[7,50] flows[7,51] flows[7,52] flows[7,53] flows[7,54] flows[7,55] flows[7,56] flows[7,57] flows[7,58] flows[7,59] flows[7,60] flows[7,61] flows[7,62] flows[7,63] flows[7,64] flows[7,65] flows[7,66] flows[7,67] flows[7,68] flows[7,69] flows[7,70] flows[7,71] flows[7,72] flows[7,73] flows[7,74] flows[7,75] flows[7,76] flows[7,77] flows[7,78] flows[7,79] flows[7,80] actor_processor[1] actor_processor[2] actor_processor[3] actor_processor[4] actor_processor[5] total_flow[1] total_flow[2] total_flow[3] total_flow[4] total_flow[5] total_flow[6] total_flow[7] total_flow[8] total_flow[9] total_flow[10] total_flow[11] total_flow[12] total_flow[13] total_flow[14] total_flow[15] total_flow[16] total_flow[17] total_flow[18] total_flow[19] total_flow[20] total_flow[21] total_flow[22] total_flow[23] total_flow[24] total_flow[25] total_flow[26] total_flow[27] total_flow[28] total_flow[29] total_flow[30] total_flow[31] total_flow[32] total_flow[33] total_flow[34] total_flow[35] total_flow[36] total_flow[37] total_flow[38] total_flow[39] total_flow[40] total_flow[41] total_flow[42] total_flow[43] total_flow[44] total_flow[45] total_flow[46] total_flow[47] total_flow[48] total_flow[49] total_flow[50] total_flow[51] total_flow[52] total_flow[53] total_flow[54] total_flow[55] total_flow[56] total_flow[57] total_flow[58] total_flow[59] total_flow[60] total_flow[61] total_flow[62] total_flow[63] total_flow[64] total_flow[65] total_flow[66] total_flow[67] total_flow[68] total_flow[69] total_flow[70] total_flow[71] total_flow[72] total_flow[73] total_flow[74] total_flow[75] total_flow[76] total_flow[77] total_flow[78] total_flow[79] total_flow[80] total_flow[81] total_flow[82] total_flow[83] total_flow[84] total_flow[85] total_flow[86] total_flow[87] total_flow[88] total_flow[89] total_flow[90] total_flow[91] total_flow[92] total_flow[93] total_flow[94] total_flow[95] total_flow[96] total_flow[97] total_flow[98] total_flow[99] total_flow[100] total_flow[101] total_flow[102] total_flow[103] total_flow[104] total_flow[105] total_flow[106] total_flow[107] total_flow[108] total_flow[109] total_flow[110] total_flow[111] total_flow[112] total_flow[113] total_flow[114] total_flow[115] total_flow[116] total_flow[117] total_flow[118] total_flow[119] total_flow[120] total_flow[121] total_flow[122] total_flow[123] total_flow[124] total_flow[125] total_flow[126] total_flow[127] total_flow[128] total_flow[129] total_flow[130] total_flow[131] total_flow[132] total_flow[133] total_flow[134] total_flow[135] total_flow[136] total_flow[137] total_flow[138] total_flow[139] total_flow[140] total_flow[141] total_flow[142] total_flow[143] total_flow[144] total_flow[145] total_flow[146] total_flow[147] total_flow[148] total_flow[149] total_flow[150] total_flow[151] total_flow[152] total_flow[153] total_flow[154] total_flow[155] total_flow[156] total_flow[157] total_flow[158] total_flow[159] total_flow[160] total_flow[161] total_flow[162] total_flow[163] total_flow[164] total_flow[165] total_flow[166] total_flow[167] total_flow[168] total_flow[169] total_flow[170] total_flow[171] total_flow[172] total_flow[173] total_flow[174] total_flow[175] total_flow[176] total_flow[177] total_flow[178] total_flow[179] total_flow[180] total_flow[181] total_flow[182] total_flow[183] total_flow[184] total_flow[185] total_flow[186] total_flow[187] total_flow[188] total_flow[189] total_flow[190] total_flow[191] total_flow[192] total_flow[193] total_flow[194] total_flow[195] total_flow[196] total_flow[197] total_flow[198] total_flow[199] total_flow[200] total_flow[201] total_flow[202] total_flow[203] total_flow[204] total_flow[205] total_flow[206] total_flow[207] total_flow[208] total_flow[209] total_flow[210] total_flow[211] total_flow[212] total_flow[213] total_flow[214] total_flow[215] total_flow[216] total_flow[217] total_flow[218] total_flow[219] total_flow[220] total_flow[221] total_flow[222] total_flow[223] total_flow[224] total_flow[225] total_flow[226] total_flow[227] total_flow[228] total_flow[229] total_flow[230] total_flow[231] total_flow[232] total_flow[233] total_flow[234] total_flow[235] total_flow[236] total_flow[237] total_flow[238] total_flow[239] total_flow[240] total_flow[241] total_flow[242] total_flow[243] total_flow[244] total_flow[245] total_flow[246] total_flow[247] total_flow[248] total_flow[249] total_flow[250] total_flow[251] total_flow[252] total_flow[253] total_flow[254] total_flow[255] total_flow[256] total_flow[257] total_flow[258] total_flow[259] total_flow[260] total_flow[261] total_flow[262] total_flow[263] total_flow[264] total_flow[265] total_flow[266] total_flow[267] total_flow[268] total_flow[269] total_flow[270] total_flow[271] total_flow[272] </list>
+v   <values> 0 0 0 0 0 0 0 0 0 94 129 0 0 0 60 0 2056 286 254 2274 2110 62 318 7360 2720 15 15 11 11 10 11 15 15 11 11 10 15 11 15 195 132 190 111 195 101 200 83 73 198 137 112 146 200 200 195 195 200 135 200 77 71 134 193 63 200 190 148 183 191 200 200 200 191 200 200 73 200 124 189 127 123 200 50 61 87 89 198 327 496 384 271 395 790 612 398 453 722 791 473 313 450 198 287 0 0 0 0 0 0 0 0 0 2110 2590 0 0 0 2660 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 50 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 130 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 50 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 130 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 129 1 28 66 128 62 130 33 32 151 102 82 20 31 155 52 10 127 15 12 1 53 37 120 48 0 1 11 3 5 0 33 2 0 0 59 29 58 26 3 7 28 4 0 36 34 26 66 1 0 1 0 3 2 40 0 40 1 0 4 0 1 4 32 0 2 25 5 0 1 0 17 0 2 4 0 0 8 4 0 6 0 2 17 0 0 6 0 4 2 0 50 2 0 0 0 0 3 1 32 26 27 1 4 0 4 2 7 0 32 1 0 1 0 1 0 7 3 1 0 5 1 1 0 0 0 4 3 0 32 0 0 28 4 7 0 2 6 0 0 4 0 0 4 32 99 131 0 4 5 16 44 1 16 0 12 92 98 4 4 150 64 57 183 4 1 96 24 1 5 137 0 0 0 4 164 192 28 70 105 0 0 51 118 107 32 0 0 17 53 53 0 32 22 21 13 17 0 13 2 0 26 33 1 30 19 36 95 18 2 32 0 63 13 0 32 6 128 38 118 116 178 188 0 0 130 127 19 16 136 26 20 4 8 196 0 0 0 9 127 1 4 5 0 1 5 0 0 0 0 0 6 0 0 0 12 0 5 5 0 2 0 0 0 2 0 1 0 0 0 0 0 0 1 1 0 0 2 3 0 0 2 0 0 2 0 1 1 0 3 3 0 16 0 0 0 0 0 0 0 4 19 0 0 16 0 0 0 0 0 0 0 1 64 8 19 64 0 0 0 0 0 0 0 0 0 5 48 3 45 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 129 1 28 66 128 62 130 33 32 151 102 82 20 31 155 52 10 127 15 12 1 53 37 120 48 0 1 11 3 5 0 33 2 0 0 59 29 58 26 3 7 28 4 0 36 34 26 66 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 50 0 1 0 1 0 3 2 40 0 40 1 0 4 0 1 4 32 0 2 25 5 0 1 0 17 0 2 4 0 0 8 4 0 6 0 2 17 0 0 6 0 4 2 0 50 2 0 0 0 0 0 0 0 0 0 0 0 0 0 50 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 3 1 32 26 27 1 4 0 4 2 7 0 32 1 0 1 0 1 0 7 3 1 0 5 1 1 0 0 0 4 3 0 32 0 0 28 4 7 0 2 6 0 0 4 0 0 4 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 32 99 131 0 4 5 16 44 1 16 0 12 92 98 4 4 150 64 57 183 4 1 96 24 1 5 137 0 0 0 4 164 192 28 70 105 0 0 51 118 107 32 0 0 17 53 53 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 32 22 21 13 17 0 13 2 0 26 33 1 30 19 36 95 18 2 32 0 63 13 0 32 6 128 38 118 116 178 188 0 0 130 127 19 16 136 26 20 4 8 196 0 0 0 9 127 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 130 0 0 0 0 0 1 4 5 0 1 5 0 0 0 0 0 6 0 0 0 12 0 5 5 0 2 0 0 0 2 0 1 0 0 0 0 0 0 1 1 0 0 2 3 0 0 2 0 0 2 0 1 1 0 0 0 0 0 0 0 0 0 0 130 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 3 3 0 16 0 0 0 0 0 0 0 4 19 0 0 16 0 0 0 0 0 0 0 1 64 8 19 64 0 0 0 0 0 0 0 0 0 5 48 3 45 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 15 15 11 11 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 50 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 130 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 195 132 190 111 195 101 200 83 73 198 137 112 146 200 200 195 195 200 135 200 77 71 134 193 63 200 190 148 183 191 200 200 200 191 200 200 73 200 124 189 127 123 200 50 61 87 89 198 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 50 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 0 0 0 0 0 0 0 0 0 0 130 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 450 0 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 2720
+d OPTIMAL 0
+d OBJECTIVE_ROUNDS 13
+d OBJECTIVE_IMPROVEMENTS 12
+d COP_INCUMBENT_ELAPSED_MS 1052302
+d SOLVE_ELAPSED_MS 1199748
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 147444
+d LAST_COMPLETED_STAGE decode
+d STAGE_PARSE_STATUS pending
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS done
+d STAGE_RELAXATION_STATUS pending
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 1559
+d NORMALIZED_CONSTRAINTS 1559
+d LOWERED_CONSTRAINTS 1559
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 1022804
+d SAT_CLAUSES_BASE 1954358
+d SAT_CLAUSES_FINAL 1954358
+d SAT_CLAUSES_CEGAR_DELTA 0
+d MEMORY_RSS_BYTES 475844608
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 7462912
+d MEMORY_RSS_AFTER_LOWER_BYTES 7462912
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 8540160
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 145838080
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 145899520
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 145899520
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 11
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 1954358
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 475844608
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 475844608
+d CSP_INT_VARS 1516
+d CSP_CONSTRAINTS 1559
+d CSP_INTENTIONAL 1543
+d CSP_GLOBAL 16
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 0
+d CSP_CUMULATIVE 0
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 450
+d CSP_DOMAIN_SPAN_MAX 70000
+d N_CUMULATIVE 0
+d N_TABLE 0
+d SAT_CONFLICTS 3042131
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":1168,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":963,"max_domain_product_excluding_one_var":"9601","p95_domain_product_excluding_one_var":"9601"},"3":{"count":16,"max_domain_product_excluding_one_var":"2010201","p95_domain_product_excluding_one_var":"2010201"},"6":{"count":44,"max_domain_product_excluding_one_var":"736140601251","p95_domain_product_excluding_one_var":"736140601251"},"7":{"count":7,"max_domain_product_excluding_one_var":"147964260851451","p95_domain_product_excluding_one_var":"147964260851451"},"8":{"count":113,"max_domain_product_excluding_one_var":"10007002100350035002100070001","p95_domain_product_excluding_one_var":"10007002100350035002100070001"},"10":{"count":21,"max_domain_product_excluding_one_var":"1201558724634553842051","p95_domain_product_excluding_one_var":"1201558724634553842051"},"11":{"count":7,"max_domain_product_excluding_one_var":"241513303651545322252251","p95_domain_product_excluding_one_var":"241513303651545322252251"},"15":{"count":4,"max_domain_product_excluding_one_var":"175689094255155802434244515642801","p95_domain_product_excluding_one_var":"175689094255155802434244515642801"},"16":{"count":14,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"18":{"count":4,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"19":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"20":{"count":7,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"22":{"count":11,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"23":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"29":{"count":4,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"},"49":{"count":8,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":224,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_GE_ARITY_STATS {"3":{"count":16,"max_domain_product_excluding_one_var":"2010201","p95_domain_product_excluding_one_var":"2010201"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"16":{"count":14,"max_domain_product_excluding_one_var":"32768","p95_domain_product_excluding_one_var":"32768"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 10000
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 10000
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 8926
+d ROOT_LP_ROWS 1142
+d ROOT_LP_VARS 2060
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 16
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 2393
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 3
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 2010201
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 16
+d ROOT_LP_OBJECTIVE_VALUE 0
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d PROPAGATE_PRUNED_VALUES 12000
+d PROPAGATE_CHANGED_DOMAINS 48
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 492
+d POST_LOWER_TIGHTENED_DOMAINS 552
+d POST_LOWER_REMOVED_CLAUSES 0
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 1820
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 5755
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 5755
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 0
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 5755
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d MEMORY_RSS_BYTES 475844608
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 7462912
+d MEMORY_RSS_AFTER_LOWER_BYTES 7462912
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 8540160
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 145838080
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 145899520
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 145899520
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 11
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 1954358
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 475844608
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 475844608
+d DECODE_INT_ASSIGNMENTS 1516
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/2016/mapping/mapping.mzn,sat,1559,1559,1559,0,1022804,1954358,1199747,,,,,,,1,optimal,0,10000,0,10000,0,8926,1142,2060,0,0,0,0,timeout_signal,incumbent_interrupted_by_signal
+signal=15; emitted incumbent csv row
+c run_end_local: 2026-06-20 21:32:17 +0900

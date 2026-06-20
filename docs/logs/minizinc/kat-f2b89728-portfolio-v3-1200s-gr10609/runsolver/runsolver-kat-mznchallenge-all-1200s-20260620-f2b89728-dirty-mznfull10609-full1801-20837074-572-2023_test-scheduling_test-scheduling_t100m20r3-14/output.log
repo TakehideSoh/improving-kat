@@ -1,0 +1,550 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2023/test-scheduling/test-scheduling.mzn --data /bench/2023/test-scheduling/t100m20r3-14.dzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 22:34:59 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | input: constraints=2248
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=40 pruned=122000117 changed_domains=124 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=13385728 rss=12.77MiB
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=2248
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:progress percent=10 processed=225 total=2248 lowered=225 unsupported=0 ms=5
+c 00h00m00s | stage:lower:progress percent=20 processed=450 total=2248 lowered=450 unsupported=0 ms=7
+c 00h00m00s | stage:lower:progress percent=30 processed=675 total=2248 lowered=675 unsupported=0 ms=9
+c 00h00m00s | stage:lower:progress percent=40 processed=900 total=2248 lowered=900 unsupported=0 ms=11
+c 00h00m00s | stage:lower:progress percent=50 processed=1124 total=2248 lowered=1124 unsupported=0 ms=14
+c 00h00m00s | stage:lower:progress percent=60 processed=1349 total=2248 lowered=1349 unsupported=0 ms=16
+c 00h00m00s | stage:lower:progress percent=70 processed=1574 total=2248 lowered=1574 unsupported=0 ms=18
+c 00h00m00s | stage:lower:progress percent=80 processed=1799 total=2248 lowered=1799 unsupported=0 ms=20
+c 00h00m00s | stage:lower:progress percent=90 processed=2024 total=2248 lowered=2024 unsupported=0 ms=22
+c 00h00m00s | stage:lower:progress percent=100 processed=2248 total=2248 lowered=2248 unsupported=0 ms=30
+c 00h00m00s | stage:lower:done ms=31 lowered=2248 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=13385728 rss=12.77MiB
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=2 rounds=99 tightened=99 removed_cls=448 removed_lits=82 unsat=false precise_hits=0 precise_rounds=1 pivot_recomputes=0 pivot_exact_attempts=0 pivot_general_attempts=0 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=0 pivot_general_tightened=0 setup_ms=0 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=13385728 rss=12.77MiB
+c 00h00m00s | stage:lowered-shape int_vars=2323 bool_vars=1282 linear_atoms=7266 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=5849
+c 00h00m00s | stage:root-lp:start backend=lpo
+c 00h00m03s | stage:root-lp:bound backend=lpo status=optimal objective_value=8786 naive_bounds=[8786,36006] lp_bounds=[8786,36006] improved=0 rows=1935 vars=3605 lp_rows_singleton_linear=161 lp_rows_disjunctive=1774 lp_rows_table=0 lp_rows_cumulative_energy=0 lp_rows_cumulative_pair=0 lp_rows_cumulative_timetable=0 lp_rows_cumulative_completion=0 lp_rows_cumulative_precedence=0 lp_rows_no_overlap_pair=0 lp_rows_no_overlap_completion=0 lp_rows_no_overlap_precedence=0 lp_rows_no_overlap_2d_energy=0 lp_rows_no_overlap_2d_completion=0 lp_scheduling_payloads_cumulative=0 lp_scheduling_payloads_no_overlap=0 lp_scheduling_cut_rounds=0 lp_scheduling_cut_candidates=0 lp_scheduling_cut_violated=0 lp_scheduling_rows_skipped=0 ms=3767
+c 00h00m03s | memory:rss checkpoint=before_preencode bytes=942858240 rss=899.18MiB
+c 00h00m03s | stage:preencode(log-scop):start
+c 00h00m03s | stage:preencode(log-scop):done ms=1 int_vars=2323
+c 00h00m03s | memory:rss checkpoint=after_preencode bytes=942858240 rss=899.18MiB
+c 00h00m03s | memory:rss checkpoint=before_encode bytes=942977024 rss=899.29MiB
+c 00h00m03s | stage:encode(log-scop):start
+c 00h00m03s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=32104 bytes=943276032 rss=899.58MiB progress_percent=10 processed=795 total=7950
+c 00h00m03s | stage:encode(log-scop):progress percent=10 processed=795 total=7950 sat_clauses=32104 ms=9
+c 00h00m03s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=37599 bytes=943276032 rss=899.58MiB progress_percent=20 processed=1590 total=7950
+c 00h00m03s | stage:encode(log-scop):progress percent=20 processed=1590 total=7950 sat_clauses=37599 ms=9
+c 00h00m03s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=43109 bytes=943276032 rss=899.58MiB progress_percent=30 processed=2385 total=7950
+c 00h00m03s | stage:encode(log-scop):progress percent=30 processed=2385 total=7950 sat_clauses=43109 ms=10
+c 00h00m03s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=48636 bytes=943276032 rss=899.58MiB progress_percent=40 processed=3180 total=7950
+c 00h00m03s | stage:encode(log-scop):progress percent=40 processed=3180 total=7950 sat_clauses=48636 ms=11
+c 00h00m03s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=67857 bytes=943398912 rss=899.70MiB progress_percent=50 processed=3975 total=7950
+c 00h00m03s | stage:encode(log-scop):progress percent=50 processed=3975 total=7950 sat_clauses=67857 ms=29
+c 00h00m03s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=133407 bytes=943398912 rss=899.70MiB progress_percent=60 processed=4770 total=7950
+c 00h00m03s | stage:encode(log-scop):progress percent=60 processed=4770 total=7950 sat_clauses=133407 ms=58
+c 00h00m03s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=198678 bytes=943398912 rss=899.70MiB progress_percent=70 processed=5565 total=7950
+c 00h00m03s | stage:encode(log-scop):progress percent=70 processed=5565 total=7950 sat_clauses=198678 ms=91
+c 00h00m03s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=244413 bytes=943398912 rss=899.70MiB progress_percent=80 processed=6360 total=7950
+c 00h00m03s | stage:encode(log-scop):progress percent=80 processed=6360 total=7950 sat_clauses=244413 ms=99
+c 00h00m03s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=244413 bytes=943398912 rss=899.70MiB progress_percent=90 processed=7155 total=7950
+c 00h00m03s | stage:encode(log-scop):progress percent=90 processed=7155 total=7950 sat_clauses=244413 ms=100
+c 00h00m03s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=244413 bytes=943398912 rss=899.70MiB progress_percent=100 processed=7950 total=7950
+c 00h00m03s | stage:encode(log-scop):progress percent=100 processed=7950 total=7950 sat_clauses=244413 ms=100
+c 00h00m03s | stage:encode(log-scop):done ms=109 sat_vars=142471 sat_clauses=244413 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=5383 log_scop_pb_mixed=0 log_scop_pb_bdd2=5383 log_scop_pb_bdd3=0 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=5383 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m03s | stage:post-encode(log-scop):start sat_vars=142471 sat_clauses=244413 has_relaxations=false external_tables=0
+c 00h00m03s | stage:post-encode(log-scop):after-finish-check ms=0
+c 00h00m03s | stage:post-encode(log-scop):decode-layout-ready int_symbols=2323 ms=1
+c 00h00m03s | stage:post-encode(log-scop):cumulative-external-ready has_prop=true ms=13
+c 00h00m03s | stage:post-encode(log-scop):log-scop-external-ready has_prop=false ms=13
+c 00h00m03s | stage:post-encode(log-scop):external-prop-connected has_prop=true ms=14
+c 00h00m03s | stage:post-encode(log-scop):done sat_vars=142471 sat_clauses=244413 ms=14
+c 00h00m03s | stage:post-encode(log-scop):reusable-ready mode=SoftCnf sat_vars=142471
+c 00h00m03s | stage:objective-external-ge-template(log-scop):start cut=DirectExpr wants_ext_ge=false
+c 00h00m03s | stage:objective-external-ge-template(log-scop):done has_template=true ms=1
+c 00h00m03s | stage:objective-mode(log-scop):resolved mode=SoftCnf wants_ext_ge=false has_ext_ge_template=true
+c 00h00m03s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m03s | stage:objective-encoder(log-scop):ready mode=SoftCnf soft=true sat_vars=142471
+c 00h00m03s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=false soft_active=true
+c 00h00m03s | stage:sat:round-entry encoder=log-scop assumptions=0 phase_lits=0 sat_vars=142471 base_clauses=244413
+c 00h00m03s | stage:sat:init solver=CaDiCaL vars=142471 clauses=244413
+c 00h00m03s | stage:sat:solve:start assumptions=0 phase_lits=0
+c 00h00m15s | stage:sat:solve:done ms=11716 result=Sat assumptions=0 phase_lits=0
+c 00h00m15s | stage:decode:start
+c 00h00m15s | stage:decode:done int_assignments=2323
+c 00h00m15s | result:Sat
+c 00h00m15s | stage:objective-cut-surface(log-scop):start timing=after-incumbent
+c 00h00m15s | stage:objective-cut-surface(log-scop):done has_surface=true ms=2
+c 00h00m15s | objective:incumbent kind=initial value=35187 rounds=1 improvements=0
+o 35187
+c 00h00m15s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m15s | stage:objective-cut:soft-install bound=26386 guard=142487 clauses_added=26
+c 00h00m15s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,35186] next 26386 source=install guard=142487
+c 00h00m15s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142487 base_clauses=244439
+c 00h00m15s | stage:sat:init solver=CaDiCaL vars=142487 clauses=244439
+c 00h00m15s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m16s | stage:sat:solve:done ms=671 result=Sat assumptions=1 phase_lits=5052
+c 00h00m16s | stage:decode:start
+c 00h00m16s | stage:decode:done int_assignments=2323
+c 00h00m16s | result:Sat
+c 00h00m16s | objective:incumbent kind=improvement value=26290 rounds=2 improvements=1
+o 26290
+c 00h00m16s | stage:objective-cut:soft-result search=trisection bound=26386 result=sat guard=142487 hard=guard [LB,UB] = [8786,26289]
+c 00h00m16s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m16s | stage:objective-cut:soft-install bound=20455 guard=142502 clauses_added=21
+c 00h00m16s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,26289] next 20455 source=install guard=142502
+c 00h00m16s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142502 base_clauses=244461
+c 00h00m16s | stage:sat:init solver=CaDiCaL vars=142502 clauses=244461
+c 00h00m16s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m16s | stage:sat:solve:done ms=221 result=Sat assumptions=1 phase_lits=5052
+c 00h00m16s | stage:decode:start
+c 00h00m16s | stage:decode:done int_assignments=2323
+c 00h00m16s | result:Sat
+c 00h00m16s | objective:incumbent kind=improvement value=18002 rounds=3 improvements=2
+o 18002
+c 00h00m16s | stage:objective-cut:soft-result search=trisection bound=20455 result=sat guard=142502 hard=guard [LB,UB] = [8786,18001]
+c 00h00m16s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m16s | stage:objective-cut:soft-install bound=14930 guard=142518 clauses_added=28
+c 00h00m16s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,18001] next 14930 source=install guard=142518
+c 00h00m16s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142518 base_clauses=244490
+c 00h00m16s | stage:sat:init solver=CaDiCaL vars=142518 clauses=244490
+c 00h00m16s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m24s | stage:sat:solve:done ms=7928 result=Sat assumptions=1 phase_lits=5052
+c 00h00m24s | stage:decode:start
+c 00h00m24s | stage:decode:done int_assignments=2323
+c 00h00m24s | result:Sat
+c 00h00m24s | objective:incumbent kind=improvement value=14930 rounds=4 improvements=3
+o 14930
+c 00h00m24s | stage:objective-cut:soft-result search=trisection bound=14930 result=sat guard=142518 hard=guard [LB,UB] = [8786,14929]
+c 00h00m24s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m24s | stage:objective-cut:soft-install bound=12882 guard=142534 clauses_added=29
+c 00h00m24s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,14929] next 12882 source=install guard=142534
+c 00h00m24s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142534 base_clauses=244520
+c 00h00m24s | stage:sat:init solver=CaDiCaL vars=142534 clauses=244520
+c 00h00m24s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m24s | stage:sat:solve:done ms=208 result=Sat assumptions=1 phase_lits=5052
+c 00h00m24s | stage:decode:start
+c 00h00m24s | stage:decode:done int_assignments=2323
+c 00h00m24s | result:Sat
+c 00h00m24s | objective:incumbent kind=improvement value=12882 rounds=5 improvements=4
+o 12882
+c 00h00m24s | stage:objective-cut:soft-result search=trisection bound=12882 result=sat guard=142534 hard=guard [LB,UB] = [8786,12881]
+c 00h00m24s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m24s | stage:objective-cut:soft-install bound=11516 guard=142550 clauses_added=24
+c 00h00m24s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,12881] next 11516 source=install guard=142550
+c 00h00m24s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142550 base_clauses=244545
+c 00h00m24s | stage:sat:init solver=CaDiCaL vars=142550 clauses=244545
+c 00h00m24s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m25s | stage:sat:solve:done ms=278 result=Sat assumptions=1 phase_lits=5052
+c 00h00m25s | stage:decode:start
+c 00h00m25s | stage:decode:done int_assignments=2323
+c 00h00m25s | result:Sat
+c 00h00m25s | objective:incumbent kind=improvement value=11514 rounds=6 improvements=5
+o 11514
+c 00h00m25s | stage:objective-cut:soft-result search=trisection bound=11516 result=sat guard=142550 hard=guard [LB,UB] = [8786,11513]
+c 00h00m25s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m25s | stage:objective-cut:soft-install bound=10604 guard=142566 clauses_added=24
+c 00h00m25s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,11513] next 10604 source=install guard=142566
+c 00h00m25s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142566 base_clauses=244570
+c 00h00m25s | stage:sat:init solver=CaDiCaL vars=142566 clauses=244570
+c 00h00m25s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m25s | stage:sat:solve:done ms=196 result=Sat assumptions=1 phase_lits=5052
+c 00h00m25s | stage:decode:start
+c 00h00m25s | stage:decode:done int_assignments=2323
+c 00h00m25s | result:Sat
+c 00h00m25s | objective:incumbent kind=improvement value=10586 rounds=7 improvements=6
+o 10586
+c 00h00m25s | stage:objective-cut:soft-result search=trisection bound=10604 result=sat guard=142566 hard=guard [LB,UB] = [8786,10585]
+c 00h00m25s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m25s | stage:objective-cut:soft-install bound=9986 guard=142582 clauses_added=26
+c 00h00m25s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,10585] next 9986 source=install guard=142582
+c 00h00m25s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142582 base_clauses=244597
+c 00h00m25s | stage:sat:init solver=CaDiCaL vars=142582 clauses=244597
+c 00h00m25s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m25s | stage:sat:solve:done ms=299 result=Sat assumptions=1 phase_lits=5052
+c 00h00m25s | stage:decode:start
+c 00h00m25s | stage:decode:done int_assignments=2323
+c 00h00m25s | result:Sat
+c 00h00m25s | objective:incumbent kind=improvement value=9986 rounds=8 improvements=7
+o 9986
+c 00h00m25s | stage:objective-cut:soft-result search=trisection bound=9986 result=sat guard=142582 hard=guard [LB,UB] = [8786,9985]
+c 00h00m25s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m25s | stage:objective-cut:soft-install bound=9586 guard=142598 clauses_added=27
+c 00h00m25s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,9985] next 9586 source=install guard=142598
+c 00h00m25s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142598 base_clauses=244625
+c 00h00m25s | stage:sat:init solver=CaDiCaL vars=142598 clauses=244625
+c 00h00m25s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m26s | stage:sat:solve:done ms=826 result=Sat assumptions=1 phase_lits=5052
+c 00h00m26s | stage:decode:start
+c 00h00m26s | stage:decode:done int_assignments=2323
+c 00h00m26s | result:Sat
+c 00h00m26s | objective:incumbent kind=improvement value=9509 rounds=9 improvements=8
+o 9509
+c 00h00m26s | stage:objective-cut:soft-result search=trisection bound=9586 result=sat guard=142598 hard=guard [LB,UB] = [8786,9508]
+c 00h00m26s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m26s | stage:objective-cut:soft-install bound=9268 guard=142614 clauses_added=25
+c 00h00m26s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,9508] next 9268 source=install guard=142614
+c 00h00m26s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142614 base_clauses=244651
+c 00h00m26s | stage:sat:init solver=CaDiCaL vars=142614 clauses=244651
+c 00h00m26s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m26s | stage:sat:solve:done ms=559 result=Sat assumptions=1 phase_lits=5052
+c 00h00m26s | stage:decode:start
+c 00h00m26s | stage:decode:done int_assignments=2323
+c 00h00m26s | result:Sat
+c 00h00m26s | objective:incumbent kind=improvement value=9268 rounds=10 improvements=9
+o 9268
+c 00h00m26s | stage:objective-cut:soft-result search=trisection bound=9268 result=sat guard=142614 hard=guard [LB,UB] = [8786,9267]
+c 00h00m26s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m26s | stage:objective-cut:soft-install bound=9107 guard=142629 clauses_added=26
+c 00h00m26s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,9267] next 9107 source=install guard=142629
+c 00h00m26s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142629 base_clauses=244678
+c 00h00m26s | stage:sat:init solver=CaDiCaL vars=142629 clauses=244678
+c 00h00m26s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m27s | stage:sat:solve:done ms=316 result=Sat assumptions=1 phase_lits=5052
+c 00h00m27s | stage:decode:start
+c 00h00m27s | stage:decode:done int_assignments=2323
+c 00h00m27s | result:Sat
+c 00h00m27s | objective:incumbent kind=improvement value=9106 rounds=11 improvements=10
+o 9106
+c 00h00m27s | stage:objective-cut:soft-result search=trisection bound=9107 result=sat guard=142629 hard=guard [LB,UB] = [8786,9105]
+c 00h00m27s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m27s | stage:objective-cut:soft-install bound=8999 guard=142644 clauses_added=24
+c 00h00m27s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,9105] next 8999 source=install guard=142644
+c 00h00m27s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142644 base_clauses=244703
+c 00h00m27s | stage:sat:init solver=CaDiCaL vars=142644 clauses=244703
+c 00h00m27s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m29s | stage:sat:solve:done ms=2196 result=Sat assumptions=1 phase_lits=5052
+c 00h00m29s | stage:decode:start
+c 00h00m29s | stage:decode:done int_assignments=2323
+c 00h00m29s | result:Sat
+c 00h00m29s | objective:incumbent kind=improvement value=8993 rounds=12 improvements=11
+o 8993
+c 00h00m29s | stage:objective-cut:soft-result search=trisection bound=8999 result=sat guard=142644 hard=guard [LB,UB] = [8786,8992]
+c 00h00m29s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m29s | stage:objective-cut:soft-install bound=8924 guard=142660 clauses_added=27
+c 00h00m29s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,8992] next 8924 source=install guard=142660
+c 00h00m29s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142660 base_clauses=244731
+c 00h00m29s | stage:sat:init solver=CaDiCaL vars=142660 clauses=244731
+c 00h00m29s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m32s | stage:sat:solve:done ms=3321 result=Sat assumptions=1 phase_lits=5052
+c 00h00m32s | stage:decode:start
+c 00h00m32s | stage:decode:done int_assignments=2323
+c 00h00m32s | result:Sat
+c 00h00m32s | objective:incumbent kind=improvement value=8924 rounds=13 improvements=12
+o 8924
+c 00h00m32s | stage:objective-cut:soft-result search=trisection bound=8924 result=sat guard=142660 hard=guard [LB,UB] = [8786,8923]
+c 00h00m32s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m32s | stage:objective-cut:soft-install bound=8878 guard=142676 clauses_added=26
+c 00h00m32s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,8923] next 8878 source=install guard=142676
+c 00h00m32s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142676 base_clauses=244758
+c 00h00m32s | stage:sat:init solver=CaDiCaL vars=142676 clauses=244758
+c 00h00m32s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m33s | stage:sat:solve:done ms=1162 result=Sat assumptions=1 phase_lits=5052
+c 00h00m33s | stage:decode:start
+c 00h00m33s | stage:decode:done int_assignments=2323
+c 00h00m33s | result:Sat
+c 00h00m33s | objective:incumbent kind=improvement value=8877 rounds=14 improvements=13
+o 8877
+c 00h00m33s | stage:objective-cut:soft-result search=trisection bound=8878 result=sat guard=142676 hard=guard [LB,UB] = [8786,8876]
+c 00h00m33s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m33s | stage:objective-cut:soft-install bound=8846 guard=142692 clauses_added=26
+c 00h00m33s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,8876] next 8846 source=install guard=142692
+c 00h00m33s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142692 base_clauses=244785
+c 00h00m33s | stage:sat:init solver=CaDiCaL vars=142692 clauses=244785
+c 00h00m33s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m37s | stage:sat:solve:done ms=3202 result=Sat assumptions=1 phase_lits=5052
+c 00h00m37s | stage:decode:start
+c 00h00m37s | stage:decode:done int_assignments=2323
+c 00h00m37s | result:Sat
+c 00h00m37s | objective:incumbent kind=improvement value=8846 rounds=15 improvements=14
+o 8846
+c 00h00m37s | stage:objective-cut:soft-result search=trisection bound=8846 result=sat guard=142692 hard=guard [LB,UB] = [8786,8845]
+c 00h00m37s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m37s | stage:objective-cut:soft-install bound=8826 guard=142708 clauses_added=28
+c 00h00m37s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,8845] next 8826 source=install guard=142708
+c 00h00m37s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142708 base_clauses=244814
+c 00h00m37s | stage:sat:init solver=CaDiCaL vars=142708 clauses=244814
+c 00h00m37s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m37s | stage:sat:solve:done ms=177 result=Sat assumptions=1 phase_lits=5052
+c 00h00m37s | stage:decode:start
+c 00h00m37s | stage:decode:done int_assignments=2323
+c 00h00m37s | result:Sat
+c 00h00m37s | objective:incumbent kind=improvement value=8826 rounds=16 improvements=15
+o 8826
+c 00h00m37s | stage:objective-cut:soft-result search=trisection bound=8826 result=sat guard=142708 hard=guard [LB,UB] = [8786,8825]
+c 00h00m37s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m37s | stage:objective-cut:soft-install bound=8812 guard=142724 clauses_added=27
+c 00h00m37s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,8825] next 8812 source=install guard=142724
+c 00h00m37s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142724 base_clauses=244842
+c 00h00m37s | stage:sat:init solver=CaDiCaL vars=142724 clauses=244842
+c 00h00m37s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m37s | stage:sat:solve:done ms=298 result=Sat assumptions=1 phase_lits=5052
+c 00h00m37s | stage:decode:start
+c 00h00m37s | stage:decode:done int_assignments=2323
+c 00h00m37s | result:Sat
+c 00h00m37s | objective:incumbent kind=improvement value=8812 rounds=17 improvements=16
+o 8812
+c 00h00m37s | stage:objective-cut:soft-result search=trisection bound=8812 result=sat guard=142724 hard=guard [LB,UB] = [8786,8811]
+c 00h00m37s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m37s | stage:objective-cut:soft-install bound=8803 guard=142739 clauses_added=27
+c 00h00m37s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,8811] next 8803 source=install guard=142739
+c 00h00m37s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142739 base_clauses=244870
+c 00h00m37s | stage:sat:init solver=CaDiCaL vars=142739 clauses=244870
+c 00h00m37s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m42s | stage:sat:solve:done ms=5189 result=Sat assumptions=1 phase_lits=5052
+c 00h00m42s | stage:decode:start
+c 00h00m42s | stage:decode:done int_assignments=2323
+c 00h00m42s | result:Sat
+c 00h00m42s | objective:incumbent kind=improvement value=8803 rounds=18 improvements=17
+o 8803
+c 00h00m42s | stage:objective-cut:soft-result search=trisection bound=8803 result=sat guard=142739 hard=guard [LB,UB] = [8786,8802]
+c 00h00m42s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m42s | stage:objective-cut:soft-install bound=8797 guard=142753 clauses_added=25
+c 00h00m42s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,8802] next 8797 source=install guard=142753
+c 00h00m42s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142753 base_clauses=244896
+c 00h00m42s | stage:sat:init solver=CaDiCaL vars=142753 clauses=244896
+c 00h00m42s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m43s | stage:sat:solve:done ms=740 result=Sat assumptions=1 phase_lits=5052
+c 00h00m43s | stage:decode:start
+c 00h00m43s | stage:decode:done int_assignments=2323
+c 00h00m43s | result:Sat
+c 00h00m43s | objective:incumbent kind=improvement value=8797 rounds=19 improvements=18
+o 8797
+c 00h00m43s | stage:objective-cut:soft-result search=trisection bound=8797 result=sat guard=142753 hard=guard [LB,UB] = [8786,8796]
+c 00h00m43s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m43s | stage:objective-cut:soft-install bound=8793 guard=142766 clauses_added=24
+c 00h00m43s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,8796] next 8793 source=install guard=142766
+c 00h00m43s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142766 base_clauses=244921
+c 00h00m43s | stage:sat:init solver=CaDiCaL vars=142766 clauses=244921
+c 00h00m43s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m43s | stage:sat:solve:done ms=221 result=Sat assumptions=1 phase_lits=5052
+c 00h00m43s | stage:decode:start
+c 00h00m43s | stage:decode:done int_assignments=2323
+c 00h00m43s | result:Sat
+c 00h00m43s | objective:incumbent kind=improvement value=8793 rounds=20 improvements=19
+o 8793
+c 00h00m43s | stage:objective-cut:soft-result search=trisection bound=8793 result=sat guard=142766 hard=guard [LB,UB] = [8786,8792]
+c 00h00m43s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m43s | stage:objective-cut:soft-install bound=8790 guard=142782 clauses_added=29
+c 00h00m43s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,8792] next 8790 source=install guard=142782
+c 00h00m43s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142782 base_clauses=244951
+c 00h00m43s | stage:sat:init solver=CaDiCaL vars=142782 clauses=244951
+c 00h00m43s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m44s | stage:sat:solve:done ms=196 result=Sat assumptions=1 phase_lits=5052
+c 00h00m44s | stage:decode:start
+c 00h00m44s | stage:decode:done int_assignments=2323
+c 00h00m44s | result:Sat
+c 00h00m44s | objective:incumbent kind=improvement value=8790 rounds=21 improvements=20
+o 8790
+c 00h00m44s | stage:objective-cut:soft-result search=trisection bound=8790 result=sat guard=142782 hard=guard [LB,UB] = [8786,8789]
+c 00h00m44s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m44s | stage:objective-cut:soft-install bound=8788 guard=142798 clauses_added=29
+c 00h00m44s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,8789] next 8788 source=install guard=142798
+c 00h00m44s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142798 base_clauses=244981
+c 00h00m44s | stage:sat:init solver=CaDiCaL vars=142798 clauses=244981
+c 00h00m44s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m44s | stage:sat:solve:done ms=176 result=Sat assumptions=1 phase_lits=5052
+c 00h00m44s | stage:decode:start
+c 00h00m44s | stage:decode:done int_assignments=2323
+c 00h00m44s | result:Sat
+c 00h00m44s | objective:incumbent kind=improvement value=8788 rounds=22 improvements=21
+o 8788
+c 00h00m44s | stage:objective-cut:soft-result search=trisection bound=8788 result=sat guard=142798 hard=guard [LB,UB] = [8786,8787]
+c 00h00m44s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m44s | stage:objective-cut:soft-install bound=8787 guard=142813 clauses_added=28
+c 00h00m44s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,8787] next 8787 source=install guard=142813
+c 00h00m44s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142813 base_clauses=245010
+c 00h00m44s | stage:sat:init solver=CaDiCaL vars=142813 clauses=245010
+c 00h00m44s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m44s | stage:sat:solve:done ms=317 result=Sat assumptions=1 phase_lits=5052
+c 00h00m44s | stage:decode:start
+c 00h00m44s | stage:decode:done int_assignments=2323
+c 00h00m44s | result:Sat
+c 00h00m44s | objective:incumbent kind=improvement value=8787 rounds=23 improvements=22
+o 8787
+c 00h00m44s | stage:objective-cut:soft-result search=trisection bound=8787 result=sat guard=142813 hard=guard [LB,UB] = [8786,8786]
+c 00h00m44s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=8786 upper=36006 has_incumbent=true soft_active=true
+c 00h00m44s | stage:objective-cut:soft-install bound=8786 guard=142829 clauses_added=30
+c 00h00m44s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [8786,8786] next 8786 source=install guard=142829
+c 00h00m44s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=5052 sat_vars=142829 base_clauses=245041
+c 00h00m44s | stage:sat:init solver=CaDiCaL vars=142829 clauses=245041
+c 00h00m44s | stage:sat:solve:start assumptions=1 phase_lits=5052
+c 00h00m45s | stage:sat:solve:done ms=1065 result=Sat assumptions=1 phase_lits=5052
+c 00h00m45s | stage:decode:start
+c 00h00m45s | stage:decode:done int_assignments=2323
+c 00h00m45s | result:Sat
+c 00h00m45s | objective:incumbent kind=improvement value=8786 rounds=24 improvements=23
+o 8786
+c 00h00m45s | stage:objective-cut:soft-result search=trisection bound=8786 result=sat guard=142829 hard=guard [LB,UB] = [8785,8786]
+s OPTIMUM FOUND
+o 8786
+v <instantiation>
+v   <list> usesMachine[1] usesMachine[2] usesMachine[3] usesMachine[4] usesMachine[5] usesMachine[6] usesMachine[7] usesMachine[8] usesMachine[9] usesMachine[10] usesMachine[11] usesMachine[12] usesMachine[13] usesMachine[14] usesMachine[15] usesMachine[16] usesMachine[17] usesMachine[18] usesMachine[19] usesMachine[20] usesMachine[21] usesMachine[22] usesMachine[23] usesMachine[24] usesMachine[25] usesMachine[26] usesMachine[27] usesMachine[28] usesMachine[29] usesMachine[30] usesMachine[31] usesMachine[32] usesMachine[33] usesMachine[34] usesMachine[35] usesMachine[36] usesMachine[37] usesMachine[38] usesMachine[39] usesMachine[40] usesMachine[41] usesMachine[42] usesMachine[43] usesMachine[44] usesMachine[45] usesMachine[46] usesMachine[47] usesMachine[48] usesMachine[49] usesMachine[50] usesMachine[51] usesMachine[52] usesMachine[53] usesMachine[54] usesMachine[55] usesMachine[56] usesMachine[57] usesMachine[58] usesMachine[59] usesMachine[60] usesMachine[61] usesMachine[62] usesMachine[63] usesMachine[64] usesMachine[65] usesMachine[66] usesMachine[67] usesMachine[68] usesMachine[69] usesMachine[70] usesMachine[71] usesMachine[72] usesMachine[73] usesMachine[74] usesMachine[75] usesMachine[76] usesMachine[77] usesMachine[78] usesMachine[79] usesMachine[80] usesMachine[81] usesMachine[82] usesMachine[83] usesMachine[84] usesMachine[85] usesMachine[86] usesMachine[87] usesMachine[88] usesMachine[89] usesMachine[90] usesMachine[91] usesMachine[92] usesMachine[93] usesMachine[94] usesMachine[95] usesMachine[96] usesMachine[97] usesMachine[98] usesMachine[99] usesMachine[100] startTime[1] startTime[2] startTime[3] startTime[4] startTime[5] startTime[6] startTime[7] startTime[8] startTime[9] startTime[10] startTime[11] startTime[12] startTime[13] startTime[14] startTime[15] startTime[16] startTime[17] startTime[18] startTime[19] startTime[20] startTime[21] startTime[22] startTime[23] startTime[24] startTime[25] startTime[26] startTime[27] startTime[28] startTime[29] startTime[30] startTime[31] startTime[32] startTime[33] startTime[34] startTime[35] startTime[36] startTime[37] startTime[38] startTime[39] startTime[40] startTime[41] startTime[42] startTime[43] startTime[44] startTime[45] startTime[46] startTime[47] startTime[48] startTime[49] startTime[50] startTime[51] startTime[52] startTime[53] startTime[54] startTime[55] startTime[56] startTime[57] startTime[58] startTime[59] startTime[60] startTime[61] startTime[62] startTime[63] startTime[64] startTime[65] startTime[66] startTime[67] startTime[68] startTime[69] startTime[70] startTime[71] startTime[72] startTime[73] startTime[74] startTime[75] startTime[76] startTime[77] startTime[78] startTime[79] startTime[80] startTime[81] startTime[82] startTime[83] startTime[84] startTime[85] startTime[86] startTime[87] startTime[88] startTime[89] startTime[90] startTime[91] startTime[92] startTime[93] startTime[94] startTime[95] startTime[96] startTime[97] startTime[98] startTime[99] startTime[100] objective __cum_height0 __cum_height1 __cum_height2 __cum_height3 __cum_height4 __cum_height5 __cum_height6 __cum_height7 __cum_height8 __cum_height9 __cum_height10 __cum_height11 __cum_height12 __cum_height13 __cum_height14 __cum_height15 __cum_height16 __cum_height17 __cum_height18 __cum_height19 __cum_height20 __cum_height21 __cum_height22 __cum_height23 __cum_height24 __cum_height25 __cum_height26 __cum_height27 __cum_height28 __cum_height29 __cum_height30 __cum_height31 __cum_height32 __cum_height33 __cum_height34 __cum_height35 __cum_height36 __cum_height37 __cum_height38 __cum_height39 __cum_height40 __cum_height41 __cum_height42 __cum_height43 __cum_height44 __cum_height45 __cum_height46 __cum_height47 __cum_height48 __cum_height49 __cum_height50 __cum_height51 __cum_height52 __cum_height53 __cum_height54 __cum_height55 __cum_height56 __cum_height57 __cum_height58 __cum_height59 __cum_height60 __cum_height61 __cum_height62 __cum_height63 __cum_height64 __cum_height65 __cum_height66 __cum_height67 __cum_height68 __cum_height69 __cum_height70 __cum_height71 __cum_height72 __cum_height73 __cum_height74 __cum_height75 __cum_height76 __cum_height77 __cum_height78 __cum_height79 __cum_height80 __cum_height81 __cum_height82 __cum_height83 __cum_height84 __cum_height85 __cum_height86 __cum_height87 __cum_height88 __cum_height89 __cum_height90 __cum_height91 __cum_height92 __cum_height93 __cum_height94 __cum_height95 __cum_height96 __cum_height97 __cum_height98 __cum_height99 __cum_height100 __cum_height101 __cum_height102 __cum_height103 __cum_height104 __cum_height105 __cum_height106 __cum_height107 __cum_height108 __cum_height109 __cum_height110 __cum_height111 __cum_height112 __cum_height113 __cum_height114 __cum_height115 __cum_height116 __cum_height117 __cum_height118 __cum_height119 __cum_height120 __cum_height121 __cum_height122 __cum_height123 __cum_height124 __cum_height125 __cum_height126 __cum_height127 __cum_height128 __cum_height129 __cum_height130 __cum_height131 __cum_height132 __cum_height133 __cum_height134 __cum_height135 __cum_height136 __cum_height137 __cum_height138 __cum_height139 __cum_height140 __cum_height141 __cum_height142 __cum_height143 __cum_height144 __cum_height145 __cum_height146 __cum_height147 __cum_height148 __cum_height149 __cum_height150 __cum_height151 __cum_height152 __cum_height153 __cum_height154 __cum_height155 __cum_height156 __cum_height157 __cum_height158 __cum_height159 __cum_height160 __cum_height161 __cum_height162 __cum_height163 __cum_height164 __cum_height165 __cum_height166 __cum_height167 __cum_height168 __cum_height169 __cum_height170 __cum_height171 __cum_height172 __cum_height173 __cum_height174 __cum_height175 __cum_height176 __cum_height177 __cum_height178 __cum_height179 __cum_height180 __cum_height181 __cum_height182 __cum_height183 __cum_height184 __cum_height185 __cum_height186 __cum_height187 __cum_height188 __cum_height189 __cum_height190 __cum_height191 __cum_height192 __cum_height193 __cum_height194 __cum_height195 __cum_height196 __cum_height197 __cum_height198 __cum_height199 __cum_height200 __cum_height201 __cum_height202 __cum_height203 __cum_height204 __cum_height205 __cum_height206 __cum_height207 __cum_height208 __cum_height209 __cum_height210 __cum_height211 __cum_height212 __cum_height213 __cum_height214 __cum_height215 __cum_height216 __cum_height217 __cum_height218 __cum_height219 __cum_height220 __cum_height221 __cum_height222 __cum_height223 __cum_height224 __cum_height225 __cum_height226 __cum_height227 __cum_height228 __cum_height229 __cum_height230 __cum_height231 __cum_height232 __cum_height233 __cum_height234 __cum_height235 __cum_height236 __cum_height237 __cum_height238 __cum_height239 __cum_height240 __cum_height241 __cum_height242 __cum_height243 __cum_height244 __cum_height245 __cum_height246 __cum_height247 __cum_height248 __cum_height249 __cum_height250 __cum_height251 __cum_height252 __cum_height253 __cum_height254 __cum_height255 __cum_height256 __cum_height257 __cum_height258 __cum_height259 __cum_height260 __cum_height261 __cum_height262 __cum_height263 __cum_height264 __cum_height265 __cum_height266 __cum_height267 __cum_height268 __cum_height269 __cum_height270 __cum_height271 __cum_height272 __cum_height273 __cum_height274 __cum_height275 __cum_height276 __cum_height277 __cum_height278 __cum_height279 __cum_height280 __cum_height281 __cum_height282 __cum_height283 __cum_height284 __cum_height285 __cum_height286 __cum_height287 __cum_height288 __cum_height289 __cum_height290 __cum_height291 __cum_height292 __cum_height293 __cum_height294 __cum_height295 __cum_height296 __cum_height297 __cum_height298 __cum_height299 __cum_height300 __cum_height301 __cum_height302 __cum_height303 __cum_height304 __cum_height305 __cum_height306 __cum_height307 __cum_height308 __cum_height309 __cum_height310 __cum_height311 __cum_height312 __cum_height313 __cum_height314 __cum_height315 __cum_height316 __cum_height317 __cum_height318 __cum_height319 __cum_height320 __cum_height321 __cum_height322 __cum_height323 __cum_height324 __cum_height325 __cum_height326 __cum_height327 __cum_height328 __cum_height329 __cum_height330 __cum_height331 __cum_height332 __cum_height333 __cum_height334 __cum_height335 __cum_height336 __cum_height337 __cum_height338 __cum_height339 __cum_height340 __cum_height341 __cum_height342 __cum_height343 __cum_height344 __cum_height345 __cum_height346 __cum_height347 __cum_height348 __cum_height349 __cum_height350 __cum_height351 __cum_height352 __cum_height353 __cum_height354 __cum_height355 __cum_height356 __cum_height357 __cum_height358 __cum_height359 __cum_height360 __cum_height361 __cum_height362 __cum_height363 __cum_height364 __cum_height365 __cum_height366 __cum_height367 __cum_height368 __cum_height369 __cum_height370 __cum_height371 __cum_height372 __cum_height373 __cum_height374 __cum_height375 __cum_height376 __cum_height377 __cum_height378 __cum_height379 __cum_height380 __cum_height381 __cum_height382 __cum_height383 __cum_height384 __cum_height385 __cum_height386 __cum_height387 __cum_height388 __cum_height389 __cum_height390 __cum_height391 __cum_height392 __cum_height393 __cum_height394 __cum_height395 __cum_height396 __cum_height397 __cum_height398 __cum_height399 __cum_height400 __cum_height401 __cum_height402 __cum_height403 __cum_height404 __cum_height405 __cum_height406 __cum_height407 __cum_height408 __cum_height409 __cum_height410 __cum_height411 __cum_height412 __cum_height413 __cum_height414 __cum_height415 __cum_height416 __cum_height417 __cum_height418 __cum_height419 __cum_height420 __cum_height421 __cum_height422 __cum_height423 __cum_height424 __cum_height425 __cum_height426 __cum_height427 __cum_height428 __cum_height429 __cum_height430 __cum_height431 __cum_height432 __cum_height433 __cum_height434 __cum_height435 __cum_height436 __cum_height437 __cum_height438 __cum_height439 __cum_height440 __cum_height441 __cum_height442 __cum_height443 __cum_height444 __cum_height445 __cum_height446 __cum_height447 __cum_height448 __cum_height449 __cum_height450 __cum_height451 __cum_height452 __cum_height453 __cum_height454 __cum_height455 __cum_height456 __cum_height457 __cum_height458 __cum_height459 __cum_height460 __cum_height461 __cum_height462 __cum_height463 __cum_height464 __cum_height465 __cum_height466 __cum_height467 __cum_height468 __cum_height469 __cum_height470 __cum_height471 __cum_height472 __cum_height473 __cum_height474 __cum_height475 __cum_height476 __cum_height477 __cum_height478 __cum_height479 __cum_height480 __cum_height481 __cum_height482 __cum_height483 __cum_height484 __cum_height485 __cum_height486 __cum_height487 __cum_height488 __cum_height489 __cum_height490 __cum_height491 __cum_height492 __cum_height493 __cum_height494 __cum_height495 __cum_height496 __cum_height497 __cum_height498 __cum_height499 __cum_height500 __cum_height501 __cum_height502 __cum_height503 __cum_height504 __cum_height505 __cum_height506 __cum_height507 __cum_height508 __cum_height509 __cum_height510 __cum_height511 __cum_height512 __cum_height513 __cum_height514 __cum_height515 __cum_height516 __cum_height517 __cum_height518 __cum_height519 __cum_height520 __cum_height521 __cum_height522 __cum_height523 __cum_height524 __cum_height525 __cum_height526 __cum_height527 __cum_height528 __cum_height529 __cum_height530 __cum_height531 __cum_height532 __cum_height533 __cum_height534 __cum_height535 __cum_height536 __cum_height537 __cum_height538 __cum_height539 __cum_height540 __cum_height541 __cum_height542 __cum_height543 __cum_height544 __cum_height545 __cum_height546 __cum_height547 __cum_height548 __cum_height549 __cum_height550 __cum_height551 __cum_height552 __cum_height553 __cum_height554 __cum_height555 __cum_height556 __cum_height557 __cum_height558 __cum_height559 __cum_height560 __cum_height561 __cum_height562 __cum_height563 __cum_height564 __cum_height565 __cum_height566 __cum_height567 __cum_height568 __cum_height569 __cum_height570 __cum_height571 __cum_height572 __cum_height573 __cum_height574 __cum_height575 __cum_height576 __cum_height577 __cum_height578 __cum_height579 __cum_height580 __cum_height581 __cum_height582 __cum_height583 __cum_height584 __cum_height585 __cum_height586 __cum_height587 __cum_height588 __cum_height589 __cum_height590 __cum_height591 __cum_height592 __cum_height593 __cum_height594 __cum_height595 __cum_height596 __cum_height597 __cum_height598 __cum_height599 __cum_height600 __cum_height601 __cum_height602 __cum_height603 __cum_height604 __cum_height605 __cum_height606 __cum_height607 __cum_height608 __cum_height609 __cum_height610 __cum_height611 __cum_height612 __cum_height613 __cum_height614 __cum_height615 __cum_height616 __cum_height617 __cum_height618 __cum_height619 __cum_height620 __cum_height621 __cum_height622 __cum_height623 __cum_height624 __cum_height625 __cum_height626 __cum_height627 __cum_height628 __cum_height629 __cum_height630 __cum_height631 __cum_height632 __cum_height633 __cum_height634 __cum_height635 __cum_height636 __cum_height637 __cum_height638 __cum_height639 __cum_height640 __cum_height641 __cum_height642 __cum_height643 __cum_height644 __cum_height645 __cum_height646 __cum_height647 __cum_height648 __cum_height649 __cum_height650 __cum_height651 __cum_height652 __cum_height653 __cum_height654 __cum_height655 __cum_height656 __cum_height657 __cum_height658 __cum_height659 __cum_height660 __cum_height661 __cum_height662 __cum_height663 __cum_height664 __cum_height665 __cum_height666 __cum_height667 __cum_height668 __cum_height669 __cum_height670 __cum_height671 __cum_height672 __cum_height673 __cum_height674 __cum_height675 __cum_height676 __cum_height677 __cum_height678 __cum_height679 __cum_height680 __cum_height681 __cum_height682 __cum_height683 __cum_height684 __cum_height685 __cum_height686 __cum_height687 __cum_height688 __cum_height689 __cum_height690 __cum_height691 __cum_height692 __cum_height693 __cum_height694 __cum_height695 __cum_height696 __cum_height697 __cum_height698 __cum_height699 __cum_height700 __cum_height701 __cum_height702 __cum_height703 __cum_height704 __cum_height705 __cum_height706 __cum_height707 __cum_height708 __cum_height709 __cum_height710 __cum_height711 __cum_height712 __cum_height713 __cum_height714 __cum_height715 __cum_height716 __cum_height717 __cum_height718 __cum_height719 __cum_height720 __cum_height721 __cum_height722 __cum_height723 __cum_height724 __cum_height725 __cum_height726 __cum_height727 __cum_height728 __cum_height729 __cum_height730 __cum_height731 __cum_height732 __cum_height733 __cum_height734 __cum_height735 __cum_height736 __cum_height737 __cum_height738 __cum_height739 __cum_height740 __cum_height741 __cum_height742 __cum_height743 __cum_height744 __cum_height745 __cum_height746 __cum_height747 __cum_height748 __cum_height749 __cum_height750 __cum_height751 __cum_height752 __cum_height753 __cum_height754 __cum_height755 __cum_height756 __cum_height757 __cum_height758 __cum_height759 __cum_height760 __cum_height761 __cum_height762 __cum_height763 __cum_height764 __cum_height765 __cum_height766 __cum_height767 __cum_height768 __cum_height769 __cum_height770 __cum_height771 __cum_height772 __cum_height773 __cum_height774 __cum_height775 __cum_height776 __cum_height777 __cum_height778 __cum_height779 __cum_height780 __cum_height781 __cum_height782 __cum_height783 __cum_height784 __cum_height785 __cum_height786 __cum_height787 __cum_height788 __cum_height789 __cum_height790 __cum_height791 __cum_height792 __cum_height793 __cum_height794 __cum_height795 __cum_height796 __cum_height797 __cum_height798 __cum_height799 __cum_height800 __cum_height801 __cum_height802 __cum_height803 __cum_height804 __cum_height805 __cum_height806 __cum_height807 __cum_height808 __cum_height809 __cum_height810 __cum_height811 __cum_height812 __cum_height813 __cum_height814 __cum_height815 __cum_height816 __cum_height817 __cum_height818 __cum_height819 __cum_height820 __cum_height821 __cum_height822 __cum_height823 __cum_height824 __cum_height825 __cum_height826 __cum_height827 __cum_height828 __cum_height829 __cum_height830 __cum_height831 __cum_height832 __cum_height833 __cum_height834 __cum_height835 __cum_height836 __cum_height837 __cum_height838 __cum_height839 __cum_height840 __cum_height841 __cum_height842 __cum_height843 __cum_height844 __cum_height845 __cum_height846 __cum_height847 __cum_height848 __cum_height849 __cum_height850 __cum_height851 __cum_height852 __cum_height853 __cum_height854 __cum_height855 __cum_height856 __cum_height857 __cum_height858 __cum_height859 __cum_height860 __cum_height861 __cum_height862 __cum_height863 __cum_height864 __cum_height865 __cum_height866 __cum_height867 __cum_height868 __cum_height869 __cum_height870 __cum_height871 __cum_height872 __cum_height873 __cum_height874 __cum_height875 __cum_height876 __cum_height877 __cum_height878 __cum_height879 __cum_height880 __cum_height881 __cum_height882 __cum_height883 __cum_height884 __cum_height885 __cum_height886 __cum_height887 __cum_height888 __cum_height889 __cum_height890 __cum_height891 __cum_height892 __cum_height893 __cum_height894 __cum_height895 __cum_height896 __cum_height897 __cum_height898 __cum_height899 __cum_height900 __cum_height901 __cum_height902 __cum_height903 __cum_height904 __cum_height905 __cum_height906 __cum_height907 __cum_height908 __cum_height909 __cum_height910 __cum_height911 __cum_height912 __cum_height913 __cum_height914 __cum_height915 __cum_height916 __cum_height917 __cum_height918 __cum_height919 __cum_height920 __cum_height921 __cum_height922 __cum_height923 __cum_height924 __cum_height925 __cum_height926 __cum_height927 __cum_height928 __cum_height929 __cum_height930 __cum_height931 __cum_height932 __cum_height933 __cum_height934 __cum_height935 __cum_height936 __cum_height937 __cum_height938 __cum_height939 __cum_height940 __cum_height941 __cum_height942 __cum_height943 __cum_height944 __cum_height945 __cum_height946 __cum_height947 __cum_height948 __cum_height949 __cum_height950 __cum_height951 __cum_height952 __cum_height953 __cum_height954 __cum_height955 __cum_height956 __cum_height957 __cum_height958 __cum_height959 __cum_height960 __cum_height961 __cum_height962 __cum_height963 __cum_height964 __cum_height965 __cum_height966 __cum_height967 __cum_height968 __cum_height969 __cum_height970 __cum_height971 __cum_height972 __cum_height973 __cum_height974 __cum_height975 __cum_height976 __cum_height977 __cum_height978 __cum_height979 __cum_height980 __cum_height981 __cum_height982 __cum_height983 __cum_height984 __cum_height985 __cum_height986 __cum_height987 __cum_height988 __cum_height989 __cum_height990 __cum_height991 __cum_height992 __cum_height993 __cum_height994 __cum_height995 __cum_height996 __cum_height997 __cum_height998 __cum_height999 __cum_height1000 __cum_height1001 __cum_height1002 __cum_height1003 __cum_height1004 __cum_height1005 __cum_height1006 __cum_height1007 __cum_height1008 __cum_height1009 __cum_height1010 __cum_height1011 __cum_height1012 __cum_height1013 __cum_height1014 __cum_height1015 __cum_height1016 __cum_height1017 __cum_height1018 __cum_height1019 __cum_height1020 __cum_height1021 __cum_height1022 __cum_height1023 __cum_height1024 __cum_height1025 __cum_height1026 __cum_height1027 __cum_height1028 __cum_height1029 __cum_height1030 __cum_height1031 __cum_height1032 __cum_height1033 __cum_height1034 __cum_height1035 __cum_height1036 __cum_height1037 __cum_height1038 __cum_height1039 __cum_height1040 __cum_height1041 __cum_height1042 __cum_height1043 __cum_height1044 __cum_height1045 __cum_height1046 __cum_height1047 __cum_height1048 __cum_height1049 __cum_height1050 __cum_height1051 __cum_height1052 __cum_height1053 __cum_height1054 __cum_height1055 __cum_height1056 __cum_height1057 __cum_height1058 __cum_height1059 __cum_height1060 __cum_height1061 __cum_height1062 __cum_height1063 __cum_height1064 __cum_height1065 __cum_height1066 __cum_height1067 __cum_height1068 __cum_height1069 __cum_height1070 __cum_height1071 __cum_height1072 __cum_height1073 __cum_height1074 __cum_height1075 __cum_height1076 __cum_height1077 __cum_height1078 __cum_height1079 __cum_height1080 __cum_height1081 __cum_height1082 __cum_height1083 __cum_height1084 __cum_height1085 __cum_height1086 __cum_height1087 __cum_height1088 __cum_height1089 __cum_height1090 __cum_height1091 __cum_height1092 __cum_height1093 __cum_height1094 __cum_height1095 __cum_height1096 __cum_height1097 __cum_height1098 __cum_height1099 __cum_height1100 __cum_height1101 __cum_height1102 __cum_height1103 __cum_height1104 __cum_height1105 __cum_height1106 __cum_height1107 __cum_height1108 __cum_height1109 __cum_height1110 __cum_height1111 __cum_height1112 __cum_height1113 __cum_height1114 __cum_height1115 __cum_height1116 __cum_height1117 __cum_height1118 __cum_height1119 __cum_height1120 __cum_height1121 __cum_height1122 __cum_height1123 __cum_height1124 __cum_height1125 __cum_height1126 __cum_height1127 __cum_height1128 __cum_height1129 __cum_height1130 __cum_height1131 __cum_height1132 __cum_height1133 __cum_height1134 __cum_height1135 __cum_height1136 __cum_height1137 __cum_height1138 __cum_height1139 __cum_height1140 __cum_height1141 __cum_height1142 __cum_height1143 __cum_height1144 __cum_height1145 __cum_height1146 __cum_height1147 __cum_height1148 __cum_height1149 __cum_height1150 __cum_height1151 __cum_height1152 __cum_height1153 __cum_height1154 __cum_height1155 __cum_height1156 __cum_height1157 __cum_height1158 __cum_height1159 __cum_height1160 __cum_height1161 __cum_height1162 __cum_height1163 __cum_height1164 __cum_height1165 __cum_height1166 __cum_height1167 __cum_height1168 __cum_height1169 __cum_height1170 __cum_height1171 __cum_height1172 __cum_height1173 __cum_height1174 __cum_height1175 __cum_height1176 __cum_height1177 __cum_height1178 __cum_height1179 __cum_height1180 __cum_height1181 __cum_height1182 __cum_height1183 __cum_height1184 __cum_height1185 __cum_height1186 __cum_height1187 __cum_height1188 __cum_height1189 __cum_height1190 __cum_height1191 __cum_height1192 __cum_height1193 __cum_height1194 __cum_height1195 __cum_height1196 __cum_height1197 __cum_height1198 __cum_height1199 __cum_height1200 __cum_height1201 __cum_height1202 __cum_height1203 __cum_height1204 __cum_height1205 __cum_height1206 __cum_height1207 __cum_height1208 __cum_height1209 __cum_height1210 __cum_height1211 __cum_height1212 __cum_height1213 __cum_height1214 __cum_height1215 __cum_height1216 __cum_height1217 __cum_height1218 __cum_height1219 __cum_height1220 __cum_height1221 __cum_height1222 __cum_height1223 __cum_height1224 __cum_height1225 __cum_height1226 __cum_height1227 __cum_height1228 __cum_height1229 __cum_height1230 __cum_height1231 __cum_height1232 __cum_height1233 __cum_height1234 __cum_height1235 __cum_height1236 __cum_height1237 __cum_height1238 __cum_height1239 __cum_height1240 __cum_height1241 __cum_height1242 __cum_height1243 __cum_height1244 __cum_height1245 __cum_height1246 __cum_height1247 __cum_height1248 __cum_height1249 __cum_height1250 __cum_height1251 __cum_height1252 __cum_height1253 __cum_height1254 __cum_height1255 __cum_height1256 __cum_height1257 __cum_height1258 __cum_height1259 __cum_height1260 __cum_height1261 __cum_height1262 __cum_height1263 __cum_height1264 __cum_height1265 __cum_height1266 __cum_height1267 __cum_height1268 __cum_height1269 __cum_height1270 __cum_height1271 __cum_height1272 __cum_height1273 __cum_height1274 __cum_height1275 __cum_height1276 __cum_height1277 __cum_height1278 __cum_height1279 __cum_height1280 __cum_height1281 __cum_height1282 __cum_height1283 __cum_height1284 __cum_height1285 __cum_height1286 __cum_height1287 __cum_height1288 __cum_height1289 __cum_height1290 __cum_height1291 __cum_height1292 __cum_height1293 __cum_height1294 __cum_height1295 __cum_height1296 __cum_height1297 __cum_height1298 __cum_height1299 __cum_height1300 __cum_height1301 __cum_height1302 __cum_height1303 __cum_height1304 __cum_height1305 __cum_height1306 __cum_height1307 __cum_height1308 __cum_height1309 __cum_height1310 __cum_height1311 __cum_height1312 __cum_height1313 __cum_height1314 __cum_height1315 __cum_height1316 __cum_height1317 __cum_height1318 __cum_height1319 __cum_height1320 __cum_height1321 __cum_height1322 __cum_height1323 __cum_height1324 __cum_height1325 __cum_height1326 __cum_height1327 __cum_height1328 __cum_height1329 __cum_height1330 __cum_height1331 __cum_height1332 __cum_height1333 __cum_height1334 __cum_height1335 __cum_height1336 __cum_height1337 __cum_height1338 __cum_height1339 __cum_height1340 __cum_height1341 __cum_height1342 __cum_height1343 __cum_height1344 __cum_height1345 __cum_height1346 __cum_height1347 __cum_height1348 __cum_height1349 __cum_height1350 __cum_height1351 __cum_height1352 __cum_height1353 __cum_height1354 __cum_height1355 __cum_height1356 __cum_height1357 __cum_height1358 __cum_height1359 __cum_height1360 __cum_height1361 __cum_height1362 __cum_height1363 __cum_height1364 __cum_height1365 __cum_height1366 __cum_height1367 __cum_height1368 __cum_height1369 __cum_height1370 __cum_height1371 __cum_height1372 __cum_height1373 __cum_height1374 __cum_height1375 __cum_height1376 __cum_height1377 __cum_height1378 __cum_height1379 __cum_height1380 __cum_height1381 __cum_height1382 __cum_height1383 __cum_height1384 __cum_height1385 __cum_height1386 __cum_height1387 __cum_height1388 __cum_height1389 __cum_height1390 __cum_height1391 __cum_height1392 __cum_height1393 __cum_height1394 __cum_height1395 __cum_height1396 __cum_height1397 __cum_height1398 __cum_height1399 __cum_height1400 __cum_height1401 __cum_height1402 __cum_height1403 __cum_height1404 __cum_height1405 __cum_height1406 __cum_height1407 __cum_height1408 __cum_height1409 __cum_height1410 __cum_height1411 __cum_height1412 __cum_height1413 __cum_height1414 __cum_height1415 __cum_height1416 __cum_height1417 __cum_height1418 __cum_height1419 __cum_height1420 __cum_height1421 __cum_height1422 __cum_height1423 __cum_height1424 __cum_height1425 __cum_height1426 __cum_height1427 __cum_height1428 __cum_height1429 __cum_height1430 __cum_height1431 __cum_height1432 __cum_height1433 __cum_height1434 __cum_height1435 __cum_height1436 __cum_height1437 __cum_height1438 __cum_height1439 __cum_height1440 __cum_height1441 __cum_height1442 __cum_height1443 __cum_height1444 __cum_height1445 __cum_height1446 __cum_height1447 __cum_height1448 __cum_height1449 __cum_height1450 __cum_height1451 __cum_height1452 __cum_height1453 __cum_height1454 __cum_height1455 __cum_height1456 __cum_height1457 __cum_height1458 __cum_height1459 __cum_height1460 __cum_height1461 __cum_height1462 __cum_height1463 __cum_height1464 __cum_height1465 __cum_height1466 __cum_height1467 __cum_height1468 __cum_height1469 __cum_height1470 __cum_height1471 __cum_height1472 __cum_height1473 __cum_height1474 __cum_height1475 __cum_height1476 __cum_height1477 __cum_height1478 __cum_height1479 __cum_height1480 __cum_height1481 __cum_height1482 __cum_height1483 __cum_height1484 __cum_height1485 __cum_height1486 __cum_height1487 __cum_height1488 __cum_height1489 __cum_height1490 __cum_height1491 __cum_height1492 __cum_height1493 __cum_height1494 __cum_height1495 __cum_height1496 __cum_height1497 __cum_height1498 __cum_height1499 __cum_height1500 __cum_height1501 __cum_height1502 __cum_height1503 __cum_height1504 __cum_height1505 __cum_height1506 __cum_height1507 __cum_height1508 __cum_height1509 __cum_height1510 __cum_height1511 __cum_height1512 __cum_height1513 __cum_height1514 __cum_height1515 __cum_height1516 __cum_height1517 __cum_height1518 __cum_height1519 __cum_height1520 __cum_height1521 __cum_height1522 __cum_height1523 __cum_height1524 __cum_height1525 __cum_height1526 __cum_height1527 __cum_height1528 __cum_height1529 __cum_height1530 __cum_height1531 __cum_height1532 __cum_height1533 __cum_height1534 __cum_height1535 __cum_height1536 __cum_height1537 __cum_height1538 __cum_height1539 __cum_height1540 __cum_height1541 __cum_height1542 __cum_height1543 __cum_height1544 __cum_height1545 __cum_height1546 __cum_height1547 __cum_height1548 __cum_height1549 __cum_height1550 __cum_height1551 __cum_height1552 __cum_height1553 __cum_height1554 __cum_height1555 __cum_height1556 __cum_height1557 __cum_height1558 __cum_height1559 __cum_height1560 __cum_height1561 __cum_height1562 __cum_height1563 __cum_height1564 __cum_height1565 __cum_height1566 __cum_height1567 __cum_height1568 __cum_height1569 __cum_height1570 __cum_height1571 __cum_height1572 __cum_height1573 __cum_height1574 __cum_height1575 __cum_height1576 __cum_height1577 __cum_height1578 __cum_height1579 __cum_height1580 __cum_height1581 __cum_height1582 __cum_height1583 __cum_height1584 __cum_height1585 __cum_height1586 __cum_height1587 __cum_height1588 __cum_height1589 __cum_height1590 __cum_height1591 __cum_height1592 __cum_height1593 __cum_height1594 __cum_height1595 __cum_height1596 __cum_height1597 __cum_height1598 __cum_height1599 __cum_height1600 __cum_height1601 __cum_height1602 __cum_height1603 __cum_height1604 __cum_height1605 __cum_height1606 __cum_height1607 __cum_height1608 __cum_height1609 __cum_height1610 __cum_height1611 __cum_height1612 __cum_height1613 __cum_height1614 __cum_height1615 __cum_height1616 __cum_height1617 __cum_height1618 __cum_height1619 __cum_height1620 __cum_height1621 __cum_height1622 __cum_height1623 __cum_height1624 __cum_height1625 __cum_height1626 __cum_height1627 __cum_height1628 __cum_height1629 __cum_height1630 __cum_height1631 __cum_height1632 __cum_height1633 __cum_height1634 __cum_height1635 __cum_height1636 __cum_height1637 __cum_height1638 __cum_height1639 __cum_height1640 __cum_height1641 __cum_height1642 __cum_height1643 __cum_height1644 __cum_height1645 __cum_height1646 __cum_height1647 __cum_height1648 __cum_height1649 __cum_height1650 __cum_height1651 __cum_height1652 __cum_height1653 __cum_height1654 __cum_height1655 __cum_height1656 __cum_height1657 __cum_height1658 __cum_height1659 __cum_height1660 __cum_height1661 __cum_height1662 __cum_height1663 __cum_height1664 __cum_height1665 __cum_height1666 __cum_height1667 __cum_height1668 __cum_height1669 __cum_height1670 __cum_height1671 __cum_height1672 __cum_height1673 __cum_height1674 __cum_height1675 __cum_height1676 __cum_height1677 __cum_height1678 __cum_height1679 __cum_height1680 __cum_height1681 __cum_height1682 __cum_height1683 __cum_height1684 __cum_height1685 __cum_height1686 __cum_height1687 __cum_height1688 __cum_height1689 __cum_height1690 __cum_height1691 __cum_height1692 __cum_height1693 __cum_height1694 __cum_height1695 __cum_height1696 __cum_height1697 __cum_height1698 __cum_height1699 __cum_height1700 __cum_height1701 __cum_height1702 __cum_height1703 __cum_height1704 __cum_height1705 __cum_height1706 __cum_height1707 __cum_height1708 __cum_height1709 __cum_height1710 __cum_height1711 __cum_height1712 __cum_height1713 __cum_height1714 __cum_height1715 __cum_height1716 __cum_height1717 __cum_height1718 __cum_height1719 __cum_height1720 __cum_height1721 __cum_height1722 __cum_height1723 __cum_height1724 __cum_height1725 __cum_height1726 __cum_height1727 __cum_height1728 __cum_height1729 __cum_height1730 __cum_height1731 __cum_height1732 __cum_height1733 __cum_height1734 __cum_height1735 __cum_height1736 __cum_height1737 __cum_height1738 __cum_height1739 __cum_height1740 __cum_height1741 __cum_height1742 __cum_height1743 __cum_height1744 __cum_height1745 __cum_height1746 __cum_height1747 __cum_height1748 __cum_height1749 __cum_height1750 __cum_height1751 __cum_height1752 __cum_height1753 __cum_height1754 __cum_height1755 __cum_height1756 __cum_height1757 __cum_height1758 __cum_height1759 __cum_height1760 __cum_height1761 __cum_height1762 __cum_height1763 __cum_height1764 __cum_height1765 __cum_height1766 __cum_height1767 __cum_height1768 __cum_height1769 __cum_height1770 __cum_height1771 __cum_height1772 __cum_height1773 __cum_height1774 __cum_height1775 __cum_height1776 __cum_height1777 __cum_height1778 __cum_height1779 __cum_height1780 __cum_height1781 __cum_height1782 __cum_height1783 __cum_height1784 __cum_height1785 __cum_height1786 __cum_height1787 __cum_height1788 __cum_height1789 __cum_height1790 __cum_height1791 __cum_height1792 __cum_height1793 __cum_height1794 __cum_height1795 __cum_height1796 __cum_height1797 __cum_height1798 __cum_height1799 __cum_height1800 __cum_height1801 __cum_height1802 __cum_height1803 __cum_height1804 __cum_height1805 __cum_height1806 __cum_height1807 __cum_height1808 __cum_height1809 __cum_height1810 __cum_height1811 __cum_height1812 __cum_height1813 __cum_height1814 __cum_height1815 __cum_height1816 __cum_height1817 __cum_height1818 __cum_height1819 __cum_height1820 __cum_height1821 __cum_height1822 __cum_height1823 __cum_height1824 __cum_height1825 __cum_height1826 __cum_height1827 __cum_height1828 __cum_height1829 __cum_height1830 __cum_height1831 __cum_height1832 __cum_height1833 __cum_height1834 __cum_height1835 __cum_height1836 __cum_height1837 __cum_height1838 __cum_height1839 __cum_height1840 __cum_height1841 __cum_height1842 __cum_height1843 __cum_height1844 __cum_height1845 __cum_height1846 __cum_height1847 __cum_height1848 __cum_height1849 __cum_height1850 __cum_height1851 __cum_height1852 __cum_height1853 __cum_height1854 __cum_height1855 __cum_height1856 __cum_height1857 __cum_height1858 __cum_height1859 __cum_height1860 __cum_height1861 __cum_height1862 __cum_height1863 __cum_height1864 __cum_height1865 __cum_height1866 __cum_height1867 __cum_height1868 __cum_height1869 __cum_height1870 __cum_height1871 __cum_height1872 __cum_height1873 __cum_height1874 __cum_height1875 __cum_height1876 __cum_height1877 __cum_height1878 __cum_height1879 __cum_height1880 __cum_height1881 __cum_height1882 __cum_height1883 __cum_height1884 __cum_height1885 __cum_height1886 __cum_height1887 __cum_height1888 __cum_height1889 __cum_height1890 __cum_height1891 __cum_height1892 __cum_height1893 __cum_height1894 __cum_height1895 __cum_height1896 __cum_height1897 __cum_height1898 __cum_height1899 __cum_height1900 __cum_height1901 __cum_height1902 __cum_height1903 __cum_height1904 __cum_height1905 __cum_height1906 __cum_height1907 __cum_height1908 __cum_height1909 __cum_height1910 __cum_height1911 __cum_height1912 __cum_height1913 __cum_height1914 __cum_height1915 __cum_height1916 __cum_height1917 __cum_height1918 __cum_height1919 __cum_height1920 __cum_height1921 __cum_height1922 __cum_height1923 __cum_height1924 __cum_height1925 __cum_height1926 __cum_height1927 __cum_height1928 __cum_height1929 __cum_height1930 __cum_height1931 __cum_height1932 __cum_height1933 __cum_height1934 __cum_height1935 __cum_height1936 __cum_height1937 __cum_height1938 __cum_height1939 __cum_height1940 __cum_height1941 __cum_height1942 __cum_height1943 __cum_height1944 __cum_height1945 __cum_height1946 __cum_height1947 __cum_height1948 __cum_height1949 __cum_height1950 __cum_height1951 __cum_height1952 __cum_height1953 __cum_height1954 __cum_height1955 __cum_height1956 __cum_height1957 __cum_height1958 __cum_height1959 __cum_height1960 __cum_height1961 __cum_height1962 __cum_height1963 __cum_height1964 __cum_height1965 __cum_height1966 __cum_height1967 __cum_height1968 __cum_height1969 __cum_height1970 __cum_height1971 __cum_height1972 __cum_height1973 __cum_height1974 __cum_height1975 __cum_height1976 __cum_height1977 __cum_height1978 __cum_height1979 __cum_height1980 __cum_height1981 __cum_height1982 __cum_height1983 __cum_height1984 __cum_height1985 __cum_height1986 __cum_height1987 __cum_height1988 __cum_height1989 __cum_height1990 __cum_height1991 __cum_height1992 __cum_height1993 __cum_height1994 __cum_height1995 __cum_height1996 __cum_height1997 __cum_height1998 __cum_height1999 __let2000_startTimeR[1] __let2000_startTimeR[2] __let2000_startTimeR[3] __let2000_startTimeR[4] __let2000_startTimeR[5] __let2000_startTimeR[6] __let2000_startTimeR[7] __let2000_startTimeR[8] __let2000_startTimeR[9] __let2000_startTimeR[10] __let2000_startTimeR[11] __let2000_startTimeR[12] __let2000_startTimeR[13] __let2000_startTimeR[14] __let2000_startTimeR[15] __let2000_startTimeR[16] __let2000_startTimeR[17] __let2000_startTimeR[18] __let2000_startTimeR[19] __let2000_startTimeR[20] __let2000_startTimeR[21] __let2001_durationR[1] __let2001_durationR[2] __let2001_durationR[3] __let2001_durationR[4] __let2001_durationR[5] __let2001_durationR[6] __let2001_durationR[7] __let2001_durationR[8] __let2001_durationR[9] __let2001_durationR[10] __let2001_durationR[11] __let2001_durationR[12] __let2001_durationR[13] __let2001_durationR[14] __let2001_durationR[15] __let2001_durationR[16] __let2001_durationR[17] __let2001_durationR[18] __let2001_durationR[19] __let2001_durationR[20] __let2001_durationR[21] __let2002_startTimeR[1] __let2002_startTimeR[2] __let2002_startTimeR[3] __let2002_startTimeR[4] __let2002_startTimeR[5] __let2002_startTimeR[6] __let2002_startTimeR[7] __let2002_startTimeR[8] __let2002_startTimeR[9] __let2002_startTimeR[10] __let2002_startTimeR[11] __let2002_startTimeR[12] __let2002_startTimeR[13] __let2002_startTimeR[14] __let2002_startTimeR[15] __let2002_startTimeR[16] __let2002_startTimeR[17] __let2002_startTimeR[18] __let2002_startTimeR[19] __let2002_startTimeR[20] __let2002_startTimeR[21] __let2003_durationR[1] __let2003_durationR[2] __let2003_durationR[3] __let2003_durationR[4] __let2003_durationR[5] __let2003_durationR[6] __let2003_durationR[7] __let2003_durationR[8] __let2003_durationR[9] __let2003_durationR[10] __let2003_durationR[11] __let2003_durationR[12] __let2003_durationR[13] __let2003_durationR[14] __let2003_durationR[15] __let2003_durationR[16] __let2003_durationR[17] __let2003_durationR[18] __let2003_durationR[19] __let2003_durationR[20] __let2003_durationR[21] __let2004_startTimeR[1] __let2004_startTimeR[2] __let2004_startTimeR[3] __let2004_startTimeR[4] __let2004_startTimeR[5] __let2004_startTimeR[6] __let2004_startTimeR[7] __let2004_startTimeR[8] __let2004_startTimeR[9] __let2004_startTimeR[10] __let2004_startTimeR[11] __let2004_startTimeR[12] __let2004_startTimeR[13] __let2004_startTimeR[14] __let2004_startTimeR[15] __let2004_startTimeR[16] __let2004_startTimeR[17] __let2004_startTimeR[18] __let2004_startTimeR[19] __let2005_durationR[1] __let2005_durationR[2] __let2005_durationR[3] __let2005_durationR[4] __let2005_durationR[5] __let2005_durationR[6] __let2005_durationR[7] __let2005_durationR[8] __let2005_durationR[9] __let2005_durationR[10] __let2005_durationR[11] __let2005_durationR[12] __let2005_durationR[13] __let2005_durationR[14] __let2005_durationR[15] __let2005_durationR[16] __let2005_durationR[17] __let2005_durationR[18] __let2005_durationR[19] </list>
+v   <values> 16 4 20 2 2 20 14 15 15 1 9 17 3 7 6 8 5 1 19 7 15 18 18 17 7 14 5 13 16 12 8 6 13 16 8 6 15 15 3 9 11 9 2 12 17 9 16 13 4 14 13 2 16 7 8 16 16 16 20 11 8 20 10 8 10 6 16 16 11 15 14 13 16 12 16 17 18 8 17 8 4 14 13 8 8 10 10 16 6 16 20 16 12 9 1 10 20 10 2 6 2207 943 5914 8219 3998 87 152 1753 1023 124 3096 128 1392 154 7758 3848 1536 1425 4089 5887 4212 989 5696 1229 1034 1420 0 1580 1457 1417 7321 0 8208 5000 1119 6542 3312 47 267 1039 1308 8196 1545 8586 5464 5121 3444 1304 1 1054 1978 1590 20 5002 5011 5989 6949 2732 4526 68 2409 8218 8194 8234 851 8663 4615 5651 929 408 2102 78 3794 7850 785 7322 7744 3649 8242 1286 3234 4160 8735 6575 400 5504 4084 1806 1388 7488 1685 8198 273 85 4482 150 7403 8383 508 2950 8786 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 1 1 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 5914 3998 1023 7758 3848 0 6542 5121 5011 4526 2409 8234 8663 7322 7744 3234 1685 273 4482 7403 2950 628 484 662 474 150 267 779 793 110 476 541 429 123 56 14 614 724 750 44 310 284 5914 3998 1753 3848 7321 0 6542 267 5121 5002 5011 4526 2409 8234 8663 929 7850 1286 3234 4482 2950 628 484 656 150 529 267 779 662 793 9 110 476 541 429 123 357 384 467 614 44 284 5914 3998 1753 7758 3848 0 5121 5011 4526 2409 8234 7322 7744 3649 1286 6575 273 4482 2950 628 484 656 474 150 267 793 110 476 541 429 56 14 181 467 463 750 44 284 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 8786
+d OPTIMAL 1
+d SOURCE_CONSTRAINTS 2248
+d NORMALIZED_CONSTRAINTS 2248
+d LOWERED_CONSTRAINTS 2248
+d UNSUPPORTED_CONSTRAINTS 0
+d CSP_INT_VARS 2323
+d CSP_CONSTRAINTS 2248
+d CSP_INTENTIONAL 2225
+d CSP_GLOBAL 23
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 0
+d CSP_CUMULATIVE 20
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 1
+d CSP_DOMAIN_SPAN_MAX 2000000
+d N_CUMULATIVE 20
+d N_TABLE 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d OBJECTIVE_CUT_EAGER_CLAUSES_ADDED 0
+d OBJECTIVE_RELAXATION_CLAUSES_ADDED 0
+d OBJECTIVE_ROUNDS 24
+d OBJECTIVE_IMPROVEMENTS 23
+d OBJECTIVE_OPTIMALITY_PROOF domain_bound_reached
+d OBJECTIVE_OPTIMALITY_BOUND_SIDE lower
+d OBJECTIVE_OPTIMALITY_BOUND_VALUE 8786
+d PROPAGATE_MS 40
+d NORMALIZE_MS 0
+d LOWER_MS 31
+d POST_LOWER_MS 2
+d PREENCODE_MS 1
+d ENCODE_MS 109
+d SAT_SOLVE_MS 41478
+d TOTAL_MS 45638
+d SAT_VARS 142829
+d SAT_CLAUSES_BASE 245041
+d SAT_CLAUSES_FINAL 245041
+d SAT_CLAUSES_CEGAR_DELTA 0
+d CSP_INT_VARS 2323
+d CSP_CONSTRAINTS 2248
+d CSP_INTENTIONAL 2225
+d CSP_GLOBAL 23
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 0
+d CSP_CUMULATIVE 20
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 1
+d CSP_DOMAIN_SPAN_MAX 2000000
+d N_CUMULATIVE 20
+d N_TABLE 0
+d SAT_CONFLICTS 40200
+d CUMULATIVE_EXTPROP_CONSTRAINTS 20
+d CUMULATIVE_EXTPROP_OBSERVED_VARS 3458
+d CUMULATIVE_EXTPROP_OBSERVED_LITS 3458
+d CUMULATIVE_EXTPROP_OBSERVED_LIT_OCCURRENCES 33858
+d CUMULATIVE_EXTPROP_NOTIFY_ASSIGNMENT_CALLS 293930
+d CUMULATIVE_EXTPROP_NOTIFY_ASSIGNMENT_LITS 791250
+d CUMULATIVE_EXTPROP_NOTIFY_NEW_DECISION_LEVEL_CALLS 2239744
+d CUMULATIVE_EXTPROP_NOTIFY_BACKTRACK_CALLS 58619
+d CUMULATIVE_EXTPROP_CB_CHECK_FOUND_MODEL_CALLS 24
+d CUMULATIVE_EXTPROP_CB_CHECK_FOUND_MODEL_REJECTS 0
+d CUMULATIVE_EXTPROP_CB_PROPAGATE_CALLS 251679
+d CUMULATIVE_EXTPROP_CB_PROPAGATE_CONFLICTS 11257
+d CUMULATIVE_EXTPROP_PROPAGATED_LITS 0
+d CUMULATIVE_EXTPROP_REASON_CLAUSES 0
+d CUMULATIVE_EXTPROP_REASON_CLAUSE_LITS 0
+d CUMULATIVE_EXTPROP_REASON_CLAUSE_MAX_LEN 0
+d CUMULATIVE_EXTPROP_CB_HAS_EXTERNAL_CLAUSE_CALLS 2251621
+d CUMULATIVE_EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_CALLS 365503
+d CUMULATIVE_EXTPROP_EXTERNAL_CLAUSES 11257
+d CUMULATIVE_EXTPROP_EXTERNAL_CLAUSE_LITS 354246
+d CUMULATIVE_EXTPROP_EXTERNAL_CLAUSE_MAX_LEN 34
+d CUMULATIVE_EXTPROP_PARTIAL_VIOLATION_CALLS 4580918
+d CUMULATIVE_EXTPROP_COMPULSORY_VIOLATION_CALLS 4580915
+d CUMULATIVE_EXTPROP_BOUND_PROPAGATION_CALLS 0
+d CUMULATIVE_EXTPROP_BOUND_REASON_CALLS 0
+d CUMULATIVE_EXTPROP_PARTIAL_SUMMARY_TASK_EVALS 458091800
+d CUMULATIVE_EXTPROP_BOUND_SUMMARY_TASK_EVALS 458091500
+d CUMULATIVE_EXTPROP_BOUND_EVENT_PAIRS 0
+d CUMULATIVE_EXTPROP_LOWER_BOUND_LIT_CALLS 0
+d CUMULATIVE_EXTPROP_UPPER_BOUND_LIT_CALLS 0
+d CUMULATIVE_EXTPROP_LOG_WITNESS_CHECKS 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":6161,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":161,"max_domain_product_excluding_one_var":"35207","p95_domain_product_excluding_one_var":"35207"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":100,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":844,"max_domain_product_excluding_one_var":"35207","p95_domain_product_excluding_one_var":"35207"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 8786
+d OBJECTIVE_NAIVE_UPPER 36006
+d OBJECTIVE_LP_LOWER 8786
+d OBJECTIVE_LP_UPPER 36006
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 3767
+d ROOT_LP_ROWS 1935
+d ROOT_LP_VARS 3605
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 944
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 6322
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 2
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 35207
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 0
+d ROOT_LP_OBJECTIVE_VALUE 8786
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d PROPAGATE_PRUNED_VALUES 122000117
+d PROPAGATE_CHANGED_DOMAINS 124
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 99
+d POST_LOWER_TIGHTENED_DOMAINS 99
+d POST_LOWER_REMOVED_CLAUSES 448
+d POST_LOWER_REMOVED_LITS 82
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 2323
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 5383
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 5383
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 0
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 5383
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d MEMORY_RSS_BYTES 943398912
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 13385728
+d MEMORY_RSS_AFTER_LOWER_BYTES 13385728
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 13385728
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 942858240
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 942858240
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 942977024
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 10
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 244413
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 943398912
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 943398912
+d DECODE_INT_ASSIGNMENTS 2323
+d CSV /bench/2023/test-scheduling/test-scheduling.mzn,optimum,2248,2248,2248,0,142829,245041,45638,40,0,31,1,109,41478,1,optimal,8786,36006,8786,36006,0,3767,1935,3605,0,0,0,8786,,
+c run_end_local: 2026-06-20 22:35:45 +0900

@@ -1,0 +1,377 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2012/league/league.mzn --data /bench/2012/league/model50-4-4.dzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 20:32:00 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | input: constraints=1100
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=2 pruned=40 changed_domains=10 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=4980736 rss=4.75MiB
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=1100
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:progress percent=10 processed=110 total=1100 lowered=110 unsupported=0 ms=4
+c 00h00m00s | stage:lower:progress percent=20 processed=220 total=1100 lowered=220 unsupported=0 ms=4
+c 00h00m00s | stage:lower:progress percent=30 processed=330 total=1100 lowered=330 unsupported=0 ms=4
+c 00h00m00s | stage:lower:progress percent=40 processed=440 total=1100 lowered=440 unsupported=0 ms=4
+c 00h00m00s | stage:lower:progress percent=50 processed=550 total=1100 lowered=550 unsupported=0 ms=5
+c 00h00m00s | stage:lower:progress percent=60 processed=660 total=1100 lowered=660 unsupported=0 ms=5
+c 00h00m00s | stage:lower:progress percent=70 processed=770 total=1100 lowered=770 unsupported=0 ms=5
+c 00h00m00s | stage:lower:progress percent=80 processed=880 total=1100 lowered=880 unsupported=0 ms=6
+c 00h00m00s | stage:lower:progress percent=90 processed=990 total=1100 lowered=990 unsupported=0 ms=6
+c 00h00m00s | stage:lower:progress percent=100 processed=1100 total=1100 lowered=1100 unsupported=0 ms=9
+c 00h00m00s | stage:lower:done ms=9 lowered=1100 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=4980736 rss=4.75MiB
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=0 rounds=20 tightened=60 removed_cls=520 removed_lits=0 unsat=false precise_hits=230 precise_rounds=1 pivot_recomputes=488 pivot_exact_attempts=280 pivot_general_attempts=418 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=398 pivot_general_tightened=20 setup_ms=0 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=4980736 rss=4.75MiB
+c 00h00m00s | stage:lowered-shape int_vars=191 bool_vars=530 linear_atoms=760 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=2150
+c 00h00m00s | stage:root-lp:start backend=lpo
+c 00h00m00s | stage:root-lp:bound backend=lpo status=optimal objective_value=99960 naive_bounds=[1,10000000] lp_bounds=[99960,10000000] improved=1 rows=80 vars=721 lp_rows_singleton_linear=80 lp_rows_disjunctive=0 lp_rows_table=0 lp_rows_cumulative_energy=0 lp_rows_cumulative_pair=0 lp_rows_cumulative_timetable=0 lp_rows_cumulative_completion=0 lp_rows_cumulative_precedence=0 lp_rows_no_overlap_pair=0 lp_rows_no_overlap_completion=0 lp_rows_no_overlap_precedence=0 lp_rows_no_overlap_2d_energy=0 lp_rows_no_overlap_2d_completion=0 lp_scheduling_payloads_cumulative=0 lp_scheduling_payloads_no_overlap=0 lp_scheduling_cut_rounds=0 lp_scheduling_cut_candidates=0 lp_scheduling_cut_violated=0 lp_scheduling_rows_skipped=0 ms=23
+c 00h00m00s | memory:rss checkpoint=before_preencode bytes=15745024 rss=15.02MiB
+c 00h00m00s | stage:preencode(log-scop):start
+c 00h00m00s | stage:preencode(log-scop):done ms=0 int_vars=191
+c 00h00m00s | memory:rss checkpoint=after_preencode bytes=15745024 rss=15.02MiB
+c 00h00m00s | memory:rss checkpoint=before_encode bytes=15745024 rss=15.02MiB
+c 00h00m00s | stage:encode(log-scop):start
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=9264 bytes=16011264 rss=15.27MiB progress_percent=10 processed=216 total=2151
+c 00h00m00s | stage:encode(log-scop):progress percent=10 processed=216 total=2151 sat_clauses=9264 ms=1
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=11949 bytes=16011264 rss=15.27MiB progress_percent=20 processed=431 total=2151
+c 00h00m00s | stage:encode(log-scop):progress percent=20 processed=431 total=2151 sat_clauses=11949 ms=2
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=14639 bytes=16011264 rss=15.27MiB progress_percent=30 processed=646 total=2151
+c 00h00m00s | stage:encode(log-scop):progress percent=30 processed=646 total=2151 sat_clauses=14639 ms=2
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=17324 bytes=16011264 rss=15.27MiB progress_percent=40 processed=861 total=2151
+c 00h00m00s | stage:encode(log-scop):progress percent=40 processed=861 total=2151 sat_clauses=17324 ms=3
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=20706 bytes=16011264 rss=15.27MiB progress_percent=50 processed=1076 total=2151
+c 00h00m00s | stage:encode(log-scop):progress percent=50 processed=1076 total=2151 sat_clauses=20706 ms=3
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=23454 bytes=16011264 rss=15.27MiB progress_percent=60 processed=1291 total=2151
+c 00h00m00s | stage:encode(log-scop):progress percent=60 processed=1291 total=2151 sat_clauses=23454 ms=4
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=26164 bytes=16011264 rss=15.27MiB progress_percent=70 processed=1506 total=2151
+c 00h00m00s | stage:encode(log-scop):progress percent=70 processed=1506 total=2151 sat_clauses=26164 ms=4
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=28685 bytes=16011264 rss=15.27MiB progress_percent=80 processed=1721 total=2151
+c 00h00m00s | stage:encode(log-scop):progress percent=80 processed=1721 total=2151 sat_clauses=28685 ms=5
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=31659 bytes=16011264 rss=15.27MiB progress_percent=90 processed=1936 total=2151
+c 00h00m00s | stage:encode(log-scop):progress percent=90 processed=1936 total=2151 sat_clauses=31659 ms=5
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=34546 bytes=16011264 rss=15.27MiB progress_percent=100 processed=2151 total=2151
+c 00h00m00s | stage:encode(log-scop):progress percent=100 processed=2151 total=2151 sat_clauses=34546 ms=6
+c 00h00m00s | stage:encode(log-scop):done ms=13 sat_vars=19334 sat_clauses=34546 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=2736 log_scop_pb_mixed=0 log_scop_pb_bdd2=2736 log_scop_pb_bdd3=0 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=2736 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m00s | stage:post-encode(log-scop):start sat_vars=19334 sat_clauses=34546 has_relaxations=false external_tables=0
+c 00h00m00s | stage:post-encode(log-scop):after-finish-check ms=0
+c 00h00m00s | stage:post-encode(log-scop):decode-layout-ready int_symbols=191 ms=0
+c 00h00m00s | stage:post-encode(log-scop):cumulative-external-ready has_prop=false ms=0
+c 00h00m00s | stage:post-encode(log-scop):log-scop-external-ready has_prop=false ms=0
+c 00h00m00s | stage:post-encode(log-scop):external-prop-connected has_prop=false ms=0
+c 00h00m00s | stage:post-encode(log-scop):done sat_vars=19334 sat_clauses=34546 ms=0
+c 00h00m00s | stage:post-encode(log-scop):reusable-ready mode=SoftCnf sat_vars=19334
+c 00h00m00s | stage:objective-external-ge-template(log-scop):start cut=DirectExpr wants_ext_ge=false
+c 00h00m00s | stage:objective-external-ge-template(log-scop):done has_template=true ms=0
+c 00h00m00s | stage:objective-mode(log-scop):resolved mode=SoftCnf wants_ext_ge=false has_ext_ge_template=true
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | stage:objective-encoder(log-scop):ready mode=SoftCnf soft=true sat_vars=19334
+c 00h00m00s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=99960 upper=10000000 has_incumbent=false soft_active=true
+c 00h00m00s | stage:sat:round-entry encoder=log-scop assumptions=0 phase_lits=0 sat_vars=19334 base_clauses=34546
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=19334 clauses=34546
+c 00h00m00s | stage:sat:solve:start assumptions=0 phase_lits=0
+c 00h00m00s | stage:sat:solve:done ms=29 result=Sat assumptions=0 phase_lits=0
+c 00h00m00s | stage:decode:start
+c 00h00m00s | stage:decode:done int_assignments=151
+c 00h00m00s | result:Sat
+c 00h00m00s | stage:objective-cut-surface(log-scop):start timing=after-incumbent
+c 00h00m00s | stage:objective-cut-surface(log-scop):done has_surface=true ms=0
+c 00h00m00s | stage:objective-cut:incumbent-solution encoder=log-scop reason=surface threshold=1000000 surface=9999999 bound_mass=9999999 terms=1 action=emit-solution
+c 00h00m00s | objective:incumbent kind=initial value=279982 rounds=1 improvements=0
+o 279982
+v <instantiation>
+v   <list> n_persons[1] n_persons[2] n_persons[3] n_persons[4] n_persons[5] n_persons[6] n_persons[7] n_persons[8] n_persons[9] n_persons[10] assign_to[1] assign_to[2] assign_to[3] assign_to[4] assign_to[5] assign_to[6] assign_to[7] assign_to[8] assign_to[9] assign_to[10] assign_to[11] assign_to[12] assign_to[13] assign_to[14] assign_to[15] assign_to[16] assign_to[17] assign_to[18] assign_to[19] assign_to[20] assign_to[21] assign_to[22] assign_to[23] assign_to[24] assign_to[25] assign_to[26] assign_to[27] assign_to[28] assign_to[29] assign_to[30] assign_to[31] assign_to[32] assign_to[33] assign_to[34] assign_to[35] assign_to[36] assign_to[37] assign_to[38] assign_to[39] assign_to[40] assign_to[41] assign_to[42] assign_to[43] assign_to[44] assign_to[45] assign_to[46] assign_to[47] assign_to[48] assign_to[49] assign_to[50] max_rank[1] max_rank[2] max_rank[3] max_rank[4] max_rank[5] max_rank[6] max_rank[7] max_rank[8] max_rank[9] max_rank[10] min_rank[1] min_rank[2] min_rank[3] min_rank[4] min_rank[5] min_rank[6] min_rank[7] min_rank[8] min_rank[9] min_rank[10] rank_diff[1] rank_diff[2] rank_diff[3] rank_diff[4] rank_diff[5] rank_diff[6] rank_diff[7] rank_diff[8] rank_diff[9] rank_diff[10] card_of_league_tmp[1] card_of_league_tmp[2] card_of_league_tmp[3] card_of_league_tmp[4] card_of_league_tmp[5] card_of_league_tmp[6] card_of_league_tmp[7] card_of_league_tmp[8] card_of_league_tmp[9] card_of_league_tmp[10] card_of_league_tmp[11] card_of_league_tmp[12] card_of_league_tmp[13] card_of_league_tmp[14] card_of_league_tmp[15] card_of_league_tmp[16] card_of_league_tmp[17] card_of_league_tmp[18] card_of_league_tmp[19] card_of_league_tmp[20] card_of_league_tmp[21] card_of_league_tmp[22] card_of_league_tmp[23] card_of_league_tmp[24] card_of_league_tmp[25] card_of_league_tmp[26] card_of_league_tmp[27] card_of_league_tmp[28] card_of_league_tmp[29] card_of_league_tmp[30] card_of_league_tmp[31] card_of_league_tmp[32] card_of_league_tmp[33] card_of_league_tmp[34] card_of_league_tmp[35] card_of_league_tmp[36] card_of_league_tmp[37] card_of_league_tmp[38] card_of_league_tmp[39] card_of_league_tmp[40] card_of_league_tmp[41] card_of_league_tmp[42] card_of_league_tmp[43] card_of_league_tmp[44] card_of_league_tmp[45] card_of_league_tmp[46] card_of_league_tmp[47] card_of_league_tmp[48] card_of_league_tmp[49] card_of_league_tmp[50] card_of_league[1] card_of_league[2] card_of_league[3] card_of_league[4] card_of_league[5] card_of_league[6] card_of_league[7] card_of_league[8] card_of_league[9] card_of_league[10] obj </list>
+v   <values> 5 5 5 5 5 5 5 5 5 5 1 1 9 9 9 6 6 7 6 9 1 1 9 10 1 10 8 3 8 4 4 2 10 2 2 8 3 10 3 2 4 6 7 4 4 5 2 5 6 10 5 5 7 7 3 7 8 5 3 8 2 4 4 4 4 4 4 4 4 4 1 1 1 1 1 1 1 1 1 1 1 3 3 3 3 3 3 3 3 3 0 0 1 0 0 0 0 1 0 0 1 0 0 0 1 0 0 0 1 0 0 1 1 0 0 1 1 1 0 1 1 1 1 0 0 1 0 1 1 1 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 2 3 3 2 3 279982 </values>
+v </instantiation>
+c 00h00m00s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=99960 upper=10000000 has_incumbent=true soft_active=true
+c 00h00m00s | stage:objective-cut:soft-install bound=219974 guard=19353 clauses_added=26
+c 00h00m00s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [99960,279981] next 219974 source=install guard=19353
+c 00h00m00s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=330 sat_vars=19353 base_clauses=34572
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=19353 clauses=34572
+c 00h00m00s | stage:sat:solve:start assumptions=1 phase_lits=330
+c 00h00m00s | stage:sat:solve:done ms=301 result=Sat assumptions=1 phase_lits=330
+c 00h00m00s | stage:decode:start
+c 00h00m00s | stage:decode:done int_assignments=151
+c 00h00m00s | result:Sat
+c 00h00m00s | objective:incumbent kind=improvement value=209982 rounds=2 improvements=1
+o 209982
+v <instantiation>
+v   <list> n_persons[1] n_persons[2] n_persons[3] n_persons[4] n_persons[5] n_persons[6] n_persons[7] n_persons[8] n_persons[9] n_persons[10] assign_to[1] assign_to[2] assign_to[3] assign_to[4] assign_to[5] assign_to[6] assign_to[7] assign_to[8] assign_to[9] assign_to[10] assign_to[11] assign_to[12] assign_to[13] assign_to[14] assign_to[15] assign_to[16] assign_to[17] assign_to[18] assign_to[19] assign_to[20] assign_to[21] assign_to[22] assign_to[23] assign_to[24] assign_to[25] assign_to[26] assign_to[27] assign_to[28] assign_to[29] assign_to[30] assign_to[31] assign_to[32] assign_to[33] assign_to[34] assign_to[35] assign_to[36] assign_to[37] assign_to[38] assign_to[39] assign_to[40] assign_to[41] assign_to[42] assign_to[43] assign_to[44] assign_to[45] assign_to[46] assign_to[47] assign_to[48] assign_to[49] assign_to[50] max_rank[1] max_rank[2] max_rank[3] max_rank[4] max_rank[5] max_rank[6] max_rank[7] max_rank[8] max_rank[9] max_rank[10] min_rank[1] min_rank[2] min_rank[3] min_rank[4] min_rank[5] min_rank[6] min_rank[7] min_rank[8] min_rank[9] min_rank[10] rank_diff[1] rank_diff[2] rank_diff[3] rank_diff[4] rank_diff[5] rank_diff[6] rank_diff[7] rank_diff[8] rank_diff[9] rank_diff[10] card_of_league_tmp[1] card_of_league_tmp[2] card_of_league_tmp[3] card_of_league_tmp[4] card_of_league_tmp[5] card_of_league_tmp[6] card_of_league_tmp[7] card_of_league_tmp[8] card_of_league_tmp[9] card_of_league_tmp[10] card_of_league_tmp[11] card_of_league_tmp[12] card_of_league_tmp[13] card_of_league_tmp[14] card_of_league_tmp[15] card_of_league_tmp[16] card_of_league_tmp[17] card_of_league_tmp[18] card_of_league_tmp[19] card_of_league_tmp[20] card_of_league_tmp[21] card_of_league_tmp[22] card_of_league_tmp[23] card_of_league_tmp[24] card_of_league_tmp[25] card_of_league_tmp[26] card_of_league_tmp[27] card_of_league_tmp[28] card_of_league_tmp[29] card_of_league_tmp[30] card_of_league_tmp[31] card_of_league_tmp[32] card_of_league_tmp[33] card_of_league_tmp[34] card_of_league_tmp[35] card_of_league_tmp[36] card_of_league_tmp[37] card_of_league_tmp[38] card_of_league_tmp[39] card_of_league_tmp[40] card_of_league_tmp[41] card_of_league_tmp[42] card_of_league_tmp[43] card_of_league_tmp[44] card_of_league_tmp[45] card_of_league_tmp[46] card_of_league_tmp[47] card_of_league_tmp[48] card_of_league_tmp[49] card_of_league_tmp[50] card_of_league[1] card_of_league[2] card_of_league[3] card_of_league[4] card_of_league[5] card_of_league[6] card_of_league[7] card_of_league[8] card_of_league[9] card_of_league[10] obj </list>
+v   <values> 5 5 5 5 5 5 5 5 5 5 1 1 9 9 2 6 6 7 6 2 1 1 9 9 1 6 2 3 7 6 4 10 9 10 10 8 7 10 3 2 4 8 7 4 4 5 2 5 4 10 5 5 8 7 3 3 8 5 3 8 2 4 4 4 4 4 4 4 4 4 1 1 1 3 3 1 2 3 1 1 1 3 3 1 1 3 2 1 3 3 0 0 1 0 0 0 0 1 0 0 1 0 0 0 1 0 0 0 1 0 0 1 1 0 0 1 1 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 2 3 2 3 3 209982 </values>
+v </instantiation>
+c 00h00m00s | stage:objective-cut:soft-result search=trisection bound=219974 result=sat guard=19353 hard=guard [LB,UB] = [99960,209981]
+c 00h00m00s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=99960 upper=10000000 has_incumbent=true soft_active=true
+c 00h00m00s | stage:objective-cut:soft-install bound=173308 guard=19372 clauses_added=29
+c 00h00m00s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [99960,209981] next 173308 source=install guard=19372
+c 00h00m00s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=330 sat_vars=19372 base_clauses=34602
+c 00h00m00s | stage:sat:init solver=CaDiCaL vars=19372 clauses=34602
+c 00h00m00s | stage:sat:solve:start assumptions=1 phase_lits=330
+c 00h00m01s | stage:sat:solve:done ms=655 result=Sat assumptions=1 phase_lits=330
+c 00h00m01s | stage:decode:start
+c 00h00m01s | stage:decode:done int_assignments=151
+c 00h00m01s | result:Sat
+c 00h00m01s | objective:incumbent kind=improvement value=169977 rounds=3 improvements=2
+o 169977
+v <instantiation>
+v   <list> n_persons[1] n_persons[2] n_persons[3] n_persons[4] n_persons[5] n_persons[6] n_persons[7] n_persons[8] n_persons[9] n_persons[10] assign_to[1] assign_to[2] assign_to[3] assign_to[4] assign_to[5] assign_to[6] assign_to[7] assign_to[8] assign_to[9] assign_to[10] assign_to[11] assign_to[12] assign_to[13] assign_to[14] assign_to[15] assign_to[16] assign_to[17] assign_to[18] assign_to[19] assign_to[20] assign_to[21] assign_to[22] assign_to[23] assign_to[24] assign_to[25] assign_to[26] assign_to[27] assign_to[28] assign_to[29] assign_to[30] assign_to[31] assign_to[32] assign_to[33] assign_to[34] assign_to[35] assign_to[36] assign_to[37] assign_to[38] assign_to[39] assign_to[40] assign_to[41] assign_to[42] assign_to[43] assign_to[44] assign_to[45] assign_to[46] assign_to[47] assign_to[48] assign_to[49] assign_to[50] max_rank[1] max_rank[2] max_rank[3] max_rank[4] max_rank[5] max_rank[6] max_rank[7] max_rank[8] max_rank[9] max_rank[10] min_rank[1] min_rank[2] min_rank[3] min_rank[4] min_rank[5] min_rank[6] min_rank[7] min_rank[8] min_rank[9] min_rank[10] rank_diff[1] rank_diff[2] rank_diff[3] rank_diff[4] rank_diff[5] rank_diff[6] rank_diff[7] rank_diff[8] rank_diff[9] rank_diff[10] card_of_league_tmp[1] card_of_league_tmp[2] card_of_league_tmp[3] card_of_league_tmp[4] card_of_league_tmp[5] card_of_league_tmp[6] card_of_league_tmp[7] card_of_league_tmp[8] card_of_league_tmp[9] card_of_league_tmp[10] card_of_league_tmp[11] card_of_league_tmp[12] card_of_league_tmp[13] card_of_league_tmp[14] card_of_league_tmp[15] card_of_league_tmp[16] card_of_league_tmp[17] card_of_league_tmp[18] card_of_league_tmp[19] card_of_league_tmp[20] card_of_league_tmp[21] card_of_league_tmp[22] card_of_league_tmp[23] card_of_league_tmp[24] card_of_league_tmp[25] card_of_league_tmp[26] card_of_league_tmp[27] card_of_league_tmp[28] card_of_league_tmp[29] card_of_league_tmp[30] card_of_league_tmp[31] card_of_league_tmp[32] card_of_league_tmp[33] card_of_league_tmp[34] card_of_league_tmp[35] card_of_league_tmp[36] card_of_league_tmp[37] card_of_league_tmp[38] card_of_league_tmp[39] card_of_league_tmp[40] card_of_league_tmp[41] card_of_league_tmp[42] card_of_league_tmp[43] card_of_league_tmp[44] card_of_league_tmp[45] card_of_league_tmp[46] card_of_league_tmp[47] card_of_league_tmp[48] card_of_league_tmp[49] card_of_league_tmp[50] card_of_league[1] card_of_league[2] card_of_league[3] card_of_league[4] card_of_league[5] card_of_league[6] card_of_league[7] card_of_league[8] card_of_league[9] card_of_league[10] obj </list>
+v   <values> 5 5 5 5 5 5 5 5 5 5 1 1 1 1 9 9 6 6 7 10 7 7 10 10 7 2 2 7 6 1 4 2 6 6 4 2 8 2 9 10 4 4 3 5 4 8 3 9 10 9 5 5 8 5 3 8 3 5 3 8 2 3 4 4 4 4 4 4 4 4 1 2 3 3 3 1 2 3 1 1 1 1 1 1 1 3 2 1 3 3 1 0 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0 0 1 0 0 1 0 1 0 1 1 0 0 0 1 0 0 1 1 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 3 3 3 3 1 2 2 1 3 2 169977 </values>
+v </instantiation>
+c 00h00m01s | stage:objective-cut:soft-result search=trisection bound=173308 result=sat guard=19372 hard=guard [LB,UB] = [99960,169976]
+c 00h00m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=99960 upper=10000000 has_incumbent=true soft_active=true
+c 00h00m01s | stage:objective-cut:soft-install bound=146638 guard=19391 clauses_added=27
+c 00h00m01s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [99960,169976] next 146638 source=install guard=19391
+c 00h00m01s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=330 sat_vars=19391 base_clauses=34630
+c 00h00m01s | stage:sat:init solver=CaDiCaL vars=19391 clauses=34630
+c 00h00m01s | stage:sat:solve:start assumptions=1 phase_lits=330
+c 00h00m01s | stage:sat:solve:done ms=161 result=Sat assumptions=1 phase_lits=330
+c 00h00m01s | stage:decode:start
+c 00h00m01s | stage:decode:done int_assignments=151
+c 00h00m01s | result:Sat
+c 00h00m01s | objective:incumbent kind=improvement value=139977 rounds=4 improvements=3
+o 139977
+v <instantiation>
+v   <list> n_persons[1] n_persons[2] n_persons[3] n_persons[4] n_persons[5] n_persons[6] n_persons[7] n_persons[8] n_persons[9] n_persons[10] assign_to[1] assign_to[2] assign_to[3] assign_to[4] assign_to[5] assign_to[6] assign_to[7] assign_to[8] assign_to[9] assign_to[10] assign_to[11] assign_to[12] assign_to[13] assign_to[14] assign_to[15] assign_to[16] assign_to[17] assign_to[18] assign_to[19] assign_to[20] assign_to[21] assign_to[22] assign_to[23] assign_to[24] assign_to[25] assign_to[26] assign_to[27] assign_to[28] assign_to[29] assign_to[30] assign_to[31] assign_to[32] assign_to[33] assign_to[34] assign_to[35] assign_to[36] assign_to[37] assign_to[38] assign_to[39] assign_to[40] assign_to[41] assign_to[42] assign_to[43] assign_to[44] assign_to[45] assign_to[46] assign_to[47] assign_to[48] assign_to[49] assign_to[50] max_rank[1] max_rank[2] max_rank[3] max_rank[4] max_rank[5] max_rank[6] max_rank[7] max_rank[8] max_rank[9] max_rank[10] min_rank[1] min_rank[2] min_rank[3] min_rank[4] min_rank[5] min_rank[6] min_rank[7] min_rank[8] min_rank[9] min_rank[10] rank_diff[1] rank_diff[2] rank_diff[3] rank_diff[4] rank_diff[5] rank_diff[6] rank_diff[7] rank_diff[8] rank_diff[9] rank_diff[10] card_of_league_tmp[1] card_of_league_tmp[2] card_of_league_tmp[3] card_of_league_tmp[4] card_of_league_tmp[5] card_of_league_tmp[6] card_of_league_tmp[7] card_of_league_tmp[8] card_of_league_tmp[9] card_of_league_tmp[10] card_of_league_tmp[11] card_of_league_tmp[12] card_of_league_tmp[13] card_of_league_tmp[14] card_of_league_tmp[15] card_of_league_tmp[16] card_of_league_tmp[17] card_of_league_tmp[18] card_of_league_tmp[19] card_of_league_tmp[20] card_of_league_tmp[21] card_of_league_tmp[22] card_of_league_tmp[23] card_of_league_tmp[24] card_of_league_tmp[25] card_of_league_tmp[26] card_of_league_tmp[27] card_of_league_tmp[28] card_of_league_tmp[29] card_of_league_tmp[30] card_of_league_tmp[31] card_of_league_tmp[32] card_of_league_tmp[33] card_of_league_tmp[34] card_of_league_tmp[35] card_of_league_tmp[36] card_of_league_tmp[37] card_of_league_tmp[38] card_of_league_tmp[39] card_of_league_tmp[40] card_of_league_tmp[41] card_of_league_tmp[42] card_of_league_tmp[43] card_of_league_tmp[44] card_of_league_tmp[45] card_of_league_tmp[46] card_of_league_tmp[47] card_of_league_tmp[48] card_of_league_tmp[49] card_of_league_tmp[50] card_of_league[1] card_of_league[2] card_of_league[3] card_of_league[4] card_of_league[5] card_of_league[6] card_of_league[7] card_of_league[8] card_of_league[9] card_of_league[10] obj </list>
+v   <values> 5 5 5 5 5 5 5 5 5 5 1 1 9 9 9 9 10 1 6 10 2 2 10 9 10 1 6 6 6 1 8 7 2 7 8 10 2 2 5 4 3 4 3 5 5 5 7 4 5 3 7 4 8 6 3 8 4 7 3 8 2 3 4 4 4 4 4 4 4 4 1 2 3 3 3 2 3 3 1 2 1 1 1 1 1 2 1 1 3 2 0 0 1 1 0 1 1 0 0 1 1 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0 1 1 0 0 1 1 1 1 0 1 0 1 1 1 0 0 0 0 0 0 0 0 0 0 2 2 2 3 1 3 2 2 3 3 139977 </values>
+v </instantiation>
+c 00h00m01s | stage:objective-cut:soft-result search=trisection bound=146638 result=sat guard=19391 hard=guard [LB,UB] = [99960,139976]
+c 00h00m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=99960 upper=10000000 has_incumbent=true soft_active=true
+c 00h00m01s | stage:objective-cut:soft-install bound=126638 guard=19410 clauses_added=29
+c 00h00m01s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [99960,139976] next 126638 source=install guard=19410
+c 00h00m01s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=330 sat_vars=19410 base_clauses=34660
+c 00h00m01s | stage:sat:init solver=CaDiCaL vars=19410 clauses=34660
+c 00h00m01s | stage:sat:solve:start assumptions=1 phase_lits=330
+c 00h00m01s | stage:sat:solve:done ms=22 result=Sat assumptions=1 phase_lits=330
+c 00h00m01s | stage:decode:start
+c 00h00m01s | stage:decode:done int_assignments=151
+c 00h00m01s | result:Sat
+c 00h00m01s | objective:incumbent kind=improvement value=119976 rounds=5 improvements=4
+o 119976
+v <instantiation>
+v   <list> n_persons[1] n_persons[2] n_persons[3] n_persons[4] n_persons[5] n_persons[6] n_persons[7] n_persons[8] n_persons[9] n_persons[10] assign_to[1] assign_to[2] assign_to[3] assign_to[4] assign_to[5] assign_to[6] assign_to[7] assign_to[8] assign_to[9] assign_to[10] assign_to[11] assign_to[12] assign_to[13] assign_to[14] assign_to[15] assign_to[16] assign_to[17] assign_to[18] assign_to[19] assign_to[20] assign_to[21] assign_to[22] assign_to[23] assign_to[24] assign_to[25] assign_to[26] assign_to[27] assign_to[28] assign_to[29] assign_to[30] assign_to[31] assign_to[32] assign_to[33] assign_to[34] assign_to[35] assign_to[36] assign_to[37] assign_to[38] assign_to[39] assign_to[40] assign_to[41] assign_to[42] assign_to[43] assign_to[44] assign_to[45] assign_to[46] assign_to[47] assign_to[48] assign_to[49] assign_to[50] max_rank[1] max_rank[2] max_rank[3] max_rank[4] max_rank[5] max_rank[6] max_rank[7] max_rank[8] max_rank[9] max_rank[10] min_rank[1] min_rank[2] min_rank[3] min_rank[4] min_rank[5] min_rank[6] min_rank[7] min_rank[8] min_rank[9] min_rank[10] rank_diff[1] rank_diff[2] rank_diff[3] rank_diff[4] rank_diff[5] rank_diff[6] rank_diff[7] rank_diff[8] rank_diff[9] rank_diff[10] card_of_league_tmp[1] card_of_league_tmp[2] card_of_league_tmp[3] card_of_league_tmp[4] card_of_league_tmp[5] card_of_league_tmp[6] card_of_league_tmp[7] card_of_league_tmp[8] card_of_league_tmp[9] card_of_league_tmp[10] card_of_league_tmp[11] card_of_league_tmp[12] card_of_league_tmp[13] card_of_league_tmp[14] card_of_league_tmp[15] card_of_league_tmp[16] card_of_league_tmp[17] card_of_league_tmp[18] card_of_league_tmp[19] card_of_league_tmp[20] card_of_league_tmp[21] card_of_league_tmp[22] card_of_league_tmp[23] card_of_league_tmp[24] card_of_league_tmp[25] card_of_league_tmp[26] card_of_league_tmp[27] card_of_league_tmp[28] card_of_league_tmp[29] card_of_league_tmp[30] card_of_league_tmp[31] card_of_league_tmp[32] card_of_league_tmp[33] card_of_league_tmp[34] card_of_league_tmp[35] card_of_league_tmp[36] card_of_league_tmp[37] card_of_league_tmp[38] card_of_league_tmp[39] card_of_league_tmp[40] card_of_league_tmp[41] card_of_league_tmp[42] card_of_league_tmp[43] card_of_league_tmp[44] card_of_league_tmp[45] card_of_league_tmp[46] card_of_league_tmp[47] card_of_league_tmp[48] card_of_league_tmp[49] card_of_league_tmp[50] card_of_league[1] card_of_league[2] card_of_league[3] card_of_league[4] card_of_league[5] card_of_league[6] card_of_league[7] card_of_league[8] card_of_league[9] card_of_league[10] obj </list>
+v   <values> 5 5 5 5 5 5 5 5 5 5 3 3 1 1 1 3 10 2 10 10 2 1 1 3 10 2 6 3 2 2 10 7 6 7 8 6 4 4 5 4 9 4 4 5 5 5 7 8 8 9 7 6 8 9 9 9 6 7 5 8 2 2 2 4 4 4 4 4 4 4 1 1 1 3 3 2 3 3 3 2 1 1 1 1 1 2 1 1 1 2 1 0 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0 0 1 0 0 1 1 1 0 0 1 1 0 0 1 1 0 0 1 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 3 3 3 3 1 3 2 2 1 3 119976 </values>
+v </instantiation>
+c 00h00m01s | stage:objective-cut:soft-result search=trisection bound=126638 result=sat guard=19410 hard=guard [LB,UB] = [99960,119975]
+c 00h00m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=99960 upper=10000000 has_incumbent=true soft_active=true
+c 00h00m01s | stage:objective-cut:soft-install bound=113304 guard=19429 clauses_added=32
+c 00h00m01s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [99960,119975] next 113304 source=install guard=19429
+c 00h00m01s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=330 sat_vars=19429 base_clauses=34693
+c 00h00m01s | stage:sat:init solver=CaDiCaL vars=19429 clauses=34693
+c 00h00m01s | stage:sat:solve:start assumptions=1 phase_lits=330
+c 00h00m01s | stage:sat:solve:done ms=23 result=Sat assumptions=1 phase_lits=330
+c 00h00m01s | stage:decode:start
+c 00h00m01s | stage:decode:done int_assignments=151
+c 00h00m01s | result:Sat
+c 00h00m01s | objective:incumbent kind=improvement value=109977 rounds=6 improvements=5
+o 109977
+v <instantiation>
+v   <list> n_persons[1] n_persons[2] n_persons[3] n_persons[4] n_persons[5] n_persons[6] n_persons[7] n_persons[8] n_persons[9] n_persons[10] assign_to[1] assign_to[2] assign_to[3] assign_to[4] assign_to[5] assign_to[6] assign_to[7] assign_to[8] assign_to[9] assign_to[10] assign_to[11] assign_to[12] assign_to[13] assign_to[14] assign_to[15] assign_to[16] assign_to[17] assign_to[18] assign_to[19] assign_to[20] assign_to[21] assign_to[22] assign_to[23] assign_to[24] assign_to[25] assign_to[26] assign_to[27] assign_to[28] assign_to[29] assign_to[30] assign_to[31] assign_to[32] assign_to[33] assign_to[34] assign_to[35] assign_to[36] assign_to[37] assign_to[38] assign_to[39] assign_to[40] assign_to[41] assign_to[42] assign_to[43] assign_to[44] assign_to[45] assign_to[46] assign_to[47] assign_to[48] assign_to[49] assign_to[50] max_rank[1] max_rank[2] max_rank[3] max_rank[4] max_rank[5] max_rank[6] max_rank[7] max_rank[8] max_rank[9] max_rank[10] min_rank[1] min_rank[2] min_rank[3] min_rank[4] min_rank[5] min_rank[6] min_rank[7] min_rank[8] min_rank[9] min_rank[10] rank_diff[1] rank_diff[2] rank_diff[3] rank_diff[4] rank_diff[5] rank_diff[6] rank_diff[7] rank_diff[8] rank_diff[9] rank_diff[10] card_of_league_tmp[1] card_of_league_tmp[2] card_of_league_tmp[3] card_of_league_tmp[4] card_of_league_tmp[5] card_of_league_tmp[6] card_of_league_tmp[7] card_of_league_tmp[8] card_of_league_tmp[9] card_of_league_tmp[10] card_of_league_tmp[11] card_of_league_tmp[12] card_of_league_tmp[13] card_of_league_tmp[14] card_of_league_tmp[15] card_of_league_tmp[16] card_of_league_tmp[17] card_of_league_tmp[18] card_of_league_tmp[19] card_of_league_tmp[20] card_of_league_tmp[21] card_of_league_tmp[22] card_of_league_tmp[23] card_of_league_tmp[24] card_of_league_tmp[25] card_of_league_tmp[26] card_of_league_tmp[27] card_of_league_tmp[28] card_of_league_tmp[29] card_of_league_tmp[30] card_of_league_tmp[31] card_of_league_tmp[32] card_of_league_tmp[33] card_of_league_tmp[34] card_of_league_tmp[35] card_of_league_tmp[36] card_of_league_tmp[37] card_of_league_tmp[38] card_of_league_tmp[39] card_of_league_tmp[40] card_of_league_tmp[41] card_of_league_tmp[42] card_of_league_tmp[43] card_of_league_tmp[44] card_of_league_tmp[45] card_of_league_tmp[46] card_of_league_tmp[47] card_of_league_tmp[48] card_of_league_tmp[49] card_of_league_tmp[50] card_of_league[1] card_of_league[2] card_of_league[3] card_of_league[4] card_of_league[5] card_of_league[6] card_of_league[7] card_of_league[8] card_of_league[9] card_of_league[10] obj </list>
+v   <values> 5 5 5 5 5 5 5 5 5 5 1 3 1 2 1 2 2 4 4 1 2 3 4 3 2 3 4 4 1 3 10 7 6 7 6 6 8 10 5 10 9 10 10 5 5 5 7 8 8 9 7 6 8 9 9 9 6 7 5 8 2 2 2 2 4 4 4 4 4 4 1 1 1 1 3 2 3 3 3 3 1 1 1 1 1 2 1 1 1 1 1 1 1 1 0 1 1 1 0 0 1 1 0 1 1 1 0 0 1 0 0 1 1 1 0 0 1 1 0 0 1 0 0 0 1 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 4 3 2 3 1 3 2 1 1 3 109977 </values>
+v </instantiation>
+c 00h00m01s | stage:objective-cut:soft-result search=trisection bound=113304 result=sat guard=19429 hard=guard [LB,UB] = [99960,109976]
+c 00h00m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=99960 upper=10000000 has_incumbent=true soft_active=true
+c 00h00m01s | stage:objective-cut:soft-install bound=106638 guard=19448 clauses_added=30
+c 00h00m01s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [99960,109976] next 106638 source=install guard=19448
+c 00h00m01s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=330 sat_vars=19448 base_clauses=34724
+c 00h00m01s | stage:sat:init solver=CaDiCaL vars=19448 clauses=34724
+c 00h00m01s | stage:sat:solve:start assumptions=1 phase_lits=330
+c 00h00m01s | stage:sat:solve:done ms=2 result=Sat assumptions=1 phase_lits=330
+c 00h00m01s | stage:decode:start
+c 00h00m01s | stage:decode:done int_assignments=151
+c 00h00m01s | result:Sat
+c 00h00m01s | objective:incumbent kind=improvement value=99978 rounds=7 improvements=6
+o 99978
+v <instantiation>
+v   <list> n_persons[1] n_persons[2] n_persons[3] n_persons[4] n_persons[5] n_persons[6] n_persons[7] n_persons[8] n_persons[9] n_persons[10] assign_to[1] assign_to[2] assign_to[3] assign_to[4] assign_to[5] assign_to[6] assign_to[7] assign_to[8] assign_to[9] assign_to[10] assign_to[11] assign_to[12] assign_to[13] assign_to[14] assign_to[15] assign_to[16] assign_to[17] assign_to[18] assign_to[19] assign_to[20] assign_to[21] assign_to[22] assign_to[23] assign_to[24] assign_to[25] assign_to[26] assign_to[27] assign_to[28] assign_to[29] assign_to[30] assign_to[31] assign_to[32] assign_to[33] assign_to[34] assign_to[35] assign_to[36] assign_to[37] assign_to[38] assign_to[39] assign_to[40] assign_to[41] assign_to[42] assign_to[43] assign_to[44] assign_to[45] assign_to[46] assign_to[47] assign_to[48] assign_to[49] assign_to[50] max_rank[1] max_rank[2] max_rank[3] max_rank[4] max_rank[5] max_rank[6] max_rank[7] max_rank[8] max_rank[9] max_rank[10] min_rank[1] min_rank[2] min_rank[3] min_rank[4] min_rank[5] min_rank[6] min_rank[7] min_rank[8] min_rank[9] min_rank[10] rank_diff[1] rank_diff[2] rank_diff[3] rank_diff[4] rank_diff[5] rank_diff[6] rank_diff[7] rank_diff[8] rank_diff[9] rank_diff[10] card_of_league_tmp[1] card_of_league_tmp[2] card_of_league_tmp[3] card_of_league_tmp[4] card_of_league_tmp[5] card_of_league_tmp[6] card_of_league_tmp[7] card_of_league_tmp[8] card_of_league_tmp[9] card_of_league_tmp[10] card_of_league_tmp[11] card_of_league_tmp[12] card_of_league_tmp[13] card_of_league_tmp[14] card_of_league_tmp[15] card_of_league_tmp[16] card_of_league_tmp[17] card_of_league_tmp[18] card_of_league_tmp[19] card_of_league_tmp[20] card_of_league_tmp[21] card_of_league_tmp[22] card_of_league_tmp[23] card_of_league_tmp[24] card_of_league_tmp[25] card_of_league_tmp[26] card_of_league_tmp[27] card_of_league_tmp[28] card_of_league_tmp[29] card_of_league_tmp[30] card_of_league_tmp[31] card_of_league_tmp[32] card_of_league_tmp[33] card_of_league_tmp[34] card_of_league_tmp[35] card_of_league_tmp[36] card_of_league_tmp[37] card_of_league_tmp[38] card_of_league_tmp[39] card_of_league_tmp[40] card_of_league_tmp[41] card_of_league_tmp[42] card_of_league_tmp[43] card_of_league_tmp[44] card_of_league_tmp[45] card_of_league_tmp[46] card_of_league_tmp[47] card_of_league_tmp[48] card_of_league_tmp[49] card_of_league_tmp[50] card_of_league[1] card_of_league[2] card_of_league[3] card_of_league[4] card_of_league[5] card_of_league[6] card_of_league[7] card_of_league[8] card_of_league[9] card_of_league[10] obj </list>
+v   <values> 5 5 5 5 5 5 5 5 5 5 3 1 1 2 1 2 2 1 4 1 4 3 4 3 2 3 4 4 2 3 10 7 6 7 6 6 8 10 5 10 9 10 10 5 5 5 7 8 8 9 7 6 8 9 9 9 6 7 5 8 2 2 2 2 4 4 4 4 4 4 1 1 1 1 3 3 3 3 3 3 1 1 1 1 1 1 1 1 1 1 1 0 1 1 0 1 1 1 0 0 1 1 0 1 1 1 0 0 1 0 0 1 1 1 0 0 1 1 0 0 1 0 0 0 1 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 3 3 2 3 1 3 2 1 1 3 99978 </values>
+v </instantiation>
+c 00h00m01s | stage:objective-cut:soft-result search=trisection bound=106638 result=sat guard=19448 hard=guard [LB,UB] = [99960,99977]
+c 00h00m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=99960 upper=10000000 has_incumbent=true soft_active=true
+c 00h00m01s | stage:objective-cut:soft-install bound=99972 guard=19467 clauses_added=34
+c 00h00m01s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [99960,99977] next 99972 source=install guard=19467
+c 00h00m01s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=330 sat_vars=19467 base_clauses=34759
+c 00h00m01s | stage:sat:init solver=CaDiCaL vars=19467 clauses=34759
+c 00h00m01s | stage:sat:solve:start assumptions=1 phase_lits=330
+c 00h00m01s | stage:sat:solve:done ms=172 result=Sat assumptions=1 phase_lits=330
+c 00h00m01s | stage:decode:start
+c 00h00m01s | stage:decode:done int_assignments=151
+c 00h00m01s | result:Sat
+c 00h00m01s | objective:incumbent kind=improvement value=99972 rounds=8 improvements=7
+o 99972
+v <instantiation>
+v   <list> n_persons[1] n_persons[2] n_persons[3] n_persons[4] n_persons[5] n_persons[6] n_persons[7] n_persons[8] n_persons[9] n_persons[10] assign_to[1] assign_to[2] assign_to[3] assign_to[4] assign_to[5] assign_to[6] assign_to[7] assign_to[8] assign_to[9] assign_to[10] assign_to[11] assign_to[12] assign_to[13] assign_to[14] assign_to[15] assign_to[16] assign_to[17] assign_to[18] assign_to[19] assign_to[20] assign_to[21] assign_to[22] assign_to[23] assign_to[24] assign_to[25] assign_to[26] assign_to[27] assign_to[28] assign_to[29] assign_to[30] assign_to[31] assign_to[32] assign_to[33] assign_to[34] assign_to[35] assign_to[36] assign_to[37] assign_to[38] assign_to[39] assign_to[40] assign_to[41] assign_to[42] assign_to[43] assign_to[44] assign_to[45] assign_to[46] assign_to[47] assign_to[48] assign_to[49] assign_to[50] max_rank[1] max_rank[2] max_rank[3] max_rank[4] max_rank[5] max_rank[6] max_rank[7] max_rank[8] max_rank[9] max_rank[10] min_rank[1] min_rank[2] min_rank[3] min_rank[4] min_rank[5] min_rank[6] min_rank[7] min_rank[8] min_rank[9] min_rank[10] rank_diff[1] rank_diff[2] rank_diff[3] rank_diff[4] rank_diff[5] rank_diff[6] rank_diff[7] rank_diff[8] rank_diff[9] rank_diff[10] card_of_league_tmp[1] card_of_league_tmp[2] card_of_league_tmp[3] card_of_league_tmp[4] card_of_league_tmp[5] card_of_league_tmp[6] card_of_league_tmp[7] card_of_league_tmp[8] card_of_league_tmp[9] card_of_league_tmp[10] card_of_league_tmp[11] card_of_league_tmp[12] card_of_league_tmp[13] card_of_league_tmp[14] card_of_league_tmp[15] card_of_league_tmp[16] card_of_league_tmp[17] card_of_league_tmp[18] card_of_league_tmp[19] card_of_league_tmp[20] card_of_league_tmp[21] card_of_league_tmp[22] card_of_league_tmp[23] card_of_league_tmp[24] card_of_league_tmp[25] card_of_league_tmp[26] card_of_league_tmp[27] card_of_league_tmp[28] card_of_league_tmp[29] card_of_league_tmp[30] card_of_league_tmp[31] card_of_league_tmp[32] card_of_league_tmp[33] card_of_league_tmp[34] card_of_league_tmp[35] card_of_league_tmp[36] card_of_league_tmp[37] card_of_league_tmp[38] card_of_league_tmp[39] card_of_league_tmp[40] card_of_league_tmp[41] card_of_league_tmp[42] card_of_league_tmp[43] card_of_league_tmp[44] card_of_league_tmp[45] card_of_league_tmp[46] card_of_league_tmp[47] card_of_league_tmp[48] card_of_league_tmp[49] card_of_league_tmp[50] card_of_league[1] card_of_league[2] card_of_league[3] card_of_league[4] card_of_league[5] card_of_league[6] card_of_league[7] card_of_league[8] card_of_league[9] card_of_league[10] obj </list>
+v   <values> 5 5 5 5 5 5 5 5 5 5 4 4 3 1 1 2 1 2 4 4 1 3 3 1 2 2 2 4 3 3 5 9 5 7 5 10 7 7 10 10 6 8 6 9 10 6 7 6 8 7 8 10 6 9 9 9 8 5 8 5 2 2 2 2 4 4 4 4 4 4 1 1 1 1 3 3 3 3 3 3 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 1 1 1 1 1 0 1 1 1 0 1 1 1 0 1 1 0 0 1 1 1 0 1 1 0 0 0 1 1 0 1 1 1 0 0 0 0 0 0 0 0 0 0 3 3 4 3 3 2 3 2 2 3 99972 </values>
+v </instantiation>
+c 00h00m01s | stage:objective-cut:soft-result search=trisection bound=99972 result=sat guard=19467 hard=guard [LB,UB] = [99960,99971]
+c 00h00m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=99960 upper=10000000 has_incumbent=true soft_active=true
+c 00h00m01s | stage:objective-cut:soft-install bound=99968 guard=19486 clauses_added=35
+c 00h00m01s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [99960,99971] next 99968 source=install guard=19486
+c 00h00m01s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=330 sat_vars=19486 base_clauses=34795
+c 00h00m01s | stage:sat:init solver=CaDiCaL vars=19486 clauses=34795
+c 00h00m01s | stage:sat:solve:start assumptions=1 phase_lits=330
+c 00h00m01s | stage:sat:solve:done ms=6 result=Unsat assumptions=1 phase_lits=330
+c 00h00m01s | result:Unsat
+c 00h00m01s | stage:objective-cut:soft-result search=trisection bound=99968 result=unsat guard=19486 hard=-guard [LB,UB] = [99969,99971]
+c 00h00m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=99969 upper=10000000 has_incumbent=true soft_active=true
+c 00h00m01s | stage:objective-cut:soft-install bound=99971 guard=19503 clauses_added=31
+c 00h00m01s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [99969,99971] next 99971 source=install guard=19503
+c 00h00m01s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=330 sat_vars=19503 base_clauses=34827
+c 00h00m01s | stage:sat:init solver=CaDiCaL vars=19503 clauses=34827
+c 00h00m01s | stage:sat:solve:start assumptions=1 phase_lits=330
+c 00h00m01s | stage:sat:solve:done ms=89 result=Sat assumptions=1 phase_lits=330
+c 00h00m01s | stage:decode:start
+c 00h00m01s | stage:decode:done int_assignments=151
+c 00h00m01s | result:Sat
+c 00h00m01s | objective:incumbent kind=improvement value=99971 rounds=10 improvements=8
+o 99971
+v <instantiation>
+v   <list> n_persons[1] n_persons[2] n_persons[3] n_persons[4] n_persons[5] n_persons[6] n_persons[7] n_persons[8] n_persons[9] n_persons[10] assign_to[1] assign_to[2] assign_to[3] assign_to[4] assign_to[5] assign_to[6] assign_to[7] assign_to[8] assign_to[9] assign_to[10] assign_to[11] assign_to[12] assign_to[13] assign_to[14] assign_to[15] assign_to[16] assign_to[17] assign_to[18] assign_to[19] assign_to[20] assign_to[21] assign_to[22] assign_to[23] assign_to[24] assign_to[25] assign_to[26] assign_to[27] assign_to[28] assign_to[29] assign_to[30] assign_to[31] assign_to[32] assign_to[33] assign_to[34] assign_to[35] assign_to[36] assign_to[37] assign_to[38] assign_to[39] assign_to[40] assign_to[41] assign_to[42] assign_to[43] assign_to[44] assign_to[45] assign_to[46] assign_to[47] assign_to[48] assign_to[49] assign_to[50] max_rank[1] max_rank[2] max_rank[3] max_rank[4] max_rank[5] max_rank[6] max_rank[7] max_rank[8] max_rank[9] max_rank[10] min_rank[1] min_rank[2] min_rank[3] min_rank[4] min_rank[5] min_rank[6] min_rank[7] min_rank[8] min_rank[9] min_rank[10] rank_diff[1] rank_diff[2] rank_diff[3] rank_diff[4] rank_diff[5] rank_diff[6] rank_diff[7] rank_diff[8] rank_diff[9] rank_diff[10] card_of_league_tmp[1] card_of_league_tmp[2] card_of_league_tmp[3] card_of_league_tmp[4] card_of_league_tmp[5] card_of_league_tmp[6] card_of_league_tmp[7] card_of_league_tmp[8] card_of_league_tmp[9] card_of_league_tmp[10] card_of_league_tmp[11] card_of_league_tmp[12] card_of_league_tmp[13] card_of_league_tmp[14] card_of_league_tmp[15] card_of_league_tmp[16] card_of_league_tmp[17] card_of_league_tmp[18] card_of_league_tmp[19] card_of_league_tmp[20] card_of_league_tmp[21] card_of_league_tmp[22] card_of_league_tmp[23] card_of_league_tmp[24] card_of_league_tmp[25] card_of_league_tmp[26] card_of_league_tmp[27] card_of_league_tmp[28] card_of_league_tmp[29] card_of_league_tmp[30] card_of_league_tmp[31] card_of_league_tmp[32] card_of_league_tmp[33] card_of_league_tmp[34] card_of_league_tmp[35] card_of_league_tmp[36] card_of_league_tmp[37] card_of_league_tmp[38] card_of_league_tmp[39] card_of_league_tmp[40] card_of_league_tmp[41] card_of_league_tmp[42] card_of_league_tmp[43] card_of_league_tmp[44] card_of_league_tmp[45] card_of_league_tmp[46] card_of_league_tmp[47] card_of_league_tmp[48] card_of_league_tmp[49] card_of_league_tmp[50] card_of_league[1] card_of_league[2] card_of_league[3] card_of_league[4] card_of_league[5] card_of_league[6] card_of_league[7] card_of_league[8] card_of_league[9] card_of_league[10] obj </list>
+v   <values> 5 5 5 5 5 5 5 5 5 5 1 2 3 1 2 2 1 2 4 3 2 1 3 1 4 4 4 4 3 3 6 10 9 7 9 6 7 10 9 6 9 7 5 6 9 8 5 8 8 8 5 7 10 7 10 5 6 10 8 5 2 2 2 2 4 4 4 4 4 4 1 1 1 1 3 3 3 3 3 3 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 1 1 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0 0 1 0 0 1 1 1 0 1 1 1 0 0 0 0 0 0 0 0 0 0 3 3 4 3 3 3 3 1 3 3 99971 </values>
+v </instantiation>
+c 00h00m01s | stage:objective-cut:soft-result search=trisection bound=99971 result=sat guard=19503 hard=guard [LB,UB] = [99969,99970]
+c 00h00m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=99969 upper=10000000 has_incumbent=true soft_active=true
+c 00h00m01s | stage:objective-cut:soft-install bound=99970 guard=19522 clauses_added=34
+c 00h00m01s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [99969,99970] next 99970 source=install guard=19522
+c 00h00m01s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=330 sat_vars=19522 base_clauses=34862
+c 00h00m01s | stage:sat:init solver=CaDiCaL vars=19522 clauses=34862
+c 00h00m01s | stage:sat:solve:start assumptions=1 phase_lits=330
+c 00h00m02s | stage:sat:solve:done ms=1412 result=Unsat assumptions=1 phase_lits=330
+c 00h00m02s | result:Unsat
+c 00h00m02s | stage:objective-cut:soft-result search=trisection bound=99970 result=unsat guard=19522 hard=-guard [LB,UB] = closed
+s OPTIMUM FOUND
+o 99971
+v <instantiation>
+v   <list> n_persons[1] n_persons[2] n_persons[3] n_persons[4] n_persons[5] n_persons[6] n_persons[7] n_persons[8] n_persons[9] n_persons[10] assign_to[1] assign_to[2] assign_to[3] assign_to[4] assign_to[5] assign_to[6] assign_to[7] assign_to[8] assign_to[9] assign_to[10] assign_to[11] assign_to[12] assign_to[13] assign_to[14] assign_to[15] assign_to[16] assign_to[17] assign_to[18] assign_to[19] assign_to[20] assign_to[21] assign_to[22] assign_to[23] assign_to[24] assign_to[25] assign_to[26] assign_to[27] assign_to[28] assign_to[29] assign_to[30] assign_to[31] assign_to[32] assign_to[33] assign_to[34] assign_to[35] assign_to[36] assign_to[37] assign_to[38] assign_to[39] assign_to[40] assign_to[41] assign_to[42] assign_to[43] assign_to[44] assign_to[45] assign_to[46] assign_to[47] assign_to[48] assign_to[49] assign_to[50] max_rank[1] max_rank[2] max_rank[3] max_rank[4] max_rank[5] max_rank[6] max_rank[7] max_rank[8] max_rank[9] max_rank[10] min_rank[1] min_rank[2] min_rank[3] min_rank[4] min_rank[5] min_rank[6] min_rank[7] min_rank[8] min_rank[9] min_rank[10] rank_diff[1] rank_diff[2] rank_diff[3] rank_diff[4] rank_diff[5] rank_diff[6] rank_diff[7] rank_diff[8] rank_diff[9] rank_diff[10] card_of_league_tmp[1] card_of_league_tmp[2] card_of_league_tmp[3] card_of_league_tmp[4] card_of_league_tmp[5] card_of_league_tmp[6] card_of_league_tmp[7] card_of_league_tmp[8] card_of_league_tmp[9] card_of_league_tmp[10] card_of_league_tmp[11] card_of_league_tmp[12] card_of_league_tmp[13] card_of_league_tmp[14] card_of_league_tmp[15] card_of_league_tmp[16] card_of_league_tmp[17] card_of_league_tmp[18] card_of_league_tmp[19] card_of_league_tmp[20] card_of_league_tmp[21] card_of_league_tmp[22] card_of_league_tmp[23] card_of_league_tmp[24] card_of_league_tmp[25] card_of_league_tmp[26] card_of_league_tmp[27] card_of_league_tmp[28] card_of_league_tmp[29] card_of_league_tmp[30] card_of_league_tmp[31] card_of_league_tmp[32] card_of_league_tmp[33] card_of_league_tmp[34] card_of_league_tmp[35] card_of_league_tmp[36] card_of_league_tmp[37] card_of_league_tmp[38] card_of_league_tmp[39] card_of_league_tmp[40] card_of_league_tmp[41] card_of_league_tmp[42] card_of_league_tmp[43] card_of_league_tmp[44] card_of_league_tmp[45] card_of_league_tmp[46] card_of_league_tmp[47] card_of_league_tmp[48] card_of_league_tmp[49] card_of_league_tmp[50] card_of_league[1] card_of_league[2] card_of_league[3] card_of_league[4] card_of_league[5] card_of_league[6] card_of_league[7] card_of_league[8] card_of_league[9] card_of_league[10] obj </list>
+v   <values> 5 5 5 5 5 5 5 5 5 5 1 2 3 1 2 2 1 2 4 3 2 1 3 1 4 4 4 4 3 3 6 10 9 7 9 6 7 10 9 6 9 7 5 6 9 8 5 8 8 8 5 7 10 7 10 5 6 10 8 5 2 2 2 2 4 4 4 4 4 4 1 1 1 1 3 3 3 3 3 3 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 1 1 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0 1 1 1 0 0 1 0 0 1 1 1 0 1 1 1 0 0 0 0 0 0 0 0 0 0 3 3 4 3 3 3 3 1 3 3 99971 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 99971
+d OPTIMAL 1
+d SOURCE_CONSTRAINTS 1100
+d NORMALIZED_CONSTRAINTS 1100
+d LOWERED_CONSTRAINTS 1100
+d UNSUPPORTED_CONSTRAINTS 0
+d CSP_INT_VARS 151
+d CSP_CONSTRAINTS 1100
+d CSP_INTENTIONAL 1090
+d CSP_GLOBAL 10
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 0
+d CSP_CUMULATIVE 0
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 3
+d CSP_DOMAIN_SPAN_MAX 9999999
+d N_CUMULATIVE 0
+d N_TABLE 0
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d OBJECTIVE_CUT_EAGER_CLAUSES_ADDED 0
+d OBJECTIVE_RELAXATION_CLAUSES_ADDED 0
+d OBJECTIVE_ROUNDS 11
+d OBJECTIVE_IMPROVEMENTS 8
+d OBJECTIVE_OPTIMALITY_PROOF strict_cut_unsat
+d PROPAGATE_MS 2
+d NORMALIZE_MS 0
+d LOWER_MS 9
+d POST_LOWER_MS 0
+d PREENCODE_MS 0
+d ENCODE_MS 13
+d SAT_SOLVE_MS 2872
+d TOTAL_MS 2944
+d SAT_VARS 19522
+d SAT_CLAUSES_BASE 34862
+d SAT_CLAUSES_FINAL 34862
+d SAT_CLAUSES_CEGAR_DELTA 0
+d CSP_INT_VARS 151
+d CSP_CONSTRAINTS 1100
+d CSP_INTENTIONAL 1090
+d CSP_GLOBAL 10
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 0
+d CSP_CUMULATIVE 0
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 3
+d CSP_DOMAIN_SPAN_MAX 9999999
+d N_CUMULATIVE 0
+d N_TABLE 0
+d SAT_CONFLICTS 64003
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":580,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":40,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"},"3":{"count":10,"max_domain_product_excluding_one_var":"9","p95_domain_product_excluding_one_var":"9"},"5":{"count":10,"max_domain_product_excluding_one_var":"16","p95_domain_product_excluding_one_var":"16"},"21":{"count":1,"max_domain_product_excluding_one_var":"61917364224","p95_domain_product_excluding_one_var":"61917364224"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":100,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":9,"max_domain_product_excluding_one_var":"3","p95_domain_product_excluding_one_var":"3"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"51":{"count":10,"max_domain_product_excluding_one_var":"1125899906842624","p95_domain_product_excluding_one_var":"1125899906842624"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 1
+d OBJECTIVE_NAIVE_UPPER 10000000
+d OBJECTIVE_LP_LOWER 99960
+d OBJECTIVE_LP_UPPER 10000000
+d ROOT_LP_IMPROVED 1
+d ROOT_LP_MS 23
+d ROOT_LP_ROWS 80
+d ROOT_LP_VARS 721
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 109
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 641
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 2
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 3
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 51
+d ROOT_LP_OBJECTIVE_VALUE 99960
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d PROPAGATE_PRUNED_VALUES 40
+d PROPAGATE_CHANGED_DOMAINS 10
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 20
+d POST_LOWER_TIGHTENED_DOMAINS 60
+d POST_LOWER_REMOVED_CLAUSES 520
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 191
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 2736
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 2736
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 0
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 2736
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d MEMORY_RSS_BYTES 16011264
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 4980736
+d MEMORY_RSS_AFTER_LOWER_BYTES 4980736
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 4980736
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 15745024
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 15745024
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 15745024
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 10
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 34546
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 16011264
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 16011264
+d DECODE_INT_ASSIGNMENTS 151
+d CSV /bench/2012/league/league.mzn,optimum,1100,1100,1100,0,19522,34862,2944,2,0,9,0,13,2872,1,optimal,1,10000000,99960,10000000,1,23,80,721,0,0,0,99960,,
+c run_end_local: 2026-06-20 20:32:03 +0900

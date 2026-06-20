@@ -1,0 +1,616 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2008/trucking/trucking.mzn --data /bench/2008/trucking/14.dzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 20:22:30 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | input: constraints=88
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=0 pruned=0 changed_domains=0 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=4804608 rss=4.58MiB
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=88
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:progress percent=10 processed=9 total=88 lowered=9 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=20 processed=18 total=88 lowered=18 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=30 processed=27 total=88 lowered=27 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=40 processed=36 total=88 lowered=36 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=50 processed=44 total=88 lowered=44 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=60 processed=53 total=88 lowered=53 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=70 processed=62 total=88 lowered=62 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=80 processed=71 total=88 lowered=71 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=90 processed=80 total=88 lowered=80 unsupported=0 ms=0
+c 00h00m00s | stage:lower:progress percent=100 processed=88 total=88 lowered=88 unsupported=0 ms=10
+c 00h00m00s | stage:lower:done ms=10 lowered=88 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=4812800 rss=4.59MiB
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=1 rounds=1 tightened=1 removed_cls=0 removed_lits=0 unsat=false precise_hits=0 precise_rounds=1 pivot_recomputes=300 pivot_exact_attempts=0 pivot_general_attempts=300 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=300 pivot_general_tightened=0 setup_ms=1 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=5173248 rss=4.93MiB
+c 00h00m00s | stage:lowered-shape int_vars=301 bool_vars=0 linear_atoms=88 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=88
+c 00h00m00s | stage:root-lp:start backend=lpo
+c 00h00m00s | stage:root-lp:bound backend=lpo status=optimal objective_value=548 naive_bounds=[-1000000,1000000] lp_bounds=[548,1000000] improved=1 rows=88 vars=301 lp_rows_singleton_linear=88 lp_rows_disjunctive=0 lp_rows_table=0 lp_rows_cumulative_energy=0 lp_rows_cumulative_pair=0 lp_rows_cumulative_timetable=0 lp_rows_cumulative_completion=0 lp_rows_cumulative_precedence=0 lp_rows_no_overlap_pair=0 lp_rows_no_overlap_completion=0 lp_rows_no_overlap_precedence=0 lp_rows_no_overlap_2d_energy=0 lp_rows_no_overlap_2d_completion=0 lp_scheduling_payloads_cumulative=0 lp_scheduling_payloads_no_overlap=0 lp_scheduling_cut_rounds=0 lp_scheduling_cut_candidates=0 lp_scheduling_cut_violated=0 lp_scheduling_rows_skipped=0 ms=27
+c 00h00m00s | memory:rss checkpoint=before_preencode bytes=12468224 rss=11.89MiB
+c 00h00m00s | stage:preencode(log-scop):start
+c 00h00m00s | stage:preencode(log-scop):done ms=0 int_vars=301
+c 00h00m00s | memory:rss checkpoint=after_preencode bytes=12738560 rss=12.15MiB
+c 00h00m00s | memory:rss checkpoint=before_encode bytes=12738560 rss=12.15MiB
+c 00h00m00s | stage:encode(log-scop):start
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=356 bytes=13008896 rss=12.41MiB progress_percent=10 processed=9 total=89
+c 00h00m00s | stage:encode(log-scop):progress percent=10 processed=9 total=89 sat_clauses=356 ms=0
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=715 bytes=13008896 rss=12.41MiB progress_percent=20 processed=18 total=89
+c 00h00m00s | stage:encode(log-scop):progress percent=20 processed=18 total=89 sat_clauses=715 ms=0
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1258 bytes=13008896 rss=12.41MiB progress_percent=30 processed=27 total=89
+c 00h00m00s | stage:encode(log-scop):progress percent=30 processed=27 total=89 sat_clauses=1258 ms=0
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1468 bytes=13008896 rss=12.41MiB progress_percent=40 processed=36 total=89
+c 00h00m00s | stage:encode(log-scop):progress percent=40 processed=36 total=89 sat_clauses=1468 ms=0
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1531 bytes=13008896 rss=12.41MiB progress_percent=50 processed=45 total=89
+c 00h00m00s | stage:encode(log-scop):progress percent=50 processed=45 total=89 sat_clauses=1531 ms=0
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1594 bytes=13008896 rss=12.41MiB progress_percent=60 processed=54 total=89
+c 00h00m00s | stage:encode(log-scop):progress percent=60 processed=54 total=89 sat_clauses=1594 ms=0
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1627 bytes=13008896 rss=12.41MiB progress_percent=70 processed=63 total=89
+c 00h00m00s | stage:encode(log-scop):progress percent=70 processed=63 total=89 sat_clauses=1627 ms=0
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1636 bytes=13008896 rss=12.41MiB progress_percent=80 processed=72 total=89
+c 00h00m00s | stage:encode(log-scop):progress percent=80 processed=72 total=89 sat_clauses=1636 ms=0
+c 00h00m00s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1645 bytes=13008896 rss=12.41MiB progress_percent=90 processed=81 total=89
+c 00h00m00s | stage:encode(log-scop):progress percent=90 processed=81 total=89 sat_clauses=1645 ms=0
+c 00h00m01s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=3138625 bytes=705732608 rss=673.04MiB progress_percent=100 processed=89 total=89
+c 00h00m01s | stage:encode(log-scop):progress percent=100 processed=89 total=89 sat_clauses=3138625 ms=1547
+c 00h00m01s | stage:encode(log-scop):done ms=1560 sat_vars=1577331 sat_clauses=3138625 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=90 log_scop_pb_mixed=0 log_scop_pb_bdd2=90 log_scop_pb_bdd3=0 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=90 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m01s | stage:post-encode(log-scop):start sat_vars=1577331 sat_clauses=3138625 has_relaxations=false external_tables=0
+c 00h00m01s | stage:post-encode(log-scop):after-finish-check ms=0
+c 00h00m01s | stage:post-encode(log-scop):decode-layout-ready int_symbols=301 ms=0
+c 00h00m01s | stage:post-encode(log-scop):cumulative-external-ready has_prop=false ms=0
+c 00h00m01s | stage:post-encode(log-scop):log-scop-external-ready has_prop=false ms=0
+c 00h00m01s | stage:post-encode(log-scop):external-prop-connected has_prop=false ms=0
+c 00h00m01s | stage:post-encode(log-scop):done sat_vars=1577331 sat_clauses=3138625 ms=0
+c 00h00m01s | stage:post-encode(log-scop):reusable-ready mode=SoftCnf sat_vars=1577331
+c 00h00m01s | stage:objective-external-ge-template(log-scop):start cut=DirectExpr wants_ext_ge=false
+c 00h00m01s | stage:objective-external-ge-template(log-scop):done has_template=true ms=0
+c 00h00m01s | stage:objective-mode(log-scop):resolved mode=SoftCnf wants_ext_ge=false has_ext_ge_template=true
+c 00h00m01s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m01s | stage:objective-encoder(log-scop):ready mode=SoftCnf soft=true sat_vars=1577331
+c 00h00m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=false soft_active=true
+c 00h00m01s | stage:sat:round-entry encoder=log-scop assumptions=0 phase_lits=0 sat_vars=1577331 base_clauses=3138625
+c 00h00m01s | stage:sat:init solver=CaDiCaL vars=1577331 clauses=3138625
+c 00h00m01s | stage:sat:solve:start assumptions=0 phase_lits=0
+c 00h00m01s | stage:sat:solve:done ms=396 result=Sat assumptions=0 phase_lits=0
+c 00h00m01s | stage:decode:start
+c 00h00m02s | stage:decode:done int_assignments=301
+c 00h00m02s | result:Sat
+c 00h00m02s | stage:objective-cut-surface(log-scop):start timing=after-incumbent
+c 00h00m02s | stage:objective-cut-surface(log-scop):done has_surface=true ms=0
+c 00h00m02s | stage:objective-cut:incumbent-solution encoder=log-scop reason=surface threshold=1000000 surface=2000000 bound_mass=2000000 terms=1 action=emit-solution
+c 00h00m02s | objective:incumbent kind=initial value=7350 rounds=1 improvements=0
+o 7350
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 7350 </values>
+v </instantiation>
+c 00h00m02s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h00m02s | stage:objective-cut:soft-install bound=5082 guard=1577346 clauses_added=20
+c 00h00m02s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [548,7349] next 5082 source=install guard=1577346
+c 00h00m02s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577346 base_clauses=3138645
+c 00h00m02s | stage:sat:init solver=CaDiCaL vars=1577346 clauses=3138645
+c 00h00m02s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h00m44s | stage:sat:solve:done ms=42729 result=Sat assumptions=1 phase_lits=314
+c 00h00m44s | stage:decode:start
+c 00h00m44s | stage:decode:done int_assignments=301
+c 00h00m44s | result:Sat
+c 00h00m44s | objective:incumbent kind=improvement value=5078 rounds=2 improvements=1
+o 5078
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 0 1 1 5078 </values>
+v </instantiation>
+c 00h00m44s | stage:objective-cut:soft-result search=trisection bound=5082 result=sat guard=1577346 hard=guard [LB,UB] = [548,5077]
+c 00h00m44s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h00m44s | stage:objective-cut:soft-install bound=3568 guard=1577361 clauses_added=21
+c 00h00m44s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [548,5077] next 3568 source=install guard=1577361
+c 00h00m44s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577361 base_clauses=3138667
+c 00h00m44s | stage:sat:init solver=CaDiCaL vars=1577361 clauses=3138667
+c 00h00m44s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h00m45s | stage:sat:solve:done ms=139 result=Sat assumptions=1 phase_lits=314
+c 00h00m45s | stage:decode:start
+c 00h00m45s | stage:decode:done int_assignments=301
+c 00h00m45s | result:Sat
+c 00h00m45s | objective:incumbent kind=improvement value=3536 rounds=3 improvements=2
+o 3536
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 1 1 1 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 0 1 1 3536 </values>
+v </instantiation>
+c 00h00m45s | stage:objective-cut:soft-result search=trisection bound=3568 result=sat guard=1577361 hard=guard [LB,UB] = [548,3535]
+c 00h00m45s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h00m45s | stage:objective-cut:soft-install bound=2540 guard=1577376 clauses_added=21
+c 00h00m45s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [548,3535] next 2540 source=install guard=1577376
+c 00h00m45s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577376 base_clauses=3138689
+c 00h00m45s | stage:sat:init solver=CaDiCaL vars=1577376 clauses=3138689
+c 00h00m45s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h00m45s | stage:sat:solve:done ms=213 result=Sat assumptions=1 phase_lits=314
+c 00h00m45s | stage:decode:start
+c 00h00m45s | stage:decode:done int_assignments=301
+c 00h00m45s | result:Sat
+c 00h00m45s | objective:incumbent kind=improvement value=2496 rounds=4 improvements=3
+o 2496
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 1 0 1 0 1 1 1 1 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 0 1 1 2496 </values>
+v </instantiation>
+c 00h00m45s | stage:objective-cut:soft-result search=trisection bound=2540 result=sat guard=1577376 hard=guard [LB,UB] = [548,2495]
+c 00h00m45s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h00m45s | stage:objective-cut:soft-install bound=1846 guard=1577391 clauses_added=21
+c 00h00m45s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [548,2495] next 1846 source=install guard=1577391
+c 00h00m45s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577391 base_clauses=3138711
+c 00h00m45s | stage:sat:init solver=CaDiCaL vars=1577391 clauses=3138711
+c 00h00m45s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h00m45s | stage:sat:solve:done ms=119 result=Sat assumptions=1 phase_lits=314
+c 00h00m45s | stage:decode:start
+c 00h00m45s | stage:decode:done int_assignments=301
+c 00h00m45s | result:Sat
+c 00h00m45s | objective:incumbent kind=improvement value=1828 rounds=5 improvements=4
+o 1828
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 1 0 1 0 1 1 1 1 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0 1 0 0 1 1 1828 </values>
+v </instantiation>
+c 00h00m45s | stage:objective-cut:soft-result search=trisection bound=1846 result=sat guard=1577391 hard=guard [LB,UB] = [548,1827]
+c 00h00m45s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h00m45s | stage:objective-cut:soft-install bound=1401 guard=1577405 clauses_added=20
+c 00h00m45s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [548,1827] next 1401 source=install guard=1577405
+c 00h00m45s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577405 base_clauses=3138732
+c 00h00m45s | stage:sat:init solver=CaDiCaL vars=1577405 clauses=3138732
+c 00h00m45s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h00m45s | stage:sat:solve:done ms=269 result=Sat assumptions=1 phase_lits=314
+c 00h00m45s | stage:decode:start
+c 00h00m45s | stage:decode:done int_assignments=301
+c 00h00m45s | result:Sat
+c 00h00m45s | objective:incumbent kind=improvement value=1323 rounds=6 improvements=5
+o 1323
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 1 1323 </values>
+v </instantiation>
+c 00h00m45s | stage:objective-cut:soft-result search=trisection bound=1401 result=sat guard=1577405 hard=guard [LB,UB] = [548,1322]
+c 00h00m45s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h00m45s | stage:objective-cut:soft-install bound=1064 guard=1577420 clauses_added=25
+c 00h00m45s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [548,1322] next 1064 source=install guard=1577420
+c 00h00m45s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577420 base_clauses=3138758
+c 00h00m45s | stage:sat:init solver=CaDiCaL vars=1577420 clauses=3138758
+c 00h00m45s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h01m19s | stage:sat:solve:done ms=33324 result=Sat assumptions=1 phase_lits=314
+c 00h01m19s | stage:decode:start
+c 00h01m19s | stage:decode:done int_assignments=301
+c 00h01m19s | result:Sat
+c 00h01m19s | objective:incumbent kind=improvement value=1052 rounds=7 improvements=6
+o 1052
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1052 </values>
+v </instantiation>
+c 00h01m19s | stage:objective-cut:soft-result search=trisection bound=1064 result=sat guard=1577420 hard=guard [LB,UB] = [548,1051]
+c 00h01m19s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h01m19s | stage:objective-cut:soft-install bound=884 guard=1577435 clauses_added=22
+c 00h01m19s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [548,1051] next 884 source=install guard=1577435
+c 00h01m19s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577435 base_clauses=3138781
+c 00h01m19s | stage:sat:init solver=CaDiCaL vars=1577435 clauses=3138781
+c 00h01m19s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h01m28s | stage:sat:solve:done ms=9433 result=Sat assumptions=1 phase_lits=314
+c 00h01m28s | stage:decode:start
+c 00h01m28s | stage:decode:done int_assignments=301
+c 00h01m28s | result:Sat
+c 00h01m28s | objective:incumbent kind=improvement value=879 rounds=8 improvements=7
+o 879
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1 1 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 879 </values>
+v </instantiation>
+c 00h01m28s | stage:objective-cut:soft-result search=trisection bound=884 result=sat guard=1577435 hard=guard [LB,UB] = [548,878]
+c 00h01m28s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h01m28s | stage:objective-cut:soft-install bound=768 guard=1577450 clauses_added=26
+c 00h01m28s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [548,878] next 768 source=install guard=1577450
+c 00h01m28s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577450 base_clauses=3138808
+c 00h01m28s | stage:sat:init solver=CaDiCaL vars=1577450 clauses=3138808
+c 00h01m28s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h02m11s | stage:sat:solve:done ms=43178 result=Sat assumptions=1 phase_lits=314
+c 00h02m11s | stage:decode:start
+c 00h02m11s | stage:decode:done int_assignments=301
+c 00h02m11s | result:Sat
+c 00h02m11s | objective:incumbent kind=improvement value=765 rounds=9 improvements=8
+o 765
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 1 1 0 1 1 1 1 1 1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 1 1 1 0 1 0 1 1 1 1 1 1 1 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 765 </values>
+v </instantiation>
+c 00h02m11s | stage:objective-cut:soft-result search=trisection bound=768 result=sat guard=1577450 hard=guard [LB,UB] = [548,764]
+c 00h02m11s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h02m11s | stage:objective-cut:soft-install bound=692 guard=1577465 clauses_added=23
+c 00h02m11s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [548,764] next 692 source=install guard=1577465
+c 00h02m11s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577465 base_clauses=3138832
+c 00h02m11s | stage:sat:init solver=CaDiCaL vars=1577465 clauses=3138832
+c 00h02m11s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h03m26s | stage:sat:solve:done ms=74382 result=Sat assumptions=1 phase_lits=314
+c 00h03m26s | stage:decode:start
+c 00h03m26s | stage:decode:done int_assignments=301
+c 00h03m26s | result:Sat
+c 00h03m26s | objective:incumbent kind=improvement value=686 rounds=10 improvements=9
+o 686
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 1 1 0 1 1 0 1 0 1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 686 </values>
+v </instantiation>
+c 00h03m26s | stage:objective-cut:soft-result search=trisection bound=692 result=sat guard=1577465 hard=guard [LB,UB] = [548,685]
+c 00h03m26s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h03m26s | stage:objective-cut:soft-install bound=640 guard=1577480 clauses_added=26
+c 00h03m26s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [548,685] next 640 source=install guard=1577480
+c 00h03m26s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577480 base_clauses=3138859
+c 00h03m26s | stage:sat:init solver=CaDiCaL vars=1577480 clauses=3138859
+c 00h03m26s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h06m26s | stage:sat:solve:done ms=180001 result=Unknown assumptions=1 phase_lits=314
+c 00h06m26s | result:unknown reason=sat_solver_returned_unknown
+c 00h06m26s | result:Unknown
+c 00h06m26s | stage:objective-cut:soft-fallback search=trisection reason=budget-exhausted budget_s=180 mode=step incumbent=686 [LB,UB]=[548,685]
+c 00h06m26s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h06m26s | stage:objective-cut:soft-install bound=685 guard=1577494 clauses_added=21
+c 00h06m26s | stage:objective-cut:soft-probe search=step [LB,UB] = [548,685] next 685 source=install guard=1577494
+c 00h06m26s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577494 base_clauses=3138880
+c 00h06m26s | stage:sat:init solver=CaDiCaL vars=1577494 clauses=3138880
+c 00h06m26s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h06m30s | stage:sat:solve:done ms=4315 result=Sat assumptions=1 phase_lits=314
+c 00h06m30s | stage:decode:start
+c 00h06m30s | stage:decode:done int_assignments=301
+c 00h06m30s | result:Sat
+c 00h06m30s | objective:incumbent kind=improvement value=684 rounds=11 improvements=10
+o 684
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 1 1 0 1 1 0 1 0 1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 684 </values>
+v </instantiation>
+c 00h06m30s | stage:objective-cut:soft-result search=step bound=685 result=sat guard=1577494 hard=guard [LB,UB] = [548,683]
+c 00h06m30s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h06m30s | stage:objective-cut:soft-install bound=683 guard=1577507 clauses_added=20
+c 00h06m30s | stage:objective-cut:soft-probe search=step [LB,UB] = [548,683] next 683 source=install guard=1577507
+c 00h06m30s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577507 base_clauses=3138901
+c 00h06m30s | stage:sat:init solver=CaDiCaL vars=1577507 clauses=3138901
+c 00h06m30s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h09m49s | stage:sat:solve:done ms=198164 result=Sat assumptions=1 phase_lits=314
+c 00h09m49s | stage:decode:start
+c 00h09m49s | stage:decode:done int_assignments=301
+c 00h09m49s | result:Sat
+c 00h09m49s | objective:incumbent kind=improvement value=677 rounds=12 improvements=11
+o 677
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 1 1 0 1 1 0 1 0 1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 677 </values>
+v </instantiation>
+c 00h09m49s | stage:objective-cut:soft-result search=step bound=683 result=sat guard=1577507 hard=guard [LB,UB] = [548,676]
+c 00h09m49s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h09m49s | stage:objective-cut:soft-install bound=676 guard=1577522 clauses_added=24
+c 00h09m49s | stage:objective-cut:soft-probe search=step [LB,UB] = [548,676] next 676 source=install guard=1577522
+c 00h09m49s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577522 base_clauses=3138926
+c 00h09m49s | stage:sat:init solver=CaDiCaL vars=1577522 clauses=3138926
+c 00h09m49s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h09m49s | stage:sat:solve:done ms=108 result=Sat assumptions=1 phase_lits=314
+c 00h09m49s | stage:decode:start
+c 00h09m49s | stage:decode:done int_assignments=301
+c 00h09m49s | result:Sat
+c 00h09m49s | objective:incumbent kind=improvement value=675 rounds=13 improvements=12
+o 675
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 1 1 0 1 1 0 1 0 1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 675 </values>
+v </instantiation>
+c 00h09m49s | stage:objective-cut:soft-result search=step bound=676 result=sat guard=1577522 hard=guard [LB,UB] = [548,674]
+c 00h09m49s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h09m49s | stage:objective-cut:soft-install bound=674 guard=1577537 clauses_added=24
+c 00h09m49s | stage:objective-cut:soft-probe search=step [LB,UB] = [548,674] next 674 source=install guard=1577537
+c 00h09m49s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577537 base_clauses=3138951
+c 00h09m49s | stage:sat:init solver=CaDiCaL vars=1577537 clauses=3138951
+c 00h09m49s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h09m52s | stage:sat:solve:done ms=2763 result=Sat assumptions=1 phase_lits=314
+c 00h09m52s | stage:decode:start
+c 00h09m52s | stage:decode:done int_assignments=301
+c 00h09m52s | result:Sat
+c 00h09m52s | objective:incumbent kind=improvement value=673 rounds=14 improvements=13
+o 673
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 673 </values>
+v </instantiation>
+c 00h09m52s | stage:objective-cut:soft-result search=step bound=674 result=sat guard=1577537 hard=guard [LB,UB] = [548,672]
+c 00h09m52s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h09m52s | stage:objective-cut:soft-install bound=672 guard=1577552 clauses_added=25
+c 00h09m52s | stage:objective-cut:soft-probe search=step [LB,UB] = [548,672] next 672 source=install guard=1577552
+c 00h09m52s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577552 base_clauses=3138977
+c 00h09m52s | stage:sat:init solver=CaDiCaL vars=1577552 clauses=3138977
+c 00h09m52s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h09m56s | stage:sat:solve:done ms=4768 result=Sat assumptions=1 phase_lits=314
+c 00h09m56s | stage:decode:start
+c 00h09m56s | stage:decode:done int_assignments=301
+c 00h09m56s | result:Sat
+c 00h09m56s | objective:incumbent kind=improvement value=640 rounds=15 improvements=14
+o 640
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 640 </values>
+v </instantiation>
+c 00h09m56s | stage:objective-cut:soft-result search=step bound=672 result=sat guard=1577552 hard=guard [LB,UB] = [548,639]
+c 00h09m56s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h09m56s | stage:objective-cut:soft-install bound=639 guard=1577560 clauses_added=13
+c 00h09m56s | stage:objective-cut:soft-probe search=step [LB,UB] = [548,639] next 639 source=install guard=1577560
+c 00h09m56s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577560 base_clauses=3138991
+c 00h09m56s | stage:sat:init solver=CaDiCaL vars=1577560 clauses=3138991
+c 00h09m56s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h09m58s | stage:sat:solve:done ms=1670 result=Sat assumptions=1 phase_lits=314
+c 00h09m58s | stage:decode:start
+c 00h09m58s | stage:decode:done int_assignments=301
+c 00h09m58s | result:Sat
+c 00h09m58s | objective:incumbent kind=improvement value=623 rounds=16 improvements=15
+o 623
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 0 1 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 623 </values>
+v </instantiation>
+c 00h09m58s | stage:objective-cut:soft-result search=step bound=639 result=sat guard=1577560 hard=guard [LB,UB] = [548,622]
+c 00h09m58s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h09m58s | stage:objective-cut:soft-install bound=622 guard=1577575 clauses_added=22
+c 00h09m58s | stage:objective-cut:soft-probe search=step [LB,UB] = [548,622] next 622 source=install guard=1577575
+c 00h09m58s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577575 base_clauses=3139014
+c 00h09m58s | stage:sat:init solver=CaDiCaL vars=1577575 clauses=3139014
+c 00h09m58s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h10m00s | stage:sat:solve:done ms=2314 result=Sat assumptions=1 phase_lits=314
+c 00h10m00s | stage:decode:start
+c 00h10m01s | stage:decode:done int_assignments=301
+c 00h10m01s | result:Sat
+c 00h10m01s | objective:incumbent kind=improvement value=614 rounds=17 improvements=16
+o 614
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 614 </values>
+v </instantiation>
+c 00h10m01s | stage:objective-cut:soft-result search=step bound=622 result=sat guard=1577575 hard=guard [LB,UB] = [548,613]
+c 00h10m01s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h10m01s | stage:objective-cut:soft-install bound=613 guard=1577589 clauses_added=22
+c 00h10m01s | stage:objective-cut:soft-probe search=step [LB,UB] = [548,613] next 613 source=install guard=1577589
+c 00h10m01s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577589 base_clauses=3139037
+c 00h10m01s | stage:sat:init solver=CaDiCaL vars=1577589 clauses=3139037
+c 00h10m01s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h10m03s | stage:sat:solve:done ms=2934 result=Sat assumptions=1 phase_lits=314
+c 00h10m03s | stage:decode:start
+c 00h10m04s | stage:decode:done int_assignments=301
+c 00h10m04s | result:Sat
+c 00h10m04s | objective:incumbent kind=improvement value=613 rounds=18 improvements=17
+o 613
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 613 </values>
+v </instantiation>
+c 00h10m04s | stage:objective-cut:soft-result search=step bound=613 result=sat guard=1577589 hard=guard [LB,UB] = [548,612]
+c 00h10m04s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h10m04s | stage:objective-cut:soft-install bound=612 guard=1577604 clauses_added=24
+c 00h10m04s | stage:objective-cut:soft-probe search=step [LB,UB] = [548,612] next 612 source=install guard=1577604
+c 00h10m04s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577604 base_clauses=3139062
+c 00h10m04s | stage:sat:init solver=CaDiCaL vars=1577604 clauses=3139062
+c 00h10m04s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h10m51s | stage:sat:solve:done ms=47014 result=Sat assumptions=1 phase_lits=314
+c 00h10m51s | stage:decode:start
+c 00h10m51s | stage:decode:done int_assignments=301
+c 00h10m51s | result:Sat
+c 00h10m51s | objective:incumbent kind=improvement value=611 rounds=19 improvements=18
+o 611
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 611 </values>
+v </instantiation>
+c 00h10m51s | stage:objective-cut:soft-result search=step bound=612 result=sat guard=1577604 hard=guard [LB,UB] = [548,610]
+c 00h10m51s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h10m51s | stage:objective-cut:soft-install bound=610 guard=1577619 clauses_added=24
+c 00h10m51s | stage:objective-cut:soft-probe search=step [LB,UB] = [548,610] next 610 source=install guard=1577619
+c 00h10m51s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577619 base_clauses=3139087
+c 00h10m51s | stage:sat:init solver=CaDiCaL vars=1577619 clauses=3139087
+c 00h10m51s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h10m53s | stage:sat:solve:done ms=2286 result=Sat assumptions=1 phase_lits=314
+c 00h10m53s | stage:decode:start
+c 00h10m53s | stage:decode:done int_assignments=301
+c 00h10m53s | result:Sat
+c 00h10m53s | objective:incumbent kind=improvement value=609 rounds=20 improvements=19
+o 609
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 609 </values>
+v </instantiation>
+c 00h10m53s | stage:objective-cut:soft-result search=step bound=610 result=sat guard=1577619 hard=guard [LB,UB] = [548,608]
+c 00h10m53s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h10m53s | stage:objective-cut:soft-install bound=608 guard=1577634 clauses_added=25
+c 00h10m53s | stage:objective-cut:soft-probe search=step [LB,UB] = [548,608] next 608 source=install guard=1577634
+c 00h10m53s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577634 base_clauses=3139113
+c 00h10m53s | stage:sat:init solver=CaDiCaL vars=1577634 clauses=3139113
+c 00h10m53s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h10m55s | stage:sat:solve:done ms=2166 result=Sat assumptions=1 phase_lits=314
+c 00h10m55s | stage:decode:start
+c 00h10m55s | stage:decode:done int_assignments=301
+c 00h10m55s | result:Sat
+c 00h10m55s | objective:incumbent kind=improvement value=608 rounds=21 improvements=20
+o 608
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 1 0 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 608 </values>
+v </instantiation>
+c 00h10m55s | stage:objective-cut:soft-result search=step bound=608 result=sat guard=1577634 hard=guard [LB,UB] = [548,607]
+c 00h10m55s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h10m55s | stage:objective-cut:soft-install bound=607 guard=1577644 clauses_added=16
+c 00h10m55s | stage:objective-cut:soft-probe search=step [LB,UB] = [548,607] next 607 source=install guard=1577644
+c 00h10m55s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577644 base_clauses=3139130
+c 00h10m55s | stage:sat:init solver=CaDiCaL vars=1577644 clauses=3139130
+c 00h10m55s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h10m57s | stage:sat:solve:done ms=1833 result=Sat assumptions=1 phase_lits=314
+c 00h10m57s | stage:decode:start
+c 00h10m57s | stage:decode:done int_assignments=301
+c 00h10m57s | result:Sat
+c 00h10m57s | objective:incumbent kind=improvement value=606 rounds=22 improvements=21
+o 606
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 1 0 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 606 </values>
+v </instantiation>
+c 00h10m57s | stage:objective-cut:soft-result search=step bound=607 result=sat guard=1577644 hard=guard [LB,UB] = [548,605]
+c 00h10m57s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h10m57s | stage:objective-cut:soft-install bound=605 guard=1577658 clauses_added=21
+c 00h10m57s | stage:objective-cut:soft-probe search=step [LB,UB] = [548,605] next 605 source=install guard=1577658
+c 00h10m57s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577658 base_clauses=3139152
+c 00h10m57s | stage:sat:init solver=CaDiCaL vars=1577658 clauses=3139152
+c 00h10m57s | stage:sat:solve:start assumptions=1 phase_lits=314
+c 00h11m00s | stage:sat:solve:done ms=2519 result=Sat assumptions=1 phase_lits=314
+c 00h11m00s | stage:decode:start
+c 00h11m00s | stage:decode:done int_assignments=301
+c 00h11m00s | result:Sat
+c 00h11m00s | objective:incumbent kind=improvement value=604 rounds=23 improvements=22
+o 604
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 1 0 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 604 </values>
+v </instantiation>
+c 00h11m00s | stage:objective-cut:soft-result search=step bound=605 result=sat guard=1577658 hard=guard [LB,UB] = [548,603]
+c 00h11m00s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=548 upper=1000000 has_incumbent=true soft_active=true
+c 00h11m00s | stage:objective-cut:soft-install bound=603 guard=1577671 clauses_added=20
+c 00h11m00s | stage:objective-cut:soft-probe search=step [LB,UB] = [548,603] next 603 source=install guard=1577671
+c 00h11m00s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=314 sat_vars=1577671 base_clauses=3139173
+c 00h11m00s | stage:sat:init solver=CaDiCaL vars=1577671 clauses=3139173
+c 00h11m00s | stage:sat:solve:start assumptions=1 phase_lits=314
+s SATISFIABLE
+o 604
+v <instantiation>
+v   <list> x[1,1] x[1,2] x[1,3] x[1,4] x[1,5] x[1,6] x[1,7] x[1,8] x[1,9] x[1,10] x[1,11] x[1,12] x[1,13] x[1,14] x[1,15] x[1,16] x[1,17] x[1,18] x[1,19] x[1,20] x[1,21] x[1,22] x[1,23] x[1,24] x[1,25] x[1,26] x[1,27] x[1,28] x[1,29] x[1,30] x[2,1] x[2,2] x[2,3] x[2,4] x[2,5] x[2,6] x[2,7] x[2,8] x[2,9] x[2,10] x[2,11] x[2,12] x[2,13] x[2,14] x[2,15] x[2,16] x[2,17] x[2,18] x[2,19] x[2,20] x[2,21] x[2,22] x[2,23] x[2,24] x[2,25] x[2,26] x[2,27] x[2,28] x[2,29] x[2,30] x[3,1] x[3,2] x[3,3] x[3,4] x[3,5] x[3,6] x[3,7] x[3,8] x[3,9] x[3,10] x[3,11] x[3,12] x[3,13] x[3,14] x[3,15] x[3,16] x[3,17] x[3,18] x[3,19] x[3,20] x[3,21] x[3,22] x[3,23] x[3,24] x[3,25] x[3,26] x[3,27] x[3,28] x[3,29] x[3,30] x[4,1] x[4,2] x[4,3] x[4,4] x[4,5] x[4,6] x[4,7] x[4,8] x[4,9] x[4,10] x[4,11] x[4,12] x[4,13] x[4,14] x[4,15] x[4,16] x[4,17] x[4,18] x[4,19] x[4,20] x[4,21] x[4,22] x[4,23] x[4,24] x[4,25] x[4,26] x[4,27] x[4,28] x[4,29] x[4,30] x[5,1] x[5,2] x[5,3] x[5,4] x[5,5] x[5,6] x[5,7] x[5,8] x[5,9] x[5,10] x[5,11] x[5,12] x[5,13] x[5,14] x[5,15] x[5,16] x[5,17] x[5,18] x[5,19] x[5,20] x[5,21] x[5,22] x[5,23] x[5,24] x[5,25] x[5,26] x[5,27] x[5,28] x[5,29] x[5,30] x[6,1] x[6,2] x[6,3] x[6,4] x[6,5] x[6,6] x[6,7] x[6,8] x[6,9] x[6,10] x[6,11] x[6,12] x[6,13] x[6,14] x[6,15] x[6,16] x[6,17] x[6,18] x[6,19] x[6,20] x[6,21] x[6,22] x[6,23] x[6,24] x[6,25] x[6,26] x[6,27] x[6,28] x[6,29] x[6,30] x[7,1] x[7,2] x[7,3] x[7,4] x[7,5] x[7,6] x[7,7] x[7,8] x[7,9] x[7,10] x[7,11] x[7,12] x[7,13] x[7,14] x[7,15] x[7,16] x[7,17] x[7,18] x[7,19] x[7,20] x[7,21] x[7,22] x[7,23] x[7,24] x[7,25] x[7,26] x[7,27] x[7,28] x[7,29] x[7,30] x[8,1] x[8,2] x[8,3] x[8,4] x[8,5] x[8,6] x[8,7] x[8,8] x[8,9] x[8,10] x[8,11] x[8,12] x[8,13] x[8,14] x[8,15] x[8,16] x[8,17] x[8,18] x[8,19] x[8,20] x[8,21] x[8,22] x[8,23] x[8,24] x[8,25] x[8,26] x[8,27] x[8,28] x[8,29] x[8,30] x[9,1] x[9,2] x[9,3] x[9,4] x[9,5] x[9,6] x[9,7] x[9,8] x[9,9] x[9,10] x[9,11] x[9,12] x[9,13] x[9,14] x[9,15] x[9,16] x[9,17] x[9,18] x[9,19] x[9,20] x[9,21] x[9,22] x[9,23] x[9,24] x[9,25] x[9,26] x[9,27] x[9,28] x[9,29] x[9,30] x[10,1] x[10,2] x[10,3] x[10,4] x[10,5] x[10,6] x[10,7] x[10,8] x[10,9] x[10,10] x[10,11] x[10,12] x[10,13] x[10,14] x[10,15] x[10,16] x[10,17] x[10,18] x[10,19] x[10,20] x[10,21] x[10,22] x[10,23] x[10,24] x[10,25] x[10,26] x[10,27] x[10,28] x[10,29] x[10,30] total_cost </list>
+v   <values> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1 1 1 0 0 1 0 1 1 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 604 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 604
+d OPTIMAL 0
+d OBJECTIVE_ROUNDS 23
+d OBJECTIVE_IMPROVEMENTS 22
+d COP_INCUMBENT_ELAPSED_MS 660198
+d SOLVE_ELAPSED_MS 1199899
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 539699
+d LAST_COMPLETED_STAGE decode
+d STAGE_PARSE_STATUS pending
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS done
+d STAGE_RELAXATION_STATUS pending
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 88
+d NORMALIZED_CONSTRAINTS 88
+d LOWERED_CONSTRAINTS 88
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 1577331
+d SAT_CLAUSES_BASE 3138625
+d SAT_CLAUSES_FINAL 3138625
+d SAT_CLAUSES_CEGAR_DELTA 0
+d MEMORY_RSS_BYTES 705732608
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 4804608
+d MEMORY_RSS_AFTER_LOWER_BYTES 4812800
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 5173248
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 12468224
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 12738560
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 12738560
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 13
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 3138625
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 705732608
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 744677376
+d CSP_INT_VARS 301
+d CSP_CONSTRAINTS 88
+d CSP_INTENTIONAL 88
+d CSP_GLOBAL 0
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 0
+d CSP_CUMULATIVE 0
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 1
+d CSP_DOMAIN_SPAN_MAX 2000000
+d N_CUMULATIVE 0
+d N_TABLE 0
+d SAT_CONFLICTS 374308
+d LINEAR_INT_EQ_ARITY_STATS {"301":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"}}
+d LINEAR_INT_NE_ARITY_STATS {}
+d LINEAR_INT_GE_ARITY_STATS {"2":{"count":29,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"},"3":{"count":28,"max_domain_product_excluding_one_var":"4","p95_domain_product_excluding_one_var":"4"},"10":{"count":30,"max_domain_product_excluding_one_var":"512","p95_domain_product_excluding_one_var":"512"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER -1000000
+d OBJECTIVE_NAIVE_UPPER 1000000
+d OBJECTIVE_LP_LOWER 548
+d OBJECTIVE_LP_UPPER 1000000
+d ROOT_LP_IMPROVED 1
+d ROOT_LP_MS 27
+d ROOT_LP_ROWS 88
+d ROOT_LP_VARS 301
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 87
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 1
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 10
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 512
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 0
+d ROOT_LP_OBJECTIVE_VALUE 548
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d PROPAGATE_PRUNED_VALUES 0
+d PROPAGATE_CHANGED_DOMAINS 0
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 1
+d POST_LOWER_TIGHTENED_DOMAINS 1
+d POST_LOWER_REMOVED_CLAUSES 0
+d POST_LOWER_REMOVED_LITS 0
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 301
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 90
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 90
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 0
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 90
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d MEMORY_RSS_BYTES 705732608
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 4804608
+d MEMORY_RSS_AFTER_LOWER_BYTES 4812800
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 5173248
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 12468224
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 12738560
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 12738560
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 13
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 3138625
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 705732608
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 744677376
+d DECODE_INT_ASSIGNMENTS 301
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/2008/trucking/trucking.mzn,sat,88,88,88,0,1577331,3138625,1199898,,,,,,,1,optimal,-1000000,1000000,548,1000000,1,27,88,301,0,0,0,548,timeout_signal,incumbent_interrupted_by_signal
+signal=15; emitted incumbent csv row
+c run_end_local: 2026-06-20 20:42:30 +0900

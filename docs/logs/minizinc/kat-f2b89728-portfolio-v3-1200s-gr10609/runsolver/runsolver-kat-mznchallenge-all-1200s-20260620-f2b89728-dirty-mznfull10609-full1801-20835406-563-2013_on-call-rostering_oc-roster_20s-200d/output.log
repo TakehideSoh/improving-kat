@@ -1,0 +1,354 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2013/on-call-rostering/oc-roster.mzn --data /bench/2013/on-call-rostering/20s-200d.dzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 20:45:25 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | input: constraints=5510
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=8 pruned=4160 changed_domains=66 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=10383360 rss=9.90MiB
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=5510
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:progress percent=10 processed=551 total=5510 lowered=551 unsupported=0 ms=36
+c 00h00m00s | stage:lower:progress percent=20 processed=1102 total=5510 lowered=1102 unsupported=0 ms=41
+c 00h00m00s | stage:lower:progress percent=30 processed=1653 total=5510 lowered=1653 unsupported=0 ms=42
+c 00h00m00s | stage:lower:progress percent=40 processed=2204 total=5510 lowered=2204 unsupported=0 ms=43
+c 00h00m00s | stage:lower:progress percent=50 processed=2755 total=5510 lowered=2755 unsupported=0 ms=43
+c 00h00m00s | stage:lower:progress percent=60 processed=3306 total=5510 lowered=3306 unsupported=0 ms=43
+c 00h00m00s | stage:lower:progress percent=70 processed=3857 total=5510 lowered=3857 unsupported=0 ms=44
+c 00h00m00s | stage:lower:progress percent=80 processed=4408 total=5510 lowered=4408 unsupported=0 ms=44
+c 00h00m00s | stage:lower:progress percent=90 processed=4959 total=5510 lowered=4959 unsupported=0 ms=45
+c 00h00m00s | stage:lower:progress percent=100 processed=5510 total=5510 lowered=5510 unsupported=0 ms=45
+c 00h00m00s | stage:lower:done ms=46 lowered=5510 unsupported=0
+c 00h00m00s | memory:rss checkpoint=after_lower bytes=10653696 rss=10.16MiB
+c 00h00m00s | stage:post_lower:start
+c 00h00m00s | stage:post_lower:done ms=3 rounds=1 tightened=1 removed_cls=41 removed_lits=28 unsat=false precise_hits=398 precise_rounds=1 pivot_recomputes=241 pivot_exact_attempts=241 pivot_general_attempts=241 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=241 pivot_general_tightened=0 setup_ms=1 loop_ms=0 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=0 sat_ms=0 precise_ms=0
+c 00h00m00s | memory:rss checkpoint=after_post_lower bytes=11464704 rss=10.93MiB
+c 00h00m00s | stage:lowered-shape int_vars=682 bool_vars=4396 linear_atoms=5831 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=0 product_atoms=0 logical_clauses=9949
+c 00h00m00s | stage:root-lp:start backend=lpo
+c 00h00m47s | stage:root-lp:bound backend=lpo status=optimal objective_value=0 naive_bounds=[0,800] lp_bounds=[0,800] improved=0 rows=1226 vars=5078 lp_rows_singleton_linear=1000 lp_rows_disjunctive=198 lp_rows_table=0 lp_rows_cumulative_energy=0 lp_rows_cumulative_pair=0 lp_rows_cumulative_timetable=0 lp_rows_cumulative_completion=0 lp_rows_cumulative_precedence=0 lp_rows_no_overlap_pair=0 lp_rows_no_overlap_completion=0 lp_rows_no_overlap_precedence=0 lp_rows_no_overlap_2d_energy=0 lp_rows_no_overlap_2d_completion=0 lp_scheduling_payloads_cumulative=0 lp_scheduling_payloads_no_overlap=0 lp_scheduling_cut_rounds=0 lp_scheduling_cut_candidates=0 lp_scheduling_cut_violated=0 lp_scheduling_rows_skipped=0 ms=47404
+c 00h00m47s | memory:rss checkpoint=before_preencode bytes=1259892736 rss=1.17GiB
+c 00h00m47s | stage:preencode(log-scop):start
+c 00h00m47s | stage:preencode(log-scop):done ms=0 int_vars=682
+c 00h00m47s | memory:rss checkpoint=after_preencode bytes=1259892736 rss=1.17GiB
+c 00h00m47s | memory:rss checkpoint=before_encode bytes=1259892736 rss=1.17GiB
+c 00h00m47s | stage:encode(log-scop):start
+c 00h00m47s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=245735 bytes=1260503040 rss=1.17GiB progress_percent=10 processed=995 total=9950
+c 00h00m47s | stage:encode(log-scop):progress percent=10 processed=995 total=9950 sat_clauses=245735 ms=82
+c 00h00m47s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=360119 bytes=1260548096 rss=1.17GiB progress_percent=20 processed=1990 total=9950
+c 00h00m47s | stage:encode(log-scop):progress percent=20 processed=1990 total=9950 sat_clauses=360119 ms=131
+c 00h00m47s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=526356 bytes=1260548096 rss=1.17GiB progress_percent=30 processed=2985 total=9950
+c 00h00m47s | stage:encode(log-scop):progress percent=30 processed=2985 total=9950 sat_clauses=526356 ms=190
+c 00h00m47s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=643991 bytes=1260548096 rss=1.17GiB progress_percent=40 processed=3980 total=9950
+c 00h00m47s | stage:encode(log-scop):progress percent=40 processed=3980 total=9950 sat_clauses=643991 ms=220
+c 00h00m47s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=810228 bytes=1260548096 rss=1.17GiB progress_percent=50 processed=4975 total=9950
+c 00h00m47s | stage:encode(log-scop):progress percent=50 processed=4975 total=9950 sat_clauses=810228 ms=311
+c 00h00m47s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=927995 bytes=1260548096 rss=1.17GiB progress_percent=60 processed=5970 total=9950
+c 00h00m47s | stage:encode(log-scop):progress percent=60 processed=5970 total=9950 sat_clauses=927995 ms=349
+c 00h00m47s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1094246 bytes=1260548096 rss=1.17GiB progress_percent=70 processed=6965 total=9950
+c 00h00m47s | stage:encode(log-scop):progress percent=70 processed=6965 total=9950 sat_clauses=1094246 ms=394
+c 00h00m47s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1212599 bytes=1260548096 rss=1.17GiB progress_percent=80 processed=7960 total=9950
+c 00h00m47s | stage:encode(log-scop):progress percent=80 processed=7960 total=9950 sat_clauses=1212599 ms=433
+c 00h00m48s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1587393 bytes=1260548096 rss=1.17GiB progress_percent=90 processed=8955 total=9950
+c 00h00m48s | stage:encode(log-scop):progress percent=90 processed=8955 total=9950 sat_clauses=1587393 ms=602
+c 00h00m48s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1607852 bytes=1260548096 rss=1.17GiB progress_percent=100 processed=9950 total=9950
+c 00h00m48s | stage:encode(log-scop):progress percent=100 processed=9950 total=9950 sat_clauses=1607852 ms=606
+c 00h00m48s | stage:encode(log-scop):done ms=613 sat_vars=828192 sat_clauses=1607852 ext_ge_specs=0 relaxed_circuits=0 log_scop_pb_constraints=2037 log_scop_pb_mixed=0 log_scop_pb_bdd2=2037 log_scop_pb_bdd3=0 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=2037 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m48s | stage:post-encode(log-scop):start sat_vars=828192 sat_clauses=1607852 has_relaxations=false external_tables=0
+c 00h00m48s | stage:post-encode(log-scop):after-finish-check ms=0
+c 00h00m48s | stage:post-encode(log-scop):decode-layout-ready int_symbols=682 ms=0
+c 00h00m48s | stage:post-encode(log-scop):cumulative-external-ready has_prop=false ms=0
+c 00h00m48s | stage:post-encode(log-scop):log-scop-external-ready has_prop=false ms=0
+c 00h00m48s | stage:post-encode(log-scop):external-prop-connected has_prop=false ms=0
+c 00h00m48s | stage:post-encode(log-scop):done sat_vars=828192 sat_clauses=1607852 ms=0
+c 00h00m48s | stage:post-encode(log-scop):reusable-ready mode=SoftCnf sat_vars=828192
+c 00h00m48s | stage:objective-external-ge-template(log-scop):start cut=DirectExpr wants_ext_ge=false
+c 00h00m48s | stage:objective-external-ge-template(log-scop):done has_template=true ms=0
+c 00h00m48s | stage:objective-mode(log-scop):resolved mode=SoftCnf wants_ext_ge=false has_ext_ge_template=true
+c 00h00m48s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m48s | stage:objective-encoder(log-scop):ready mode=SoftCnf soft=true sat_vars=828192
+c 00h00m48s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=800 has_incumbent=false soft_active=true
+c 00h00m48s | stage:sat:round-entry encoder=log-scop assumptions=0 phase_lits=0 sat_vars=828192 base_clauses=1607852
+c 00h00m48s | stage:sat:init solver=CaDiCaL vars=828192 clauses=1607852
+c 00h00m48s | stage:sat:solve:start assumptions=0 phase_lits=0
+c 00h00m49s | stage:sat:solve:done ms=1638 result=Sat assumptions=0 phase_lits=0
+c 00h00m49s | stage:decode:start
+c 00h00m49s | stage:decode:done int_assignments=682
+c 00h00m49s | result:Sat
+c 00h00m49s | stage:objective-cut-surface(log-scop):start timing=after-incumbent
+c 00h00m49s | stage:objective-cut-surface(log-scop):done has_surface=true ms=0
+c 00h00m49s | objective:incumbent kind=initial value=511 rounds=1 improvements=0
+o 511
+c 00h00m49s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=800 has_incumbent=true soft_active=true
+c 00h00m49s | stage:objective-cut:soft-install bound=340 guard=828203 clauses_added=16
+c 00h00m49s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,510] next 340 source=install guard=828203
+c 00h00m49s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=828203 base_clauses=1607868
+c 00h00m49s | stage:sat:init solver=CaDiCaL vars=828203 clauses=1607868
+c 00h00m49s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h00m49s | stage:sat:solve:done ms=128 result=Sat assumptions=1 phase_lits=0
+c 00h00m49s | stage:decode:start
+c 00h00m49s | stage:decode:done int_assignments=682
+c 00h00m49s | result:Sat
+c 00h00m49s | objective:incumbent kind=improvement value=340 rounds=2 improvements=1
+o 340
+c 00h00m49s | stage:objective-cut:soft-result search=trisection bound=340 result=sat guard=828203 hard=guard [LB,UB] = [0,339]
+c 00h00m49s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=800 has_incumbent=true soft_active=true
+c 00h00m49s | stage:objective-cut:soft-install bound=226 guard=828214 clauses_added=16
+c 00h00m49s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,339] next 226 source=install guard=828214
+c 00h00m49s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=828214 base_clauses=1607885
+c 00h00m49s | stage:sat:init solver=CaDiCaL vars=828214 clauses=1607885
+c 00h00m49s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h00m58s | stage:sat:solve:done ms=8512 result=Sat assumptions=1 phase_lits=0
+c 00h00m58s | stage:decode:start
+c 00h00m58s | stage:decode:done int_assignments=682
+c 00h00m58s | result:Sat
+c 00h00m58s | objective:incumbent kind=improvement value=226 rounds=3 improvements=2
+o 226
+c 00h00m58s | stage:objective-cut:soft-result search=trisection bound=226 result=sat guard=828214 hard=guard [LB,UB] = [0,225]
+c 00h00m58s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=800 has_incumbent=true soft_active=true
+c 00h00m58s | stage:objective-cut:soft-install bound=150 guard=828225 clauses_added=16
+c 00h00m58s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,225] next 150 source=install guard=828225
+c 00h00m58s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=828225 base_clauses=1607902
+c 00h00m58s | stage:sat:init solver=CaDiCaL vars=828225 clauses=1607902
+c 00h00m58s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h01m08s | stage:sat:solve:done ms=9808 result=Sat assumptions=1 phase_lits=0
+c 00h01m08s | stage:decode:start
+c 00h01m08s | stage:decode:done int_assignments=682
+c 00h01m08s | result:Sat
+c 00h01m08s | objective:incumbent kind=improvement value=150 rounds=4 improvements=3
+o 150
+c 00h01m08s | stage:objective-cut:soft-result search=trisection bound=150 result=sat guard=828225 hard=guard [LB,UB] = [0,149]
+c 00h01m08s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=800 has_incumbent=true soft_active=true
+c 00h01m08s | stage:objective-cut:soft-install bound=100 guard=828236 clauses_added=17
+c 00h01m08s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,149] next 100 source=install guard=828236
+c 00h01m08s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=828236 base_clauses=1607920
+c 00h01m08s | stage:sat:init solver=CaDiCaL vars=828236 clauses=1607920
+c 00h01m08s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h01m10s | stage:sat:solve:done ms=2409 result=Sat assumptions=1 phase_lits=0
+c 00h01m10s | stage:decode:start
+c 00h01m10s | stage:decode:done int_assignments=682
+c 00h01m10s | result:Sat
+c 00h01m10s | objective:incumbent kind=improvement value=100 rounds=5 improvements=4
+o 100
+c 00h01m10s | stage:objective-cut:soft-result search=trisection bound=100 result=sat guard=828236 hard=guard [LB,UB] = [0,99]
+c 00h01m10s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=800 has_incumbent=true soft_active=true
+c 00h01m10s | stage:objective-cut:soft-install bound=66 guard=828247 clauses_added=18
+c 00h01m10s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,99] next 66 source=install guard=828247
+c 00h01m10s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=828247 base_clauses=1607939
+c 00h01m10s | stage:sat:init solver=CaDiCaL vars=828247 clauses=1607939
+c 00h01m10s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h01m15s | stage:sat:solve:done ms=4266 result=Sat assumptions=1 phase_lits=0
+c 00h01m15s | stage:decode:start
+c 00h01m15s | stage:decode:done int_assignments=682
+c 00h01m15s | result:Sat
+c 00h01m15s | objective:incumbent kind=improvement value=66 rounds=6 improvements=5
+o 66
+c 00h01m15s | stage:objective-cut:soft-result search=trisection bound=66 result=sat guard=828247 hard=guard [LB,UB] = [0,65]
+c 00h01m15s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=800 has_incumbent=true soft_active=true
+c 00h01m15s | stage:objective-cut:soft-install bound=44 guard=828258 clauses_added=17
+c 00h01m15s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,65] next 44 source=install guard=828258
+c 00h01m15s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=828258 base_clauses=1607957
+c 00h01m15s | stage:sat:init solver=CaDiCaL vars=828258 clauses=1607957
+c 00h01m15s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h01m15s | stage:sat:solve:done ms=49 result=Sat assumptions=1 phase_lits=0
+c 00h01m15s | stage:decode:start
+c 00h01m15s | stage:decode:done int_assignments=682
+c 00h01m15s | result:Sat
+c 00h01m15s | objective:incumbent kind=improvement value=44 rounds=7 improvements=6
+o 44
+c 00h01m15s | stage:objective-cut:soft-result search=trisection bound=44 result=sat guard=828258 hard=guard [LB,UB] = [0,43]
+c 00h01m15s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=800 has_incumbent=true soft_active=true
+c 00h01m15s | stage:objective-cut:soft-install bound=29 guard=828268 clauses_added=15
+c 00h01m15s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,43] next 29 source=install guard=828268
+c 00h01m15s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=828268 base_clauses=1607973
+c 00h01m15s | stage:sat:init solver=CaDiCaL vars=828268 clauses=1607973
+c 00h01m15s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h01m21s | stage:sat:solve:done ms=5955 result=Sat assumptions=1 phase_lits=0
+c 00h01m21s | stage:decode:start
+c 00h01m21s | stage:decode:done int_assignments=682
+c 00h01m21s | result:Sat
+c 00h01m21s | objective:incumbent kind=improvement value=29 rounds=8 improvements=7
+o 29
+c 00h01m21s | stage:objective-cut:soft-result search=trisection bound=29 result=sat guard=828268 hard=guard [LB,UB] = [0,28]
+c 00h01m21s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=800 has_incumbent=true soft_active=true
+c 00h01m21s | stage:objective-cut:soft-install bound=19 guard=828277 clauses_added=15
+c 00h01m21s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,28] next 19 source=install guard=828277
+c 00h01m21s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=828277 base_clauses=1607989
+c 00h01m21s | stage:sat:init solver=CaDiCaL vars=828277 clauses=1607989
+c 00h01m21s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h01m21s | stage:sat:solve:done ms=70 result=Sat assumptions=1 phase_lits=0
+c 00h01m21s | stage:decode:start
+c 00h01m21s | stage:decode:done int_assignments=682
+c 00h01m21s | result:Sat
+c 00h01m21s | objective:incumbent kind=improvement value=17 rounds=9 improvements=8
+o 17
+c 00h01m21s | stage:objective-cut:soft-result search=trisection bound=19 result=sat guard=828277 hard=guard [LB,UB] = [0,16]
+c 00h01m21s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=800 has_incumbent=true soft_active=true
+c 00h01m21s | stage:objective-cut:soft-install bound=11 guard=828286 clauses_added=15
+c 00h01m21s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,16] next 11 source=install guard=828286
+c 00h01m21s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=828286 base_clauses=1608005
+c 00h01m21s | stage:sat:init solver=CaDiCaL vars=828286 clauses=1608005
+c 00h01m21s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h02m32s | stage:sat:solve:done ms=71076 result=Sat assumptions=1 phase_lits=0
+c 00h02m32s | stage:decode:start
+c 00h02m32s | stage:decode:done int_assignments=682
+c 00h02m32s | result:Sat
+c 00h02m32s | objective:incumbent kind=improvement value=11 rounds=10 improvements=9
+o 11
+c 00h02m32s | stage:objective-cut:soft-result search=trisection bound=11 result=sat guard=828286 hard=guard [LB,UB] = [0,10]
+c 00h02m32s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=800 has_incumbent=true soft_active=true
+c 00h02m32s | stage:objective-cut:soft-install bound=7 guard=828294 clauses_added=14
+c 00h02m32s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,10] next 7 source=install guard=828294
+c 00h02m32s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=828294 base_clauses=1608020
+c 00h02m32s | stage:sat:init solver=CaDiCaL vars=828294 clauses=1608020
+c 00h02m32s | stage:sat:solve:start assumptions=1 phase_lits=0
+c 00h05m32s | stage:sat:solve:done ms=180000 result=Unknown assumptions=1 phase_lits=0
+c 00h05m32s | result:unknown reason=sat_solver_returned_unknown
+c 00h05m32s | result:Unknown
+c 00h05m32s | stage:objective-cut:soft-fallback search=trisection reason=budget-exhausted budget_s=180 mode=step incumbent=11 [LB,UB]=[0,10]
+c 00h05m32s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=800 has_incumbent=true soft_active=true
+c 00h05m32s | stage:objective-cut:soft-install bound=10 guard=828305 clauses_added=18
+c 00h05m32s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,10] next 10 source=install guard=828305
+c 00h05m32s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=828305 base_clauses=1608038
+c 00h05m32s | stage:sat:init solver=CaDiCaL vars=828305 clauses=1608038
+c 00h05m32s | stage:sat:solve:start assumptions=1 phase_lits=0
+s SATISFIABLE
+o 11
+v <instantiation>
+v   <list> week_day_bt weekend_bt roster[1] roster[2] roster[3] roster[4] roster[5] roster[6] roster[7] roster[8] roster[9] roster[10] roster[11] roster[12] roster[13] roster[14] roster[15] roster[16] roster[17] roster[18] roster[19] roster[20] roster[21] roster[22] roster[23] roster[24] roster[25] roster[26] roster[27] roster[28] roster[29] roster[30] roster[31] roster[32] roster[33] roster[34] roster[35] roster[36] roster[37] roster[38] roster[39] roster[40] roster[41] roster[42] roster[43] roster[44] roster[45] roster[46] roster[47] roster[48] roster[49] roster[50] roster[51] roster[52] roster[53] roster[54] roster[55] roster[56] roster[57] roster[58] roster[59] roster[60] roster[61] roster[62] roster[63] roster[64] roster[65] roster[66] roster[67] roster[68] roster[69] roster[70] roster[71] roster[72] roster[73] roster[74] roster[75] roster[76] roster[77] roster[78] roster[79] roster[80] roster[81] roster[82] roster[83] roster[84] roster[85] roster[86] roster[87] roster[88] roster[89] roster[90] roster[91] roster[92] roster[93] roster[94] roster[95] roster[96] roster[97] roster[98] roster[99] roster[100] roster[101] roster[102] roster[103] roster[104] roster[105] roster[106] roster[107] roster[108] roster[109] roster[110] roster[111] roster[112] roster[113] roster[114] roster[115] roster[116] roster[117] roster[118] roster[119] roster[120] roster[121] roster[122] roster[123] roster[124] roster[125] roster[126] roster[127] roster[128] roster[129] roster[130] roster[131] roster[132] roster[133] roster[134] roster[135] roster[136] roster[137] roster[138] roster[139] roster[140] roster[141] roster[142] roster[143] roster[144] roster[145] roster[146] roster[147] roster[148] roster[149] roster[150] roster[151] roster[152] roster[153] roster[154] roster[155] roster[156] roster[157] roster[158] roster[159] roster[160] roster[161] roster[162] roster[163] roster[164] roster[165] roster[166] roster[167] roster[168] roster[169] roster[170] roster[171] roster[172] roster[173] roster[174] roster[175] roster[176] roster[177] roster[178] roster[179] roster[180] roster[181] roster[182] roster[183] roster[184] roster[185] roster[186] roster[187] roster[188] roster[189] roster[190] roster[191] roster[192] roster[193] roster[194] roster[195] roster[196] roster[197] roster[198] roster[199] roster[200] roster_week_days[1] roster_week_days[2] roster_week_days[3] roster_week_days[4] roster_week_days[5] roster_week_days[6] roster_week_days[7] roster_week_days[8] roster_week_days[9] roster_week_days[10] roster_week_days[11] roster_week_days[12] roster_week_days[13] roster_week_days[14] roster_week_days[15] roster_week_days[16] roster_week_days[17] roster_week_days[18] roster_week_days[19] roster_week_days[20] roster_week_days[21] roster_week_days[22] roster_week_days[23] roster_week_days[24] roster_week_days[25] roster_week_days[26] roster_week_days[27] roster_week_days[28] roster_week_days[29] roster_week_days[30] roster_week_days[31] roster_week_days[32] roster_week_days[33] roster_week_days[34] roster_week_days[35] roster_week_days[36] roster_week_days[37] roster_week_days[38] roster_week_days[39] roster_week_days[40] roster_week_days[41] roster_week_days[42] roster_week_days[43] roster_week_days[44] roster_week_days[45] roster_week_days[46] roster_week_days[47] roster_week_days[48] roster_week_days[49] roster_week_days[50] roster_week_days[51] roster_week_days[52] roster_week_days[53] roster_week_days[54] roster_week_days[55] roster_week_days[56] roster_week_days[57] roster_week_days[58] roster_week_days[59] roster_week_days[60] roster_week_days[61] roster_week_days[62] roster_week_days[63] roster_week_days[64] roster_week_days[65] roster_week_days[66] roster_week_days[67] roster_week_days[68] roster_week_days[69] roster_week_days[70] roster_week_days[71] roster_week_days[72] roster_week_days[73] roster_week_days[74] roster_week_days[75] roster_week_days[76] roster_week_days[77] roster_week_days[78] roster_week_days[79] roster_week_days[80] roster_week_days[81] roster_week_days[82] roster_week_days[83] roster_week_days[84] roster_week_days[85] roster_week_days[86] roster_week_days[87] roster_week_days[88] roster_week_days[89] roster_week_days[90] roster_week_days[91] roster_week_days[92] roster_week_days[93] roster_week_days[94] roster_week_days[95] roster_week_days[96] roster_week_days[97] roster_week_days[98] roster_week_days[99] roster_week_days[100] roster_week_days[101] roster_week_days[102] roster_week_days[103] roster_week_days[104] roster_week_days[105] roster_week_days[106] roster_week_days[107] roster_week_days[108] roster_week_days[109] roster_week_days[110] roster_week_days[111] roster_week_days[112] roster_week_days[113] roster_week_days[114] roster_week_days[115] roster_week_days[116] roster_week_days[117] roster_week_days[118] roster_week_days[119] roster_week_days[120] roster_week_days[121] roster_week_days[122] roster_week_days[123] roster_week_days[124] roster_week_days[125] roster_week_days[126] roster_week_days[127] roster_week_days[128] roster_week_days[129] roster_week_days[130] roster_week_days[131] roster_week_days[132] roster_week_days[133] roster_week_days[134] roster_week_days[135] roster_week_days[136] roster_week_days[137] roster_week_days[138] roster_week_days[139] roster_week_days[140] roster_week_days[141] roster_week_days[142] roster_week_days[143] roster_week_days[144] roster_week_days[145] roster_week_days[146] roster_week_days[147] roster_week_days[148] roster_week_days[149] roster_week_days[150] roster_week_days[151] roster_week_days[152] roster_week_days[153] roster_week_days[154] roster_week_days[155] roster_week_days[156] roster_week_days[157] roster_week_days[158] roster_week_days[159] roster_week_days[160] roster_weekend_days[1] roster_weekend_days[2] roster_weekend_days[3] roster_weekend_days[4] roster_weekend_days[5] roster_weekend_days[6] roster_weekend_days[7] roster_weekend_days[8] roster_weekend_days[9] roster_weekend_days[10] roster_weekend_days[11] roster_weekend_days[12] roster_weekend_days[13] roster_weekend_days[14] roster_weekend_days[15] roster_weekend_days[16] roster_weekend_days[17] roster_weekend_days[18] roster_weekend_days[19] roster_weekend_days[20] roster_weekend_days[21] roster_weekend_days[22] roster_weekend_days[23] roster_weekend_days[24] roster_weekend_days[25] roster_weekend_days[26] roster_weekend_days[27] roster_weekend_days[28] roster_weekend_days[29] roster_weekend_days[30] roster_weekend_days[31] roster_weekend_days[32] roster_weekend_days[33] roster_weekend_days[34] roster_weekend_days[35] roster_weekend_days[36] roster_weekend_days[37] roster_weekend_days[38] roster_weekend_days[39] roster_weekend_days[40] week_days_oc[1] week_days_oc[2] week_days_oc[3] week_days_oc[4] week_days_oc[5] week_days_oc[6] week_days_oc[7] week_days_oc[8] week_days_oc[9] week_days_oc[10] week_days_oc[11] week_days_oc[12] week_days_oc[13] week_days_oc[14] week_days_oc[15] week_days_oc[16] week_days_oc[17] week_days_oc[18] week_days_oc[19] week_days_oc[20] weekend_days_oc[1] weekend_days_oc[2] weekend_days_oc[3] weekend_days_oc[4] weekend_days_oc[5] weekend_days_oc[6] weekend_days_oc[7] weekend_days_oc[8] weekend_days_oc[9] weekend_days_oc[10] weekend_days_oc[11] weekend_days_oc[12] weekend_days_oc[13] weekend_days_oc[14] weekend_days_oc[15] weekend_days_oc[16] weekend_days_oc[17] weekend_days_oc[18] weekend_days_oc[19] weekend_days_oc[20] adj_days[1] adj_days[2] adj_days[3] adj_days[4] adj_days[5] adj_days[6] adj_days[7] adj_days[8] adj_days[9] adj_days[10] adj_days[11] adj_days[12] adj_days[13] adj_days[14] adj_days[15] adj_days[16] adj_days[17] adj_days[18] adj_days[19] adj_days[20] adj_days[21] adj_days[22] adj_days[23] adj_days[24] adj_days[25] adj_days[26] adj_days[27] adj_days[28] adj_days[29] adj_days[30] adj_days[31] adj_days[32] adj_days[33] adj_days[34] adj_days[35] adj_days[36] adj_days[37] adj_days[38] adj_days[39] adj_days[40] adj_days[41] adj_days[42] adj_days[43] adj_days[44] adj_days[45] adj_days[46] adj_days[47] adj_days[48] adj_days[49] adj_days[50] adj_days[51] adj_days[52] adj_days[53] adj_days[54] adj_days[55] adj_days[56] adj_days[57] adj_days[58] adj_days[59] adj_days[60] adj_days[61] adj_days[62] adj_days[63] adj_days[64] adj_days[65] adj_days[66] adj_days[67] adj_days[68] adj_days[69] adj_days[70] adj_days[71] adj_days[72] adj_days[73] adj_days[74] adj_days[75] adj_days[76] adj_days[77] adj_days[78] adj_days[79] adj_days[80] adj_days[81] adj_days[82] adj_days[83] adj_days[84] adj_days[85] adj_days[86] adj_days[87] adj_days[88] adj_days[89] adj_days[90] adj_days[91] adj_days[92] adj_days[93] adj_days[94] adj_days[95] adj_days[96] adj_days[97] adj_days[98] adj_days[99] adj_days[100] adj_days[101] adj_days[102] adj_days[103] adj_days[104] adj_days[105] adj_days[106] adj_days[107] adj_days[108] adj_days[109] adj_days[110] adj_days[111] adj_days[112] adj_days[113] adj_days[114] adj_days[115] adj_days[116] adj_days[117] adj_days[118] adj_days[119] adj_days[120] adj_days[121] adj_days[122] adj_days[123] adj_days[124] adj_days[125] adj_days[126] adj_days[127] adj_days[128] adj_days[129] adj_days[130] adj_days[131] adj_days[132] adj_days[133] adj_days[134] adj_days[135] adj_days[136] adj_days[137] adj_days[138] adj_days[139] adj_days[140] adj_days[141] adj_days[142] adj_days[143] adj_days[144] adj_days[145] adj_days[146] adj_days[147] adj_days[148] adj_days[149] adj_days[150] adj_days[151] adj_days[152] adj_days[153] adj_days[154] adj_days[155] adj_days[156] adj_days[157] adj_days[158] adj_days[159] adj_days[160] adj_days[161] adj_days[162] adj_days[163] adj_days[164] adj_days[165] adj_days[166] adj_days[167] adj_days[168] adj_days[169] adj_days[170] adj_days[171] adj_days[172] adj_days[173] adj_days[174] adj_days[175] adj_days[176] adj_days[177] adj_days[178] adj_days[179] adj_days[180] adj_days[181] adj_days[182] adj_days[183] adj_days[184] adj_days[185] adj_days[186] adj_days[187] adj_days[188] adj_days[189] adj_days[190] adj_days[191] adj_days[192] adj_days[193] adj_days[194] adj_days[195] adj_days[196] adj_days[197] adj_days[198] adj_days[199] wed_before_weekend[1] wed_before_weekend[2] wed_before_weekend[3] wed_before_weekend[4] wed_before_weekend[5] wed_before_weekend[6] wed_before_weekend[7] wed_before_weekend[8] wed_before_weekend[9] wed_before_weekend[10] wed_before_weekend[11] wed_before_weekend[12] wed_before_weekend[13] wed_before_weekend[14] wed_before_weekend[15] wed_before_weekend[16] wed_before_weekend[17] wed_before_weekend[18] wed_before_weekend[19] wed_before_weekend[20] wed_before_weekend[21] wed_before_weekend[22] wed_before_weekend[23] wed_before_weekend[24] wed_before_weekend[25] wed_before_weekend[26] wed_before_weekend[27] wed_before_weekend[28] wed_before_weekend[29] wed_before_weekend[30] wed_before_weekend[31] wed_before_weekend[32] wed_before_weekend[33] wed_before_weekend[34] wed_before_weekend[35] wed_before_weekend[36] wed_before_weekend[37] wed_before_weekend[38] wed_before_weekend[39] wed_before_weekend[40] objective </list>
+v   <values> 8 2 3 12 1 12 17 4 17 20 1 12 18 10 1 12 1 12 1 19 1 10 12 10 1 11 20 17 5 2 11 1 20 11 13 19 20 11 16 2 15 18 4 5 16 4 8 11 20 3 11 19 10 8 20 10 14 1 10 6 18 20 1 11 12 9 19 1 9 10 9 18 1 3 9 19 18 16 12 11 16 15 16 16 2 16 5 9 19 20 10 11 5 11 19 17 5 19 9 20 10 1 17 9 11 4 13 2 10 3 9 2 14 10 15 12 2 13 9 17 10 13 9 12 5 9 2 12 20 9 8 10 12 20 11 20 14 12 1 16 1 12 17 10 18 5 13 20 12 9 16 10 3 7 8 3 5 3 5 17 5 10 9 3 4 5 7 14 8 11 12 2 10 12 4 5 13 9 1 14 20 9 20 2 12 1 20 2 20 7 1 20 9 1 13 14 2 13 20 10 20 14 3 12 12 17 4 17 1 12 18 10 12 1 12 1 1 10 12 10 11 20 17 5 11 1 20 11 19 20 11 16 15 18 4 5 4 8 11 20 11 19 10 8 10 14 1 10 18 20 1 11 9 19 1 9 9 18 1 3 19 18 16 12 16 15 16 16 16 5 9 19 10 11 5 11 17 5 19 9 10 1 17 9 4 13 2 10 9 2 14 10 12 2 13 9 10 13 9 12 9 2 12 20 8 10 12 20 20 14 12 1 1 12 17 10 5 13 20 12 16 10 3 7 3 5 3 5 5 10 9 3 5 7 14 8 12 2 10 12 5 13 9 1 20 9 20 2 1 20 2 20 1 20 9 1 14 2 13 20 20 14 1 20 1 19 1 2 13 2 16 3 20 6 12 10 9 11 2 20 19 20 11 3 15 17 5 9 11 16 18 9 8 17 4 11 4 14 12 7 13 10 16 8 6 4 11 0 2 4 14 16 9 16 6 6 2 7 6 5 6 16 3 3 2 2 1 1 1 1 3 2 4 2 2 1 1 2 2 1 2 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 11 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 11
+d OPTIMAL 0
+d OBJECTIVE_ROUNDS 10
+d OBJECTIVE_IMPROVEMENTS 9
+d COP_INCUMBENT_ELAPSED_MS 152389
+d SOLVE_ELAPSED_MS 1199737
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 867309
+d LAST_COMPLETED_STAGE sat
+d STAGE_PARSE_STATUS pending
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS done
+d STAGE_RELAXATION_STATUS pending
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 5510
+d NORMALIZED_CONSTRAINTS 5510
+d LOWERED_CONSTRAINTS 5510
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 828192
+d SAT_CLAUSES_BASE 1607852
+d SAT_CLAUSES_FINAL 1607852
+d SAT_CLAUSES_CEGAR_DELTA 0
+d MEMORY_RSS_BYTES 1260548096
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 10383360
+d MEMORY_RSS_AFTER_LOWER_BYTES 10653696
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 11464704
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 1259892736
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 1259892736
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 1259892736
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 11
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 1607852
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 1260548096
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 1260548096
+d CSP_INT_VARS 682
+d CSP_CONSTRAINTS 5510
+d CSP_INTENTIONAL 5470
+d CSP_GLOBAL 40
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 0
+d CSP_CUMULATIVE 0
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 19
+d CSP_DOMAIN_SPAN_MAX 800
+d N_CUMULATIVE 0
+d N_TABLE 0
+d SAT_CONFLICTS 688203
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":4238,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":438,"max_domain_product_excluding_one_var":"20","p95_domain_product_excluding_one_var":"20"},"242":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":37,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":317,"max_domain_product_excluding_one_var":"20","p95_domain_product_excluding_one_var":"20"}}
+d LINEAR_INT_GE_ARITY_STATS {"3":{"count":760,"max_domain_product_excluding_one_var":"25600","p95_domain_product_excluding_one_var":"25600"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"41":{"count":20,"max_domain_product_excluding_one_var":"1099511627776","p95_domain_product_excluding_one_var":"1099511627776"},"161":{"count":20,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 800
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 800
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 47404
+d ROOT_LP_ROWS 1226
+d ROOT_LP_VARS 5078
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 760
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 4677
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 3
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 25600
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 161
+d ROOT_LP_OBJECTIVE_VALUE 0
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d PROPAGATE_PRUNED_VALUES 4160
+d PROPAGATE_CHANGED_DOMAINS 66
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 1
+d POST_LOWER_TIGHTENED_DOMAINS 1
+d POST_LOWER_REMOVED_CLAUSES 41
+d POST_LOWER_REMOVED_LITS 28
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 682
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 0
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 2037
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 2037
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 0
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 2037
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d MEMORY_RSS_BYTES 1260548096
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 10383360
+d MEMORY_RSS_AFTER_LOWER_BYTES 10653696
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 11464704
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 1259892736
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 1259892736
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 1259892736
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 11
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 1607852
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 1260548096
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 1260548096
+d DECODE_INT_ASSIGNMENTS 682
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 0
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/2013/on-call-rostering/oc-roster.mzn,sat,5510,5510,5510,0,828192,1607852,1199736,,,,,,,1,optimal,0,800,0,800,0,47404,1226,5078,0,0,0,0,timeout_signal,incumbent_interrupted_by_signal
+signal=15; emitted incumbent csv row
+c run_end_local: 2026-06-20 21:05:25 +0900

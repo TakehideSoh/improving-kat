@@ -1,0 +1,992 @@
+MiniZinc to FlatZinc converter, version 2.9.3, build 1832600886
+Copyright (C) 2014-2025 Monash University, NICTA, Data61
+Parsing file(s) /bench/2022/sudoku_opt/sudoku_opt.mzn', '/bench/2022/sudoku_opt/sudoku_p22.dzn' ...
+processing file '/usr/local/share/minizinc/std/stdlib.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_internal.mzn'
+processing file '/usr/local/share/minizinc/std/output.mzn'
+processing file '/usr/local/share/minizinc/std/output/array2d_bool.mzn'
+processing file '/usr/local/share/minizinc/std/output/gantt.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_random.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_debug.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_reflect.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_ite.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_language.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_sort.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_opt.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_ann.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_enum.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_string.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_set.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_logic.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_array.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_coercion.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_math.mzn'
+processing file '/usr/local/share/minizinc/std/stdlib/stdlib_compare.mzn'
+processing file '/usr/local/share/minizinc/std/flatzinc_builtins.mzn'
+processing file '/usr/local/share/minizinc/std/solver_redefinitions.mzn'
+processing file '/usr/local/share/minizinc/std/table.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_table_int_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_table_int_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_table_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_table_bool_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_table_bool.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_array_set_intersect.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_array_set_union.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_array_opt_int_union.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_array_int_union.mzn'
+processing file '/usr/local/share/minizinc/std/lex_lesseq.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_lesseq_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_lesseq_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_lesseq_int_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_lex_lesseq_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_lesseq_float_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_lesseq_float.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_lesseq_bool_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_lex_lesseq_bool.mzn'
+processing file '/usr/local/share/minizinc/std/lex_less.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_less_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_less_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_less_int_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_lex_less_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_less_float_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_less_float.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_less_bool_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_lex_less_bool.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_partiality.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_var_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_var_opt_float.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_var_float.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_opt_float.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_float.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_var_opt_bool.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_var_bool.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_opt_bool.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_bool.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_var_opt_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_var_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_opt_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_if_then_else_int.mzn'
+processing file '/usr/local/share/minizinc/std/count_fn.mzn'
+processing file '/usr/local/share/minizinc/std/count_lt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_lt_par_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_lt_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_lt_par.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_lt.mzn'
+processing file '/usr/local/share/minizinc/std/count_gt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_gt_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_gt_par_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_gt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_gt_par.mzn'
+processing file '/usr/local/share/minizinc/std/count_neq.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_neq_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_neq_par_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_neq.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_neq_par.mzn'
+processing file '/usr/local/share/minizinc/std/count_leq.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_leq_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_leq_par_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_leq.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_leq_par.mzn'
+processing file '/usr/local/share/minizinc/std/count_geq.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_geq_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_geq_par_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_geq.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_geq_par.mzn'
+processing file '/usr/local/share/minizinc/std/count_eq.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_eq_par_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_eq_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_count_eq_par.mzn'
+processing file '/entry_data/mzn-lib/fzn_count_eq.mzn'
+processing file '/usr/local/share/minizinc/std/redefinitions-2.7.1.mzn'
+processing file '/usr/local/share/minizinc/std/redefinitions-2.5.2.mzn'
+processing file '/usr/local/share/minizinc/std/redefinitions-2.3.3.mzn'
+processing file '/usr/local/share/minizinc/std/redefinitions-2.2.1.mzn'
+processing file '/usr/local/share/minizinc/std/redefinitions-2.1.1.mzn'
+processing file '/usr/local/share/minizinc/std/redefinitions-2.1.mzn'
+processing file '/entry_data/mzn-lib/redefinitions-2.0.2.mzn'
+processing file '/entry_data/mzn-lib/redefinitions-2.0.mzn'
+processing file '/usr/local/share/minizinc/std/redefinitions.mzn'
+processing file '/bench/2022/sudoku_opt/sudoku_opt.mzn'
+processing file '/usr/local/share/minizinc/std/globals.mzn'
+processing file '/usr/local/share/minizinc/std/writes_seq.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_writes_seq_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_writes_seq.mzn'
+processing file '/usr/local/share/minizinc/std/writes.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_writes_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_writes.mzn'
+processing file '/usr/local/share/minizinc/std/write.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_write_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_write.mzn'
+processing file '/usr/local/share/minizinc/std/weighted_spanning_tree.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dwst_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dwst.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_wst_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_wst.mzn'
+processing file '/usr/local/share/minizinc/std/var_perm_sym.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_var_perm_sym.mzn'
+processing file '/usr/local/share/minizinc/std/var_sqr_sym.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_var_sqr_sym.mzn'
+processing file '/usr/local/share/minizinc/std/value_precede_chain.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_value_precede_chain_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_value_precede_chain_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_value_precede_chain_int_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_value_precede_chain_int_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_value_precede_chain_int.mzn'
+processing file '/usr/local/share/minizinc/std/value_precede.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_value_precede_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_value_precede_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_value_precede_int_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_value_precede_int_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_value_precede_int.mzn'
+processing file '/usr/local/share/minizinc/std/tree.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dtree_enum_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dtree_enum.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dtree_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dtree_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_tree_enum_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_tree_enum.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_tree_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_tree_int.mzn'
+processing file '/usr/local/share/minizinc/std/symmetric_all_different.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_symmetric_all_different_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_symmetric_all_different.mzn'
+processing file '/usr/local/share/minizinc/std/analyse_all_different.mzn'
+processing file '/usr/local/share/minizinc/std/sum_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_sum_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_sum_set.mzn'
+processing file '/usr/local/share/minizinc/std/sum_pred.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_sum_pred_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_sum_pred.mzn'
+processing file '/usr/local/share/minizinc/std/subgraph.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_subgraph_enum_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_subgraph_enum.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_subgraph_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_subgraph_int.mzn'
+processing file '/usr/local/share/minizinc/std/subcircuit.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_subcircuit_reif.mzn'
+processing file '/usr/local/share/minizinc/std/alldifferent.mzn'
+processing file '/entry_data/mzn-lib/fzn_subcircuit.mzn'
+processing file '/usr/local/share/minizinc/std/strict_lex2.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_strict_lex2_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_strict_lex2.mzn'
+processing file '/usr/local/share/minizinc/std/strictly_increasing.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_strictly_increasing_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_strictly_increasing_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_strictly_increasing_float_opt_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_strictly_increasing_float_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_strictly_increasing_float_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_strictly_increasing_float.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_strictly_increasing_int_opt_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_strictly_increasing_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_strictly_increasing_int_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_strictly_increasing_int.mzn'
+processing file '/usr/local/share/minizinc/std/strictly_decreasing.mzn'
+processing file '/usr/local/share/minizinc/std/steiner.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dsteiner_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dsteiner.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_steiner_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_steiner.mzn'
+processing file '/usr/local/share/minizinc/std/span.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_span_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_span.mzn'
+processing file '/usr/local/share/minizinc/std/sort_fn.mzn'
+processing file '/usr/local/share/minizinc/std/sort.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_sort_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_sort.mzn'
+processing file '/usr/local/share/minizinc/std/sliding_sum.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_sliding_sum_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_sliding_sum.mzn'
+processing file '/usr/local/share/minizinc/std/seq_precede_chain.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_seq_precede_chain_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_seq_precede_chain_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_seq_precede_chain_int_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_seq_precede_chain_int.mzn'
+processing file '/usr/local/share/minizinc/std/roots_fn.mzn'
+processing file '/usr/local/share/minizinc/std/roots.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_roots_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_roots.mzn'
+processing file '/usr/local/share/minizinc/std/regular_regexp.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_regular_regexp.mzn'
+processing file '/usr/local/share/minizinc/std/regular_nfa.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_regular_nfa_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_regular_nfa_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_regular_nfa_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_regular_nfa.mzn'
+processing file '/usr/local/share/minizinc/std/regular.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_regular_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_regular_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_regular_set.mzn.deprecated.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_regular_set.mzn.deprecated.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_regular_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_regular.mzn'
+processing file '/usr/local/share/minizinc/std/reachable.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dreachable_enum_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dreachable_enum.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dreachable_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dreachable_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_reachable_enum_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_reachable_enum.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_reachable_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_reachable_int.mzn'
+processing file '/usr/local/share/minizinc/std/range_fn.mzn'
+processing file '/usr/local/share/minizinc/std/range.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_range_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_range.mzn'
+processing file '/usr/local/share/minizinc/std/piecewise_linear_non_continuous.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_piecewise_linear_non_continuous_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_piecewise_linear_non_continuous.mzn'
+processing file '/usr/local/share/minizinc/std/piecewise_linear.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_piecewise_linear_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_piecewise_linear.mzn'
+processing file '/usr/local/share/minizinc/std/partition_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_partition_set_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_partition_set.mzn'
+processing file '/usr/local/share/minizinc/std/nvalue_fn.mzn'
+processing file '/usr/local/share/minizinc/std/nvalue.mzn'
+processing file '/entry_data/mzn-lib/fzn_nvalue_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_nvalue.mzn'
+processing file '/usr/local/share/minizinc/std/neural_net.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_neural_net_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_neural_net.mzn'
+processing file '/usr/local/share/minizinc/std/network_flow.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_network_flow_cost_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_network_flow_cost.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_network_flow_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_network_flow.mzn'
+processing file '/usr/local/share/minizinc/std/minimum.mzn'
+processing file '/usr/local/share/minizinc/std/member.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_set_member_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_set_member.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_member_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_member_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_member_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_member_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_member_float_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_member_float.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_member_bool_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_member_bool.mzn'
+processing file '/usr/local/share/minizinc/std/mdd_nondet.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_mdd_nondet_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_mdd_nondet.mzn'
+processing file '/usr/local/share/minizinc/std/mdd.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_mdd_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_mdd.mzn'
+processing file '/usr/local/share/minizinc/std/maximum.mzn'
+processing file '/usr/local/share/minizinc/std/link_set_to_booleans.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_link_set_to_booleans_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_link_set_to_booleans.mzn'
+processing file '/usr/local/share/minizinc/std/lex2_strict.mzn'
+processing file '/usr/local/share/minizinc/std/lex2.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex2_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex2.mzn'
+processing file '/usr/local/share/minizinc/std/lex_chain_greater.mzn'
+processing file '/usr/local/share/minizinc/std/lex_chain_less.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_chain_less_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_chain_less_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_chain_less_bool_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_chain_less_bool.mzn'
+processing file '/usr/local/share/minizinc/std/lex_chain_greatereq_orbitope.mzn'
+processing file '/usr/local/share/minizinc/std/lex_chain_lesseq_orbitope.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_chain_lesseq_orbitope_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_chain_lesseq_orbitope.mzn'
+processing file '/usr/local/share/minizinc/std/lex_chain_greatereq.mzn'
+processing file '/usr/local/share/minizinc/std/lex_chain_lesseq.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_chain_lesseq_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_chain_lesseq_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_chain_lesseq_bool_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_lex_chain_lesseq_bool.mzn'
+processing file '/usr/local/share/minizinc/std/lex_greater.mzn'
+processing file '/usr/local/share/minizinc/std/lex_greatereq.mzn'
+processing file '/usr/local/share/minizinc/std/knapsack.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_knapsack_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_knapsack.mzn'
+processing file '/usr/local/share/minizinc/std/inverse_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_inverse_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_inverse_set.mzn'
+processing file '/usr/local/share/minizinc/std/inverse_in_range.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_inverse_in_range_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_inverse_in_range.mzn'
+processing file '/usr/local/share/minizinc/std/inverse_fn.mzn'
+processing file '/usr/local/share/minizinc/std/inverse.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_inverse_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_inverse_opt.mzn'
+processing file '/entry_data/mzn-lib/fzn_inverse.mzn'
+processing file '/usr/local/share/minizinc/std/int_set_channel.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_int_set_channel_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_int_set_channel.mzn'
+processing file '/usr/local/share/minizinc/std/increasing.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_increasing_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_increasing_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_increasing_int_opt_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_increasing_int_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_increasing_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_increasing_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_increasing_float_opt_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_increasing_float_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_increasing_float_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_increasing_float.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_increasing_bool_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_increasing_bool.mzn'
+processing file '/usr/local/share/minizinc/std/global_cardinality_low_up_closed.mzn'
+processing file '/usr/local/share/minizinc/std/global_cardinality_low_up.mzn'
+processing file '/usr/local/share/minizinc/std/global_cardinality_closed_fn.mzn'
+processing file '/usr/local/share/minizinc/std/global_cardinality_closed.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_global_cardinality_low_up_closed_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_global_cardinality_low_up_closed_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_global_cardinality_low_up_closed_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_global_cardinality_low_up_closed.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_global_cardinality_closed_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_global_cardinality_closed_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_global_cardinality_closed_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_global_cardinality_closed.mzn'
+processing file '/usr/local/share/minizinc/std/global_cardinality_fn.mzn'
+processing file '/usr/local/share/minizinc/std/global_cardinality.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_global_cardinality_low_up_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_global_cardinality_low_up_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_global_cardinality_low_up_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_global_cardinality_low_up.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_global_cardinality_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_global_cardinality_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_global_cardinality_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_global_cardinality.mzn'
+processing file '/usr/local/share/minizinc/std/geost.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_geost_nonoverlap_k_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_geost_nonoverlap_k.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_geost_smallest_bb_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_geost_smallest_bb.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_geost_bb_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_geost_bb.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_geost_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_geost.mzn'
+processing file '/usr/local/share/minizinc/std/exactly.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_exactly_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_exactly_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_exactly_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_exactly_int.mzn'
+processing file '/usr/local/share/minizinc/std/exactly.mzn.deprecated.mzn'
+processing file '/usr/local/share/minizinc/std/exactly.mzn.deprecated.mzn'
+processing file '/usr/local/share/minizinc/std/element.mzn'
+processing file '/usr/local/share/minizinc/std/distribute_fn.mzn'
+processing file '/usr/local/share/minizinc/std/distribute.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_distribute_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_distribute.mzn'
+processing file '/usr/local/share/minizinc/std/disjunctive_strict_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_disjunctive_strict_opt_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_disjunctive_strict_opt.mzn'
+processing file '/usr/local/share/minizinc/std/disjunctive_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_disjunctive_opt_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_disjunctive_opt.mzn'
+processing file '/entry_data/mzn-lib/fzn_cumulative_opt.mzn'
+processing file '/usr/local/share/minizinc/std/disjunctive_strict.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_disjunctive_strict_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_disjunctive_strict.mzn'
+processing file '/usr/local/share/minizinc/std/disjunctive.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_disjunctive_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_disjunctive.mzn'
+processing file '/usr/local/share/minizinc/std/disjoint.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_disjoint_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_disjoint.mzn'
+processing file '/usr/local/share/minizinc/std/diffn_nonstrict_k.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_diffn_nonstrict_k_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_diffn_nonstrict_k.mzn'
+processing file '/usr/local/share/minizinc/std/diffn_k.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_diffn_k_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_diffn_k.mzn'
+processing file '/usr/local/share/minizinc/std/diffn_nonstrict.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_diffn_nonstrict_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_diffn_nonstrict.mzn'
+processing file '/usr/local/share/minizinc/std/diffn.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_diffn_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_diffn.mzn'
+processing file '/usr/local/share/minizinc/std/decreasing.mzn'
+processing file '/usr/local/share/minizinc/std/dag.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dag_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dag.mzn'
+processing file '/usr/local/share/minizinc/std/cumulatives.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_cumulatives.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_cumulatives_decomp.mzn'
+processing file '/usr/local/share/minizinc/std/cumulative_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_cumulative_opt_reif.mzn'
+processing file '/usr/local/share/minizinc/std/cumulative.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_cumulative_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_cumulative.mzn'
+processing file '/usr/local/share/minizinc/std/count.mzn'
+processing file '/usr/local/share/minizinc/std/cost_regular.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_cost_regular_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_cost_regular.mzn'
+processing file '/usr/local/share/minizinc/std/cost_mdd.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_cost_mdd_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_cost_mdd.mzn'
+processing file '/usr/local/share/minizinc/std/connected.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dconnected_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dconnected.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_connected_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_connected.mzn'
+processing file '/usr/local/share/minizinc/std/circuit_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_circuit_opt_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_circuit_opt.mzn'
+processing file '/usr/local/share/minizinc/std/circuit.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_circuit_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_circuit.mzn'
+processing file '/usr/local/share/minizinc/std/bounded_path.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_bounded_dpath_enum_reif.mzn'
+processing file '/usr/local/share/minizinc/std/path.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dpath_enum_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dpath_enum.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dpath_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_dpath_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_path_enum_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_path_enum.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_path_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_path_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_bounded_dpath_enum.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_bounded_dpath_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_bounded_dpath_int.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_bounded_path_enum_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_bounded_path_enum.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_bounded_path_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_bounded_path_int.mzn'
+processing file '/usr/local/share/minizinc/std/bin_packing_load_fn.mzn'
+processing file '/entry_data/mzn-lib/fzn_bin_packing_load.mzn'
+processing file '/usr/local/share/minizinc/std/bin_packing_load.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_bin_packing_load_reif.mzn'
+processing file '/usr/local/share/minizinc/std/bin_packing_capa.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_bin_packing_capa_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_bin_packing_capa.mzn'
+processing file '/usr/local/share/minizinc/std/bin_packing.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_bin_packing_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_bin_packing.mzn'
+processing file '/usr/local/share/minizinc/std/at_most1.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_at_most1_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_at_most1.mzn'
+processing file '/usr/local/share/minizinc/std/at_most.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_at_most_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_at_most_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_at_most_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_at_most_int.mzn'
+processing file '/usr/local/share/minizinc/std/at_most.mzn.deprecated.mzn'
+processing file '/usr/local/share/minizinc/std/at_most.mzn.deprecated.mzn'
+processing file '/usr/local/share/minizinc/std/at_least.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_at_least_set_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_at_least_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_at_least_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_at_least_int.mzn'
+processing file '/usr/local/share/minizinc/std/at_least.mzn.deprecated.mzn'
+processing file '/usr/local/share/minizinc/std/at_least.mzn.deprecated.mzn'
+processing file '/usr/local/share/minizinc/std/arg_val.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_val_int_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_val_int.mzn'
+processing file '/entry_data/mzn-lib/fzn_arg_max_bool.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_val_float_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_val_float.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_val_bool_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_val_bool.mzn'
+processing file '/entry_data/mzn-lib/fzn_arg_min_bool.mzn'
+processing file '/usr/local/share/minizinc/std/arg_max.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_max_float_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_max_float.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_max_bool_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_max_int_opt.mzn'
+processing file '/entry_data/mzn-lib/fzn_arg_max_int.mzn'
+processing file '/usr/local/share/minizinc/std/arg_min.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_min_float_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_min_float.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_min_bool_opt.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_min_int_opt.mzn'
+processing file '/entry_data/mzn-lib/fzn_arg_min_int.mzn'
+processing file '/usr/local/share/minizinc/std/arg_sort.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_sort_float.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_arg_sort_int.mzn'
+processing file '/usr/local/share/minizinc/std/among_fn.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_among.mzn'
+processing file '/usr/local/share/minizinc/std/among.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_among_reif.mzn'
+processing file '/usr/local/share/minizinc/std/alternative.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_alternative_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_alternative.mzn'
+processing file '/usr/local/share/minizinc/std/all_equal.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_all_equal_set_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_all_equal_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_all_equal_int_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_all_equal_int.mzn'
+processing file '/usr/local/share/minizinc/std/all_disjoint.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_all_disjoint_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_all_disjoint.mzn'
+processing file '/usr/local/share/minizinc/std/all_different_except_0.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_alldifferent_except_0_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_alldifferent_except_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_alldifferent_except_0.mzn'
+processing file '/usr/local/share/minizinc/std/alldifferent_except.mzn'
+processing file '/usr/local/share/minizinc/std/all_different_except.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_alldifferent_except.mzn'
+processing file '/usr/local/share/minizinc/std/all_different.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_all_different_set_reif.mzn'
+processing file '/entry_data/mzn-lib/fzn_all_different_set.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_all_different_int_reif.mzn'
+processing file '/usr/local/share/minizinc/std/fzn_all_different_int_opt.mzn'
+processing file '/usr/local/share/minizinc/std/alldifferent_except_0.mzn'
+processing file '/entry_data/mzn-lib/fzn_all_different_int.mzn'
+processing data file '/bench/2022/sudoku_opt/sudoku_p22.dzn'
+ done parsing (0.38 s)
+Flattening ...
+	CompilePass: Flatten with '/entry_data/mzn-lib' library ...
+MIP domains ...
+ done (0.10 s)
+Optimizing ... done (0.10 s)
+Converting to old FlatZinc ... done (0.10 s)
+ done (0.10 s)
+ done (0.48 s), max stack depth 12
+Maximum memory 8 Mbytes.
+      % SOLVING PHASE
+FZN solver plugin, compiled  May 23 2025  06:18:37
+Using FZN solver /entry_data/fzn-exec for solving, parameters: -p 14 -v 
+%% File /tmp/mznfileJFfVNs.fzn parsed in 17 ms
+%% Model mznfileJFfVNs
+%%   - integer variables:1718
+%%   - fzn_all_different_int: 75
+%%   - int_lin_eq: 1
+%%   - Minimization problem
+%%   - #var_op_value_reif cached: 0
+%%   - #var_op_var_reif cached: 0
+%%   - #var_op_var_imp cached: 0
+%%   - #full domain encodings: 0
+%% Starting CP-SAT solver v9.15.9999
+%% Parameters: log_search_progress: true log_to_stdout: false max_domain_size_when_encoding_eq_neq_constraints: 32 num_workers: 14
+%% Initial optimization model 'mznfileJFfVNs': (model_fingerprint: 0x56e7832dc84b926d)
+%% Search strategy: on 625 variables, CHOOSE_MIN_DOMAIN_SIZE, SELECT_MIN_VALUE
+%% #Variables: 1'718 (#ints: 1 in objective) (1'717 primary variables)
+%%   - 1 in [-625,625]
+%%   - 352 in [1,25]
+%%   - 1'365 constants in {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25} 
+%% #kAllDiff: 75
+%% #kLinearN: 1 (#terms: 353)
+%% Starting presolve at 0.01s
+%% Large number of fixed variables 1'365 / 1'718, doing a first remapping phase to go down to 353 variables.
+%%   1.36e-04s  0.00e+00d  [DetectDominanceRelations] 
+%%   8.74e-03s  0.00e+00d  [PresolveToFixPoint] #num_loops=8 #num_dual_strengthening=1 
+%%   1.27e-06s  0.00e+00d  [ExtractEncodingFromLinear] 
+%%   5.72e-04s  0.00e+00d  [DetectDuplicateColumns] 
+%%   2.94e-04s  0.00e+00d  [DetectDuplicateConstraints] #duplicates=14 
+%% [Symmetry] Graph for symmetry has 8'429 nodes and 14'167 arcs.
+%% [Symmetry] Symmetry computation done. time: 0.00353472 dtime: 0.00139386
+%%   3.28e-04s  0.00e+00d  [DetectDuplicateConstraintsWithDifferentEnforcements] 
+%%   3.10e-02s  1.11e-02d  [Probe] #probed=5'196 #fixed_bools=12 #new_bounds=37 #equiv=19 #new_binary_clauses=759 
+%%   1.15e-05s  0.00e+00d  [MaxClique] 
+%%   6.27e-04s  0.00e+00d  [DetectDominanceRelations] 
+%%   2.30e-02s  0.00e+00d  [PresolveToFixPoint] #num_loops=8 #num_dual_strengthening=1 
+%%   3.58e-04s  0.00e+00d  [ProcessAtMostOneAndLinear] 
+%%   4.93e-04s  0.00e+00d  [DetectDuplicateConstraints] #duplicates=18 
+%%   4.45e-04s  0.00e+00d  [DetectDuplicateConstraintsWithDifferentEnforcements] 
+%%   1.07e-05s  0.00e+00d  [DetectDominatedLinearConstraints] 
+%%   8.93e-06s  0.00e+00d  [DetectDifferentVariables] 
+%%   8.35e-04s  2.20e-05d  [ProcessSetPPC] #relevant_constraints=1'125 
+%%   2.48e-04s  0.00e+00d  [TransformClausesToExactlyOne] 
+%%   2.80e-05s  0.00e+00d  [DetectEncodedComplexDomains] 
+%%   2.05e-05s  0.00e+00d  [FindAlmostIdenticalLinearConstraints] 
+%%   5.50e-04s  3.47e-04d  [FindBigAtMostOneAndLinearOverlap] 
+%%   9.63e-05s  3.82e-05d  [FindBigVerticalLinearOverlap] 
+%%   1.25e-05s  0.00e+00d  [FindBigHorizontalLinearOverlap] 
+%%   7.76e-05s  0.00e+00d  [MergeClauses] 
+%%   5.93e-04s  0.00e+00d  [DetectDominanceRelations] 
+%%   1.83e-03s  0.00e+00d  [PresolveToFixPoint] #num_loops=1 #num_dual_strengthening=1 
+%%   5.88e-04s  0.00e+00d  [DetectDominanceRelations] 
+%%   1.81e-03s  0.00e+00d  [PresolveToFixPoint] #num_loops=1 #num_dual_strengthening=1 
+%%   2.45e-04s  0.00e+00d  [DetectDuplicateColumns] 
+%%   3.83e-04s  0.00e+00d  [DetectDuplicateConstraints] 
+%% [Symmetry] Graph for symmetry has 3'354 nodes and 6'655 arcs.
+%% [Symmetry] Symmetry computation done. time: 0.00071579 dtime: 0.00063253
+%%   4.01e-04s  0.00e+00d  [DetectDuplicateConstraintsWithDifferentEnforcements] 
+%%   1.68e-02s  9.03e-03d  [Probe] #probed=3'413 #fixed_bools=22 #equiv=2 #new_binary_clauses=373 
+%%   1.07e-05s  0.00e+00d  [MaxClique] 
+%%   6.04e-04s  0.00e+00d  [DetectDominanceRelations] 
+%%   1.89e-03s  0.00e+00d  [PresolveToFixPoint] #num_loops=1 #num_dual_strengthening=1 
+%%   3.48e-04s  0.00e+00d  [ProcessAtMostOneAndLinear] 
+%%   3.82e-04s  0.00e+00d  [DetectDuplicateConstraints] #duplicates=2 
+%%   3.56e-04s  0.00e+00d  [DetectDuplicateConstraintsWithDifferentEnforcements] 
+%%   1.06e-05s  0.00e+00d  [DetectDominatedLinearConstraints] 
+%%   8.67e-06s  0.00e+00d  [DetectDifferentVariables] 
+%%   7.67e-04s  2.17e-05d  [ProcessSetPPC] #relevant_constraints=1'118 
+%%   2.46e-04s  0.00e+00d  [TransformClausesToExactlyOne] 
+%%   2.65e-05s  0.00e+00d  [DetectEncodedComplexDomains] 
+%%   1.92e-05s  0.00e+00d  [FindAlmostIdenticalLinearConstraints] 
+%%   5.46e-04s  3.38e-04d  [FindBigAtMostOneAndLinearOverlap] 
+%%   9.40e-05s  3.76e-05d  [FindBigVerticalLinearOverlap] 
+%%   1.26e-05s  0.00e+00d  [FindBigHorizontalLinearOverlap] 
+%%   7.33e-05s  0.00e+00d  [MergeClauses] 
+%%   6.01e-04s  0.00e+00d  [DetectDominanceRelations] 
+%%   1.80e-03s  0.00e+00d  [PresolveToFixPoint] #num_loops=1 #num_dual_strengthening=1 
+%%   6.04e-04s  0.00e+00d  [DetectDominanceRelations] 
+%%   1.81e-03s  0.00e+00d  [PresolveToFixPoint] #num_loops=1 #num_dual_strengthening=1 
+%%   2.48e-04s  0.00e+00d  [DetectDuplicateColumns] 
+%%   3.61e-04s  0.00e+00d  [DetectDuplicateConstraints] 
+%% [Symmetry] Graph for symmetry has 3'345 nodes and 6'552 arcs.
+%% [Symmetry] Symmetry computation done. time: 0.00068351 dtime: 0.0006267
+%%   3.87e-04s  0.00e+00d  [DetectDuplicateConstraintsWithDifferentEnforcements] 
+%%   1.64e-02s  8.94e-03d  [Probe] #probed=3'404 #new_binary_clauses=374 
+%%   1.92e-05s  0.00e+00d  [MaxClique] 
+%%   5.97e-04s  0.00e+00d  [DetectDominanceRelations] 
+%%   1.83e-03s  0.00e+00d  [PresolveToFixPoint] #num_loops=1 #num_dual_strengthening=1 
+%%   3.60e-04s  0.00e+00d  [ProcessAtMostOneAndLinear] 
+%%   3.76e-04s  0.00e+00d  [DetectDuplicateConstraints] 
+%%   3.43e-04s  0.00e+00d  [DetectDuplicateConstraintsWithDifferentEnforcements] 
+%%   9.80e-06s  0.00e+00d  [DetectDominatedLinearConstraints] 
+%%   8.87e-06s  0.00e+00d  [DetectDifferentVariables] 
+%%   7.70e-04s  2.17e-05d  [ProcessSetPPC] #relevant_constraints=1'118 
+%%   2.33e-04s  0.00e+00d  [TransformClausesToExactlyOne] 
+%%   2.64e-05s  0.00e+00d  [DetectEncodedComplexDomains] 
+%%   2.01e-05s  0.00e+00d  [FindAlmostIdenticalLinearConstraints] 
+%%   5.37e-04s  3.37e-04d  [FindBigAtMostOneAndLinearOverlap] 
+%%   9.43e-05s  3.76e-05d  [FindBigVerticalLinearOverlap] 
+%%   1.26e-05s  0.00e+00d  [FindBigHorizontalLinearOverlap] 
+%%   7.29e-05s  0.00e+00d  [MergeClauses] 
+%%   5.97e-04s  0.00e+00d  [DetectDominanceRelations] 
+%%   1.80e-03s  0.00e+00d  [PresolveToFixPoint] #num_loops=1 #num_dual_strengthening=1 
+%%   7.67e-06s  0.00e+00d  [MergeNoOverlap] 
+%%   9.53e-06s  0.00e+00d  [MergeNoOverlap2D] 
+%%   1.77e-03s  0.00e+00d  [ExpandObjective] #entries=35'588 #tight_variables=6'492 #tight_constraints=1'118 #expands=20 
+%% Presolve summary:
+%%   - 116 affine relations were detected.
+%%   - rule 'affine: new relation' was applied 116 times.
+%%   - rule 'all_diff: permutation expanded' was applied 75 times.
+%%   - rule 'all_diff: propagate fixed expressions' was applied 119 times.
+%%   - rule 'all_diff: propagated mandatory values in permutation' was applied 23 times.
+%%   - rule 'all_diff: remove fixed expressions' was applied 152 times.
+%%   - rule 'bool_or: only one literal' was applied 11 times.
+%%   - rule 'deductions: 3486 stored' was applied 1 time.
+%%   - rule 'duplicate: removed constraint' was applied 34 times.
+%%   - rule 'enforcement: false literal' was applied 54 times.
+%%   - rule 'enforcement: true literal' was applied 65 times.
+%%   - rule 'exactly_one: removed literals' was applied 134 times.
+%%   - rule 'exactly_one: satisfied' was applied 5 times.
+%%   - rule 'exactly_one: simplified objective' was applied 215 times.
+%%   - rule 'exactly_one: size two' was applied 65 times.
+%%   - rule 'exactly_one: x and not(x)' was applied 82 times.
+%%   - rule 'linear1: always true' was applied 14 times.
+%%   - rule 'linear: always true' was applied 38 times.
+%%   - rule 'linear: divide by GCD' was applied 6 times.
+%%   - rule 'linear: empty' was applied 13 times.
+%%   - rule 'linear: fixed or dup variables' was applied 139 times.
+%%   - rule 'linear: never in domain' was applied 11 times.
+%%   - rule 'linear: reduced variable domains' was applied 16 times.
+%%   - rule 'linear: remapped using affine relations' was applied 156 times.
+%%   - rule 'linear: simplified rhs' was applied 1'568 times.
+%%   - rule 'linear: singleton column define objective' was applied 1 time.
+%%   - rule 'new_bool: integer encoding' was applied 1'775 times.
+%%   - rule 'new_bool: var with 2 values' was applied 18 times.
+%%   - rule 'objective: expanded via tight equality' was applied 20 times.
+%%   - rule 'objective: shifted cost with exactly ones' was applied 372 times.
+%%   - rule 'presolve: 120 unused variables removed.' was applied 1 time.
+%%   - rule 'presolve: iteration' was applied 3 times.
+%%   - rule 'variables with 2 values: create encoding literal' was applied 18 times.
+%%   - rule 'variables with 2 values: new affine relation' was applied 18 times.
+%%   - rule 'variables: add encoding constraint' was applied 1'775 times.
+%%   - rule 'variables: canonicalize affine domain' was applied 21 times.
+%%   - rule 'variables: detect fully reified value encoding' was applied 3 times.
+%%   - rule 'variables: detect half reified value encoding' was applied 6 times.
+%%   - rule 'variables: only used in objective and in encodings' was applied 307 times.
+%% Presolved optimization model 'mznfileJFfVNs': (model_fingerprint: 0xa2a1a20c67312f7)
+%% Search strategy: on 13 variables, CHOOSE_MIN_DOMAIN_SIZE, SELECT_MIN_VALUE
+%% #Variables: 1'627 (#bools: 913 in objective) (756 primary variables)
+%%   - 1'627 Booleans in [0,1]
+%% #kExactlyOne: 1'118 (#literals: 6'492)
+%% [Symmetry] Graph for symmetry has 2'805 nodes and 6'552 arcs.
+%% [Symmetry] Symmetry computation done. time: 0.000628892 dtime: 0.0005949
+%% Preloading model.
+%% #Bound   0.18s best:inf   next:[-625,625] initial_domain
+%% #Model   0.18s var:1627/1627 constraints:1118/1118
+%% Starting search at 0.18s with 14 workers.
+%% 10 full problem subsolvers: [core, default_lp, fixed, lb_tree_search, max_lp, no_lp, pseudo_costs, quick_restart, quick_restart_no_lp, reduced_costs]
+%% 4 first solution subsolvers: [fj(2), fs_random, fs_random_no_lp]
+%% 10 interleaved subsolvers: [feasibility_pump, graph_arc_lns, graph_cst_lns, graph_dec_lns, graph_var_lns, ls, ls_lin, rins/rens, rnd_cst_lns, rnd_var_lns]
+%% 3 helper subsolvers: [neighborhood_helper, synchronization_agent, update_gap_integral]
+%% #Model   8.31s var:1625/1627 constraints:1118/1118
+%% #1       9.51s best:229   next:[-625,228] default_lp
+%% #Model   9.66s var:1624/1627 constraints:1118/1118
+%% #Model  10.44s var:1623/1627 constraints:1118/1118
+%% #Model  10.72s var:1622/1627 constraints:1118/1118
+%% #Model  11.02s var:1584/1627 constraints:1109/1118
+%% #Model  11.28s var:1583/1627 constraints:1109/1118
+%% #Model  11.31s var:1567/1627 constraints:1106/1118
+%% #Model  11.68s var:1566/1627 constraints:1106/1118
+%% #Model  12.34s var:1564/1627 constraints:1106/1118
+%% #Model  12.40s var:1563/1627 constraints:1106/1118
+%% #Model  12.43s var:1556/1627 constraints:1100/1118
+%% #Model  12.50s var:1555/1627 constraints:1100/1118
+%% #Model  13.53s var:1554/1627 constraints:1100/1118
+%% #Model  13.78s var:1553/1627 constraints:1100/1118
+%% #Model  13.84s var:1432/1627 constraints:1074/1118
+%% #Model  13.84s var:1402/1627 constraints:1068/1118
+%% #Done   13.85s quick_restart_no_lp
+%% #Done   13.85s no_lp
+%% #Done   13.85s core
+%% Task timing                      n [     min,      max]      avg      dev     time         n [     min,      max]      avg      dev    dtime
+%%                  'core':         1 [  13.66s,   13.66s]   13.66s   0.00ns   13.66s         2 [  9.79ms,   15.63s]    7.82s    7.81s   15.63s
+%%            'default_lp':         1 [  13.66s,   13.66s]   13.66s   0.00ns   13.66s         2 [  9.79ms,    8.99s]    4.50s    4.49s    9.00s
+%%      'feasibility_pump':        65 [230.77us,  12.57ms] 483.16us   1.52ms  31.41ms        64 [ 49.07us,  92.75us]  49.76us   5.42us   3.18ms
+%%                 'fixed':         1 [  13.66s,   13.66s]   13.66s   0.00ns   13.66s         2 [  9.79ms,    9.86s]    4.93s    4.92s    9.87s
+%%                    'fj':        50 [ 98.68ms, 148.55ms] 131.89ms  15.55ms    6.59s        50 [100.01ms, 100.20ms] 100.10ms  75.88us    5.00s
+%%                    'fj':        51 [100.03ms, 146.52ms] 128.64ms  16.58ms    6.56s        51 [100.01ms, 100.20ms] 100.08ms  73.91us    5.10s
+%%             'fs_random':         1 [   9.32s,    9.32s]    9.32s   0.00ns    9.32s         2 [  9.79ms,    5.77s]    2.89s    2.88s    5.78s
+%%       'fs_random_no_lp':         1 [   9.38s,    9.38s]    9.38s   0.00ns    9.38s         2 [  9.79ms,    9.84s]    4.93s    4.92s    9.85s
+%%         'graph_arc_lns':        26 [  2.37ms, 327.17ms]  75.99ms  88.68ms    1.98s        23 [ 10.00ns, 100.11ms]  40.61ms  44.23ms 933.94ms
+%%         'graph_cst_lns':        26 [  3.95ms, 163.75ms]  77.66ms  63.68ms    2.02s        25 [ 10.00ns, 100.15ms]  45.65ms  44.47ms    1.14s
+%%         'graph_dec_lns':        25 [  5.13ms, 161.78ms]  74.25ms  61.84ms    1.86s        24 [ 10.00ns, 100.23ms]  42.86ms  43.44ms    1.03s
+%%         'graph_var_lns':        26 [  2.62ms, 231.80ms]  86.60ms  69.46ms    2.25s        25 [ 10.00ns, 100.27ms]  49.03ms  43.56ms    1.23s
+%%        'lb_tree_search':         1 [  13.68s,   13.68s]   13.68s   0.00ns   13.68s         2 [274.28ms,   14.51s]    7.39s    7.12s   14.78s
+%%                    'ls':        19 [114.04ms, 148.81ms] 136.89ms  10.23ms    2.60s        19 [ 92.95ms, 100.03ms]  99.65ms   1.58ms    1.89s
+%%                'ls_lin':        20 [104.43ms, 149.95ms] 125.23ms  13.21ms    2.50s        20 [100.01ms, 100.03ms] 100.01ms   5.36us    2.00s
+%%                'max_lp':         1 [  13.68s,   13.68s]   13.68s   0.00ns   13.68s         2 [300.38ms,   14.37s]    7.33s    7.03s   14.67s
+%%                 'no_lp':         1 [  13.66s,   13.66s]   13.66s   0.00ns   13.66s         2 [  9.79ms,   14.66s]    7.33s    7.33s   14.67s
+%%          'pseudo_costs':         1 [  13.66s,   13.66s]   13.66s   0.00ns   13.66s         2 [ 28.05ms,   13.44s]    6.74s    6.71s   13.47s
+%%         'quick_restart':         1 [  13.66s,   13.66s]   13.66s   0.00ns   13.66s         2 [  9.79ms,    8.10s]    4.06s    4.05s    8.11s
+%%   'quick_restart_no_lp':         1 [  13.66s,   13.66s]   13.66s   0.00ns   13.66s         2 [  9.79ms,   15.58s]    7.80s    7.79s   15.59s
+%%         'reduced_costs':         1 [  13.68s,   13.68s]   13.68s   0.00ns   13.68s         2 [ 28.85ms,   14.38s]    7.21s    7.18s   14.41s
+%%             'rins/rens':        65 [502.59us, 165.84ms]  87.17ms  68.25ms    5.67s        50 [ 42.48us, 100.28ms]  66.64ms  41.09ms    3.33s
+%%           'rnd_cst_lns':        26 [  3.69ms, 333.41ms]  71.34ms  77.94ms    1.85s        25 [ 10.00ns, 100.30ms]  36.08ms  42.58ms 901.92ms
+%%           'rnd_var_lns':        26 [  3.39ms, 160.00ms]  76.65ms  61.51ms    1.99s        25 [ 10.00ns, 100.20ms]  45.60ms  42.49ms    1.14s
+%% 
+%% Search stats              Bools  Conflicts  Branches  Restarts  BacktrackToRoot  Backtrack  BoolPropag  IntegerPropag
+%%                  'core':  1'635     75'216   150'062       338            9'139     85'513  27'350'058      5'184'717
+%%            'default_lp':  1'627     45'823   215'690       215           32'274     82'107  18'133'314      5'431'597
+%%                 'fixed':  1'627     67'782   113'413         0            3'254     70'838  21'443'737      2'347'316
+%%             'fs_random':  1'627     33'249   165'836       135           24'388     60'476  13'098'092      3'817'399
+%%       'fs_random_no_lp':  1'627     54'256   204'293       120           27'405     85'434  20'825'451      5'275'634
+%%        'lb_tree_search':  1'627         10     3'629         0            3'254      3'406      69'454         73'891
+%%                'max_lp':  1'627        141    22'506         2            9'914     11'122     563'861        738'640
+%%                 'no_lp':  1'627     74'697   287'928       322           37'570    117'016  29'346'407      7'816'912
+%%          'pseudo_costs':  1'627        196    42'611         2           16'901     19'276   1'164'245      1'537'651
+%%         'quick_restart':  1'627     31'438   288'289     2'780           35'622     70'923  14'536'129      5'323'815
+%%   'quick_restart_no_lp':  1'627     53'015   413'929     4'696           42'017     99'846  23'547'705      7'648'648
+%%         'reduced_costs':  1'627        200    21'519         1            8'562      9'757     353'720        450'141
+%% 
+%% SAT formula               Fixed  Equiv  Total  VarLeft  BinaryClauses  PermanentClauses  TemporaryClauses
+%%                  'core':    124      0  1'635    1'511          6'438             9'838             5'904
+%%            'default_lp':     73      0  1'627    1'554          6'444             7'727            11'295
+%%                 'fixed':      0      0  1'627    1'627          1'372             3'634            14'870
+%%             'fs_random':      2      0  1'627    1'625          5'236             9'024            11'883
+%%       'fs_random_no_lp':      2      0  1'627    1'625          4'642            11'758            10'825
+%%        'lb_tree_search':      0      0  1'627    1'627          2'728             1'121                 7
+%%                'max_lp':     74      8  1'627    1'545          6'638             2'704                51
+%%                 'no_lp':    954     11  1'627      662          6'234             9'251             6'402
+%%          'pseudo_costs':      3      0  1'627    1'624          4'800             2'152               158
+%%         'quick_restart':    225      0  1'627    1'402          6'862             7'501             9'045
+%%   'quick_restart_no_lp':    961      0  1'627      666          6'894            10'254             8'850
+%%         'reduced_costs':      0      0  1'627    1'627          3'688             1'338               173
+%% 
+%% SAT stats                 ClassicMinim  LitRemoved  LitRemovedBinary  LitLearned  LitForgotten  Subsumed
+%%                  'core':        59'844   1'172'576           653'291   2'596'275     1'651'770     6'766
+%%            'default_lp':        33'573     560'664           391'599   1'550'494       810'237     3'716
+%%                 'fixed':        59'097   1'400'717           582'423   3'751'439     2'691'780     3'314
+%%             'fs_random':        23'473     306'100           222'871   1'046'281       462'242     1'853
+%%       'fs_random_no_lp':        40'692     647'454           422'721   1'772'730     1'093'379     3'386
+%%        'lb_tree_search':             4          17                21         236             0         0
+%%                'max_lp':           107       1'644             1'460       8'611             0        10
+%%                 'no_lp':        57'706   1'087'404           631'172   2'371'938     1'606'327     7'451
+%%          'pseudo_costs':           140       2'875             1'696      11'751             0        26
+%%         'quick_restart':        20'957     220'584           147'955     976'795       376'374     1'359
+%%   'quick_restart_no_lp':        37'749     441'598           277'231   1'719'431     1'044'260     2'234
+%%         'reduced_costs':           129       1'291             1'267      11'773             0         6
+%% 
+%% Vivification              Clauses  Decisions  LitTrue  Subsumed  LitRemoved  DecisionReused  Conflicts
+%%                  'core':    3'621     30'461        0     1'132      12'335             368        161
+%%            'default_lp':   20'352    127'720        0     2'869      27'153           3'612        333
+%%                 'fixed':        0          0        0         0           0               0          0
+%%             'fs_random':   14'532    102'544        0     1'564      17'345           4'485        318
+%%       'fs_random_no_lp':   15'281    112'880        0     1'896      22'771           3'175        387
+%%        'lb_tree_search':        0          0        0         0           0               0          0
+%%                'max_lp':    4'480     15'617        0       286       1'009              50          0
+%%                 'no_lp':   23'437    159'612       22     3'809      39'882           4'116        535
+%%          'pseudo_costs':    9'352     32'363        0       593       2'160             107          0
+%%         'quick_restart':   20'891    119'989       10     2'085      17'161           4'188        244
+%%   'quick_restart_no_lp':   23'102    148'448        6     2'897      27'099           4'560        459
+%%         'reduced_costs':    3'056     12'413        0       125         430              23          0
+%% 
+%% Clause deletion           at_true  l_and_not(l)  to_binary  sub_conflict  sub_extra  sub_decisions  sub_eager  sub_vivify  sub_probing  sub_inpro  blocked  eliminated  forgotten  promoted  conflicts
+%%                  'core':    9'204             0        197         6'464        153             19        302       1'132          190      4'620        0           0     39'214   161'688     75'216
+%%            'default_lp':    4'182             1        125         3'557        132            108        159       2'869          326        392        0           0     17'859    92'680     45'823
+%%                 'fixed':        0             0          0         3'249        193              5         65           0            0          0        0           0     46'856   200'346     67'782
+%%             'fs_random':       93             0          5         1'794         88             89         59       1'564           18         21        0           0     11'067    60'925     33'249
+%%       'fs_random_no_lp':      172             0          7         3'290        126            158         96       1'896          385        973        0           0     26'784   106'002     54'256
+%%        'lb_tree_search':        0             0          0             0          0              0          0           0            0          0        0           0          0         8         10
+%%                'max_lp':      120            59         55            10          0              0          0         286           39        115        0           0          0       218        141
+%%                 'no_lp':    8'334           123        136         7'171        191            344        280       3'809          837      1'242        0           0     38'688   151'500     74'697
+%%          'pseudo_costs':        1             0          7            26          0              0          0         593          106         11        0           0          0       300        196
+%%         'quick_restart':    4'554             0        144         1'329         61             61         30       2'085           67         22        0           0      9'539    55'720     31'438
+%%   'quick_restart_no_lp':    4'448             0        158         2'166        116             85         68       2'897          195        403        0           0     25'884    97'601     53'015
+%%         'reduced_costs':        0             0          0             6          0              0          0         125           10          0        0           0          0       322        200
+%% 
+%% Lp stats             Component  Iterations  AddedCuts  OPTIMAL  DUAL_F.  DUAL_U.
+%%       'default_lp':          1           0          0   44'635        0        0
+%%            'fixed':          1           0          0   49'627        0        0
+%%        'fs_random':          1           0          0   31'822        0        0
+%%   'lb_tree_search':          1      91'592         38      100      252        3
+%%           'max_lp':          1      94'973         40      121      191       79
+%%     'pseudo_costs':          1     105'082         41      184      226       95
+%%    'quick_restart':          1           0          0   52'703        0        0
+%%    'reduced_costs':          1     105'430         40      140      237       81
+%% 
+%% Lp dimension             Final dimension of first component
+%%       'default_lp':          0 rows, 913 columns, 0 entries
+%%            'fixed':          0 rows, 913 columns, 0 entries
+%%        'fs_random':          0 rows, 913 columns, 0 entries
+%%   'lb_tree_search':  1143 rows, 1627 columns, 10625 entries
+%%           'max_lp':  1149 rows, 1627 columns, 12137 entries
+%%     'pseudo_costs':    916 rows, 1627 columns, 9115 entries
+%%    'quick_restart':          0 rows, 913 columns, 0 entries
+%%    'reduced_costs':   987 rows, 1627 columns, 11088 entries
+%% 
+%% Lp debug             CutPropag  CutEqPropag  Adjust  Overflow     Bad  BadScaling
+%%       'default_lp':          0            0       0         0       0           0
+%%            'fixed':          0            0       0         0       0           0
+%%        'fs_random':          0            0       0         0       0           0
+%%   'lb_tree_search':          0            0     355         0  11'662           0
+%%           'max_lp':          0            0     391         0  11'744           0
+%%     'pseudo_costs':          0            0     500         0   9'788           0
+%%    'quick_restart':          0            0       0         0       0           0
+%%    'reduced_costs':          0            0     451         0  10'036           0
+%% 
+%% Lp pool              Constraints  Updates  Simplif  Merged  Shortened  Split  Strengthened  Cuts/Call
+%%       'default_lp':          932        0      155       0        109      0             0        0/0
+%%            'fixed':          932        0        0       0          0      0             0        0/0
+%%        'fs_random':          932        0        3       0          3      0             0        0/0
+%%   'lb_tree_search':        1'156        0        0       0          0      0             0      38/39
+%%           'max_lp':        1'158        0        0       0          0      0             0      40/44
+%%     'pseudo_costs':        1'159        0       36       0         36      0             0      41/49
+%%    'quick_restart':          932        0      680       0        341      0             0        0/0
+%%    'reduced_costs':        1'158        0        0       0          0      0             0      40/52
+%% 
+%% Lp Cut           pseudo_costs  max_lp  reduced_costs  lb_tree_search
+%%          CG_FF:            12      12             12              12
+%%           CG_R:            12      12             12              12
+%%         Clique:            12      11             10              12
+%%       MIR_4_FF:             -       1              1               -
+%%       MIR_5_FF:             1       -              1               -
+%%       MIR_6_FF:             -       -              1               -
+%%       MIR_6_KL:             -       -              1               -
+%%   ZERO_HALF_FF:             2       3              1               -
+%%    ZERO_HALF_R:             2       1              1               2
+%% 
+%% LNS stats           Improv/Calls  Closed  Difficulty  TimeLimit
+%%   'graph_arc_lns':         14/25     72%    9.86e-01       0.10
+%%   'graph_cst_lns':         15/25     68%    9.82e-01       0.10
+%%   'graph_dec_lns':         15/25     72%    9.85e-01       0.10
+%%   'graph_var_lns':         15/26     69%    9.86e-01       0.10
+%%       'rins/rens':         62/62     55%    9.65e-01       0.10
+%%     'rnd_cst_lns':         15/26     69%    9.84e-01       0.10
+%%     'rnd_var_lns':         15/26     69%    9.85e-01       0.10
+%% 
+%% LS stats                                    Batches  Restarts/Perturbs   LinMoves  GenMoves  CompoundMoves  Bactracks  WeightUpdates  ScoreComputed
+%%                              'fj_restart':       10                  6    579'075         0              0          0         71'265         16'251
+%%                     'fj_restart_compound':       12                  4          0   610'347         58'679    275'830          1'562      6'539'823
+%%                 'fj_restart_compound_obj':        5                  2          0   252'038         27'069    112'480            665      2'744'496
+%%             'fj_restart_compound_perturb':        4                  4          0   195'918         37'165     79'371            342      2'234'549
+%%         'fj_restart_compound_perturb_obj':        2                  2          0    96'724         18'838     38'939            168      1'118'371
+%%                        'fj_restart_decay':        6                  2    473'398         0              0          0          7'742         35'778
+%%               'fj_restart_decay_compound':        4                  4          0   190'846         56'150     67'342            172      2'272'355
+%%           'fj_restart_decay_compound_obj':        6                  3          0   289'791         80'142    104'822            265      3'386'185
+%%       'fj_restart_decay_compound_perturb':        6                  2          0   289'513         78'995    105'253            268      3'381'718
+%%   'fj_restart_decay_compound_perturb_obj':       16                  8          0   770'516        213'609    278'430            703      9'026'640
+%%                    'fj_restart_decay_obj':       15                  6  1'181'691         0              0          0         19'321         87'804
+%%                'fj_restart_decay_perturb':        6                  4    473'215         0              0          0          7'736         32'538
+%%            'fj_restart_decay_perturb_obj':        1                  1     78'669         0              0          0          1'281          4'881
+%%                          'fj_restart_obj':        6                  2    342'615         0              0          0         44'281          9'532
+%%                      'fj_restart_perturb':        1                  1     58'083         0              0          0          7'381          1'627
+%%                  'fj_restart_perturb_obj':        1                  1     57'489         0              0          0          7'336          1'627
+%%                          'ls_lin_restart':        4                  3    194'138         0              0          0         23'452          6'355
+%%                 'ls_lin_restart_compound':        2                  2          0    11'401            509      5'443             37        196'347
+%%         'ls_lin_restart_compound_perturb':        2                  2          0    19'894          2'841      8'524             51        315'081
+%%                    'ls_lin_restart_decay':        2                  2     92'061         0              0          0          1'550          6'358
+%%           'ls_lin_restart_decay_compound':        1                  1          0     9'934          1'611      4'156             17        146'208
+%%            'ls_lin_restart_decay_perturb':        3                  3    118'298         0              0          0          1'983          9'606
+%%                  'ls_lin_restart_perturb':        6                  6    245'468         0              0          0         28'083          9'628
+%%                     'ls_restart_compound':        4                  3          0    57'423          7'268     25'074            121        756'196
+%%             'ls_restart_compound_perturb':        7                  7          0    72'223          7'888     32'154            209      1'026'208
+%%                        'ls_restart_decay':        2                  2     75'372         0              0          0          1'270          6'382
+%%               'ls_restart_decay_compound':        3                  3          0    27'634          4'278     11'676             49        376'489
+%%                'ls_restart_decay_perturb':        1                  1     44'903         0              0          0            746          3'248
+%%                      'ls_restart_perturb':        2                  2     87'760         0              0          0          9'614          3'121
+%% 
+%% Solutions (1)    Num   Rank
+%%   'default_lp':    2  [0,1]
+%% 
+%% Objective bounds     Num
+%%   'initial_domain':    1
+%% 
+%% Solution repositories    Added  Queried  Synchro
+%%     'alternative_path':      0        0        0
+%%       'best_solutions':      2      192        2
+%%    'fj solution hints':     44        0       44
+%%         'lp solutions':     32       33       31
+%%                 'pump':     64       32
+%% 
+%% Improving bounds shared    Num  Sym
+%%                   'core':   52    0
+%%             'default_lp':    1    0
+%%                  'no_lp':  462    0
+%%           'pseudo_costs':    1    0
+%%          'quick_restart':    3    0
+%%    'quick_restart_no_lp':   87    0
+%% 
+%% Clauses shared            #Exported  #Imported  #BinaryRead  #BinaryTotal
+%%                  'core':      2'017      2'029        3'866         3'960
+%%            'default_lp':      1'187      2'137        3'872         3'960
+%%                 'fixed':        762          0            2         3'960
+%%             'fs_random':        650      1'403        2'249         3'960
+%%       'fs_random_no_lp':      1'424      1'308        2'160         3'960
+%%        'lb_tree_search':          2          0          708         3'960
+%%                'max_lp':        104      2'638        3'878         3'960
+%%                 'no_lp':      2'811      1'949        3'957         3'960
+%%          'pseudo_costs':        138      1'790        2'251         3'960
+%%         'quick_restart':      1'446      2'100        3'955         3'960
+%%   'quick_restart_no_lp':      2'397      1'964        3'957         3'960
+%%         'reduced_costs':         15        334        1'448         3'960
+%% 
+%% LRAT_status: NA
+%% CpSolverResponse summary:
+%% status: OPTIMAL
+%% objective: 229
+%% best_bound: 229
+%% integers: 944
+%% booleans: 1627
+%% conflicts: 33249
+%% branches: 165836
+%% propagations: 13098092
+%% integer_propagations: 3817399
+%% restarts: 135
+%% lp_iterations: 0
+%% walltime: 13.8764
+%% usertime: 13.8764
+%% deterministic_time: 169.574
+%% gap_integral: 382.037
+%% solution_fingerprint: 0x7d1ff5e902765d6f
+%% 
+
+10 14 5 15 3 23 20 4 25 1 9 17 22 2 8 13 12 16 21 18 7 6 11 24 19
+8 12 11 25 23 15 13 21 22 3 6 5 4 14 18 9 7 24 20 19 1 2 10 16 17
+16 2 9 1 18 10 5 6 7 11 21 12 20 19 24 22 14 17 23 8 15 25 3 4 13
+24 7 4 20 13 17 14 8 19 12 11 10 15 1 16 2 5 3 6 25 22 9 23 18 21
+22 17 6 19 21 2 24 18 9 16 3 7 23 13 25 11 10 15 1 4 8 5 20 12 14
+4 25 23 3 5 7 15 11 17 14 8 6 9 22 2 19 16 10 18 13 20 24 12 21 1
+11 15 19 6 14 22 1 3 24 13 25 23 12 18 21 4 9 20 5 17 2 7 16 8 10
+9 16 21 2 12 8 4 25 10 18 19 15 5 20 11 1 23 7 24 3 17 22 13 14 6
+17 13 8 18 20 6 12 19 23 2 1 16 24 7 10 25 22 14 15 21 4 11 5 9 3
+1 22 24 10 7 9 16 5 20 21 4 13 14 3 17 6 8 11 2 12 25 19 15 23 18
+25 5 12 14 6 1 23 20 11 8 22 2 21 17 9 18 15 13 10 16 3 4 19 7 24
+15 19 10 11 8 3 25 24 14 4 12 20 7 6 23 21 1 5 17 9 13 18 2 22 16
+23 4 20 9 16 19 2 7 15 6 13 18 11 5 14 8 25 22 3 24 10 17 21 1 12
+13 1 18 17 2 16 22 9 21 5 10 8 3 24 15 7 19 4 12 23 11 14 6 20 25
+21 3 22 7 24 13 18 17 12 10 16 1 25 4 19 20 11 2 14 6 9 23 8 5 15
+14 8 7 21 11 5 17 1 3 23 2 9 10 25 22 16 18 19 13 15 12 20 24 6 4
+3 6 25 4 15 21 10 14 13 24 7 19 8 23 20 5 17 12 9 22 18 16 1 2 11
+19 20 2 23 9 11 8 15 4 25 5 24 18 16 12 3 21 6 7 1 14 10 17 13 22
+12 10 13 22 1 18 7 2 16 20 17 21 6 15 4 14 24 25 8 11 5 3 9 19 23
+5 18 16 24 17 12 9 22 6 19 14 3 13 11 1 10 2 23 4 20 21 8 25 15 7
+6 11 14 5 19 4 21 23 1 15 20 22 2 9 3 17 13 18 16 10 24 12 7 25 8
+7 21 3 8 25 24 11 13 18 17 23 14 19 12 6 15 20 9 22 5 16 1 4 10 2
+20 24 15 16 4 14 3 12 8 7 18 25 1 10 5 23 6 21 11 2 19 13 22 17 9
+2 9 1 13 10 25 6 16 5 22 24 4 17 21 7 12 3 8 19 14 23 15 18 11 20
+18 23 17 12 22 20 19 10 2 9 15 11 16 8 13 24 4 1 25 7 6 21 14 3 5
+----------
+==========
+   Done (overall time 14.46 s).

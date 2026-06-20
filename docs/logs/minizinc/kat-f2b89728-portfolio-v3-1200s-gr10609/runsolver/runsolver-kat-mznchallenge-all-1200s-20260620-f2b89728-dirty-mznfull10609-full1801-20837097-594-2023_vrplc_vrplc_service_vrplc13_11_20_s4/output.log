@@ -1,0 +1,315 @@
+c cmd: /host-parser-bin/kat_xcsp_f2b89728-dirty-mznfull10609-1200-20260620 /bench/2023/vrplc/vrplc_service.mzn --data /bench/2023/vrplc/vrplc13_11_20_s4.dzn --encoder portfolio --portfolio-strategy v3 --cop-pipeline guarded-basic --cop-objective-cut direct-expr --cop-objective-cut-timing incremental-soft --cop-objective-cut-backend cnf --table-encoding mdd-tl --cumulative-mode exact --cumulative-decomposition time-rd --progress --log-scop-linear-pb-backend auto --log-scop-bdd-decomposition auto --log-scop-aggregate-weighted-lits --order-ge-shorten-link-cost --direct-eq-ne-max-arity 2 --eq-ne-encoding direct --portfolio-log-scop-eq-ne-encoding ge-rewrite --cop-objective-phase auto --cop-objective-search trisection --cop-objective-search-fallback-budget 180 --root-lp-bound --root-lp-backend lpo --root-lp-time-limit-secs 60 --ignore-parse-error
+c version: kat-cli=0.1.0 git=unknown-clean
+c run_start_local: 2026-06-20 22:38:16 +0900
+c 00h00m00s | solve:start
+c 00h00m00s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m00s | input: constraints=1193
+c 00h00m00s | stage:propagate:start
+c 00h00m00s | stage:propagate:done ms=9 pruned=16005 changed_domains=266 entailed_tables=0
+c 00h00m00s | memory:rss checkpoint=after_propagate bytes=26107904 rss=24.90MiB
+c 00h00m00s | stage:normalize:start
+c 00h00m00s | stage:normalize:done ms=0 high_constraints=1193
+c 00h00m00s | stage:lower:start
+c 00h00m00s | stage:lower:progress percent=10 processed=120 total=1193 lowered=120 unsupported=0 ms=19
+c 00h00m00s | stage:lower:progress percent=20 processed=239 total=1193 lowered=239 unsupported=0 ms=23
+c 00h00m00s | stage:lower:progress percent=30 processed=358 total=1193 lowered=358 unsupported=0 ms=23
+c 00h00m00s | stage:lower:progress percent=40 processed=478 total=1193 lowered=478 unsupported=0 ms=430
+c 00h00m01s | stage:lower:progress percent=50 processed=597 total=1193 lowered=597 unsupported=0 ms=1703
+c 00h00m02s | stage:lower:progress percent=60 processed=716 total=1193 lowered=716 unsupported=0 ms=2977
+c 00h00m03s | stage:lower:progress percent=70 processed=836 total=1193 lowered=836 unsupported=0 ms=3267
+c 00h00m03s | stage:lower:progress percent=80 processed=955 total=1193 lowered=955 unsupported=0 ms=3295
+c 00h00m03s | stage:lower:progress percent=90 processed=1074 total=1193 lowered=1074 unsupported=0 ms=3315
+c 00h00m04s | stage:lower:progress percent=100 processed=1193 total=1193 lowered=1193 unsupported=0 ms=4405
+c 00h00m04s | stage:lower:done ms=4409 lowered=1193 unsupported=0
+c 00h00m04s | memory:rss checkpoint=after_lower bytes=37736448 rss=35.99MiB
+c 00h00m04s | stage:post_lower:start
+c 00h00m04s | stage:post_lower:done ms=29 rounds=61 tightened=81 removed_cls=4813 removed_lits=2543 unsat=false precise_hits=731 precise_rounds=1 pivot_recomputes=200 pivot_exact_attempts=200 pivot_general_attempts=83 pivot_general_rest_missing=0 pivot_general_bound_missing=0 pivot_general_no_change=83 pivot_general_tightened=0 setup_ms=5 loop_ms=11 pivot_ms=0 pivot_version_ms=0 pivot_exact_ms=0 pivot_general_ms=0 pivot_general_prepare_ms=0 pivot_general_rest_ms=0 pivot_general_derive_ms=0 apply_ms=1 sat_ms=0 precise_ms=10
+c 00h00m04s | memory:rss checkpoint=after_post_lower bytes=39489536 rss=37.66MiB
+c 00h00m04s | stage:lowered-shape int_vars=1081 bool_vars=2135 linear_atoms=29061 table_atoms=0 table_tuples=0 table_scope=0 alldiff_atoms=0 circuit_atoms=1 product_atoms=0 logical_clauses=51231
+c 00h00m04s | stage:root-lp:start backend=lpo
+c 00h00m28s | stage:root-lp:bound backend=lpo status=optimal objective_value=0 naive_bounds=[0,9000] lp_bounds=[0,9000] improved=0 rows=5731 vars=3216 lp_rows_singleton_linear=430 lp_rows_disjunctive=5301 lp_rows_table=0 lp_rows_cumulative_energy=0 lp_rows_cumulative_pair=0 lp_rows_cumulative_timetable=0 lp_rows_cumulative_completion=0 lp_rows_cumulative_precedence=0 lp_rows_no_overlap_pair=0 lp_rows_no_overlap_completion=0 lp_rows_no_overlap_precedence=0 lp_rows_no_overlap_2d_energy=0 lp_rows_no_overlap_2d_completion=0 lp_scheduling_payloads_cumulative=0 lp_scheduling_payloads_no_overlap=0 lp_scheduling_cut_rounds=0 lp_scheduling_cut_candidates=0 lp_scheduling_cut_violated=0 lp_scheduling_rows_skipped=0 ms=23696
+c 00h00m28s | memory:rss checkpoint=before_preencode bytes=335917056 rss=320.36MiB
+c 00h00m28s | stage:preencode(log-scop):start
+c 00h00m28s | stage:preencode(log-scop):done ms=1 int_vars=1081
+c 00h00m28s | memory:rss checkpoint=after_preencode bytes=335917056 rss=320.36MiB
+c 00h00m28s | memory:rss checkpoint=before_encode bytes=335917056 rss=320.36MiB
+c 00h00m28s | stage:encode(log-scop):start
+c 00h00m28s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=357818 bytes=336384000 rss=320.80MiB progress_percent=10 processed=5128 total=51272
+c 00h00m28s | stage:encode(log-scop):progress percent=10 processed=5128 total=51272 sat_clauses=357818 ms=137
+c 00h00m28s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=634060 bytes=336384000 rss=320.80MiB progress_percent=20 processed=10255 total=51272
+c 00h00m28s | stage:encode(log-scop):progress percent=20 processed=10255 total=51272 sat_clauses=634060 ms=256
+c 00h00m28s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=885130 bytes=336384000 rss=320.80MiB progress_percent=30 processed=15382 total=51272
+c 00h00m28s | stage:encode(log-scop):progress percent=30 processed=15382 total=51272 sat_clauses=885130 ms=385
+c 00h00m28s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1138517 bytes=346996736 rss=330.92MiB progress_percent=40 processed=20509 total=51272
+c 00h00m28s | stage:encode(log-scop):progress percent=40 processed=20509 total=51272 sat_clauses=1138517 ms=484
+c 00h00m28s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1352160 bytes=354013184 rss=337.61MiB progress_percent=50 processed=25636 total=51272
+c 00h00m28s | stage:encode(log-scop):progress percent=50 processed=25636 total=51272 sat_clauses=1352160 ms=564
+c 00h00m28s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1519746 bytes=564330496 rss=538.19MiB progress_percent=60 processed=30764 total=51272
+c 00h00m28s | stage:encode(log-scop):progress percent=60 processed=30764 total=51272 sat_clauses=1519746 ms=716
+c 00h00m28s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1687294 bytes=566427648 rss=540.19MiB progress_percent=70 processed=35891 total=51272
+c 00h00m28s | stage:encode(log-scop):progress percent=70 processed=35891 total=51272 sat_clauses=1687294 ms=772
+c 00h00m28s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1833906 bytes=569352192 rss=542.98MiB progress_percent=80 processed=41018 total=51272
+c 00h00m28s | stage:encode(log-scop):progress percent=80 processed=41018 total=51272 sat_clauses=1833906 ms=825
+c 00h00m29s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=1888307 bytes=575840256 rss=549.16MiB progress_percent=90 processed=46145 total=51272
+c 00h00m29s | stage:encode(log-scop):progress percent=90 processed=46145 total=51272 sat_clauses=1888307 ms=853
+c 00h00m29s | memory:rss checkpoint=encode_clause_sample stage=log-scop clauses=2156482 bytes=607399936 rss=579.26MiB progress_percent=100 processed=51272 total=51272
+c 00h00m29s | stage:encode(log-scop):progress percent=100 processed=51272 total=51272 sat_clauses=2156482 ms=959
+c 00h00m29s | stage:encode(log-scop):done ms=975 sat_vars=1349367 sat_clauses=2156482 ext_ge_specs=0 relaxed_circuits=1 log_scop_pb_constraints=175503 log_scop_pb_mixed=0 log_scop_pb_bdd2=175503 log_scop_pb_bdd3=0 log_scop_pb_sorter=0 log_scop_pb_dadda=0 log_scop_bdd_raw=175503 log_scop_bdd_binary=0 log_scop_bdd_multibase=0
+c 00h00m29s | stage:post-encode(log-scop):start sat_vars=1349367 sat_clauses=2156482 has_relaxations=true external_tables=0
+c 00h00m29s | stage:post-encode(log-scop):after-finish-check ms=0
+c 00h00m29s | stage:post-encode(log-scop):decode-layout-ready int_symbols=1081 ms=3
+c 00h00m29s | stage:post-encode(log-scop):cumulative-external-ready has_prop=true ms=3
+c 00h00m29s | stage:post-encode(log-scop):log-scop-external-ready has_prop=false ms=3
+c 00h00m29s | stage:post-encode(log-scop):external-prop-connected has_prop=true ms=6
+c 00h00m29s | stage:post-encode(log-scop):done sat_vars=1349367 sat_clauses=2156482 ms=6
+c 00h00m29s | stage:post-encode(log-scop):reusable-ready mode=SoftCnf sat_vars=1349367
+c 00h00m29s | stage:objective-external-ge-template(log-scop):start cut=DirectExpr wants_ext_ge=false
+c 00h00m29s | stage:objective-external-ge-template(log-scop):done has_template=true ms=1
+c 00h00m29s | stage:objective-mode(log-scop):resolved mode=SoftCnf wants_ext_ge=false has_ext_ge_template=true
+c 00h00m29s | stage:objective-cut timing=incremental-soft backend=cnf form=direct-expr
+c 00h00m29s | stage:objective-encoder(log-scop):ready mode=SoftCnf soft=true sat_vars=1349367
+c 00h00m29s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=9000 has_incumbent=false soft_active=true
+c 00h00m29s | stage:sat:round-entry encoder=log-scop assumptions=0 phase_lits=0 sat_vars=1349367 base_clauses=2156482
+c 00h00m29s | stage:sat:init solver=CaDiCaL vars=1349367 clauses=2156482
+c 00h00m29s | stage:sat:solve:start round=1 circuit_cegar_rounds=1 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=0 phase_lits=0
+c 00h10m56s | stage:sat:solve:done round=1 ms=626855 result=Sat assumptions=0 phase_lits=0
+c 00h10m56s | stage:decode:start round=1 requested_int_ids=80
+c 00h10m56s | stage:decode:final:start round=1 requested_int_ids=1081
+c 00h10m56s | stage:decode:done round=1 int_assignments=1081
+c 00h10m56s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=1 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h10m56s | result:Sat
+c 00h10m56s | stage:objective-cut-surface(log-scop):start timing=after-incumbent
+c 00h10m56s | stage:objective-cut-surface(log-scop):done has_surface=true ms=1
+c 00h10m56s | objective:incumbent kind=initial value=980 rounds=1 improvements=0
+o 980
+c 00h10m56s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=9000 has_incumbent=true soft_active=true
+c 00h10m56s | stage:objective-cut:soft-install bound=653 guard=1349379 clauses_added=18
+c 00h10m56s | stage:objective-cut:soft-probe search=trisection [LB,UB] = [0,979] next 653 source=install guard=1349379
+c 00h10m56s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1349379 base_clauses=2156500
+c 00h10m56s | stage:sat:init solver=CaDiCaL vars=1349379 clauses=2156500
+c 00h10m56s | stage:sat:solve:start round=1 circuit_cegar_rounds=2 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=0
+c 00h13m56s | stage:sat:solve:done round=1 ms=180000 result=Unknown assumptions=1 phase_lits=0
+c 00h13m56s | result:unknown reason=sat_solver_returned_unknown
+c 00h13m56s | result:Unknown
+c 00h13m56s | stage:objective-cut:soft-fallback search=trisection reason=budget-exhausted budget_s=180 mode=step incumbent=980 [LB,UB]=[0,979]
+c 00h13m56s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=9000 has_incumbent=true soft_active=true
+c 00h13m56s | stage:objective-cut:soft-install bound=979 guard=1349390 clauses_added=15
+c 00h13m56s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,979] next 979 source=install guard=1349390
+c 00h13m56s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1349390 base_clauses=2156515
+c 00h13m56s | stage:sat:init solver=CaDiCaL vars=1349390 clauses=2156515
+c 00h13m56s | stage:sat:solve:start round=1 circuit_cegar_rounds=3 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=0
+c 00h15m49s | stage:sat:solve:done round=1 ms=113959 result=Sat assumptions=1 phase_lits=0
+c 00h15m49s | stage:decode:start round=1 requested_int_ids=80
+c 00h15m49s | stage:decode:final:start round=1 requested_int_ids=1081
+c 00h15m49s | stage:decode:done round=1 int_assignments=1081
+c 00h15m49s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=3 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h15m49s | result:Sat
+c 00h15m49s | objective:incumbent kind=improvement value=945 rounds=2 improvements=1
+o 945
+c 00h15m49s | stage:objective-cut:soft-result search=step bound=979 result=sat guard=1349390 hard=guard [LB,UB] = [0,944]
+c 00h15m49s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=9000 has_incumbent=true soft_active=true
+c 00h15m49s | stage:objective-cut:soft-install bound=944 guard=1349403 clauses_added=19
+c 00h15m49s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,944] next 944 source=install guard=1349403
+c 00h15m49s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1349403 base_clauses=2156535
+c 00h15m49s | stage:sat:init solver=CaDiCaL vars=1349403 clauses=2156535
+c 00h15m49s | stage:sat:solve:start round=1 circuit_cegar_rounds=4 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=0
+c 00h16m29s | stage:sat:solve:done round=1 ms=40010 result=Sat assumptions=1 phase_lits=0
+c 00h16m29s | stage:decode:start round=1 requested_int_ids=80
+c 00h16m29s | stage:decode:final:start round=1 requested_int_ids=1081
+c 00h16m29s | stage:decode:done round=1 int_assignments=1081
+c 00h16m29s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=4 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h16m29s | result:Sat
+c 00h16m30s | objective:incumbent kind=improvement value=885 rounds=3 improvements=2
+o 885
+c 00h16m30s | stage:objective-cut:soft-result search=step bound=944 result=sat guard=1349403 hard=guard [LB,UB] = [0,884]
+c 00h16m30s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=9000 has_incumbent=true soft_active=true
+c 00h16m30s | stage:objective-cut:soft-install bound=884 guard=1349416 clauses_added=18
+c 00h16m30s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,884] next 884 source=install guard=1349416
+c 00h16m30s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1349416 base_clauses=2156554
+c 00h16m30s | stage:sat:init solver=CaDiCaL vars=1349416 clauses=2156554
+c 00h16m30s | stage:sat:solve:start round=1 circuit_cegar_rounds=5 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=0
+c 00h19m35s | stage:sat:solve:done round=1 ms=185903 result=Sat assumptions=1 phase_lits=0
+c 00h19m35s | stage:decode:start round=1 requested_int_ids=80
+c 00h19m35s | stage:decode:final:start round=1 requested_int_ids=1081
+c 00h19m35s | stage:decode:done round=1 int_assignments=1081
+c 00h19m35s | stage:relaxation:done clauses_added=0 circuit_cegar_failures=0 circuit_cegar_rounds=5 circuit_cegar_added_clauses=0 cumulative_cegar_failures=0 cumulative_cegar_rounds=0 cumulative_cegar_added_clauses=0 cop_cegar_failures=0 cop_cegar_rounds=0 cop_cegar_added_clauses=0
+c 00h19m35s | result:Sat
+c 00h19m35s | objective:incumbent kind=improvement value=883 rounds=4 improvements=3
+o 883
+c 00h19m35s | stage:objective-cut:soft-result search=step bound=884 result=sat guard=1349416 hard=guard [LB,UB] = [0,882]
+c 00h19m35s | stage:objective-loop:enter encoder=log-scop mode=SoftCnf lower=0 upper=9000 has_incumbent=true soft_active=true
+c 00h19m35s | stage:objective-cut:soft-install bound=882 guard=1349429 clauses_added=18
+c 00h19m35s | stage:objective-cut:soft-probe search=step [LB,UB] = [0,882] next 882 source=install guard=1349429
+c 00h19m35s | stage:sat:round-entry encoder=log-scop assumptions=1 phase_lits=0 sat_vars=1349429 base_clauses=2156573
+c 00h19m35s | stage:sat:init solver=CaDiCaL vars=1349429 clauses=2156573
+c 00h19m35s | stage:sat:solve:start round=1 circuit_cegar_rounds=6 cumulative_cegar_rounds=- cop_cegar_rounds=- assumptions=1 phase_lits=0
+s SATISFIABLE
+o 883
+v <instantiation>
+v   <list> objective veh[1] veh[2] veh[3] veh[4] veh[5] veh[6] veh[7] veh[8] veh[9] veh[10] veh[11] veh[12] veh[13] veh[14] veh[15] veh[16] veh[17] veh[18] veh[19] veh[20] veh[21] veh[22] veh[23] veh[24] veh[25] veh[26] veh[27] veh[28] veh[29] veh[30] veh[31] veh[32] veh[33] veh[34] veh[35] veh[36] veh[37] veh[38] veh[39] veh[40] veh[41] veh[42] veh[43] veh[44] veh[45] veh[46] veh[47] veh[48] veh[49] veh[50] veh[51] veh[52] veh[53] veh[54] veh[55] veh[56] veh[57] veh[58] veh[59] veh[60] veh[61] veh[62] veh[63] veh[64] veh[65] veh[66] veh[67] veh[68] veh[69] veh[70] veh[71] veh[72] veh[73] veh[74] veh[75] veh[76] veh[77] veh[78] veh[79] veh[80] succ[1] succ[2] succ[3] succ[4] succ[5] succ[6] succ[7] succ[8] succ[9] succ[10] succ[11] succ[12] succ[13] succ[14] succ[15] succ[16] succ[17] succ[18] succ[19] succ[20] succ[21] succ[22] succ[23] succ[24] succ[25] succ[26] succ[27] succ[28] succ[29] succ[30] succ[31] succ[32] succ[33] succ[34] succ[35] succ[36] succ[37] succ[38] succ[39] succ[40] succ[41] succ[42] succ[43] succ[44] succ[45] succ[46] succ[47] succ[48] succ[49] succ[50] succ[51] succ[52] succ[53] succ[54] succ[55] succ[56] succ[57] succ[58] succ[59] succ[60] succ[61] succ[62] succ[63] succ[64] succ[65] succ[66] succ[67] succ[68] succ[69] succ[70] succ[71] succ[72] succ[73] succ[74] succ[75] succ[76] succ[77] succ[78] succ[79] succ[80] load[1] load[2] load[3] load[4] load[5] load[6] load[7] load[8] load[9] load[10] load[11] load[12] load[13] load[14] load[15] load[16] load[17] load[18] load[19] load[20] load[21] load[22] load[23] load[24] load[25] load[26] load[27] load[28] load[29] load[30] load[31] load[32] load[33] load[34] load[35] load[36] load[37] load[38] load[39] load[40] load[41] load[42] load[43] load[44] load[45] load[46] load[47] load[48] load[49] load[50] load[51] load[52] load[53] load[54] load[55] load[56] load[57] load[58] load[59] load[60] load[61] load[62] load[63] load[64] load[65] load[66] load[67] load[68] load[69] load[70] load[71] load[72] load[73] load[74] load[75] load[76] load[77] load[78] load[79] load[80] arr[1] arr[2] arr[3] arr[4] arr[5] arr[6] arr[7] arr[8] arr[9] arr[10] arr[11] arr[12] arr[13] arr[14] arr[15] arr[16] arr[17] arr[18] arr[19] arr[20] arr[21] arr[22] arr[23] arr[24] arr[25] arr[26] arr[27] arr[28] arr[29] arr[30] arr[31] arr[32] arr[33] arr[34] arr[35] arr[36] arr[37] arr[38] arr[39] arr[40] arr[41] arr[42] arr[43] arr[44] arr[45] arr[46] arr[47] arr[48] arr[49] arr[50] arr[51] arr[52] arr[53] arr[54] arr[55] arr[56] arr[57] arr[58] arr[59] arr[60] arr[61] arr[62] arr[63] arr[64] arr[65] arr[66] arr[67] arr[68] arr[69] arr[70] arr[71] arr[72] arr[73] arr[74] arr[75] arr[76] arr[77] arr[78] arr[79] arr[80] ser[1] ser[2] ser[3] ser[4] ser[5] ser[6] ser[7] ser[8] ser[9] ser[10] ser[11] ser[12] ser[13] ser[14] ser[15] ser[16] ser[17] ser[18] ser[19] ser[20] ser[21] ser[22] ser[23] ser[24] ser[25] ser[26] ser[27] ser[28] ser[29] ser[30] ser[31] ser[32] ser[33] ser[34] ser[35] ser[36] ser[37] ser[38] ser[39] ser[40] ser[41] ser[42] ser[43] ser[44] ser[45] ser[46] ser[47] ser[48] ser[49] ser[50] ser[51] ser[52] ser[53] ser[54] ser[55] ser[56] ser[57] ser[58] ser[59] ser[60] ser[61] ser[62] ser[63] ser[64] ser[65] ser[66] ser[67] ser[68] ser[69] ser[70] ser[71] ser[72] ser[73] ser[74] ser[75] ser[76] ser[77] ser[78] ser[79] ser[80] dep[1] dep[2] dep[3] dep[4] dep[5] dep[6] dep[7] dep[8] dep[9] dep[10] dep[11] dep[12] dep[13] dep[14] dep[15] dep[16] dep[17] dep[18] dep[19] dep[20] dep[21] dep[22] dep[23] dep[24] dep[25] dep[26] dep[27] dep[28] dep[29] dep[30] dep[31] dep[32] dep[33] dep[34] dep[35] dep[36] dep[37] dep[38] dep[39] dep[40] dep[41] dep[42] dep[43] dep[44] dep[45] dep[46] dep[47] dep[48] dep[49] dep[50] dep[51] dep[52] dep[53] dep[54] dep[55] dep[56] dep[57] dep[58] dep[59] dep[60] dep[61] dep[62] dep[63] dep[64] dep[65] dep[66] dep[67] dep[68] dep[69] dep[70] dep[71] dep[72] dep[73] dep[74] dep[75] dep[76] dep[77] dep[78] dep[79] dep[80] __idx0 __idx1 __idx2 __idx3 __idx4 __idx5 __idx6 __idx7 __idx8 __idx9 __idx10 __idx11 __idx12 __idx13 __idx14 __idx15 __idx16 __idx17 __idx18 __idx19 __idx20 __idx21 __idx22 __idx23 __idx24 __idx25 __idx26 __idx27 __idx28 __idx29 __idx30 __idx31 __idx32 __idx33 __idx34 __idx35 __idx36 __idx37 __idx38 __idx39 __idx40 __idx41 __idx42 __idx43 __idx44 __idx45 __idx46 __idx47 __idx48 __idx49 __idx50 __idx51 __idx52 __idx53 __idx54 __idx55 __idx56 __idx57 __idx58 __idx59 __idx60 __idx61 __idx62 __idx63 __idx64 __idx65 __idx66 __idx67 __idx68 __idx69 __idx70 __idx71 __idx72 __idx73 __idx74 __idx75 __idx76 __idx77 __idx78 __idx79 __idx80 __idx81 __idx82 __idx83 __idx84 __idx85 __idx86 __idx87 __idx88 __idx89 __idx90 __idx91 __idx92 __idx93 __idx94 __idx95 __idx96 __idx97 __idx98 __idx99 __idx100 __idx101 __idx102 __idx103 __idx104 __idx105 __idx106 __idx107 __idx108 __idx109 __idx110 __idx111 __idx112 __idx113 __idx114 __idx115 __idx116 __idx117 __idx118 __idx119 __idx120 __idx121 __idx122 __idx123 __idx124 __idx125 __idx126 __idx127 __idx128 __idx129 __idx130 __idx131 __idx132 __idx133 __idx134 __idx135 __idx136 __idx137 __idx138 __idx139 __idx140 __idx141 __idx142 __idx143 __idx144 __idx145 __idx146 __idx147 __idx148 __idx149 __idx150 __idx151 __idx152 __idx153 __idx154 __idx155 __idx156 __idx157 __idx158 __idx159 __idx160 __idx161 __idx162 __idx163 __idx164 __idx165 __idx166 __idx167 __idx168 __idx169 __idx170 __idx171 __idx172 __idx173 __idx174 __idx175 __idx176 __idx177 __idx178 __idx179 __idx180 __idx181 __idx182 __idx183 __idx184 __idx185 __idx186 __idx187 __idx188 __idx189 __idx190 __idx191 __idx192 __idx193 __idx194 __idx195 __idx196 __idx197 __idx198 __idx199 __idx200 __idx201 __idx202 __idx203 __idx204 __idx205 __idx206 __idx207 __idx208 __idx209 __idx210 __idx211 __idx212 __idx213 __idx214 __idx215 __idx216 __idx217 __idx218 __idx219 __idx220 __idx221 __idx222 __idx223 __idx224 __idx225 __idx226 __idx227 __idx228 __idx229 __idx230 __idx231 __idx232 __idx233 __idx234 __idx235 __idx236 __idx237 __idx238 __idx239 __idx240 __idx241 __idx242 __idx243 __idx244 __idx245 __idx246 __idx247 __idx248 __idx249 __idx250 __idx251 __idx252 __idx253 __idx254 __idx255 __idx256 __idx257 __idx258 __idx259 __idx260 __idx261 __idx262 __idx263 __idx264 __idx265 __idx266 __idx267 __idx268 __idx269 __idx270 __idx271 __idx272 __idx273 __idx274 __idx275 __idx276 __idx277 __idx278 __idx279 __idx280 __idx281 __idx282 __idx283 __idx284 __idx285 __idx286 __idx287 __idx288 __idx289 __idx290 __idx291 __idx292 __idx293 __idx294 __idx295 __idx296 __idx297 __idx298 __idx299 __idx300 __idx301 __idx302 __idx303 __idx304 __idx305 __idx306 __idx307 __idx308 __idx309 __idx310 __idx311 __idx312 __idx313 __idx314 __idx315 __idx316 __idx317 __idx318 __idx319 __idx320 __idx321 __idx322 __idx323 __idx324 __idx325 __idx326 __idx327 __idx328 __idx329 __idx330 __idx331 __idx332 __idx333 __idx334 __idx335 __idx336 __idx337 __idx338 __idx339 __idx340 __idx341 __idx342 __idx343 __idx344 __idx345 __idx346 __idx347 __idx348 __idx349 __idx350 __idx351 __idx352 __idx353 __idx354 __idx355 __idx356 __idx357 __idx358 __idx359 __idx360 __idx361 __idx362 __idx363 __idx364 __idx365 __idx366 __idx367 __idx368 __idx369 __idx370 __idx371 __idx372 __idx373 __idx374 __idx375 __idx376 __idx377 __idx378 __idx379 __idx380 __idx381 __idx382 __idx383 __idx384 __idx385 __idx386 __idx387 __idx388 __idx389 __idx390 __idx391 __idx392 __idx393 __idx394 __idx395 __idx396 __idx397 __idx398 __idx399 __idx400 __idx401 __idx402 __idx403 __idx404 __idx405 __idx406 __idx407 __idx408 __idx409 __idx410 __idx411 __idx412 __idx413 __idx414 __idx415 __idx416 __idx417 __idx418 __idx419 __idx420 __idx421 __idx422 __idx423 __idx424 __idx425 __idx426 __idx427 __idx428 __idx429 __idx430 __idx431 __idx432 __idx433 __idx434 __idx435 __idx436 __idx437 __idx438 __idx439 __idx440 __idx441 __idx442 __idx443 __idx444 __idx445 __idx446 __idx447 __idx448 __idx449 __idx450 __idx451 __idx452 __idx453 __idx454 __idx455 __idx456 __idx457 __idx458 __idx459 __idx460 __idx461 __idx462 __idx463 __idx464 __idx465 __idx466 __idx467 __idx468 __idx469 __idx470 __idx471 __idx472 __idx473 __idx474 __idx475 __idx476 __idx477 __idx478 __idx479 __idx480 __idx481 __idx482 __idx483 __idx484 __idx485 __idx486 __idx487 __idx488 __idx489 __idx490 __idx491 __idx492 __idx493 __idx494 __idx495 __idx496 __idx497 __idx498 __idx499 __idx500 __idx501 __idx502 __idx503 __idx504 __idx505 __idx506 __idx507 __idx508 __idx509 __idx510 __idx511 __idx512 __idx513 __idx514 __idx515 __idx516 __idx517 __idx518 __idx519 __idx520 __idx521 __idx522 __idx523 __idx524 __idx525 __idx526 __idx527 __idx528 __idx529 __idx530 __idx531 __idx532 __idx533 __idx534 __idx535 __idx536 __idx537 __idx538 __idx539 __idx540 __idx541 __idx542 __idx543 __idx544 __idx545 __idx546 __idx547 __idx548 __idx549 __idx550 __idx551 __idx552 __idx553 __idx554 __idx555 __idx556 __idx557 __idx558 __idx559 __idx560 __idx561 __idx562 __idx563 __idx564 __idx565 __idx566 __idx567 __idx568 __idx569 __idx570 __idx571 __idx572 __idx573 __idx574 __idx575 __idx576 __idx577 __idx578 __idx579 __idx580 __idx581 __idx582 __idx583 __idx584 __idx585 __idx586 __idx587 __idx588 __idx589 __idx590 __idx591 __idx592 __idx593 __idx594 __idx595 __idx596 __idx597 __idx598 __idx599 </list>
+v   <values> 883 1 12 9 6 17 11 10 16 5 14 8 16 18 15 7 12 4 13 3 2 1 12 9 6 17 11 10 16 5 14 8 16 18 15 7 12 4 13 3 2 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 12 29 30 31 32 33 34 35 2 37 38 39 40 61 36 69 66 77 71 70 76 65 74 68 28 78 75 67 72 64 73 63 62 1 20 19 17 9 4 15 11 3 7 6 16 18 10 14 8 5 13 79 80 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 41 2 4 1 3 4 4 3 3 4 1 3 5 1 1 2 2 4 2 3 3 0 2 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16 37 38 13 5 36 36 18 46 17 15 34 17 48 17 22 11 32 19 32 48 64 76 90 59 76 65 88 111 47 92 70 53 91 66 107 56 113 98 56 0 28 0 7 32 0 0 0 34 32 17 0 10 0 26 0 1 0 2 62 99 114 125 130 146 134 95 139 126 95 100 136 150 137 125 117 145 80 2 62 16 37 49 13 21 44 41 18 48 17 15 34 17 56 19 22 19 38 19 32 64 64 76 96 107 83 65 88 111 51 92 71 53 93 66 107 56 113 98 56 0 28 0 7 32 0 0 0 34 32 17 0 10 0 26 0 1 0 2 62 99 114 125 130 146 134 95 139 126 95 100 136 150 137 125 117 145 80 2 62 30 56 62 64 40 56 51 34 100 35 63 44 34 80 32 37 33 102 72 44 86 83 108 115 126 96 77 104 133 118 123 81 76 110 76 120 108 136 112 101 0 28 0 7 32 0 0 0 34 32 17 0 10 0 26 0 1 0 2 62 99 114 125 130 146 134 95 139 126 95 100 136 150 137 125 117 145 80 2 62 1 12 9 6 17 11 10 16 5 14 8 16 18 15 7 12 4 13 3 2 1 12 9 6 17 11 10 16 5 14 8 16 18 15 7 12 4 13 3 2 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 18 18 18 48 8 8 8 64 14 14 14 76 26 26 26 90 19 19 19 59 20 20 20 76 14 14 14 65 0 0 0 34 11 11 11 111 12 12 12 47 29 29 29 92 26 26 26 70 19 19 19 53 11 11 11 91 34 34 34 66 0 0 0 37 23 23 23 56 11 11 11 113 26 26 26 98 12 12 12 56 13 13 13 99 24 24 24 107 18 18 18 126 19 19 19 134 19 19 19 145 4 4 4 100 18 18 18 95 13 13 13 117 13 13 13 146 19 19 19 137 16 16 16 139 7 7 7 88 4 4 4 80 15 15 15 125 19 19 19 95 16 16 16 136 22 22 22 130 14 14 14 150 13 13 13 125 13 13 13 114 16 16 16 16 4 4 4 32 19 19 19 19 4 4 4 11 14 14 14 46 13 13 13 13 17 17 17 17 15 15 15 15 4 4 4 38 4 4 4 36 19 19 19 36 22 22 22 22 22 22 22 32 17 17 17 17 22 22 22 48 18 18 18 18 4 4 4 5 17 17 17 17 0 0 0 2 0 0 0 62 -2 -2 -2 0 -2 -2 -2 2 -1 -1 -1 0 -3 -3 -3 0 -4 -4 -4 0 -4 -4 -4 0 -3 -3 -3 0 2 2 2 5 -4 -4 -4 0 -1 -1 -1 0 -3 -3 -3 0 -2 -2 -2 3 -1 -1 -1 0 -1 -1 -1 0 -2 -2 -2 0 2 2 2 4 -4 -4 -4 0 -2 -2 -2 0 -3 -3 -3 0 -3 -3 -3 0 0 0 0 0 -2 -2 -2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3 -3 -3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 3 3 3 3 2 2 2 2 3 3 3 3 1 1 1 1 3 3 3 3 4 4 4 4 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 3 3 3 3 4 4 4 4 1 1 1 1 0 0 0 0 0 0 0 0 18 8 14 26 19 20 14 0 11 12 29 26 19 11 34 0 23 11 26 12 13 24 18 19 19 4 18 13 13 19 16 7 4 15 19 16 22 14 13 13 16 4 19 4 14 13 17 15 4 4 19 22 22 17 22 18 4 17 0 0 </values>
+v </instantiation>
+d OBJECTIVE_VALUE 883
+d OPTIMAL 0
+d OBJECTIVE_ROUNDS 4
+d OBJECTIVE_IMPROVEMENTS 3
+d COP_INCUMBENT_ELAPSED_MS 1175911
+d SOLVE_ELAPSED_MS 1195219
+d CURRENT_STAGE sat
+d CURRENT_STAGE_ELAPSED_MS 19306
+d LAST_COMPLETED_STAGE relaxation
+d STAGE_PARSE_STATUS pending
+d STAGE_PROPAGATE_STATUS done
+d STAGE_NORMALIZE_STATUS done
+d STAGE_LOWER_STATUS done
+d STAGE_POST_LOWER_STATUS done
+d STAGE_PREENCODE_STATUS done
+d STAGE_ENCODE_STATUS done
+d STAGE_SAT_STATUS running
+d STAGE_DECODE_STATUS done
+d STAGE_RELAXATION_STATUS done
+d STAGE_DUMP_CNF_STATUS pending
+d SOURCE_CONSTRAINTS 1193
+d NORMALIZED_CONSTRAINTS 1193
+d LOWERED_CONSTRAINTS 1193
+d UNSUPPORTED_CONSTRAINTS 0
+d SAT_VARS 1349367
+d SAT_CLAUSES_BASE 2156482
+d SAT_CLAUSES_FINAL 2156482
+d SAT_CLAUSES_CEGAR_DELTA 0
+d MEMORY_RSS_BYTES 607399936
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 26107904
+d MEMORY_RSS_AFTER_LOWER_BYTES 37736448
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 39489536
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 335917056
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 335917056
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 335917056
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 12
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 2156482
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 607399936
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 607399936
+d CSP_INT_VARS 1081
+d CSP_CONSTRAINTS 1193
+d CSP_INTENTIONAL 581
+d CSP_GLOBAL 612
+d CSP_EXTENSIONAL 0
+d CSP_ALLDIFF 0
+d CSP_CUMULATIVE 11
+d CSP_TABLE 0
+d CSP_DOMAIN_SPAN_MEDIAN 40
+d CSP_DOMAIN_SPAN_MAX 9000
+d N_CUMULATIVE 11
+d N_TABLE 0
+d SAT_CONFLICTS 4623030
+d CUMULATIVE_EXTPROP_CONSTRAINTS 11
+d CUMULATIVE_EXTPROP_OBSERVED_VARS 226
+d CUMULATIVE_EXTPROP_OBSERVED_LITS 226
+d CUMULATIVE_EXTPROP_OBSERVED_LIT_OCCURRENCES 226
+d CUMULATIVE_EXTPROP_NOTIFY_ASSIGNMENT_CALLS 3171112
+d CUMULATIVE_EXTPROP_NOTIFY_ASSIGNMENT_LITS 7850631
+d CUMULATIVE_EXTPROP_NOTIFY_NEW_DECISION_LEVEL_CALLS 31755174
+d CUMULATIVE_EXTPROP_NOTIFY_BACKTRACK_CALLS 5502496
+d CUMULATIVE_EXTPROP_CB_CHECK_FOUND_MODEL_CALLS 4
+d CUMULATIVE_EXTPROP_CB_CHECK_FOUND_MODEL_REJECTS 0
+d CUMULATIVE_EXTPROP_CB_PROPAGATE_CALLS 2918678
+d CUMULATIVE_EXTPROP_CB_PROPAGATE_CONFLICTS 0
+d CUMULATIVE_EXTPROP_PROPAGATED_LITS 0
+d CUMULATIVE_EXTPROP_REASON_CLAUSES 0
+d CUMULATIVE_EXTPROP_REASON_CLAUSE_LITS 0
+d CUMULATIVE_EXTPROP_REASON_CLAUSE_MAX_LEN 0
+d CUMULATIVE_EXTPROP_CB_HAS_EXTERNAL_CLAUSE_CALLS 31983719
+d CUMULATIVE_EXTPROP_CB_ADD_EXTERNAL_CLAUSE_LIT_CALLS 0
+d CUMULATIVE_EXTPROP_EXTERNAL_CLAUSES 0
+d CUMULATIVE_EXTPROP_EXTERNAL_CLAUSE_LITS 0
+d CUMULATIVE_EXTPROP_EXTERNAL_CLAUSE_MAX_LEN 0
+d CUMULATIVE_EXTPROP_PARTIAL_VIOLATION_CALLS 5835806
+d CUMULATIVE_EXTPROP_COMPULSORY_VIOLATION_CALLS 5835806
+d CUMULATIVE_EXTPROP_BOUND_PROPAGATION_CALLS 0
+d CUMULATIVE_EXTPROP_BOUND_REASON_CALLS 0
+d CUMULATIVE_EXTPROP_PARTIAL_SUMMARY_TASK_EVALS 25203765
+d CUMULATIVE_EXTPROP_BOUND_SUMMARY_TASK_EVALS 25203765
+d CUMULATIVE_EXTPROP_BOUND_EVENT_PAIRS 0
+d CUMULATIVE_EXTPROP_LOWER_BOUND_LIT_CALLS 0
+d CUMULATIVE_EXTPROP_UPPER_BOUND_LIT_CALLS 0
+d CUMULATIVE_EXTPROP_LOG_WITNESS_CHECKS 0
+d LINEAR_INT_EQ_ARITY_STATS {"1":{"count":4213,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":14500,"max_domain_product_excluding_one_var":"151","p95_domain_product_excluding_one_var":"151"},"3":{"count":120,"max_domain_product_excluding_one_var":"6191","p95_domain_product_excluding_one_var":"6191"},"61":{"count":1,"max_domain_product_excluding_one_var":"340282366920938463463374607431768211455","p95_domain_product_excluding_one_var":"340282366920938463463374607431768211455"}}
+d LINEAR_INT_NE_ARITY_STATS {"1":{"count":4800,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"}}
+d LINEAR_INT_GE_ARITY_STATS {"1":{"count":4270,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":100,"max_domain_product_excluding_one_var":"69","p95_domain_product_excluding_one_var":"68"}}
+d LINEAR_BOOL_MIXED_ARITY_STATS {"1":{"count":498,"max_domain_product_excluding_one_var":"1","p95_domain_product_excluding_one_var":"1"},"2":{"count":288,"max_domain_product_excluding_one_var":"2","p95_domain_product_excluding_one_var":"2"},"3":{"count":105,"max_domain_product_excluding_one_var":"4","p95_domain_product_excluding_one_var":"4"},"4":{"count":94,"max_domain_product_excluding_one_var":"8","p95_domain_product_excluding_one_var":"8"},"5":{"count":62,"max_domain_product_excluding_one_var":"16","p95_domain_product_excluding_one_var":"16"},"6":{"count":10,"max_domain_product_excluding_one_var":"32","p95_domain_product_excluding_one_var":"32"}}
+d ROOT_LP_ENTERED 1
+d ROOT_LP_STATUS optimal
+d OBJECTIVE_NAIVE_LOWER 0
+d OBJECTIVE_NAIVE_UPPER 9000
+d OBJECTIVE_LP_LOWER 0
+d OBJECTIVE_LP_UPPER 9000
+d ROOT_LP_IMPROVED 0
+d ROOT_LP_MS 23696
+d ROOT_LP_ROWS 5731
+d ROOT_LP_VARS 3216
+d ROOT_LP_STRUCTURED_OBJECTIVE_TERMS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_AUX_VARS 0
+d ROOT_LP_STRUCTURED_OBJECTIVE_ROWS 0
+d ROOT_LP_NATIVE_GATE_GE_TOTAL 4370
+d ROOT_LP_NATIVE_GATE_EQ_TOTAL 18834
+d ROOT_LP_NATIVE_GATE_GE_MAX_ARITY 2
+d ROOT_LP_NATIVE_GATE_GE_MAX_DOMAIN_PRODUCT 69
+d ROOT_LP_NATIVE_GATE_BOOL_MIXED_MAX_ARITY 6
+d ROOT_LP_OBJECTIVE_VALUE 0
+d OBJECTIVE_CUT_TIMING incremental-soft
+d OBJECTIVE_CUT_BACKEND cnf
+d OBJECTIVE_CUT_FORM direct-expr
+d PROPAGATE_PRUNED_VALUES 16005
+d PROPAGATE_CHANGED_DOMAINS 266
+d PROPAGATE_ENTAILED_TABLES 0
+d POST_LOWER_ROUNDS 61
+d POST_LOWER_TIGHTENED_DOMAINS 81
+d POST_LOWER_REMOVED_CLAUSES 4813
+d POST_LOWER_REMOVED_LITS 2543
+d POST_LOWER_DETECTED_UNSAT 0
+d PREENCODE_INT_VARS 1081
+d ENCODE_EXTERNAL_GE_SPECS 0
+d ENCODE_RELAXED_CIRCUITS 1
+d LOG_SCOP_LINEAR_PB_CONSTRAINTS 175503
+d LOG_SCOP_LINEAR_PB_MIXED_DISPATCH_CONSTRAINTS 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_ATTEMPT_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_BDD_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_REJECT_SORTER_BUDGET 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_SORTER 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_BDD_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_BDD 0
+d LOG_SCOP_LINEAR_PB_MIXED_FALLBACK_SORTER_TO_DADDA 0
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD2 175503
+d LOG_SCOP_LINEAR_PB_BACKEND_BDD3 0
+d LOG_SCOP_LINEAR_PB_BACKEND_SORTER 0
+d LOG_SCOP_LINEAR_PB_BACKEND_DADDA 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_RAW 175503
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_BINARY 0
+d LOG_SCOP_LINEAR_PB_BDD_DECOMPOSITION_MULTIBASE 0
+d MEMORY_RSS_BYTES 607399936
+d MEMORY_RSS_AFTER_PROPAGATE_BYTES 26107904
+d MEMORY_RSS_AFTER_LOWER_BYTES 37736448
+d MEMORY_RSS_AFTER_POST_LOWER_BYTES 39489536
+d MEMORY_RSS_BEFORE_PREENCODE_BYTES 335917056
+d MEMORY_RSS_AFTER_PREENCODE_BYTES 335917056
+d MEMORY_RSS_BEFORE_ENCODE_BYTES 335917056
+d MEMORY_RSS_ENCODE_SAMPLE_INTERVAL_CLAUSES 1000000
+d MEMORY_RSS_ENCODE_SAMPLE_COUNT 12
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_CLAUSE 2156482
+d MEMORY_RSS_ENCODE_LAST_SAMPLE_BYTES 607399936
+d MEMORY_RSS_ENCODE_MAX_SAMPLE_BYTES 607399936
+d DECODE_INT_ASSIGNMENTS 1081
+d CIRCUIT_CEGAR_FAILURES 0
+d CIRCUIT_CEGAR_ROUNDS 6
+d CIRCUIT_CEGAR_ADDED_CLAUSES 0
+d CUMULATIVE_CEGAR_FAILURES 0
+d CUMULATIVE_CEGAR_ROUNDS 0
+d CUMULATIVE_CEGAR_ADDED_CLAUSES 0
+d COP_CEGAR_FAILURES 0
+d COP_CEGAR_ROUNDS 0
+d COP_CEGAR_ADDED_CLAUSES 0
+d CSV /bench/2023/vrplc/vrplc_service.mzn,sat,1193,1193,1193,0,1349367,2156482,1195218,,,,,,,1,optimal,0,9000,0,9000,0,23696,5731,3216,0,0,0,0,timeout_signal,incumbent_interrupted_by_signal
+signal=15; emitted incumbent csv row
+c run_end_local: 2026-06-20 22:58:16 +0900
